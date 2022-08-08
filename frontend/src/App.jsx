@@ -1,12 +1,17 @@
 import { useState } from 'react'
 import './App.css'
+import LoginForm from './components/auth/LoginForm'
+import RegisterForm from './components/auth/RegisterForm'
+import Header from './components/layout/Header'
 
 function App() {
   const [count, setCount] = useState(0)
   
   return (
-    <div className="">
-      <h1 className="bg-orange-400 text-black text-3xl font-bold underline">Hello world!</h1>
+    <div className="App">
+      <Header />         
+      <LoginForm />
+      <RegisterForm />
     </div>
   )
 }
