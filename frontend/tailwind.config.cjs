@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -16,6 +17,9 @@ module.exports = {
         'gray-dark': '#606062',
         'gray-darker': '#27272a',
       },
+      height: {
+        'input': '34px',
+      }
     },
     
   },

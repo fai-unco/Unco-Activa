@@ -2,37 +2,35 @@ import React from 'react'
 
 const LoginForm = () => {
     return (
-        <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+        <div className="flex flex-col justify-center min-h-screen overflow-hidden">
             <div className="w-50 p-6 m-auto bg-neutral-100 rounded-md shadow-md lg:max-w-xl">
             <img class="center " src="/UNCO_Activa.svg"></img>
                 <h1 className="text-sm font-semibold text-center mt-10 text-gray-darker">
-                   Iniciar Sesion
+                    Iniciar Sesion
                 </h1>
-                
                 <form className="mt-6">
                     <div className="mb-5">
                         
                         <input
                             type="email"
-                            className="block w-full px-4 py-2 mt-2 text-black bg-white border rounded-full focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                            className="block w-full px-4 py-2 mt-2 h-input text-black bg-white border rounded-full focus:border-blue-cyan focus:ring-blue-cyan focus:outline-none focus:ring focus:ring-opacity-40"
                             placeholder='Ingresa tu Email'
                         />
                     </div>
                     <div className="mb-5">                        
                         <input
                             type="password"
-                            className="block w-full px-4 py-2 mt-2  text-black bg-white border rounded-full focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                            className="block w-full px-4 py-2 mt-2 h-input text-black bg-white border rounded-full focus:border-blue-cyan focus:ring-blue-cyan focus:outline-none focus:ring focus:ring-opacity-40"
                             placeholder='Ingresa tu contraseña'
                         />
                     </div>
-                    <a
-                        href="#"
+                    <a href="#"
                         className="text-xs text-blue-cyan hover:underline"
                     >
                         Olvidaste tu contraseña?
                     </a>
                     <div className="mt-6">
-                        <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-board rounded-full hover:bg-yellow focus:outline-none focus:bg-yellow">
+                        <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 bg-board rounded-full hover:bg-yellow focus:outline-none focus:bg-yellow">
                             Iniciar Sesion
                         </button>
                     </div>
@@ -42,7 +40,7 @@ const LoginForm = () => {
                     {" "}
                     No estas Registrado?{" "}
                     <a
-                        href="#"
+                        href=""
                         className="font-medium text-blue-cyan hover:underline"
                     >
                         Registrate
