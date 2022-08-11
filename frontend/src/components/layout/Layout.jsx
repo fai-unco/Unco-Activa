@@ -3,14 +3,13 @@ import { useState } from 'react'
 import React from 'react'
 import LoginForm from '../auth/LoginForm'
 import RegisterForm from '../auth/RegisterForm'
-import Hero from '../Hero';
 import {
     BrowserRouter as Router,
     Routes,
     Route,
 
 } from "react-router-dom";
-import Home from '../../Pages/home'
+import Home from '../../Pages/Home'
 import Header from './Header'
 import Footer from './Footer'
 

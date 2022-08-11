@@ -16,3 +16,7 @@
   --tw-bg-opacity: 1;
   background-position: center;
 }
+
+.bg-hero-pattern{
+  background-Image:linear-gradient(44.67deg, rgb(106, 138, 124) 0%, rgba(113, 137, 119, 0.85) 17.4%, rgba(132, 135, 105, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url('./inicio.jpg');
+}
