@@ -6,8 +6,8 @@ function Header() {
 
     const [isNavOpen, setIsNavOpen] = useState(false);
     return (
-        <header className='App-header sticky top-0'>
-            <nav className="bg-white  border-gray-light px-4 lg:px-1 py-2.5 lg:py-0 w-full dark:bg-gray-darker">
+        <header className='App-header sticky top-0 opacity-90'>
+            <nav className="border-gray-light px-4 lg:px-1 py-2.5 lg:py-0 w-full dark:bg-gray-darker absolute">
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
 
                     <Link to="/" className="flex items-center">

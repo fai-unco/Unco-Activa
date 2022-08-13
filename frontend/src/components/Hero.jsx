@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <div className='grid justify-center h-screen bg-hero-pattern bg-cover '>
+        <div className='grid justify-center h-screen bg-hero-pattern bg-cover'>
             <div className='flex items-end'>
                 <img 
                     src='./UNCO_activa.svg'
