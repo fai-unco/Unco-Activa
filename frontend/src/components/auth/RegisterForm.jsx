@@ -27,7 +27,7 @@ const RegisterForm = () => {
             console.log(error);
         });
         
-        navigate('/registro')
+        navigate('/')
     }
     
     return (
