@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\PreInscriptionMail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/mail/contacto', function(){
+    return new PreInscriptionMail("prueba", "mensaje");
+})->name('mail.store');
