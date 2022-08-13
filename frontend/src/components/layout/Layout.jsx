@@ -13,6 +13,7 @@ import {
 import Home from '../../Pages/home'
 import Header from './Header'
 import Footer from './Footer'
+import PreinscriptionForm from '../../Pages/PreinscriptionForm';
 
 const Layout = () => {
     const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ const Layout = () => {
                 <Routes>
                     <Route element={<LoginForm />} path='/login'></Route>
                     <Route element={<RegisterForm />} path='/registro'></Route>
+                    <Route element={<PreinscriptionForm />} path='/inscribirse' />
                     <Route element={<Home />} path='/'></Route>
                 </Routes>
                 <Footer />
