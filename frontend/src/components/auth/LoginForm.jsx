@@ -5,7 +5,7 @@ import InputForm from '../elements/InputForm'
 
 const LoginForm = () => {
     return (
-        <div className="flex flex-col justify-center my-24 overflow-hidden">
+        <div className="flex flex-col justify-center py-40 min-h-screen overflow-hidden">
             <div className="w-50 p-6 m-auto bg-neutral-100 rounded-md shadow-md lg:max-w-xl">
                 <img className="center " src="/UNCO_Activa.svg"></img>
                 <h1 className="text-sm font-semibold text-center mt-10 text-gray-darker">

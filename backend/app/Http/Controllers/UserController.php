@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return User::all();
     }
 
     /**
@@ -33,8 +34,27 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $user = new User();
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->dni = $request->dni;
+        
+        /* $user->birth = date($request->birth);
+        $user->gender = $request->gender;
+        $user->address = $request->address;
+        $user->country = $request->country;
+        $user->province = $request->province;
+        $user->city = $request->city; */
+        $user->phone = $request->phone;
+        /* $user->social_work = $request->social_work;
+        $user->shirt_size = $request->shirt_size; */
+        $user->email = $request->email;
+        $user->password = $request->password;
+
+        //Hash Password
+        $user->password = bcrypt($request['password']);
+        $user->save();
     }
 
     /**

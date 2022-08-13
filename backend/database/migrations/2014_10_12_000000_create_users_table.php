@@ -15,23 +15,23 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_emergency_contact')->nullable();
             $table->string('name');
             $table->string('surname');
-            $table->integer('dni')->nullable()->unique();;
+            $table->integer('dni')->nullable()->unique();
             $table->date('birth')->nullable();
-            $table->string('sex');
+            $table->string('gender')->nullable();
             $table->string('address')->nullable();
-            $table->string('country')->nullable();;
-            $table->string('province')->nullable();;
+            $table->string('country')->nullable();
+            $table->string('province')->nullable();
             $table->string('city')->nullable();
-            $table->integer('phone')->unique();;
+            $table->integer('phone')->nullable()->unique();
             $table->string('social_work')->nullable();
-            $table->string('shirt_size')->nullable(); 
-            $table->tinyInteger('id_emergency_contact')->nullable();          
-            $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('shirt_size')->nullable();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('profile_photo_path', 2048)->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
