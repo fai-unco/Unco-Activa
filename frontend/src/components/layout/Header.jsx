@@ -2,16 +2,20 @@ import { React, useState, } from 'react'
 import { Link } from 'react-router-dom';
 import HeaderLink from './Header/HeaderLink';
 
+import useUser from '../hooks/useUser';
+import token from '../auth/LoginForm'
+
 function Header() {
-
     const [isNavOpen, setIsNavOpen] = useState(false);
-    return (
-        <header className='App-header z-50 sticky top-0 opacity-90'>
-            <nav className="bg-white  border-gray-light px-4 lg:px-1 py-2.5 lg:py-0 w-full dark:bg-gray-darker absolute">
-                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+    const {isLogged, logout} = useUser()
 
+    return (
+
+        <header className='App-header z-50 sticky top-0'>
+            <nav className="bg-white  border-gray-light px-4 lg:px-1 py-2.5 lg:py-0 w-full dark:bg-gray-darker">
+                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
-                        <img src="/UNCO_Activa.svg" className="mr-3 h-6 sm:h-9" alt="UncoActiva Logo" />
+                        <img src="/logoUNCOactiva.png" className="mr-3 h-6 sm:h-9" alt="UncoActiva Logo" />
                     </Link>
                     <div className="flex items-center  lg:order-2">
                         <button onClick={() => setIsNavOpen((prev) => !prev)} type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200  dark:focus:ring-gray-600" aria-expanded="false" id='hamburger'>
@@ -21,14 +25,24 @@ function Header() {
                         </button>
                     </div>
                     <div className={isNavOpen ? "showMenuNav justify-around items-center w-full lg:flex lg:w-auto lg:order-1" : "hidden lg:flex"} id="mobile-menu-2">
-                        <div className='lg:ml-20 flex justify-center order-1 my-10 '>
-                            <span className=''>
-                                <Link to="/login" className="text-black lg:text-black lg:dark:text-white lg:hover:text-blue-cyan bg-yellow  dark:bg-yellow lg:bg-transparent  border-gray dark:border-gray lg:border-none border-2  hover:dark:text-white dark:text-black hover:bg-transparent dark:hover:bg-transparent  font-medium rounded-full  text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">Iniciar Sesion</Link>
-                            </span>
-                            <span className='ml-2 lg:ml-0'>
-                                <Link to="/registro" className="text-black lg:bg-transparent lg:dark:text-white border-2 lg:hover:text-yellow  border-gray dark:border-gray bg-blue-cyan lg:border-none hover:bg-transparent hover:text-black hover:dark:text-white font-medium rounded-full text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-cyan  focus:outline-none">Registrarse</Link>
-                            </span>
-                        </div>
+                        {
+                            isLogged
+                            ? <div className='lg:ml-20 flex justify-center order-1 my-10 '>
+                                <Link to="" onClick={logout} className="block py-2 pr-4 pl-3  border-b hover:bg-gray-50 lg:hover:bg-transparent lg:border-0  lg:p-0  lg:hover:text-blue-cyan focus:text-blue-cyan lg:dark:hover:bg-transparent">Cerrar Sesion</Link>
+                            </div>
+
+                            : <div className='lg:ml-20 flex justify-center order-1 my-10 '>
+                                
+                                <span className=''>
+                                
+                                    <Link to="/login" className="text-black lg:text-black lg:dark:text-white lg:hover:text-blue-cyan bg-yellow  dark:bg-yellow lg:bg-transparent  border-gray dark:border-gray lg:border-none border-2  hover:dark:text-white dark:text-black hover:bg-transparent dark:hover:bg-transparent  font-medium rounded-full  text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">Iniciar Sesion</Link>
+                                </span>
+                                <span className='ml-2 lg:ml-0'>
+                                    <Link to="/registro" className="text-black lg:bg-transparent lg:dark:text-white border-2 lg:hover:text-yellow  border-gray dark:border-gray bg-blue-cyan lg:border-none hover:bg-transparent hover:text-black hover:dark:text-white font-medium rounded-full text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-cyan  focus:outline-none">Registrarse</Link>
+                                </span>
+                            </div>
+                        }
+
                         <ul className="flex flex-col mt-4 items-center font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                             <li>
                                 <HeaderLink name="Inicio" href="/"></HeaderLink>
@@ -50,8 +64,6 @@ function Header() {
                 </div>
             </nav>
         </header>
-
-
     )
 
 }

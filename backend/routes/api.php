@@ -20,6 +20,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::controller(UserController::class)->group(function (){
-    Route::get('/users', 'index');
-    Route::post('/user', [UserController::class, 'store']);
+    Route::get('/users', 'index' );
+
+    //Create New User
+    Route::post('/user', 'store');
+    
+    //Log In User
+    Route::post('/login', 'authenticate');
+    
+    Route::middleware(['auth:sanctum'])->group(function (){
+        //log user out
+        Route::post('/logout', 'logout');
+    });
 });
