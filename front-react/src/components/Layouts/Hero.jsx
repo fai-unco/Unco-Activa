@@ -36,11 +36,11 @@ const Hero = () => {
     const getAllCategories = async () => {
         await axios.get(`${endpoint}/categories`)
         .then(function (response) {
-            console.log('success', response.data);
+            // console.log('success', response);
             setcategories(response.data)
         })
         .catch(function (error) {            
-            console.log(error.response);
+            // console.log('error',error.response);
         });
         
         //console.log(response.data)
