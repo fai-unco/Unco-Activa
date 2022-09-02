@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import CategoriePaper from 'components/elements/CategoriePaper';
 import axios from 'axios'
 
-const Hero = () => {
+const Hero = (categories, setcategories) => {
 
     const navigate = useNavigate()
     const [open, setOpen] = useState(false);
@@ -27,25 +27,7 @@ const Hero = () => {
     const handleClose = () => {
         setOpen(false);
     };
-
-    const [categories, setcategories] = useState([])
-    const endpoint = 'http://127.0.0.1:8000/api'
-    useEffect(() => {
-        getAllCategories()
-    }, [])
-    const getAllCategories = async () => {
-        await axios.get(`${endpoint}/categories`)
-        .then(function (response) {
-            // console.log('success', response);
-            setcategories(response.data)
-        })
-        .catch(function (error) {            
-            // console.log('error',error.response);
-        });
-        
-        //console.log(response.data)
-    }
-
+    
     const ModalCategories = () => {
         const theme = useTheme();
         const fullScreen = useMediaQuery(theme.breakpoints.down('xs'));
@@ -130,7 +112,7 @@ const Hero = () => {
                             }}
                         >   
                             {
-                                categories.map( (categorie) => (
+                                categories.categories.categories.map( (categorie) => (
                                     <CategoriePaper key={categorie.id} navigate={'inscribirse/' + categorie.name} color={categorie.color} name={categorie.name} ></CategoriePaper>
                             ))
                             }

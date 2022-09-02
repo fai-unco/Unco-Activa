@@ -8,12 +8,13 @@ import Input from 'components/Input'
 import { useAuth } from 'hooks/auth'
 import { useState } from 'react'
 import { NavLink} from 'react-router-dom';
+import AlertSuccess from 'components/alerts/AlertSuccess'
 
 const Login = () => {
 
   const { login } = useAuth({
     middleware: 'guest',
-    redirectIfAuthenticated: '/'
+    redirectIfAuthenticated: '/'    
   })
 
   const [email, setEmail] = useState('')
@@ -23,7 +24,9 @@ const Login = () => {
 
   const submitForm = async event => {
     event.preventDefault()
-    login({ email, password, setErrors, setStatus })
+    login({ email, password, setErrors, setStatus }).then(function (){
+      alert('logeo exitoso, Bienvenido!')      
+    });
   }
 
   return (
@@ -95,6 +98,13 @@ const Login = () => {
               </Button>
             </div>
           </form>
+          {/* <AlertSuccess open={opensucces} onClose={setopensucces}
+                    bg=' rgb(240 240 240)'
+                    titlecolor='success.main'
+                    title='Registro Exitoso!'
+                    navigate='/'
+                    description='Te has registrado correctamente, revisa tu buzon de mensajes y spam'
+                /> */}
         </AuthCard>
       </GuestLayout>
     </AppLayout>

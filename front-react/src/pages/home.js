@@ -8,13 +8,13 @@ const mockImagenes = [
     './0_mockup 1.png'
 ]
 
-function Home() {
+function Home(categories, setcategories){
 
   return (
     <AppLayout>
     <div className="font-Hurme-Geometric-N min-h-screen">
             <div>
-                <Hero />
+                <Hero categories={categories} setcategories={setcategories} />
             </div>
             <div className="px-5 md:px-12 py-7 ">
                 <div className=' bg-gray rounded-lg text-black'>

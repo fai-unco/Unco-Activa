@@ -10,6 +10,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Moment from 'moment';
 import AlertSuccess from 'components/alerts/AlertSuccess'
 import CategoriePaper from 'components/elements/CategoriePaper';
+import ModalRules from 'components/inscriptionform/ModalRules';
+import ModalInscription from 'components/inscriptionform/ModalInscription';
 registerLocale('es', es);
 
 const endpoint = 'http://127.0.0.1:8000/api/inscription'
@@ -47,6 +49,10 @@ const PreinscriptionForm = (props) => {
     const [emergency_contac_phone, setemergency_contac_phone] = useState({ campo: '', valido: null })
     const [emergency_contac_bond, setemergency_contac_bond] = useState({ campo: '', valido: null })
     const [checked, setChecked] = useState(null);
+    const [openrules, setopenrules] = useState(false);
+    const [openInscription, setopenInscription] = useState(false)
+    const [errorMessage, seterrorMessage] = useState('Completa todos los campos obligatorios del formulario por favor.');
+
     const arraycampos = [
         [checked, setChecked],
         [name, setname],
@@ -75,7 +81,7 @@ const PreinscriptionForm = (props) => {
     }
 
     // const csrf = () => axios.get('/sanctum/csrf-cookie')
-    
+
     const storeInscription = async (e) => {
         e.preventDefault()
         console.log(e)
@@ -97,31 +103,41 @@ const PreinscriptionForm = (props) => {
         console.log(formularioValido)
         if (formularioValido
         ) {
-            let formatDate = Moment(birth.campo).format('YYYY-MM-DD')
-            console.log(formatDate)
-            // await csrf()
-            await axios.post(endpoint, {
-                name: name.campo, race_categorie_id: props.id ,surname: surname.campo, gender: gender.campo, birth: formatDate,
-                dni: dni.campo, email: email.campo, country: country.campo, province: province.campo, city: city.campo, address: address.campo, phone: phone.campo, social_work: social_work.campo, shirt_size: shirt_size.campo, emergency_contac_name: emergency_contac_name.campo, emergency_contac_phone: emergency_contac_phone.campo,
-                emergency_contac_bond: emergency_contac_bond.campo
-            })
-                .then(function (response) {
-                    console.log('success', response.config.data);
-                    setopensucces(true)
-                    // axios.defaults.headers.common['X-CSRF-TOKEN'] = token_var;
-                    alert('Registro Exitoso, por favor revisa tu buzon de mensajes')
-                    // window.location.reload(false);
-                })
-                .catch(function (error) {
-                    // setopenfail(true)
-                    console.log(error.response);
-                });
+            setopenInscription(true)
         }
         else {
             setopenfail(true)
             console.log('no se envio')
         }
     }
+
+    const submitInscription = async () => {
+        let formatDate = Moment(birth.campo).format('YYYY-MM-DD')
+
+        await axios.post(endpoint, {
+            name: name.campo, race_categorie_id: props.categorie.id, surname: surname.campo, gender: gender.campo, birth: formatDate,
+            dni: dni.campo, email: email.campo, country: country.campo, province: province.campo, city: city.campo, address: address.campo, phone: phone.campo, social_work: social_work.campo, shirt_size: shirt_size.campo, emergency_contac_name: emergency_contac_name.campo, emergency_contac_phone: emergency_contac_phone.campo,
+            emergency_contac_bond: emergency_contac_bond.campo
+        })
+            .then(function (response) {
+                console.log('success store', response.config.data);
+                setopenInscription(false)
+                setopensucces(true)
+                //   alert('Registro Exitoso, por favor revisa tu buzon de mensajes')
+                //   window.location.reload(false);
+
+            })
+            .catch(function (error) {
+                setopenInscription(false)
+                seterrorMessage(error.response.data.message)
+                setopenfail(true)
+                console.error('error store',error.response.data.message);
+            });
+    }
+
+    const handleClickOpenRules = () => {
+        setopenrules(true);
+    };
 
     var datebirth = new Date();
     datebirth.setFullYear(datebirth.getFullYear() - 18);
@@ -204,9 +220,9 @@ const PreinscriptionForm = (props) => {
         <div className='flex flex-col mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
             <div className='w-full lg:max-w-7xl p-6 m-auto bg-neutral-100 rounded-md shadow-md'>
                 <div className='grid grid-cols-2  ' >
-                    <img className='flex self-center justify-self-end mr-10' src='/UNCO_Activa.svg'></img>
+                    <img className='flex self-center justify-self-end mr-10' src='/logos/UNCO_Activa.svg'></img>
                     <div className='w-1/3 ml-10'>
-                    <CategoriePaper backgroundColor='rgb(39 39 42 )'  color='rgb(235 165 30 )' name={props.categoriename}> </CategoriePaper>
+                        <CategoriePaper backgroundColor='rgb(39 39 42 )' color={props.categorie.color} name={props.categorie.name}> </CategoriePaper>
                     </div>
                 </div>
                 <h1 className='text-4xl font-bold text-center mt-10 mb-10 text-gray-darker'>
@@ -225,11 +241,11 @@ const PreinscriptionForm = (props) => {
                     titlecolor='warning.main'
                     title='Advertencia!'
 
-                    description='Completa todos los campos obligatorios del el formulario, por favor, '
+                    description={errorMessage}
                 />
 
                 <form onSubmit={storeInscription} className='grid md:grid-cols-2 md:gap-6'>
-                    
+
                     <InputColForm
                         regularExpression={expresiones.name}
                         value={name}
@@ -431,12 +447,28 @@ const PreinscriptionForm = (props) => {
                             inputProps={{ 'aria-label': 'uncontrolled' }}
                             id='check'
                         />
-                        <label htmlFor={'check'} className='dark:text-gray-darker -mt-1 text-gray-darker'>Acepto los terminos y condiciones</label>
+                        <label htmlFor={'check'} className='dark:text-gray-darker -mt-1 text-gray-darker'>{'Acepto los terminos y condiciones del '}
+                            <button type='button' onClick={handleClickOpenRules} className='text-blue-cyan'>Reglamento de la carrera</button> </label>
                         <p className={checked === false ? 'text-red-500 block' : 'hidden'}>Debes aceptar los terminos y condiciones </p>
                     </div>
 
-                    <ButtonInput type='submit' text='Enviar' divclass='lg:w-28 md:w-28 sm:w-auto col-span-2' />
+                    <div class='relative col-span-2  flex-none w-24 ...'>
+                        <ButtonInput type='submit' text='Enviar' divclass='lg:w-28 md:w-28 sm:w-auto flex-none' />
+                    </div>
+                    <div class='relative col-span-2 md:col-span-1  ...'>
+                        <p className=' text-ellipsis dark:text-gray-darker ml-1 text-gray-darker '>{'Por cualquier inconveniente y  duda acerca de la carrera consular al mail de '}
+                            <a href={'mailto:uncoactiva@gmail.com'} className='text-blue-cyan'>UncoActiva</a>
+                        </p>
+                    </div>
+
                 </form>
+                <ModalRules open={openrules} onClose={setopenrules}
+                    bg=' rgb(240 240 240)'
+                    titlecolor=''
+                    title='REGLAS GENERALES PARA LOS PARTICIPANTES'
+                />
+
+                <ModalInscription price={props.categorie.price} categoriename={props.categorie.name} setopenInscription={setopenInscription} openInscription={openInscription} submitInscription={submitInscription} />
             </div>
         </div >
     )

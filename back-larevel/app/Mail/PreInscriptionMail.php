@@ -32,6 +32,6 @@ class PreInscriptionMail extends Mailable
     public function build()
     {
         return $this->subject("Formulario de contacto-". config("app.name"))
-        ->markdown('mail.Preinscription-mail');
+        ->markdown('mail.preinscription-mail');
     }
 }
