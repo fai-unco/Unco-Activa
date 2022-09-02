@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Inscription;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,5 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return ['Laravel' => app()->version()];
 });
+
+Route::get('/inscripcion', function(){    
+    $userEnrolled = Inscription::where('email', '=', "santiago.avilez@est.fi.uncoma.edu.ar")->get("id");
+    dd(count($userEnrolled));
+})->name('inscription');
 
 require __DIR__.'/auth.php';

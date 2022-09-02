@@ -11,7 +11,7 @@ import AppLayout from 'components/Layouts/AppLayout'
 const Register = () => {
   const { register } = useAuth({
     middleware: 'guest',
-    redirectIfAuthenticated: '/'
+    redirectIfAuthenticated: '/'    
   })
 
   const [name, setName] = useState('')
@@ -22,7 +22,9 @@ const Register = () => {
 
   const submitForm = event => {
     event.preventDefault()
-    register({ name, email, password, password_confirmation, setErrors })
+    register({ name, email, password, password_confirmation, setErrors }).then(function (){
+      alert('logeo exitoso, Bienvenido!')      
+    });
   }
 
   return (

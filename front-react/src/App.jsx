@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Login from 'pages/login';
@@ -7,22 +8,44 @@ import ForgotPassword from 'pages/forgot-password';
 import PasswordReset from 'pages/password-reset';
 import NotFoundPage from 'pages/404';
 import PreinscriptionForm from 'pages/PreinscriptionForm';
+import axios from 'axios'
 
 function App() {
+  const [categories, setcategories] = useState([])
+  const endpoint = 'http://127.0.0.1:8000/api'
+  useEffect(() => {
+    getAllCategories()
+  }, [])
+  const getAllCategories = async () => {
+    const response = await axios.get(`${endpoint}/categories`)
+      .then(function (response) {
+        //console.log("success", response.data);
+        setcategories(response.data)
+      })
+      .catch(function (error) {
+        console.error('error', error.response);
+      });
+    //console.log(response.data)
+  }
   return (
     <div className="antialiased">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home categories={categories} setcategories={setcategories} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:token" element={<PasswordReset />} />
-        <Route path='/inscribirse' element={<PreinscriptionForm />} />
-        <Route path='/inscribirse/3k' element={<PreinscriptionForm categoriename="3k" id="1" />} />
-        <Route path='/inscribirse/7k' element={<PreinscriptionForm categoriename="7k" id="2" />} />
-        <Route path='/inscribirse/15k' element={<PreinscriptionForm categoriename="15k" id="3" />} />
-        <Route path='/inscribirse/25k' element={<PreinscriptionForm categoriename="25k" id="4" />} />
-        <Route path="*" element={<NotFoundPage/>}
+ InscriptionFormModalRules
+        <Route element={<PreinscriptionForm />} path='/inscribirse' />
+        {categories.map((categorie) => (
+                        <Route 
+                        key={categorie.id} 
+                        element={<PreinscriptionForm categorie={categorie} />} 
+                        path={'/inscribirse/' + categorie.name} />
+
+                    ))}
+        <Route path="*" element={<NotFoundPage />}
+
         />
       </Routes>
     </div>

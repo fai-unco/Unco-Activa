@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Mail\PreInscriptionMail;
 use App\Models\Inscription;
-
+use App\Models\RaceCategorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 use function PHPUnit\Framework\isNull;
@@ -41,9 +42,12 @@ class InscriptionController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-        $userEnrolled = Inscription::select('id')->where('email', '=', $request->email)->get("id");
+        $userEnrolled = Inscription::where('email', '=', $request->email)->get("id");
+        // var_dump($userEnrolled);
+        // if (!is_null(Auth::user())){
         if (count($userEnrolled) === 0) {
             $inscription = new Inscription();
+            // $inscription->user_id = Auth::user()->id;
             $inscription->name = $request->name;
             $inscription->race_categorie_id = $request->race_categorie_id;
             $inscription->surname = $request->surname;
@@ -62,10 +66,20 @@ class InscriptionController extends Controller
             $inscription->emergency_contac_phone = $request->emergency_contac_phone;
             $inscription->emergency_contac_bond = $request->emergency_contac_bond;
             $inscription->save();
+
+            $categorie = RaceCategorie::findOrFail($inscription->race_categorie_id);
+
+            $arreglocontacto = [
+                "name" => $request->name . " " . $request->surname,
+                "categoriename" => $categorie->name,
+                "price" => $categorie->price
+            ];
+            $correo = new PreInscriptionMail($arreglocontacto);
+            if (!Mail::to($request->email)->send($correo)) abort(500, 'Error al enviar el mail.');
+        } else {
+            abort(404, 'Ya te has inscrito anteriormente con este correo, por favor reviza tu bandeja de spam en caso de no encontrar el correo en tu buzon de mensajes');
         }
-          /* $arreglocontacto = ["name" => $request->name . " " . $request->surname];
-          $correo = new PreInscriptionMail($arreglocontacto);
-          if (!Mail::to($request->email)->send($correo)) abort(500); */
+        // }
     }
 
     /**
