@@ -116,10 +116,6 @@ const Hero = (categories, setcategories) => {
                                     <CategoriePaper key={categorie.id} navigate={'inscribirse/' + categorie.name} color={categorie.color} name={categorie.name} ></CategoriePaper>
                             ))
                             }
-                            {/* <CategoriePaper navigate="inscribirse/3k" color="rgb(235 165 30 )" name="3k" ></CategoriePaper>
-                            <CategoriePaper navigate="inscribirse/7k" color="rgb(0 170 225)" name="7k" ></CategoriePaper>
-                            <CategoriePaper navigate="inscribirse/15k" color="#127497" name="16k" ></CategoriePaper>
-                            <CategoriePaper navigate="inscribirse/25k" color="#0F3759" name="26k" ></CategoriePaper> */}
                         </Box>
                     </DialogContent>
                 </Dialog>
@@ -147,23 +143,17 @@ const Hero = (categories, setcategories) => {
                         variant="contained"
                         onClick={handleClickOpen}
                         className='border-2 border-white rounded-full px-5 py-1 bg-white hover:bg-opacity-0 hover:text-white ease-in-out duration-[1500ms]'>
-                        REGISTRATE
+                        PRE-INSCRIBITE
                     </button>
                     <ModalCategories />
                 </div>
                 <div className='flex justify-center px-2'>
                     <a 
-                        href="" 
+                        href="#conoceMas" 
                         className='border-2 border-white rounded-full px-5 py-1 text-white  hover:bg-white hover:text-black bg-opacity-0 ease-in-out duration-[1500ms]'>
                         CONOCE MAS
                     </a>
-                </div>
-                {/* {
-                    categories.map( (categorie) => (
-                        <div key={categorie.id}>{categorie.name}</div>
-                    ))
-                } */}
-                
+                </div>                
             </div>
         </div>
     )

@@ -22,8 +22,7 @@ const Register = () => {
 
   const submitForm = event => {
     event.preventDefault()
-    register({ name, email, password, password_confirmation, setErrors }).then(function (){
-      alert('logeo exitoso, Bienvenido!')      
+    register({ name, email, password, password_confirmation, setErrors }).then(function (){ 
     });
   }
 

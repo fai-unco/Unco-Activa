@@ -8,7 +8,6 @@ import Input from 'components/Input'
 import { useAuth } from 'hooks/auth'
 import { useState } from 'react'
 import { NavLink} from 'react-router-dom';
-import AlertSuccess from 'components/alerts/AlertSuccess'
 
 const Login = () => {
 
@@ -25,7 +24,6 @@ const Login = () => {
   const submitForm = async event => {
     event.preventDefault()
     login({ email, password, setErrors, setStatus }).then(function (){
-      alert('logeo exitoso, Bienvenido!')      
     });
   }
 

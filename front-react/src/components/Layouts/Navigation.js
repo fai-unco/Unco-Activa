@@ -29,7 +29,7 @@ const Navigation = ({ user }) => {
               <CustomNavLink
                 to="/"
               >
-                Home
+                Inicio
               </CustomNavLink>
             </div>
           </div>
@@ -60,7 +60,7 @@ const Navigation = ({ user }) => {
                 }>
                 {/* Authentication */}
                 <DropdownButton onClick={logout}>
-                  Logout
+                  Cerrar Sesion
                 </DropdownButton>
               </Dropdown>
             </div>
@@ -71,13 +71,13 @@ const Navigation = ({ user }) => {
                   to="/login"
                   className="ml-4 text-sm text-gray underline"
                 >
-                  Login
+                  Iniciar Sesion
                 </CustomNavLink>
                 <CustomNavLink
                   to="/register"
                   className="ml-4 text-sm text-gray underline"
                 >
-                  Register
+                  Registrate
                 </CustomNavLink>
               </div>
             </>
@@ -172,16 +172,6 @@ const Navigation = ({ user }) => {
                     to="/"
                   >
                     Home
-                  </ResponsiveNavLink>
-                  <ResponsiveNavLink
-                    to="/login"
-                  >
-                    Login
-                  </ResponsiveNavLink>
-                  <ResponsiveNavLink
-                    to="/register"
-                  >
-                    Register
                   </ResponsiveNavLink>
                   {/* Authentication */}
                   <ResponsiveNavButton onClick={logout}>

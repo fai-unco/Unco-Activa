@@ -220,11 +220,11 @@ const PreinscriptionForm = (props) => {
 
     return (
        <AppLayout>    
-        <div className='flex flex-col mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
+        <div className='flex flex-col mx-3 sm:mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
             <div className='w-full lg:max-w-7xl p-6 m-auto bg-neutral-100 rounded-md shadow-md'>
-                <div className='grid grid-cols-2  ' >
-                    <img className='flex self-center justify-self-end mr-10' src='/logos/UNCO_Activa.svg'></img>
-                    <div className='w-1/3 ml-10'>
+                <div className='grid sm:grid-cols-2 justify-center ' >
+                    <img className='flex self-center justify-self-end sm:mr-10 pb-3' src='/logos/UNCO_Activa.svg'></img>
+                    <div className='flex justify-center sm:w-1/3 sm:ml-10'>
                         <CategoriePaper backgroundColor='rgb(39 39 42 )' color={props.categorie.color} name={props.categorie.name}> </CategoriePaper>
                     </div>
                 </div>
@@ -451,10 +451,10 @@ const PreinscriptionForm = (props) => {
                         <p className={checked === false ? 'text-red-500 block' : 'hidden'}>Debes aceptar los terminos y condiciones </p>
                         </div>
 
-                        <div class='relative col-span-2  flex-none w-24 ...'>
+                        <div className='relative col-span-2  flex-none w-24 ...'>
                         <ButtonInput type='submit' text='Enviar' divclass='lg:w-28 md:w-28 sm:w-auto flex-none' />
                         </div>
-                        <div class='relative col-span-2 md:col-span-1  ...'>
+                        <div className='relative col-span-2 md:col-span-1  ...'>
                         <p className=' text-ellipsis dark:text-gray-darker ml-1 text-gray-darker '>{'Por cualquier inconveniente y  duda acerca de la carrera consular al mail de '}
                             <a href={'mailto:uncoactiva@gmail.com'} className='text-blue-cyan'>UncoActiva</a>
                         </p>
