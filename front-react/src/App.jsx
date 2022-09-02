@@ -17,11 +17,11 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:token" element={<PasswordReset />} />
-        <Route element={<PreinscriptionForm />} path='/inscribirse' />
-        <Route element={<PreinscriptionForm categoriename="3k" id="1" />} path='/inscribirse/3k' />
-        <Route element={<PreinscriptionForm categoriename="7k" id="2" />} path='/inscribirse/7k' />
-        <Route element={<PreinscriptionForm categoriename="15k" id="3" />} path='/inscribirse/15k' />
-        <Route element={<PreinscriptionForm categoriename="25k" id="4" />} path='/inscribirse/25k' />
+        <Route path='/inscribirse' element={<PreinscriptionForm />} />
+        <Route path='/inscribirse/3k' element={<PreinscriptionForm categoriename="3k" id="1" />} />
+        <Route path='/inscribirse/7k' element={<PreinscriptionForm categoriename="7k" id="2" />} />
+        <Route path='/inscribirse/15k' element={<PreinscriptionForm categoriename="15k" id="3" />} />
+        <Route path='/inscribirse/25k' element={<PreinscriptionForm categoriename="25k" id="4" />} />
         <Route path="*" element={<NotFoundPage/>}
         />
       </Routes>

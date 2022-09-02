@@ -9,6 +9,7 @@ import Label from 'components/Label'
 import { useAuth } from 'hooks/auth'
 import { useEffect, useState } from 'react'
 import {Link, useParams} from 'react-router-dom';
+import AppLayout from 'components/Layouts/AppLayout'
 
 const PasswordReset = () => {
   const params = useParams()
@@ -36,65 +37,65 @@ const PasswordReset = () => {
   }, [params.email])
 
   return (
-    <GuestLayout>
-      <AuthCard
-        logo={
-          <Link to="/">
-            <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
-          </Link>
-        }>
-        {/* Session Status */}
-        <AuthSessionStatus className="mb-4" status={status} />
-        {/* Validation Errors */}
-        <AuthValidationErrors className="mb-4" errors={errors} />
-        <form onSubmit={submitForm}>
-          {/* Email Address */}
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              value={email}
-              className="block mt-1 w-full"
-              onChange={event => setEmail(event.target.value)}
-              required
-              autoFocus
-            />
-          </div>
-          {/* Password */}
-          <div className="mt-4">
-            <Label htmlFor="password">Password</Label>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              className="block mt-1 w-full"
-              onChange={event => setPassword(event.target.value)}
-              required
-            />
-          </div>
-          {/* Confirm Password */}
-          <div className="mt-4">
-            <Label htmlFor="password_confirmation">
-                Confirm Password
-            </Label>
-            <Input
-              id="password_confirmation"
-              type="password"
-              value={password_confirmation}
-              className="block mt-1 w-full"
-              onChange={event =>
-                setPasswordConfirmation(event.target.value)
-              }
-              required
-            />
-          </div>
-          <div className="flex items-center justify-end mt-4">
-            <Button>Reset Password</Button>
-          </div>
-        </form>
-      </AuthCard>
-    </GuestLayout>
+    <AppLayout>
+      <GuestLayout>
+        <div className='bg-login'>
+          <AuthCard
+            logo={
+              <Link to="/">
+                <img src='/logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
+              </Link>
+            }>
+            <h1 className='flex justify-center text-sm font-semibold py-5'>Restaurar Contraseña</h1>
+            {/* Session Status */}
+            <AuthSessionStatus className="mb-4" status={status} />
+            {/* Validation Errors */}
+            <AuthValidationErrors className="mb-4" errors={errors} />
+            <form onSubmit={submitForm}>
+              {/* Email Address */}
+              <div>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  className="block mt-1 w-full h-[34px]"
+                  placeholder='Email'
+                  onChange={event => setEmail(event.target.value)}
+                  autoFocus
+                />
+              </div>
+              {/* Password */}
+              <div className="mt-4">
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  className="block mt-1 w-full h-[34px]"
+                  placeholder='Compraseña'
+                  onChange={event => setPassword(event.target.value)}
+                />
+              </div>
+              {/* Confirm Password */}
+              <div className="mt-4">
+                <Input
+                  id="password_confirmation"
+                  type="password"
+                  value={password_confirmation}
+                  className="block mt-1 w-full h-[34px]"
+                  placeholder='Confirmar Compraseña'
+                  onChange={event =>
+                    setPasswordConfirmation(event.target.value)
+                  }
+                />
+              </div>
+              <div className="flex items-center justify-end mt-7">
+                <Button className='px-4'>Reset Password</Button>
+              </div>
+            </form>
+          </AuthCard>
+        </div>
+      </GuestLayout>
+    </AppLayout>
   )
 }
 
