@@ -29,7 +29,10 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     setErrors([])
     axios
       .post('/register', props)
-      .then(() => mutate())
+      .then(() => {
+        mutate()
+        alert('Te has registrado con exito, Bienvenido!') 
+      })
       .catch(error => {
         if (error.response.status !== 422) throw error
         setErrors(Object.values(error.response.data.errors).flat())
@@ -42,7 +45,10 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     setStatus(null)
     axios
       .post('/login', props)
-      .then(() => mutate())
+      .then(() => { 
+        mutate()
+        alert('has iniciado secion con exito, Bienvenido!') 
+      })
       .catch(error => {
         if (error.response.status !== 422) throw error
         setErrors(Object.values(error.response.data.errors).flat())

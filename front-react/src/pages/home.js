@@ -26,7 +26,7 @@ function Home(categories, setcategories){
               <Slider imagenes={mockImagenes} className='bg-white' />
             </div>
                     
-            <div className='text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark'>
+            <div id='conoceMas' className='text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark'>
               <h1 className=''>22 OCT / 11 HRS</h1>
               <h1>Sede Central - Neuquén Capital</h1>
             </div>
