@@ -32,80 +32,75 @@ const Login = () => {
   return (
     <AppLayout>
       <GuestLayout>
-        <AuthCard>
-          <img src='logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
-          <h1 className="text-sm font-semibold text-center">
-            Iniciar Sesion
-          </h1>
-          {/* Session Status */}
-          <AuthSessionStatus className="mb-4" status={status} />
-          {/* Validation Errors */}
-          <AuthValidationErrors className="mb-4" errors={errors} />
-          <form onSubmit={submitForm}>
-            {/* Email Address */}
-            <div className='mt-4'>
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                placeholder="Nombre de Usuario"
-                className="block  w-full h-[34px]"
-                onChange={event => setEmail(event.target.value)}
-                autoFocus
-              />
-            </div>
-            {/* Password */}
-            <div className="mt-4">
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                placeholder="Contraseña"
-                className="py-2 mt-1 w-full h-[34px]"
-                onChange={event => setPassword(event.target.value)}
-                
-                autoComplete="current-password"
-              />
-            </div>
-            {/* Remember Me */}
-            <div className="block mt-4">
-              <label
-                htmlFor="remember_me"
-                className="inline-flex items-center">
-                <input
-                  id="remember_me"
-                  type="checkbox"
-                  name="remember"
-                  className="rounded border-gray-300 text-blue-cyan
-                  shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                />
-                <span className="ml-2 text-sm">
-                    Remember me
-                </span>
-              </label>
-            </div>
-            <div className="flex justify-center w-full mt-4">
-              <NavLink
-                to="/forgot-password"
-                className="underline text-sm text-gray-dark hover:text-gray-darker"
-              >
-                  Olvidaste tu contraseña?
-              </NavLink>
-            </div>
-            <div className="flex justify-center w-full">
-              <Button className="my-5 w-full">
+        <div className='bg-login'>
+          <AuthCard>
+            <img src='logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
+            <h1 className="text-sm font-semibold text-center">
                   Iniciar Sesion
-              </Button>
-            </div>
-          </form>
-          {/* <AlertSuccess open={opensucces} onClose={setopensucces}
-                    bg=' rgb(240 240 240)'
-                    titlecolor='success.main'
-                    title='Registro Exitoso!'
-                    navigate='/'
-                    description='Te has registrado correctamente, revisa tu buzon de mensajes y spam'
-                /> */}
-        </AuthCard>
+            </h1>
+            {/* Session Status */}
+            <AuthSessionStatus className="mb-4" status={status} />
+            {/* Validation Errors */}
+            <AuthValidationErrors className="mb-4" errors={errors} />
+            <form onSubmit={submitForm}>
+              {/* Email Address */}
+              <div className='mt-4'>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  placeholder="Nombre de Usuario"
+                  className="block  w-full h-[34px]"
+                  onChange={event => setEmail(event.target.value)}
+                  autoFocus
+                />
+              </div>
+              {/* Password */}
+              <div className="mt-4">
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  placeholder="Contraseña"
+                  className="py-2 mt-1 w-full h-[34px]"
+                  onChange={event => setPassword(event.target.value)}
+                      
+                  autoComplete="current-password"
+                />
+              </div>
+              {/* Remember Me */}
+              <div className="block mt-4">
+                <label
+                  htmlFor="remember_me"
+                  className="inline-flex items-center">
+                  <input
+                    id="remember_me"
+                    type="checkbox"
+                    name="remember"
+                    className="rounded border-gray-300 text-blue-cyan
+                        shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  />
+                  <span className="ml-2 text-sm">
+                          Remember me
+                  </span>
+                </label>
+              </div>
+              <div className="flex justify-center w-full mt-4">
+                <NavLink
+                  to="/forgot-password"
+                  className="underline text-sm text-gray-dark hover:text-gray-darker"
+                >
+                        Olvidaste tu contraseña?
+                </NavLink>
+              </div>
+              <div className="flex justify-center w-full">
+                <Button className="my-5 w-full">
+                        Iniciar Sesion
+                </Button>
+              </div>
+            </form>
+          </AuthCard>
+        </div>
       </GuestLayout>
     </AppLayout>
   )

@@ -5,7 +5,7 @@ import { DropdownButton } from 'components/DropdownLink'
 import { useAuth } from 'hooks/auth'
 import { useState } from 'react'
 import CustomNavLink from 'components/NavLink';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Navigation = ({ user }) => {
   const { logout } = useAuth()
@@ -13,16 +13,16 @@ const Navigation = ({ user }) => {
 
   return (
     // <div className='  '>
-    <nav className="dark:bg-gray-darker sticky top-0">
+    <nav className="dark:bg-gray-darker sticky top-0 z-50">
       {/* Primary Navigation Menu */}
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 dark:bg-gray-darker">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 dark:bg-gray-darker ">
         <div className="flex justify-between h-16">
           <div className="flex">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/">
+              <NavLink to="/">
                 <ApplicationLogo className="block h-10 w-auto fill-current text-gray-light" />
-              </Link>
+              </NavLink>
             </div>
             {/* Navigation Links */}
             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

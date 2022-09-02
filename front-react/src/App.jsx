@@ -35,6 +35,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:token" element={<PasswordReset />} />
+ InscriptionFormModalRules
         <Route element={<PreinscriptionForm />} path='/inscribirse' />
         {categories.map((categorie) => (
                         <Route 
@@ -44,6 +45,7 @@ function App() {
 
                     ))}
         <Route path="*" element={<NotFoundPage />}
+
         />
       </Routes>
     </div>
