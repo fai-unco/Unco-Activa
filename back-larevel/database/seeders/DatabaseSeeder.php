@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         $categorie1 = new RaceCategorie();
         $categorie1->name = '3k';
         $categorie1->description = '3 kilometros';
-        $categorie1->price = '3000';
+        $categorie1->price = '2500';
         $categorie1->color = '#F2B035';
         $categorie1->quotas = '70';
         $categorie1->participants = '0';
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
         $categorie3 = new RaceCategorie();
         $categorie3->name = '15k';
         $categorie3->description = '15 kilometros';
-        $categorie3->price = '3000';
+        $categorie3->price = '4000';
         $categorie3->color = '#127497';
         $categorie3->quotas = '70';
         $categorie3->participants = '0';
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
         $categorie4 = new RaceCategorie();
         $categorie4->name = '25k';
         $categorie4->description = '25 kilometros';
-        $categorie4->price = '3000';
+        $categorie4->price = '5500';
         $categorie4->color = '#0F3759';
         $categorie4->quotas = '70';
         $categorie4->participants = '0';
