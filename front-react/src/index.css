@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Hurme-Geometric-BO';
+  src: url(./fonts/HurmeGeometricSans4-BlackObl.ttf);
+}
+@font-face {
+  font-family: 'Hurme-Geometric-N';
+  src: url(./fonts/HurmeGeometricSans4-SemiBold.ttf);
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0px solid rgb(118, 118, 118);
+  border-bottom-width: 2px;
+  border-color: rgb(118, 118, 118);
+  -webkit-text-fill-color: #27272a;
+  -webkit-box-shadow-color: 0 0 0px 500px #00000000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+:root {
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  background-position: center;
+  --tw-bg-opacity: 1;
+    background-color: rgb(39 39 42 / var(--tw-bg-opacity));
+    background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url("../public/BG_04.png");
+}
+
+.bg-hero-pattern{
+  background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url('../public/Fondo1.png');
+}
+
+.bg-login{
+  min-width: 320px;
+  min-height: 100vh;
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  background-position: center;
+  background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url('../public/Fondo1.png');
+}
