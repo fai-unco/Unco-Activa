@@ -12,7 +12,7 @@ import axios from 'axios'
 
 function App() {
   const [categories, setcategories] = useState([])
-  axios.defaults.headers['Access-Control-Allow-Origin'] = '*'
+  axios.defaults.headers['Access-Control-Allow-Origin'] = 'https://uncoactiva.fi.uncoma.edu.ar'
   const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api'
   useEffect(() => {
     getAllCategories()
