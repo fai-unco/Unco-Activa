@@ -17,7 +17,7 @@ import {useAuth} from 'hooks/auth'
 
 registerLocale('es', es);
 
-const endpoint = 'http://127.0.0.1:8000/api/inscription'
+const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription'
 const sizes = [
     { value: 'S', label: 'S' },
     { value: 'M', label: 'M' },
