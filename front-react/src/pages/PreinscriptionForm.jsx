@@ -16,7 +16,7 @@ import ModalInscription from 'components/inscriptionform/ModalInscription';
 
 registerLocale('es', es);
 
-const endpoint = 'http://uncoactiva.fi.uncoma.edu.ar:8000/api/inscription'
+const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription'
 const sizes = [
     { value: 'S', label: 'S' },
     { value: 'M', label: 'M' },
