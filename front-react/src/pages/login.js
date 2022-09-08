@@ -30,9 +30,9 @@ const Login = () => {
   return (
     <AppLayout>
       <GuestLayout>
-        <div className='bg-login'>
+        <div className='bg-login font-Hurme-Geometric-N'>
           <AuthCard>
-            <img src='logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
+            <img src='/logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
             <h1 className="text-sm font-semibold text-center">
                   Iniciar Sesion
             </h1>
@@ -40,14 +40,14 @@ const Login = () => {
             <AuthSessionStatus className="mb-4" status={status} />
             {/* Validation Errors */}
             <AuthValidationErrors className="mb-4" errors={errors} />
-            <form onSubmit={submitForm}>
+            <form onSubmit={submitForm} className='font-Hurme-Geometric-R'>
               {/* Email Address */}
               <div className='mt-4'>
                 <Input
                   id="email"
                   type="email"
                   value={email}
-                  placeholder="Nombre de Usuario"
+                  placeholder="Correo Electronico"
                   className="block  w-full h-[34px]"
                   onChange={event => setEmail(event.target.value)}
                   autoFocus
@@ -79,7 +79,7 @@ const Login = () => {
                         shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   />
                   <span className="ml-2 text-sm">
-                          Remember me
+                    Recordarme
                   </span>
                 </label>
               </div>

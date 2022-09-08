@@ -136,7 +136,7 @@ const Hero = (categories, setcategories) => {
                     <h1 className='text-blue-cyan text-[2.5rem] font-Hurme-Geometric-BO'>UNCo Activa</h1>
                 </div>
             </div>
-            <div className='grid sm:flex items-end justify-center pb-10 text-sm text-black font-bold max-h-full'>
+            <div className='grid sm:flex items-end justify-center pb-10 text-sm text-black font-Hurme-Geometric-N max-h-full'>
                 
                 <div className='flex justify-center px-2'>
                     <button

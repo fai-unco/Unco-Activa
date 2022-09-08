@@ -13,6 +13,7 @@ import AlertSuccess from 'components/alerts/AlertSuccess'
 import CategoriePaper from 'components/elements/CategoriePaper';
 import ModalRules from 'components/inscriptionform/ModalRules';
 import ModalInscription from 'components/inscriptionform/ModalInscription';
+import {useAuth} from 'hooks/auth'
 
 registerLocale('es', es);
 
@@ -31,6 +32,11 @@ const genders = [
     { value: 'No se', label: 'No se' }
 ];
 const PreinscriptionForm = (props) => {
+
+  const { user } = useAuth({ middleware: 'auth' })
+  if(!user){
+    window.location.pathname = '/login'
+  }
 
     const [opensucces, setopensucces] = useState(false);
     const [openfail, setopenfail] = useState(false);

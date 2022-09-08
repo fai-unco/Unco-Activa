@@ -45,7 +45,6 @@
     "tailwindcss": "^3.0.23",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://uncoactiva.fi.uncoma.edu.ar",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

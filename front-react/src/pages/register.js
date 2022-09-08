@@ -29,22 +29,22 @@ const Register = () => {
   return (
     <AppLayout>
       <GuestLayout>
-        <div className='bg-login'>
+        <div className='bg-login font-Hurme-Geometric-N'>
           <AuthCard>
-            <img src='logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
+            <img src='/logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
             <h1 className="text-sm font-semibold text-center">
             Registrate
             </h1>
             {/* Validation Errors */}
             <AuthValidationErrors className="mb-4" errors={errors} />
-            <form onSubmit={submitForm}>
+            <form onSubmit={submitForm} className='font-Hurme-Geometric-R'>
               {/* Name */}
               <div className="mt-4">
                 <Input
                   id="name"
                   type="text"
                   value={name}
-                  placeholder="name"
+                  placeholder="Nombre"
                   className="block w-full h-[34px]"
                   onChange={event => setName(event.target.value)}
                   autoFocus
@@ -56,7 +56,7 @@ const Register = () => {
                   id="email"
                   type="email"
                   value={email}
-                  placeholder="email"
+                  placeholder="Correo Electronico"
                   className="block mt-1 w-full h-[34px]"
                   onChange={event => setEmail(event.target.value)}
                 />
@@ -67,7 +67,7 @@ const Register = () => {
                   id="password"
                   type="password"
                   value={password}
-                  placeholder="password"
+                  placeholder="Contraseña"
                   className="block mt-1 w-full h-[34px]"
                   onChange={event => setPassword(event.target.value)}
                   autoComplete="new-password"
@@ -78,7 +78,7 @@ const Register = () => {
                 <Input
                   id="password_confirmation"
                   type="password"
-                  placeholder="Confirm password"
+                  placeholder="Confirme Contraseña"
                   value={password_confirmation}
                   className="block mt-1 w-full h-[34px]"
                   onChange={event =>
@@ -95,7 +95,7 @@ const Register = () => {
                 </NavLink>
               </div>
               <div className="flex justify-center">
-                <Button className="my-5 w-full">Registrarse</Button>
+                <Button className="my-5 w-full">Registrate</Button>
               </div>
             </form>
           </AuthCard>

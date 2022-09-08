@@ -1,11 +1,9 @@
-import ApplicationLogo from 'components/ApplicationLogo'
 import AuthCard from 'components/AuthCard'
 import AuthSessionStatus from 'components/AuthSessionStatus'
 import AuthValidationErrors from 'components/AuthValidationErrors'
 import Button from 'components/Button'
 import GuestLayout from 'components/Layouts/GuestLayout'
 import Input from 'components/Input'
-import Label from 'components/Label'
 import { useAuth } from 'hooks/auth'
 import { useEffect, useState } from 'react'
 import {Link, useParams} from 'react-router-dom';
@@ -46,12 +44,12 @@ const PasswordReset = () => {
                 <img src='/logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
               </Link>
             }>
-            <h1 className='flex justify-center text-sm font-semibold py-5'>Restaurar Contraseña</h1>
+            <h1 className='flex justify-center text-sm font-Hurme-Geometric-N py-5'>Restaurar Contraseña</h1>
             {/* Session Status */}
             <AuthSessionStatus className="mb-4" status={status} />
             {/* Validation Errors */}
             <AuthValidationErrors className="mb-4" errors={errors} />
-            <form onSubmit={submitForm}>
+            <form onSubmit={submitForm} className='font-Hurme-Geometric-R'>
               {/* Email Address */}
               <div>
                 <Input
@@ -89,7 +87,7 @@ const PasswordReset = () => {
                 />
               </div>
               <div className="flex items-center justify-end mt-7">
-                <Button className='px-4'>Reset Password</Button>
+                <Button className='px-4'>Reestablecer Contraseña</Button>
               </div>
             </form>
           </AuthCard>
