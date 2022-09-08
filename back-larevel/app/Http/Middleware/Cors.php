@@ -18,7 +18,7 @@ class Cors
     {
         $response = $next($request);
 
-        $response->headers->set('Access-Control-Allow-Origin', env('FRONTEND_URL'));
+        $response->headers->set('Access-Control-Allow-Origin', 'http://uncoactiva.fi.uncoma.edu.ar:80');
         $response->headers->set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE');
         $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization, X-Requested-With, Application');
 
