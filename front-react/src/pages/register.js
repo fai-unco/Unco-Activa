@@ -31,7 +31,7 @@ const Register = () => {
       <GuestLayout>
         <div className='bg-login font-Hurme-Geometric-N'>
           <AuthCard>
-            <img src='logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
+            <img src='/logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
             <h1 className="text-sm font-semibold text-center">
             Registrate
             </h1>
