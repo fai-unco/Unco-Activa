@@ -95,7 +95,7 @@ const Register = () => {
                 </NavLink>
               </div>
               <div className="flex justify-center">
-                <Button className="my-5 w-full">Register</Button>
+                <Button className="my-5 w-full">Registrarse</Button>
               </div>
             </form>
           </AuthCard>
