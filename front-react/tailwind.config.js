@@ -1,14 +1,15 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    './src/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
     extend: {
       fontFamily: {
         'Hurme-Geometric-BO': 'Hurme-Geometric-BO',
         'Hurme-Geometric-N': 'Hurme-Geometric-N',
+        'Hurme-Geometric-R': 'Hurme-Geometric-R'
       },
       opacity: ['disabled'],
       colors: {
@@ -21,11 +22,11 @@ module.exports = {
         'gray-light': '#E6E6E6',
         'gray': '#D2D3D5',
         'gray-dark': '#606062',
-        'gray-darker': '#27272a',
-      },
-    },
+        'gray-darker': '#27272a'
+      }
+    }
   },
   plugins: [
     require('@tailwindcss/forms')
-  ],
+  ]
 }

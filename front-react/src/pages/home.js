@@ -16,12 +16,12 @@ function Home(categories, setcategories){
 
   return (
     <AppLayout>
-      <div className="font-Hurme-Geometric-N min-h-screen">
+      <div className="font-Hurme-Geometric-R min-h-screen">
         <div>
           <Hero categories={categories} setcategories={setcategories} />
         </div>
         <div className="px-3 md:px-12 py-7 ">
-          <div className=' bg-gray rounded-lg text-black'>
+          <div className=' bg-gray-light rounded-lg text-black'>
             <div className='flex justify-center pt-5'>
               <Slider imagenes={mockImagenes} className='bg-white' />
             </div>
@@ -31,7 +31,7 @@ function Home(categories, setcategories){
               <h1>Sede Central - Neuquén Capital</h1>
             </div>
 
-            <div className='py-5 text-sm'>
+            <div className='py-5 '>
               <div className='px-5 sm:px-5 lg:px-16'>
                 <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>Requisitos de la carrera</p>
                 <h1 className=' bg-yellow py-1 w-1/6 mt-5'> </h1>
@@ -41,7 +41,7 @@ function Home(categories, setcategories){
                   <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Quien participa</h4>
                   <p className="">Toda persona que cumpla los requisitos de la inscripción. La modalidad de dicha carrera se va a dar en fomar individual.</p>
                   <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">¿Como ganar?</h4>
-                  <p>Los participantes deberan:</p>
+                  <p>Los y las participantes deberan:</p>
                   <ul className='list-decimal pl-5'>
                     <li>Realizar el recorrido en el menor tiempo posible.</li>
                     <li>No podrán utilizar vehículos ni acortar el recorrido.</li>
@@ -51,7 +51,7 @@ function Home(categories, setcategories){
                   <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Sevicios, Asistencia, Hidratacíon y Controles</h4>
                   <ul className='list-decimal pl-5'>
                     <li>En un punto intermedio del recorrido y en la llegada se montarán puestos de asistencia e hidratación.</li>
-                    <li>A lo largo del recorrido se establecerán controles de paso de los corredores en donde habrá colaboradores con remeras.</li>
+                    <li>A lo largo del recorrido se establecerán controles de paso de los corredores y las corredoras en donde habrá colaboradores con remeras.</li>
                   </ul>
                   <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Remera de competencia y numero de identificacion de corredor</h4>
                   <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
@@ -67,16 +67,16 @@ function Home(categories, setcategories){
                     <li>3km tiene un costo de $2500 por participante. Es sin clasificación ni premiación.</li>
                   </ul>
 
-                  <p className='pt-2'><span className='font-Hurme-Geometric-BO'>Incluye: </span>
+                  <p className='pt-2'><span className='font-Hurme-Geometric-N'>Incluye: </span>
                                     Derecho a participación / Remera técnica / servicios de control / servicio de hidratación seguro de corredor.
                   </p>
-                  <p className='pt-1'><span className='font-Hurme-Geometric-BO'>ATENCIÓN COMUNIDAD UNIVERSITARIA: </span>
+                  <p className='pt-1'><span className='font-Hurme-Geometric-N'>ATENCIÓN COMUNIDAD UNIVERSITARIA: </span>
                                 Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar email a uncoactiva@gmail.com para recibir dicho beneficio.
                   </p>
                   <ul className='list-disc pl-5 pt-2'>
                     <li>25km tiene un costo de $5000 por participante.</li>
                     <li>15km tiene un costo de $3500 por participante.</li>
-                    <li>7km tiene un costo de $2500 por participante</li>
+                    <li>7km tiene un costo de $2500 por participante.</li>
                     <li>3km tiene un costo de $2000 por participante. Es sin clasificación ni premiación.</li>
                   </ul>
                   {/* <h4 className="text-blue-dark text-[2rem] py-3 font-bold font-Hurme-Geometric-BO"> Recorrido</h4>
@@ -85,13 +85,13 @@ function Home(categories, setcategories){
                   <p className=''>Las inscripciones se realizan vía Internet en la web:
                                     Pago únicamente por transferencia:</p>
                   <ul className='list-none py-3'>
-                    <li>Banco Credicoop Cooperativo Limitado</li>
-                    <li>Adherente: Universidad Nacional del Comahue.</li>
-                    <li>Operador: 549505 Roberto Antonio Sepulveda.</li>
-                    <li>Nro Cuenta – Cuenta Corriente: $191-093-024908/9</li>
-                    <li>CBU 19100933-55009302490896</li>
+                    <li className='font-Hurme-Geometric-N'>Banco Credicoop Cooperativo Limitado</li>
+                    <li><span className='font-Hurme-Geometric-N'>Adherente:</span> Universidad Nacional del Comahue.</li>
+                    <li><span className='font-Hurme-Geometric-N'>Operador:</span> 549505 Roberto Antonio Sepulveda.</li>
+                    <li><span className='font-Hurme-Geometric-N'>Nro Cuenta – Cuenta Corriente:</span> $191-093-024908/9</li>
+                    <li><span className='font-Hurme-Geometric-N'>CBU:</span> 19100933-55009302490896</li>
                   </ul>
-                  <p>Se deberá enviar de manera obligatoria el comprobante de transferencia con todos los datos de la operación al mail <span className='text-board'>uncoactiva@gmail.com</span>.
+                  <p className='text-blue-high text-[1.2rem] font-Hurme-Geometric-BO'>Se deberá enviar de manera obligatoria el comprobante de transferencia con todos los datos de la operación al mail <span className='text-board'>uncoactiva@gmail.com</span>
                   </p>
                 </div>
               </div>

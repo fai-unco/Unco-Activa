@@ -10,6 +10,10 @@
   font-family: 'Hurme-Geometric-N';
   src: url(./fonts/HurmeGeometricSans4-SemiBold.ttf);
 }
+@font-face {
+  font-family: 'Hurme-Geometric-R';
+  src: url(./fonts/HurmeGeometricSans4-Regular.ttf);
+}
 
 /* Change Autocomplete styles in Chrome*/
 input:-webkit-autofill,
