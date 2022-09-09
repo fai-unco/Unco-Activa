@@ -19,7 +19,12 @@ function App() {
     getAllCategories()
   }, [])
   const getAllCategories = async () => {
-    const response = await axios.get(`${endpoint}/categories`)
+    const response = await axios.get(`${endpoint}/categories`, {
+      headers: {
+        'Access-Control-Allow-Origin': 'https://uncoactiva.fi.uncoma.edu.ar',
+        'Content-Type': 'application/json',
+      }
+    },)
       .then(function (response) {
         //console.log("success", response.data);
         setcategories(response.data)
@@ -37,15 +42,15 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:token" element={<PasswordReset />} />
- InscriptionFormModalRules
+        InscriptionFormModalRules
         <Route element={<PreinscriptionForm />} path='/inscribirse' />
         {categories.map((categorie) => (
-                        <Route 
-                        key={categorie.id} 
-                        element={<PreinscriptionForm categorie={categorie} />} 
-                        path={'/inscribirse/' + categorie.name} />
+          <Route
+            key={categorie.id}
+            element={<PreinscriptionForm categorie={categorie} />}
+            path={'/inscribirse/' + categorie.name} />
 
-                    ))}
+        ))}
         <Route path="*" element={<NotFoundPage />}
 
         />
