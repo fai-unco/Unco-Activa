@@ -22,7 +22,7 @@ function App() {
     const response = await axios.get(`${endpoint}/categories`, {
       headers: {
         'Access-Control-Allow-Origin': 'https://uncoactiva.fi.uncoma.edu.ar',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       }
     })
       .then(function (response) {
