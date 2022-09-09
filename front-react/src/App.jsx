@@ -24,7 +24,7 @@ function App() {
         'Access-Control-Allow-Origin': 'https://uncoactiva.fi.uncoma.edu.ar',
         'Content-Type': 'application/json',
       }
-    },)
+    })
       .then(function (response) {
         //console.log("success", response.data);
         setcategories(response.data)
