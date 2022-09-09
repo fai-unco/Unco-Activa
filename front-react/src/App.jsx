@@ -13,16 +13,13 @@ import axios from 'axios'
 function App() {
   const [categories, setcategories] = useState([])
   axios.defaults.headers['Access-Control-Allow-Origin'] = 'https://uncoactiva.fi.uncoma.edu.ar'
-  const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api'
+  axios.defaults.headers['Access-Control-Allow-Credentials'] = 'true'
+  const endpoint = 'http://10.0.20.52:8000/api'
   useEffect(() => {
     getAllCategories()
   }, [])
   const getAllCategories = async () => {
-    const response = await axios.get(`${endpoint}/categories`, {
-      headers: {
-        'Authorization': 'Access-Control-Allow-Origin:https://uncoactiva.fi.uncoma.edu.ar'
-      }
-    })
+    const response = await axios.get(`${endpoint}/categories`)
       .then(function (response) {
         //console.log("success", response.data);
         setcategories(response.data)
