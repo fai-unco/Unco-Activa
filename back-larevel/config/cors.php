@@ -17,9 +17,9 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    'allowed_methods' => ['GET', 'POST'],
+    'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://uncoactiva.fi.uncoma.edu.ar'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 

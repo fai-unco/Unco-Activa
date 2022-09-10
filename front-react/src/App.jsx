@@ -12,19 +12,21 @@ import axios from 'axios'
 
 function App() {
   const [categories, setcategories] = useState([])
-  axios.defaults.headers['Access-Control-Allow-Origin'] = 'https://uncoactiva.fi.uncoma.edu.ar'
-  axios.defaults.headers['Access-Control-Allow-Credentials'] = 'true'
+  // axios.defaults.headers['Access-Control-Allow-Origin'] = 'https://uncoactiva.fi.uncoma.edu.ar'
+  // axios.defaults.headers['Access-Control-Allow-Credentials'] = 'true'
   const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api'
   useEffect(() => {
     getAllCategories()
   }, [])
   const getAllCategories = async () => {
-    const response = await axios.get(`${endpoint}/categories`, {
-      headers: {
-        'Access-Control-Allow-Origin': 'https://uncoactiva.fi.uncoma.edu.ar',
-        'Content-Type': 'application/json'
-      }
-    })
+    const response = await axios.get(`${endpoint}/categories`
+    // , {
+    //   headers: {
+    //     'Access-Control-Allow-Origin': 'https://uncoactiva.fi.uncoma.edu.ar',
+    //     'Content-Type': 'application/json'
+    //   }
+    // }
+    )
       .then(function (response) {
         //console.log("success", response.data);
         setcategories(response.data)

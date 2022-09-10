@@ -22,8 +22,8 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['cors']], function () {
     //Rutas a las que se permitirá acceso
-    Route::get('/categories', [RaceCategorieController::class, 'index']);
 });
+Route::get('/categories', [RaceCategorieController::class, 'index']);
 
 Route::controller(InscriptionController::class)->group(function () {
     Route::get('/inscriptions', [InscriptionController::class, 'index']);
