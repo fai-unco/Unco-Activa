@@ -28,7 +28,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     await csrf()
     setErrors([])
     axios
-      .post('/register', props)
+      .post('https://uncoactiva-back.fi.uncoma.edu.ar/register', props)
       .then(() => {
         mutate()
         alert('Te has registrado con exito, Bienvenido!') 
@@ -44,7 +44,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     setErrors([])
     setStatus(null)
     axios
-      .post('/login', props)
+      .post('https://uncoactiva-back.fi.uncoma.edu.ar/login', props)
       .then(() => { 
         mutate()
         alert('has iniciado secion con exito, Bienvenido!') 
@@ -60,7 +60,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     setErrors([])
     setStatus(null)
     axios
-      .post('/forgot-password', {email})
+      .post('https://uncoactiva-back.fi.uncoma.edu.ar/forgot-password', {email})
       .then(response => setStatus(response.data.status))
       .catch(error => {
         if (error.response.status !== 422) throw error
@@ -73,7 +73,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     setErrors([])
     setStatus(null)
     axios
-      .post('/reset-password', {token: params.token, ...props})
+      .post('https://uncoactiva-back.fi.uncoma.edu.ar/reset-password', {token: params.token, ...props})
       .then(response => navigate(`/login?reset=${  btoa(response.data.status)}`))
       .catch(error => {
         if (error.response.status !== 422) throw error
@@ -83,13 +83,13 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
 
   const resendEmailVerification = ({setStatus}) => {
     axios
-      .post('/email/verification-notification')
+      .post('https://uncoactiva-back.fi.uncoma.edu.ar/email/verification-notification')
       .then(response => setStatus(response.data.status))
   }
 
   const logout = async () => {
     if (!error) {
-      await axios.post('/logout')
+      await axios.post('https://uncoactiva-back.fi.uncoma.edu.ar/logout')
       mutate()
     }
     window.location.pathname = '/login'
