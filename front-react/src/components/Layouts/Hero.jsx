@@ -113,7 +113,12 @@ const Hero = (categories, setcategories) => {
                         >   
                             {
                                 categories.categories.categories.map( (categorie) => (
-                                    <CategoriePaper key={categorie.id} navigate={'inscribirse/' + categorie.name} color={categorie.color} name={categorie.name} ></CategoriePaper>
+                                    <CategoriePaper 
+                                    key={categorie.id} 
+                                    navigate={'inscribirse/' + categorie.name}
+                                    backgroundColor='rgb(245 245 245)'  
+                                    color={categorie.color} 
+                                    name={categorie.name} ></CategoriePaper>
                             ))
                             }
                         </Box>
