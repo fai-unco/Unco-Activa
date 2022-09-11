@@ -19,7 +19,8 @@ const CategoriePaper = (props) => {
         fontWeight: 700,
         cursor: 'pointer',
         color: props.color,
-        background : props.backgroundColor      
+        boxShadow: props.boxShadow,
+        background : props.backgroundColor ? props.backgroundColor : 'transparent'  
     }));
     return (
         <Categorie onClick={handleClick} >{props.name}</Categorie>

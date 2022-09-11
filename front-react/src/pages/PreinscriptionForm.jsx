@@ -231,7 +231,7 @@ const PreinscriptionForm = (props) => {
           <div className='grid sm:grid-cols-2 justify-center ' >
             <img className='flex self-center justify-self-end sm:mr-10 pb-3' src='/logos/UNCO_Activa.svg'></img>
             <div className='flex justify-center sm:w-1/3 sm:ml-10'>
-              <CategoriePaper backgroundColor='rgb(39 39 42 )' color={props.categorie.color} name={props.categorie.name}> </CategoriePaper>
+              <CategoriePaper boxShadow='none' color={props.categorie.color} name={props.categorie.name}> </CategoriePaper>
             </div>
           </div>
           <h1 className='text-4xl font-bold text-center mt-10 mb-10 text-gray-darker'>
