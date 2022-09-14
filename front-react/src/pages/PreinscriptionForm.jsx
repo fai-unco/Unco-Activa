@@ -167,6 +167,7 @@ const PreinscriptionForm = (props) => {
       console.log('invalido', gender)
     } else {
       setgender({ ...gender, valido: 'true' })
+      console.log('valido', gender)
 
     }
   }
@@ -179,25 +180,8 @@ const PreinscriptionForm = (props) => {
 
     }
   }
-
-  const colorstylesGender = {
-    control: (styles) => ({
-      ...styles, borderColor: gender.valido === 'false' ? 'red ' : 'gray-darker',
-      boxShadow: gender.valido === 'false' ? '0px 1px 0px 0px red' : '0px 0px 0px 0px rgb(0 170 225)',
-      borderWidth: '0',
-      borderBottomWidth: '2px',
-      backgroundColor: 'transparent',
-      '&:hover': {
-        boxShadow: '0px 1px 0px 0px rgb(0 170 225)'
-      }
-    }),
-    placeholder: (base) => ({
-      ...base,
-      // backgroundColor: 'black',
-      fontSize: '1.1em',
-      color: 'gray-darker',
-      fontWeight: 400
-    })
+  const handlechangeGender = (e) => {
+    gender.campo = e.value     
   }
 
   const colorstylesSizes = {
@@ -214,6 +198,7 @@ const PreinscriptionForm = (props) => {
     placeholder: (base) => ({
       ...base,
       // backgroundColor: 'black',
+      marginLeft: '-0.5em',
       fontSize: '1.1em',
       color: 'gray-darker',
       fontWeight: 400
@@ -309,18 +294,14 @@ const PreinscriptionForm = (props) => {
               error='Ingrese un dni valido, con exactamente 8 digitos'
             />
 
-            <div className='col-span-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
+            <div className='col-span-2 mb-7 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
               <Select
                 // className='text-gray-darker col-span-2  md:col-span-1  dark:text-gray-darker'
                 placeholder='Genero'
-                styles={colorstylesGender}
+                styles={colorstylesSizes}
                 name='gender'
                 Value={gender}
-                onChange={(e) => {
-                  setgender({ ...gender, campo: e.value, valido: e.value ? 'true' : 'false' })
-                  console.log(gender)
-
-                }}
+                onChange={(e) => handlechangeGender(e)}
                 onBlur={validargenero}
                 options={genders}
                 id='gender'
@@ -395,13 +376,12 @@ const PreinscriptionForm = (props) => {
 
             />
 
-            <div className='col-span-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
+            <div className='col-span-2 mb-7 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
               <Select
                 className='text-gray-darker col-span-2  md:col-span-1  dark:text-gray-darker'
                 Value={shirt_size.campo}
                 onChange={(e) => {
-                  setshirt_size({ ...shirt_size, campo: e.value, valido: e ? 'true' : 'false' })
-
+                  shirt_size.campo = e.value
                 }}
                 styles={colorstylesSizes}
                 onBlur={validarsize}
