@@ -14,8 +14,6 @@ import CategoriePaper from 'components/elements/CategoriePaper';
 import ModalRules from 'components/inscriptionform/ModalRules';
 import ModalInscription from 'components/inscriptionform/ModalInscription';
 // import { useAuth } from 'hooks/auth'
-
-
 registerLocale('es', es);
 
 const endpoint = 'http://127.0.0.1:8000/api/inscription'
