@@ -13,8 +13,8 @@ import AlertSuccess from 'components/alerts/AlertSuccess'
 import CategoriePaper from 'components/elements/CategoriePaper';
 import ModalRules from 'components/inscriptionform/ModalRules';
 import ModalInscription from 'components/inscriptionform/ModalInscription';
-import { useAuth } from 'hooks/auth'
-import { ContactEmergency } from '@mui/icons-material';
+// import { useAuth } from 'hooks/auth'
+
 
 registerLocale('es', es);
 
@@ -222,7 +222,7 @@ const PreinscriptionForm = (props) => {
       <div className='flex flex-col mx-3 sm:mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
         <div className='w-full lg:max-w-7xl p-6 m-auto bg-neutral-100 rounded-md shadow-md'>
           <div className='grid sm:grid-cols-2 justify-center ' >
-            <img className='flex self-center justify-self-end sm:mr-10 pb-3' src='/logos/UNCO_Activa.svg'></img>
+            <img className='flex self-center justify-self-end sm:mr-10 pb-3' alt='Unco Activa logo' src='/logos/UNCO_Activa.svg'></img>
             <div className='flex justify-center sm:w-1/3 sm:ml-10'>
               <CategoriePaper boxShadow='none' color={props.categorie.color} name={props.categorie.name}> </CategoriePaper>
             </div>
@@ -381,7 +381,6 @@ const PreinscriptionForm = (props) => {
               onChange={setsocial_work}
             // regularExpression={expresiones.name}
             // error='Inngresa una obra social'
-
             />
 
             <div className='col-span-2 mb-7 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
