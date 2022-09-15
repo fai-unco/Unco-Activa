@@ -34,10 +34,10 @@ const genders = [
 ];
 const PreinscriptionForm = (props) => {
 
-  const { user } = useAuth({ middleware: 'auth' })
-  if (!user) {
-    window.location.pathname = '/login'
-  }
+  // const { user } = useAuth({ middleware: 'auth' })
+  // if (!user) {
+  //   window.location.pathname = '/login'
+  // }
 
   const [opensucces, setopensucces] = useState(false);
   const [openfail, setopenfail] = useState(false);
