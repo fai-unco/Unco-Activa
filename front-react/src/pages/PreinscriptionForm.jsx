@@ -13,7 +13,8 @@ import AlertSuccess from 'components/alerts/AlertSuccess'
 import CategoriePaper from 'components/elements/CategoriePaper';
 import ModalRules from 'components/inscriptionform/ModalRules';
 import ModalInscription from 'components/inscriptionform/ModalInscription';
-import {useAuth} from 'hooks/auth'
+import { useAuth } from 'hooks/auth'
+import { ContactEmergency } from '@mui/icons-material';
 
 registerLocale('es', es);
 
@@ -34,7 +35,7 @@ const genders = [
 const PreinscriptionForm = (props) => {
 
   const { user } = useAuth({ middleware: 'auth' })
-  if(!user){
+  if (!user) {
     window.location.pathname = '/login'
   }
 
@@ -59,7 +60,7 @@ const PreinscriptionForm = (props) => {
   const [checked, setChecked] = useState(null);
   const [openrules, setopenrules] = useState(false);
   const [openInscription, setopenInscription] = useState(false)
-  const [errorMessage, seterrorMessage] = useState('Completa todos los campos obligatorios del formulario por favor.');
+  const [errorMessage, seterrorMessage] = useState('');
 
   const arraycampos = [
     [checked, setChecked],
@@ -108,12 +109,20 @@ const PreinscriptionForm = (props) => {
         cambiarEstado({ ...estado, valido: 'false' });
       }
     })
+    
     console.log(formularioValido)
     if (formularioValido
     ) {
-      setopenInscription(true)
+      if (phone.campo === emergency_contac_phone.campo) {        
+        seterrorMessage('Ingresa un numero de conctacto de emergencia que sea diferente al tuyo porfavor')
+        setopenfail(true)
+      }
+      else{
+        setopenInscription(true)
+      }
     }
     else {
+      seterrorMessage('completa todos los campos porfavor')
       setopenfail(true)
       console.log('no se envio')
     }
@@ -139,7 +148,7 @@ const PreinscriptionForm = (props) => {
         setopenInscription(false)
         seterrorMessage(error.response.data.message)
         setopenfail(true)
-        console.error('error store',error.response.data.message);
+        console.error('error store', error.response.data.message);
       });
   }
 
@@ -181,7 +190,7 @@ const PreinscriptionForm = (props) => {
     }
   }
   const handlechangeGender = (e) => {
-    gender.campo = e.value     
+    gender.campo = e.value
   }
 
   const colorstylesSizes = {
@@ -210,7 +219,7 @@ const PreinscriptionForm = (props) => {
   }
 
   return (
-    <AppLayout>    
+    <AppLayout>
       <div className='flex flex-col mx-3 sm:mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
         <div className='w-full lg:max-w-7xl p-6 m-auto bg-neutral-100 rounded-md shadow-md'>
           <div className='grid sm:grid-cols-2 justify-center ' >
@@ -220,7 +229,7 @@ const PreinscriptionForm = (props) => {
             </div>
           </div>
           <h1 className='text-4xl font-bold text-center mt-10 mb-10 text-gray-darker'>
-                    Inscribirse
+            Inscribirse
           </h1>
 
           <AlertSuccess open={opensucces} onClose={setopensucces}
@@ -236,10 +245,10 @@ const PreinscriptionForm = (props) => {
             title='Advertencia!'
 
             description={errorMessage}
-          />            
-      
+          />
+
           <form onSubmit={storeInscription} className='grid md:grid-cols-2 md:gap-6'>
-                        
+
             <InputColForm
               regularExpression={expresiones.name}
               value={name}
@@ -371,8 +380,8 @@ const PreinscriptionForm = (props) => {
               label='Obra social'
               value={social_work}
               onChange={setsocial_work}
-              // regularExpression={expresiones.name}
-              // error='Inngresa una obra social'
+            // regularExpression={expresiones.name}
+            // error='Inngresa una obra social'
 
             />
 
@@ -392,11 +401,11 @@ const PreinscriptionForm = (props) => {
               <p className={shirt_size.valido === 'false' ? 'text-red-500 block' : 'hidden'}>Debes ingresar un talle </p>
 
             </div>
-                        
+
             <div className='relative col-span-2 z-0 mb-6 mt-2 w-full group'>
               <span className='text-xl font-semibold dark:text-black'>Contacto en caso de emergencias</span>
             </div>
-                        
+
             <InputColForm
               type='text'
               label='Nombre y Apellido'
@@ -452,14 +461,14 @@ const PreinscriptionForm = (props) => {
             title='REGLAS GENERALES PARA LOS PARTICIPANTES'
           />
 
-          <ModalInscription 
-            price={props.categorie.price} 
+          <ModalInscription
+            price={props.categorie.price}
             categoriename={props.categorie.name}
-            setopenInscription={setopenInscription} 
-            openInscription={openInscription} 
+            setopenInscription={setopenInscription}
+            openInscription={openInscription}
             submitInscription={submitInscription} />
         </div>
-      </div >           
+      </div >
     </AppLayout>
   )
 }
