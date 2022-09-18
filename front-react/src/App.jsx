@@ -35,14 +35,14 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:token" element={<PasswordReset />} />
- InscriptionFormModalRules
+        InscriptionFormModalRules
         <Route element={<PreinscriptionForm />} path='/inscribirse' />
-        {categories.map((categorie) => (
-          <Route 
-            key={categorie.id} 
-            element={<PreinscriptionForm categorie={categorie} />} 
-            path={'/inscribirse/' + categorie.name} />
-
+        {categories.map( (categorie) =>  (          
+            categorie.quotas > 0 ? 
+            <Route
+              key={categorie.id}
+              element={<PreinscriptionForm categorie={categorie} />}
+              path={'/inscribirse/' + categorie.name} /> : <></>      
         ))}
         <Route path="*" element={<NotFoundPage />}
 
