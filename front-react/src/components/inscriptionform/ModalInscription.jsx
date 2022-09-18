@@ -37,8 +37,12 @@ const ModalInscription = (props) => {
                         Operador: 549505 Roberto Antonio Sepulveda.<br />
                         Nro Cuenta – Cuenta Corriente: $191-093-024908/9<br />
                         CBU 19100933-55009302490896 <br />
-                        Categoria:<strong>{props.categoriename}</strong><br />
-                        Precio:<strong>{props.price}</strong><br /><br />
+                        Categoria:<strong> {props.categorie.name}</strong><br />
+                        <strong>Precio:</strong> {props.categorie.price}<br /><br />
+                        <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
+                        Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar email a uncoactiva@gmail.com para recibir dicho beneficio.<br />
+
+                        <strong>Precio Promocional:</strong> {props.categorie.promo}<br /><br />
 
                         De no enviarse el comprobante de pago/transferencia con todos los datos de la operación al mail <strong>uncoactiva@gmail.com</strong>, no se considerará como inscripto.
                     </DialogContentText>
