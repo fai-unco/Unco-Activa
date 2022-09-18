@@ -74,8 +74,8 @@ function Home(categories, setcategories){
                                 Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar email a uncoactiva@gmail.com para recibir dicho beneficio.
                   </p>
                   <ul className='list-disc pl-5 pt-2'>
-                    <li>25km tiene un costo de $5000 por participante.</li>
-                    <li>15km tiene un costo de $3500 por participante.</li>
+                    <li>25km tiene un costo de $4000 por participante.</li>
+                    <li>15km tiene un costo de $3000 por participante.</li>
                     <li>7km tiene un costo de $2500 por participante.</li>
                     <li>3km tiene un costo de $2000 por participante. Es sin clasificación ni premiación.</li>
                   </ul>
