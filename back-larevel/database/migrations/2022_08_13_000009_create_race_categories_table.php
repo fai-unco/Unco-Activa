@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('color');
             $table->integer('price');
+            $table->integer('promo');
             $table->integer('participants');
             $table->integer('quotas');
             $table->timestamps();

@@ -110,11 +110,11 @@ const PreinscriptionForm = (props) => {
     console.log(formularioValido)
     if (formularioValido
     ) {
-      if (phone.campo === emergency_contac_phone.campo) {        
+      if (phone.campo === emergency_contac_phone.campo) {
         seterrorMessage('Ingresa un numero de conctacto de emergencia que sea diferente al tuyo porfavor')
         setopenfail(true)
       }
-      else{
+      else {
         setopenInscription(true)
       }
     }
@@ -458,8 +458,7 @@ const PreinscriptionForm = (props) => {
           />
 
           <ModalInscription
-            price={props.categorie.price}
-            categoriename={props.categorie.name}
+            categorie={props.categorie}
             setopenInscription={setopenInscription}
             openInscription={openInscription}
             submitInscription={submitInscription} />
