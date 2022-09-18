@@ -12,21 +12,12 @@ import axios from 'axios'
 
 function App() {
   const [categories, setcategories] = useState([])
-  // axios.defaults.headers['Access-Control-Allow-Origin'] = 'https://uncoactiva.fi.uncoma.edu.ar'
-  // axios.defaults.headers['Access-Control-Allow-Credentials'] = 'true'
   const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api'
   useEffect(() => {
     getAllCategories()
   }, [])
   const getAllCategories = async () => {
-    const response = await axios.get(`${endpoint}/categories`
-    // , {
-    //   headers: {
-    //     'Access-Control-Allow-Origin': 'https://uncoactiva.fi.uncoma.edu.ar',
-    //     'Content-Type': 'application/json'
-    //   }
-    // }
-    )
+    await axios.get(`${endpoint}/categories`)
       .then(function (response) {
         //console.log("success", response.data);
         setcategories(response.data)
@@ -36,6 +27,7 @@ function App() {
       });
     //console.log(response.data)
   }
+  
   return (
     <div className="antialiased">
       <Routes>
@@ -46,13 +38,15 @@ function App() {
         <Route path="/password-reset/:token" element={<PasswordReset />} />
         InscriptionFormModalRules
         <Route element={<PreinscriptionForm />} path='/inscribirse' />
-        {categories.map((categorie) => (
-          <Route
-            key={categorie.id}
-            element={<PreinscriptionForm categorie={categorie} />}
-            path={'/inscribirse/' + categorie.name} />
+        {categories.map((categorie) => {
+          if (categorie.quotas < 70){
+            <Route
+              key={categorie.id}
+              element={<PreinscriptionForm categorie={categorie} />}
+              path={'/inscribirse/' + categorie.name} />
+          }
 
-        ))}
+        })}
         <Route path="*" element={<NotFoundPage />}
 
         />
