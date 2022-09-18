@@ -118,6 +118,7 @@ const PreinscriptionForm = (props) => {
         setopenfail(true)
       }
       else{
+        console.log('success store', props.categorie);
         setopenInscription(true)
       }
     }
@@ -137,7 +138,7 @@ const PreinscriptionForm = (props) => {
       emergency_contac_bond: emergency_contac_bond.campo
     })
       .then(function (response) {
-        console.log('success store', response.config.data);
+        console.log('success store', props.categorie);
         setopenInscription(false)
         setopensucces(true)
         //   alert('Registro Exitoso, por favor revisa tu buzon de mensajes')
@@ -461,9 +462,8 @@ const PreinscriptionForm = (props) => {
             title='REGLAS GENERALES PARA LOS PARTICIPANTES'
           />
 
-          <ModalInscription
-            price={props.categorie.price}
-            categoriename={props.categorie.name}
+          <ModalInscription            
+            categorie={props.categorie}
             setopenInscription={setopenInscription}
             openInscription={openInscription}
             submitInscription={submitInscription} />
