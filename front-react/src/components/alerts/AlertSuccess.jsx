@@ -11,9 +11,9 @@ const AlertSuccess = (props) => {
     const navigate = useNavigate()
     const handleClose = () => {
         props.onClose(false);        
-        // if(props.navigate){
-        //     navigate(props.navigate)
-        // }
+         if(props.navigate){
+             navigate(props.navigate)
+         }
     };
     var sx = { sx: { bgcolor : 'gray-darker' } }
 

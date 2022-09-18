@@ -59,6 +59,7 @@ const PreinscriptionForm = (props) => {
   const [openrules, setopenrules] = useState(false);
   const [openInscription, setopenInscription] = useState(false)
   const [errorMessage, seterrorMessage] = useState('');
+  const [alertnavigate, setalertnavigate] = useState(false);
 
   const arraycampos = [
     [checked, setChecked],
@@ -143,6 +144,7 @@ const PreinscriptionForm = (props) => {
       })
       .catch(function (error) {
         setopenInscription(false)
+        setalertnavigate('/')
         seterrorMessage(error.response.data.message)
         setopenfail(true)
         console.error('error store', error.response.data.message);
@@ -240,7 +242,7 @@ const PreinscriptionForm = (props) => {
             bg=' rgb(240 240 240)'
             titlecolor='warning.main'
             title='Advertencia!'
-
+            navigate={alertnavigate}
             description={errorMessage}
           />
 
