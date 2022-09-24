@@ -28,7 +28,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     await csrf()
     setErrors([])
     axios
-      .post('/register', props, {withCredentials: true, 'X-CSRF-TOKEN': await csrf()})
+      .post('/register', props, {headers: {withCredentials: true, 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}},)
       .then(() => {
         mutate()
         alert('Te has registrado con exito, Bienvenido!') 
