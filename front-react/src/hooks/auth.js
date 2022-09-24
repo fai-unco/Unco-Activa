@@ -28,7 +28,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     await csrf()
     setErrors([])
     axios
-      .post('/register', props)
+      .post('/register', props, {withCredentials: true})
       .then(() => {
         mutate()
         alert('Te has registrado con exito, Bienvenido!') 
@@ -45,7 +45,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     setErrors([])
     setStatus(null)
     axios
-      .post('/login', props)
+      .post('/login', props,  {withCredentials: true})
       .then(() => { 
         mutate()
         alert('has iniciado secion con exito, Bienvenido!') 
