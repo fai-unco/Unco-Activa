@@ -22,13 +22,13 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
   }
   )
 
-  const csrf = () => axios.get('https://uncoactiva-back.fi.uncoma.edu.ar/sanctum/csrf-cookie')
+  const csrf = () => axios.get('/sanctum/csrf-cookie')
 
   const register = async ({setErrors, ...props}) => {
     await csrf()
     setErrors([])
     axios
-      .post('https://uncoactiva-back.fi.uncoma.edu.ar/register', props)
+      .post('/register', props)
       .then(() => {
         mutate()
         alert('Te has registrado con exito, Bienvenido!') 
@@ -44,7 +44,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     setErrors([])
     setStatus(null)
     axios
-      .post('https://uncoactiva-back.fi.uncoma.edu.ar/login', props)
+      .post('/login', props)
       .then(() => { 
         mutate()
         alert('has iniciado secion con exito, Bienvenido!') 
@@ -60,7 +60,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     setErrors([])
     setStatus(null)
     axios
-      .post('https://uncoactiva-back.fi.uncoma.edu.ar/forgot-password', {email})
+      .post('/forgot-password', {email})
       .then(response => setStatus(response.data.status))
       .catch(error => {
         if (error.response.status !== 422) throw error
@@ -73,7 +73,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
     setErrors([])
     setStatus(null)
     axios
-      .post('https://uncoactiva-back.fi.uncoma.edu.ar/reset-password', {token: params.token, ...props})
+      .post('/reset-password', {token: params.token, ...props})
       .then(response => navigate(`/login?reset=${  btoa(response.data.status)}`))
       .catch(error => {
         if (error.response.status !== 422) throw error
@@ -83,13 +83,13 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
 
   const resendEmailVerification = ({setStatus}) => {
     axios
-      .post('https://uncoactiva-back.fi.uncoma.edu.ar/email/verification-notification')
+      .post('/email/verification-notification')
       .then(response => setStatus(response.data.status))
   }
 
   const logout = async () => {
     if (!error) {
-      await axios.post('https://uncoactiva-back.fi.uncoma.edu.ar/logout')
+      await axios.post('/logout')
       mutate()
     }
     window.location.pathname = '/login'
