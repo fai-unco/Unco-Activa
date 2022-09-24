@@ -34,6 +34,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
         alert('Te has registrado con exito, Bienvenido!') 
       })
       .catch(error => {
+        console.log(error.response.data)
         if (error.response.status !== 422) throw error
         setErrors(Object.values(error.response.data.errors).flat())
       })
@@ -50,6 +51,7 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
         alert('has iniciado secion con exito, Bienvenido!') 
       })
       .catch(error => {
+        console.log(error.response.data)
         if (error.response.status !== 422) throw error
         setErrors(Object.values(error.response.data.errors).flat())
       })
