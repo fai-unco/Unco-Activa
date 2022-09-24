@@ -7,9 +7,9 @@ export const useAuth = ({middleware, redirectIfAuthenticated} = {}) => {
   let navigate = useNavigate();
   let params = useParams();
 
-  const {data: user, error, mutate} = useSWR('/api/user', () =>
+  const {data: user, error, mutate} = useSWR('https://uncoactiva-back.fi.uncoma.edu.ar/api/user', () =>
     axios
-      .get('/api/user')
+      .get('https://uncoactiva-back.fi.uncoma.edu.ar/api/user')
       .then(res => res.data)
       .catch(error => {
         if (error.response.status !== 409) throw error
