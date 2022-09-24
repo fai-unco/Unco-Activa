@@ -17,18 +17,18 @@ class VerifyCsrfToken extends Middleware
         'api/*'
     ];
 
-    public function handle($request, Closure $next)
-    {
-        if($request->route()->named('logout')) {
+    // public function handle($request, Closure $next)
+    // {
+    //     if($request->route()->named('logout')) {
 
-            if (!Auth::check() || Auth::guard()->viaRemember()) {
+    //         if (!Auth::check() || Auth::guard()->viaRemember()) {
 
-                $this->except[] = route('logout');
+    //             $this->except[] = route('logout');
                 
-            }   
+    //         }   
 
-        }
+    //     }
 
-        return parent::handle($request, $next);
-    }
+    //     return parent::handle($request, $next);
+    // }
 }
