@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Models\Inscription;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +16,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
 });
+
+Route::get('/pre-inscripciones', function () {
+    return view('pages.pre-inscripciones');
+});
+
+//Log User Out
+Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
+//show login form
+Route::get('/login', [UserController::class, 'login'])->middleware('guest');
+//log in User
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 Route::get('/inscripcion', function(){    
     $userEnrolled = Inscription::where('email', '=', "santiago.avilez@est.fi.uncoma.edu.ar")->get("id");
