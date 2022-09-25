@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/pre-inscripciones', function () {
     return view('pages.pre-inscripciones');
-});
+})->middleware('auth');
 
 //Log User Out
 Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');

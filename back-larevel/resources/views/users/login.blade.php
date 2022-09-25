@@ -2,9 +2,9 @@
     <x-card class="p-10 max-w-lg mx-auto my-20 border border-gray rounded">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase italic mb-1">
-                Login
+                Iniciar sesion
             </h2>
-            <p class="mb-4">Log into your account to post gigs</p>
+            <p class="mb-4">Inicia sesión en tu cuenta para verificar preinscriptos</p>
         </header>
 
         <form method="POST" action="/users/authenticate">
@@ -48,12 +48,12 @@
                 </button>
             </div>
 
-            <div class="mt-8">
+            {{-- <div class="mt-8">
                 <p>
                     olvidaste tu cuenta?
                     <a href="/register" class="text-laravel">Register</a>
                 </p>
-            </div>
+            </div> --}}
         </form>
     </x-card>
 </x-layout>
