@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\UserController;
 use App\Models\Inscription;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +20,11 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::get('/pre-inscripciones', function () {
-    return view('pages.pre-inscripciones');
-})->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/pre-inscripciones', [InscriptionController::class, 'index']);
+    Route::get('/inscription/{id}', [InscriptionController::class, 'update']);
+    Route::get('/inscriptionDelete/{id}', [InscriptionController::class, 'destroy']);
+});
 
 //Log User Out
 Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
