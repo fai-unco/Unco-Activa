@@ -77,7 +77,7 @@
         </main>
 
         {{-- FOOTER --}}
-        <footer class="bottom-0 left-0 w-full flex items-center justify-start font-bold bg-[#27272a] text-white h-24 md:justify-center">
+        <footer class="bottom-0 left-0 w-full flex items-center justify-start font-semibold bg-[#27272a] text-white h-24 md:justify-center">
         <p class="ml-2">Copyright &copy; | Unco Activa</p>
 
         </footer>

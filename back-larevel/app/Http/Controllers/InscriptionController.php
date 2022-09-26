@@ -20,7 +20,12 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        return Inscription::all();
+        $preInscriptions = Inscription::join('race_categories', 'race_categories.id', '=', 'inscriptions.race_categorie_id')
+        ->get( ['inscriptions.*', 'race_categories.name as categorie_name']);
+
+        $categories = RaceCategorie::all();
+
+        return view('pages.pre-inscripciones', ['preInscriptions' => $preInscriptions, 'categories' => $categories]);
     }
 
     /**
@@ -113,7 +118,25 @@ class InscriptionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $inscription = Inscription::find($id);
+        $idCategorie = $inscription->race_categorie_id;
+        $categorie = RaceCategorie::find($idCategorie);
+
+        if($inscription->billing_verified_at){
+            $categorie->quotas = $categorie->quotas + 1;
+            if($categorie->save()){
+                $inscription->billing_verified_at = NULL;
+                $inscription->save();
+            };
+        }else{
+            $categorie->quotas = $categorie->quotas - 1;
+            if($categorie->save()){
+                $inscription->billing_verified_at = date('Y-m-d');
+                $inscription->save();
+            };
+        }
+
+        return redirect('/pre-inscripciones');
     }
 
     /**
@@ -124,6 +147,7 @@ class InscriptionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $inscription = Inscription::destroy($id);
+        return redirect('/pre-inscripciones');
     }
 }
