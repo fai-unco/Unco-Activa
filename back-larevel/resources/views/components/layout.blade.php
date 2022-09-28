@@ -10,9 +10,29 @@
             integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"/>
-        
+
+        <link rel="stylsheet" type="text/css" href="{{ URL::asset('/') }}css/styles.css" />
         <script src="//unpkg.com/alpinejs" defer></script>
         <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            .bg-unco{
+                min-width: 320px;
+                min-height: 100vh;
+                background-repeat: no-repeat, repeat;
+                background-size: cover;
+                background-position: center;
+                background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url('../../Fondo1.png');
+            }
+
+            .bg-pre{
+                min-width: 320px;
+                min-height: 100vh;
+                background-repeat: no-repeat, repeat;
+                background-size: cover;
+                background-position: center;
+                background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url('BG_04.png');
+            }
+        </style>
         <script>
             tailwind.config = {
                 theme: {
@@ -35,27 +55,19 @@
         </script>
         <title>Unco Activa</title>
     </head>
-    <body class="">
+    <body>
         <nav class="flex justify-between items-center h-16 sticky top-0 z-50 bg-gray-darker text-gray-light">
             <div class="flex items-center">
             <a href="/">
-                <img class="ml-6 w-16" src="{{asset('logos/logoUNCOactiva.png')}}" alt="" />
+                <img class="ml-2 sm:ml-6 w-16" src="{{asset('logos/logoUNCOactiva.png')}}" alt="logo unco activa" />
             </a>
-            <ul class="ml-6 text-lg">
+            </div>
+            <ul class="flex space-x-6 mr-2 sm:mr-6 text-sm sm:text-lg">
+                @auth
                 <li>
                     <a href="/pre-inscripciones" class="hover:text-gray  border-b-2 hover:border-blue-cyan ">
                         Pre-iscripciones</a>
                 </li>
-            </ul>
-            </div>
-            <ul class="flex space-x-6 mr-6 text-lg">
-                @auth
-                <li>
-                    <span class="font-bold uppercase">
-                        bienvenido {{auth()->user()->name}}    
-                    </span>
-                </li>
-                
                 <li>
                     <a href="/logout" class="hover:text-gray border-b-2 hover:border-blue-cyan">
                         <i class="fa-solid fa-door-closed"></i>Cerrar Sesion
@@ -77,7 +89,7 @@
         </main>
 
         {{-- FOOTER --}}
-        <footer class="bottom-0 left-0 w-full flex items-center justify-start font-semibold bg-[#27272a] text-white h-24 md:justify-center">
+        <footer class="bottom-0 left-0 w-full flex items-center justify-center font-semibold bg-[#27272a] text-white h-24 md:justify-center">
         <p class="ml-2">Copyright &copy; | Unco Activa</p>
 
         </footer>
