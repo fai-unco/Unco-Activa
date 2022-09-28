@@ -13,10 +13,13 @@ import AlertSuccess from 'components/alerts/AlertSuccess'
 import CategoriePaper from 'components/elements/CategoriePaper';
 import ModalRules from 'components/inscriptionform/ModalRules';
 import ModalInscription from 'components/inscriptionform/ModalInscription';
-// import { useAuth } from 'hooks/auth'
+import FileUpload from 'react-material-file-upload';
+import { red } from '@mui/material/colors';
+import { FormControl, FormControlLabel, FormLabel, Radio } from '@mui/material';
+import { RadioGroup } from '@headlessui/react';
 registerLocale('es', es);
 
-const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription'
+const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription''
 const sizes = [
   { value: 'S', label: 'S' },
   { value: 'M', label: 'M' },
@@ -59,6 +62,19 @@ const PreinscriptionForm = (props) => {
   const [openrules, setopenrules] = useState(false);
   const [openInscription, setopenInscription] = useState(false)
   const [errorMessage, seterrorMessage] = useState('');
+
+  const [files, setFiles] = useState([]);
+  const [filevalidation, setfilevalidation] = useState({ campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.', valido: null });
+  const [promo, setpromo] = React.useState({ campo: '', valido: null });
+  const [filespromo, setfilespromo] = useState([]);
+  const [promovalidation, setpromovalidation] = useState({ campo: 'Debes enviar el certificado de alumno regular o legajo para poder hacer el descuento.', valido: null });
+
+  const handleRadioChange = (event) => {
+    setpromo({ ...promo, campo: event.target.value, valido: 'true' });
+    if(event.target.value === 'no'){
+      setfilespromo([]);
+    }
+  };
   const [alertnavigate, setalertnavigate] = useState(false);
 
   const arraycampos = [
@@ -77,7 +93,11 @@ const PreinscriptionForm = (props) => {
     [shirt_size, setshirt_size],
     [emergency_contac_name, setemergency_contac_name],
     [emergency_contac_bond, setemergency_contac_bond],
+    [emergency_contac_phone, setemergency_contac_phone],
+    [filevalidation, setfilevalidation],
+    [promo, setpromo]
     [emergency_contac_phone, setemergency_contac_phone]
+    [promovalidation, setpromovalidation]
   ]
 
   const expresiones = {
@@ -92,9 +112,15 @@ const PreinscriptionForm = (props) => {
 
   const storeInscription = async (e) => {
     e.preventDefault()
+    //console.log(e)
+    console.log('archivos promo',filespromo)
+    var formularioValido = true
+    //console.log(arraycampos)
+    // eslint-disable-next-line array-callback-return
     console.log(e)
     var formularioValido = true
     console.log(arraycampos)
+
     arraycampos.map((campo) => {
       let estado = campo[0]
       let cambiarEstado = campo[1]
@@ -108,6 +134,7 @@ const PreinscriptionForm = (props) => {
         cambiarEstado({ ...estado, valido: 'false' });
       }
     })
+    console.log(files)
     console.log(formularioValido)
     if (formularioValido
     ) {
@@ -128,19 +155,50 @@ const PreinscriptionForm = (props) => {
 
   const submitInscription = async () => {
     let formatDate = Moment(birth.campo).format('YYYY-MM-DD')
+    const formdata = new FormData();
+    // eslint-disable-next-line array-callback-return
 
-    await axios.post(endpoint, {
-      name: name.campo, race_categorie_id: props.categorie.id, surname: surname.campo, gender: gender.campo, birth: formatDate,
-      dni: dni.campo, email: email.campo, country: country.campo, province: province.campo, city: city.campo, address: address.campo, phone: phone.campo, social_work: social_work.campo, shirt_size: shirt_size.campo, emergency_contac_name: emergency_contac_name.campo, emergency_contac_phone: emergency_contac_phone.campo,
-      emergency_contac_bond: emergency_contac_bond.campo
-    })
+    // formdata = {...formdata,
+    //   name: name.campo, race_categorie_id: props.categorie.id, surname: surname.campo, gender: gender.campo, birth: formatDate,
+    //   dni: dni.campo, email: email.campo, country: country.campo, province: province.campo, city: city.campo, address: address.campo, phone: phone.campo, social_work: social_work.campo, shirt_size: shirt_size.campo, emergency_contac_name: emergency_contac_name.campo, emergency_contac_phone: emergency_contac_phone.campo,
+    //   emergency_contac_bond: emergency_contac_bond.campo      
+    // };
+    for (let i = 0; i < files.length; i++) {
+      // console.log('imagen' + i, files[i] )
+      formdata.append('files[]', files[i]);
+    }
+    
+    for (let i = 0; i < filespromo.length; i++) {
+      console.log('imagen' + i, filespromo[i] )
+      formdata.append('files[]', filespromo[i]);
+    }
+    console.log('categorie', props.categorie.id)
+    formdata.append('name', name.campo);
+    formdata.append('race_categorie_id', props.categorie.id);
+    formdata.append('surname', surname.campo);
+    formdata.append('gender', gender.campo);
+    formdata.append('birth', formatDate);
+    formdata.append('dni', dni.campo);
+    formdata.append('email', email.campo);
+    formdata.append('country', country.campo);
+    formdata.append('province', province.campo);
+    formdata.append('city', city.campo);
+    formdata.append('address', address.campo);
+    formdata.append('phone', phone.campo);
+    formdata.append('social_work', social_work.campo);
+    formdata.append('shirt_size', shirt_size.campo);
+    formdata.append('emergency_contac_name', emergency_contac_name.campo);
+    formdata.append('emergency_contac_bond', emergency_contac_bond.campo);
+    formdata.append('emergency_contac_phone', emergency_contac_phone.campo);
+    formdata.append('promo', promo.campo);
+
+    console.log('datos', formdata);
+    await axios.post(endpoint, formdata)
       .then(function (response) {
-        console.log('success store', response.config.data);
+        console.log('success store', response);
         setopenInscription(false)
         setopensucces(true)
-        //   alert('Registro Exitoso, por favor revisa tu buzon de mensajes')
-        //   window.location.reload(false);
-
+        //window.location.reload(false);
       })
       .catch(function (error) {
         setopenInscription(false)
@@ -176,9 +234,9 @@ const PreinscriptionForm = (props) => {
     } else {
       setgender({ ...gender, valido: 'true' })
       console.log('valido', gender)
-
     }
   }
+  
   const validarsize = () => {
     if (shirt_size.campo === '') {
       setshirt_size({ ...shirt_size, valido: 'false' })
@@ -195,7 +253,7 @@ const PreinscriptionForm = (props) => {
   const colorstylesSizes = {
     control: (styles) => ({
       ...styles, borderColor: shirt_size.valido === 'false' ? 'red ' : 'gray-darker',
-      boxShadow: shirt_size.valido === 'false' ? '0px 1px 0px 0px red' : '0px 0px 0px 0px rgb(0 170 225)',
+      boxShadow: shirt_size.valido === 'false' ? '0px 0.0 1em 0px 0px red' : '0px 0px 0px 0px rgb(0 170 225)',
       borderWidth: '0',
       borderBottomWidth: '2px',
       backgroundColor: 'transparent',
@@ -217,12 +275,70 @@ const PreinscriptionForm = (props) => {
     setChecked(e.target.checked);
   }
 
+  const onChangeFile = (e) => {
+    console.log(e)
+    setfilevalidation({ valido: true })
+    if (e.length === 0) {
+      setfilevalidation({
+        ...filevalidation,
+        campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.',
+        valido: 'false'
+      })
+      console.log('invalido', e)
+    }
+    else {
+      // eslint-disable-next-line array-callback-return
+      e.map((file) => {
+        if ((file.type.indexOf('image') !== -1) || (file.type.indexOf('application/pdf') !== -1)) {
+          console.log('tipo imagen', file.type, file.type.indexOf('image'))
+        }
+        else {
+          setfilevalidation({ ...filevalidation, campo: 'Formato de archivo invalido, formatos admitidos: png, jpg, pdf', valido: 'false' })
+        }
+        if (file.size > 2088960) {
+          setfilevalidation({ ...filevalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
+          console.log('invalido', file.size)
+        }
+      })
+    }
+    setFiles(e);
+
+  }
+  const onChangeFilePromo = (e) => {
+    console.log('evento promo', e)
+    setpromovalidation({ valido: true })
+    if (e.length === 0) {
+      setpromovalidation({
+        ...promovalidation,
+        campo: 'Debes enviar el certificado de alumno regular o legajo para poder hacer el descuento.',
+        valido: 'false'
+      })
+      console.log('invalido', e)
+    }
+    else {
+      // eslint-disable-next-line array-callback-return
+      e.map((file) => {
+        if ((file.type.indexOf('image') !== -1) || (file.type.indexOf('application/pdf') !== -1)) {
+          console.log('tipo imagen', file.type, file.type.indexOf('image'))
+        }
+        else {
+          setpromovalidation({ ...promovalidation, campo: 'Formato de archivo invalido, formatos admitidos: png, jpg, pdf', valido: 'false' })
+        }
+        if (file.size > 2088960) {
+          setpromovalidation({ ...promovalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
+          console.log('invalido', file.size)
+        }
+      })
+    }
+    setfilespromo(e);   
+  }
+
   return (
     <AppLayout>
       <div className='flex flex-col mx-3 sm:mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
         <div className='w-full lg:max-w-7xl p-6 m-auto bg-neutral-100 rounded-md shadow-md'>
           <div className='grid sm:grid-cols-2 justify-center ' >
-            <img className='flex self-center justify-self-end sm:mr-10 pb-3' alt='Unco Activa logo' src='/logos/UNCO_Activa.svg'></img>
+            <img alt='logo unco activa' className='flex self-center justify-self-end sm:mr-10 pb-3' src='/logos/UNCO_Activa.svg'></img>
             <div className='flex justify-center sm:w-1/3 sm:ml-10'>
               <CategoriePaper boxShadow='none' color={props.categorie.color} name={props.categorie.name}> </CategoriePaper>
             </div>
@@ -289,8 +405,7 @@ const PreinscriptionForm = (props) => {
                 locale={'es'}
                 autoComplete='off'
               />
-              <p className={birth.valido === 'false' ? 'text-red-500 block' : 'hidden'}>Ingrese una fecha valida, debe ser mayor de 18 años para poder inscribirse </p>
-
+              <p className={birth.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Ingrese una fecha valida, debe ser mayor de 18 años para poder inscribirse </p>
             </div>
             <InputColForm
               regularExpression={expresiones.dni}
@@ -301,8 +416,7 @@ const PreinscriptionForm = (props) => {
               onChange={setdni}
               error='Ingrese un dni valido, con exactamente 8 digitos'
             />
-
-            <div className='col-span-2 mb-7 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
+            <div className='col-span-2 mb-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
               <Select
                 // className='text-gray-darker col-span-2  md:col-span-1  dark:text-gray-darker'
                 placeholder='Genero'
@@ -314,8 +428,7 @@ const PreinscriptionForm = (props) => {
                 options={genders}
                 id='gender'
               />
-              <p className={gender.valido === 'false' ? 'text-red-500 block' : 'hidden'}>Debes ingresar un Genero </p>
-
+              <p className={gender.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Debes ingresar un Genero </p>
             </div>
             <InputColForm
               regularExpression={expresiones.name}
@@ -382,8 +495,7 @@ const PreinscriptionForm = (props) => {
             // regularExpression={expresiones.name}
             // error='Inngresa una obra social'
             />
-
-            <div className='col-span-2 mb-7 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
+            <div className='col-span-2 mb-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
               <Select
                 className='text-gray-darker col-span-2  md:col-span-1  dark:text-gray-darker'
                 Value={shirt_size.campo}
@@ -396,11 +508,10 @@ const PreinscriptionForm = (props) => {
                 id='shirt_size'
                 placeholder='Talle de remera'
               />
-              <p className={shirt_size.valido === 'false' ? 'text-red-500 block' : 'hidden'}>Debes ingresar un talle </p>
-
+              <p className={shirt_size.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Debes ingresar un talle </p>
             </div>
 
-            <div className='relative col-span-2 z-0 mb-6 mt-2 w-full group'>
+            <div className='relative col-span-2 z-0 mb-2 mt-2 w-full group'>
               <span className='text-xl font-semibold dark:text-black'>Contacto en caso de emergencias</span>
             </div>
 
@@ -411,8 +522,7 @@ const PreinscriptionForm = (props) => {
               value={emergency_contac_name}
               onChange={setemergency_contac_name}
               regularExpression={expresiones.name}
-              error='Inngresa un contacto de emergencia'
-
+              error='Ingrese un nombre valido, mayor a 3 caracteres con solo letras'
             />
             <InputColForm
               type='text'
@@ -432,16 +542,103 @@ const PreinscriptionForm = (props) => {
               regularExpression={expresiones.phone}
               error='Inngresa un telefono de contacto de emergencia'
             />
-            <div className='relative col-span-2 z-0 mb-6 mt-2 w-full group'>
+            <div className="relative col-span-2 justify-items-center self-center z-0 mx-20 mb-2">
+              <FileUpload
+                multiFile={true}
+                maxUploadFiles={3}
+                accept='image/*, application/pdf'
+                sx={{
+                  '& .MuiOutlinedInput-root.Mui-disabled': { '& > fieldset': { border: '1px solid red' } },
+                  '& .MuiOutlinedInput-root:focus': {
+                    '& > fieldset': {
+                      borderColor: red[500]
+                    }
+                  },
+                  '&:focus-within': {
+                    boxShadow: filevalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 2px rgb(0 170 225)'
+                  },
+                  '&:hover': {
+                    boxShadow: filevalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 2px rgb(0 170 225)'
+                  },
+                  '&:focus': {
+                    boxShadow: filevalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 2px rgb(0 170 225)'
+                  },
+                  boxShadow: filevalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 0px rgb(0 170 225)'
+                }}
+                title='Sube los comprobantes de pago aqui, en caso de ser miembro de la comunidad universitaria
+              adjuntar los certificados correspondiente. Solo imagenes o pdf con tamaño maximo de 2MB'
+                buttonText='Subir comprobantes'
+                value={files}
+                onChange={(e) => onChangeFile(e)} />
+              <p className={filevalidation.valido === 'false' ? 'flex text-red-500 justify-center mt-1'
+                : 'invisible'}>{filevalidation.campo} </p>
+
+            </div>
+            <div className="relative col-span-2 justify-items-center self-center z-0 mt-1 mb-1">
+              <FormControl>
+                <FormLabel id="demo-controlled-radio-buttons-group">Haces parte de la Comunidad Universitaria?</FormLabel>
+                <RadioGroup
+                  aria-labelledby="demo-controlled-radio-buttons-group"
+                  name="controlled-radio-buttons-group"
+                  value={promo.campo}
+                  onChange={handleRadioChange}
+                >
+                  <FormControlLabel value="si" control={<Radio
+                    checked={promo.campo === 'si'}
+                    onChange={handleRadioChange}
+                  />} label="Si" />
+                  <FormControlLabel value="no" control={<Radio
+                    checked={promo.campo === 'no'}
+                    onChange={handleRadioChange} />} label="No" />
+                </RadioGroup>
+              </FormControl>
+              <p className={promo.valido === 'false' ? 'flex text-red-500 justify-start '
+                : 'invisible'}>{'Por favor selecciona una opción.'} </p>
+            </div>
+
+            <div className={promo.campo !== 'si' ? 'hidden'
+              : 'relative col-span-2 self-center z-0 -mt-5 mx-20 mb-1'}>
+              <FileUpload
+                multiFile={true}
+                maxUploadFiles={3}
+                accept='image/*, application/pdf'
+                sx={{
+                  '& .MuiOutlinedInput-root.Mui-disabled': { '& > fieldset': { border: '1px solid red' } },
+                  '& .MuiOutlinedInput-root:focus': {
+                    '& > fieldset': {
+                      borderColor: red[500]
+                    }
+                  },
+                  '&:focus-within': {
+                    boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 2px rgb(0 170 225)'
+                  },
+                  '&:hover': {
+                    boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 2px rgb(0 170 225)'
+                  },
+                  '&:focus': {
+                    boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 2px rgb(0 170 225)'
+                  },
+                  boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 0px rgb(0 170 225)'
+                }}
+                title='Sube los comprobantes de pago aqui, en caso de ser miembro de la comunidad universitaria
+              adjuntar los certificados correspondiente. Solo imagenes o pdf con tamaño maximo de 2MB'
+                buttonText='Subir comprobantes'
+                value={filespromo}
+                onChange={(e) => onChangeFilePromo(e)} />
+              <p className={promovalidation.valido === 'false' ? 'flex text-red-500 justify-center mt-1'
+                : 'invisible'}>{promovalidation.campo} </p>
+            </div>
+
+            <div className='relative col-span-2 z-0 mb-1 -mt-1 -ml-3 w-full group'>
               <Checkbox
                 checked={checked}
-                onChange={onChangeTerminos}
+                onChange={(e) => onChangeTerminos(e)}
                 inputProps={{ 'aria-label': 'uncontrolled' }}
                 id='check'
               />
               <label htmlFor={'check'} className='dark:text-gray-darker -mt-1 text-gray-darker'>{'Acepto los terminos y condiciones del '}
                 <button type='button' onClick={handleClickOpenRules} className='text-blue-cyan'>Reglamento de la carrera</button> </label>
-              <p className={checked === false ? 'text-red-500 block' : 'hidden'}>Debes aceptar los terminos y condiciones </p>
+              <p className={checked === 'false' ? 'text-red-500 block' : 'invisible'}>Debes aceptar los terminos y condiciones </p>
             </div>
 
             <div className='relative col-span-2  flex-none w-24 ...'>
@@ -458,8 +655,10 @@ const PreinscriptionForm = (props) => {
             titlecolor=''
             title='REGLAS GENERALES PARA LOS PARTICIPANTES'
           />
-
+          
           <ModalInscription
+            loading={opensucces}
+
             categorie={props.categorie}
             setopenInscription={setopenInscription}
             openInscription={openInscription}

@@ -19,6 +19,8 @@ return new class extends Migration
             // $table->unsignedBigInteger('race_categories_id')->nullable();                  
             $table->string('name');
             $table->string('surname');
+            $table->string('files')->nullable();
+            $table->string('promo')->nullable();
             $table->bigInteger('dni')->nullable();
             $table->date('birth')->nullable();
             $table->string('gender')->nullable();

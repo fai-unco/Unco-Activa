@@ -1,8 +1,10 @@
 @component('mail::message')
-# Hola {{ $datos['name'] }}! Para continuar con la inscripcion por favor sigue con las instruciones para pagar la inscripcion.
+# Hola {{ $datos['name'] }}! muchas gracias por inscribirte en la carrera por los 50 años de la UNCO.
     ---
 
-### El participante deberá realizar el pago, únicamente por transferencia a la siguiente cuenta bancaria:
+### Por favor espera mientras revisamos la información de tu inscripcion, te notificaremos una vez este corroborada la informacion de los comprobantes.
+
+## Si aun no hiciste la trasnferencia, los de facturacion datos son:
 
 >### Banco Credicoop Cooperativo Limitado 
 >### Adherente: Universidad Nacional del Comahue.

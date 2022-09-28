@@ -20,7 +20,7 @@ const CategoriePaper = (props) => {
         cursor: 'pointer',
         color: props.color,
         boxShadow: props.boxShadow,
-        background : props.backgroundColor ? props.backgroundColor : 'transparent'     
+        background : props.backgroundColor ? props.backgroundColor : 'transparent'  
     }));
     return (
         <Categorie onClick={handleClick} >{props.name}</Categorie>
