@@ -32,8 +32,8 @@ function App() {
     <div className="antialiased">
       <Routes>
         <Route path="/" element={<Home categories={categories} setcategories={setcategories} />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} /> */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:token" element={<PasswordReset />} />
         InscriptionFormModalRules

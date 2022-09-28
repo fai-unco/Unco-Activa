@@ -8,7 +8,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import { green } from '@mui/material/colors';
-import { useNavigate } from 'react-router-dom';
 
 const ModalInscription = (props) => {
   const handleCloseInscription = () => {
@@ -95,8 +94,6 @@ const ModalInscription = (props) => {
 
           <DialogContentText sx={{ color: 'text.primary' }} id='alert-dialog-description'>
             <br />
-
-
                         El participante deberá realizar el pago, únicamente por transferencia a la siguiente cuenta bancaria el valor de:<br />
                         Banco Credicoop Cooperativo Limitado <br />
                         Adherente: Universidad Nacional del Comahue.<br />
