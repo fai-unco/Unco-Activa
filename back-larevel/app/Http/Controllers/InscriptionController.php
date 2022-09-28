@@ -7,6 +7,8 @@ use App\Models\Inscription;
 use App\Models\RaceCategorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 use function PHPUnit\Framework\isNull;
@@ -48,8 +50,30 @@ class InscriptionController extends Controller
         if (count($userEnrolled) === 0) {
             $inscription = new Inscription();
             // $inscription->user_id = Auth::user()->id;
-            $inscription->name = $request->name;
+            $users = DB::table('inscriptions')->count() + 1;
+            $files = $request->file();
+            $path =  'files';
+            // $resultados = print_r($files, true);
+            // abort(404, $resultados);
+            $filesPath = public_path($path);
+            if (!file_exists($filesPath)) {
+                mkdir($filesPath, 0777, true);
+            }
+            $inscriptionFiles = public_path('files/' . $users . "/");
+            if (!file_exists($inscriptionFiles)) {
+                mkdir($inscriptionFiles, 0777, true);
+            }
+            $destinationPath = 'files/' . $users . "/";
+            foreach($request->file('files') as $file)
+            {
+                $name = time().'.'.$file->getClientOriginalName();
+                $file->move(public_path().'/files/'.$users.'/', $name);  
+                $data[] = $name;  
+            }
             $inscription->race_categorie_id = $request->race_categorie_id;
+            $inscription->files = $destinationPath;
+            $inscription->name = $request->name;
+            $inscription->promo = $request->promo;
             $inscription->surname = $request->surname;
             $inscription->dni = $request->dni;
             $inscription->birth = date($request->birth);
@@ -72,7 +96,8 @@ class InscriptionController extends Controller
             $arreglocontacto = [
                 "name" => $request->name . " " . $request->surname,
                 "categoriename" => $categorie->name,
-                "price" => $categorie->price
+                "price" => $categorie->price,
+                "promo" => $categorie->promo
             ];
             $correo = new PreInscriptionMail($arreglocontacto);
             if (!Mail::to($request->email)->send($correo)) abort(500, 'Error al enviar el mail.');
