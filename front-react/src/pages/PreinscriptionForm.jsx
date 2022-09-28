@@ -12,16 +12,14 @@ import Moment from 'moment';
 import AlertSuccess from 'components/alerts/AlertSuccess'
 import CategoriePaper from 'components/elements/CategoriePaper';
 import ModalRules from 'components/inscriptionform/ModalRules';
-
 import ModalInscription from 'components/inscriptionform/ModalInscription';
 import FileUpload from 'react-material-file-upload';
 import { red } from '@mui/material/colors';
 import { FormControl, FormControlLabel, FormLabel, Radio } from '@mui/material';
 import { RadioGroup } from '@headlessui/react';
-
 registerLocale('es', es);
 
-const endpoint = 'http://127.0.0.1:8000/api/inscription'
+const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription''
 const sizes = [
   { value: 'S', label: 'S' },
   { value: 'M', label: 'M' },
@@ -64,9 +62,9 @@ const PreinscriptionForm = (props) => {
   const [openrules, setopenrules] = useState(false);
   const [openInscription, setopenInscription] = useState(false)
   const [errorMessage, seterrorMessage] = useState('');
+
   const [files, setFiles] = useState([]);
   const [filevalidation, setfilevalidation] = useState({ campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.', valido: null });
-  // const [promocionalPrice,setpromocionalPrice] = useState({ campo: 'No', valido: null })
   const [promo, setpromo] = React.useState({ campo: '', valido: null });
   const [filespromo, setfilespromo] = useState([]);
   const [promovalidation, setpromovalidation] = useState({ campo: 'Debes enviar el certificado de alumno regular o legajo para poder hacer el descuento.', valido: null });
@@ -77,6 +75,7 @@ const PreinscriptionForm = (props) => {
       setfilespromo([]);
     }
   };
+  const [alertnavigate, setalertnavigate] = useState(false);
 
   const arraycampos = [
     [checked, setChecked],
@@ -97,6 +96,8 @@ const PreinscriptionForm = (props) => {
     [emergency_contac_phone, setemergency_contac_phone],
     [filevalidation, setfilevalidation],
     [promo, setpromo]
+    [emergency_contac_phone, setemergency_contac_phone]
+    [promovalidation, setpromovalidation]
   ]
 
   const expresiones = {
@@ -116,6 +117,10 @@ const PreinscriptionForm = (props) => {
     var formularioValido = true
     //console.log(arraycampos)
     // eslint-disable-next-line array-callback-return
+    console.log(e)
+    var formularioValido = true
+    console.log(arraycampos)
+
     arraycampos.map((campo) => {
       let estado = campo[0]
       let cambiarEstado = campo[1]
@@ -194,10 +199,10 @@ const PreinscriptionForm = (props) => {
         setopenInscription(false)
         setopensucces(true)
         //window.location.reload(false);
-
       })
       .catch(function (error) {
         setopenInscription(false)
+        setalertnavigate('/')
         seterrorMessage(error.response.data.message)
         setopenfail(true)
         console.error('error store', error.response.data.message);
@@ -229,9 +234,9 @@ const PreinscriptionForm = (props) => {
     } else {
       setgender({ ...gender, valido: 'true' })
       console.log('valido', gender)
-
     }
   }
+  
   const validarsize = () => {
     if (shirt_size.campo === '') {
       setshirt_size({ ...shirt_size, valido: 'false' })
@@ -244,10 +249,6 @@ const PreinscriptionForm = (props) => {
   const handlechangeGender = (e) => {
     gender.campo = e.value
   }
-
-  // const handleRadiochange = (e) => {    
-  //   setpromocionalPrice({ ...promocionalPrice, campo: e.target.value , valido: 'true'});
-  // }
 
   const colorstylesSizes = {
     control: (styles) => ({
@@ -331,6 +332,7 @@ const PreinscriptionForm = (props) => {
     }
     setfilespromo(e);   
   }
+
   return (
     <AppLayout>
       <div className='flex flex-col mx-3 sm:mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
@@ -356,7 +358,7 @@ const PreinscriptionForm = (props) => {
             bg=' rgb(240 240 240)'
             titlecolor='warning.main'
             title='Advertencia!'
-
+            navigate={alertnavigate}
             description={errorMessage}
           />
 
@@ -404,7 +406,6 @@ const PreinscriptionForm = (props) => {
                 autoComplete='off'
               />
               <p className={birth.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Ingrese una fecha valida, debe ser mayor de 18 años para poder inscribirse </p>
-
             </div>
             <InputColForm
               regularExpression={expresiones.dni}
@@ -415,7 +416,6 @@ const PreinscriptionForm = (props) => {
               onChange={setdni}
               error='Ingrese un dni valido, con exactamente 8 digitos'
             />
-
             <div className='col-span-2 mb-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
               <Select
                 // className='text-gray-darker col-span-2  md:col-span-1  dark:text-gray-darker'
@@ -429,7 +429,6 @@ const PreinscriptionForm = (props) => {
                 id='gender'
               />
               <p className={gender.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Debes ingresar un Genero </p>
-
             </div>
             <InputColForm
               regularExpression={expresiones.name}
@@ -496,7 +495,6 @@ const PreinscriptionForm = (props) => {
             // regularExpression={expresiones.name}
             // error='Inngresa una obra social'
             />
-
             <div className='col-span-2 mb-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
               <Select
                 className='text-gray-darker col-span-2  md:col-span-1  dark:text-gray-darker'
@@ -511,7 +509,6 @@ const PreinscriptionForm = (props) => {
                 placeholder='Talle de remera'
               />
               <p className={shirt_size.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Debes ingresar un talle </p>
-
             </div>
 
             <div className='relative col-span-2 z-0 mb-2 mt-2 w-full group'>
@@ -526,7 +523,6 @@ const PreinscriptionForm = (props) => {
               onChange={setemergency_contac_name}
               regularExpression={expresiones.name}
               error='Ingrese un nombre valido, mayor a 3 caracteres con solo letras'
-
             />
             <InputColForm
               type='text'
@@ -662,6 +658,7 @@ const PreinscriptionForm = (props) => {
           
           <ModalInscription
             loading={opensucces}
+
             categorie={props.categorie}
             setopenInscription={setopenInscription}
             openInscription={openInscription}

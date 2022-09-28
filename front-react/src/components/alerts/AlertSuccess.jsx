@@ -8,14 +8,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { useNavigate } from 'react-router-dom';
 
 const AlertSuccess = (props) => {
-  const navigate = useNavigate()
-  const handleClose = () => {
-    props.onClose(false);        
-    // if(props.navigate){
-    //     navigate(props.navigate)
-    // }
-  };
-  var sx = { sx: { bgcolor : 'gray-darker' } }
+    const navigate = useNavigate()
+    const handleClose = () => {
+        props.onClose(false);        
+         if(props.navigate){
+             navigate(props.navigate)
+         }
+    };
+    var sx = { sx: { bgcolor : 'gray-darker' } }
 
   return (
     <div>
