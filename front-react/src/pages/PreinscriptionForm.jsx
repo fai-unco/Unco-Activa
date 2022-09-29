@@ -568,8 +568,7 @@ const PreinscriptionForm = (props) => {
                   },
                   boxShadow: filevalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 0px rgb(0 170 225)'
                 }}
-                title='Sube los comprobantes de pago aqui, en caso de ser miembro de la comunidad universitaria
-              adjuntar los certificados correspondiente. Solo imagenes o pdf con tamaño maximo de 2MB'
+                title='Sube el comprobante de pago aqui. Solo imagenes o pdf con tamaño maximo de 2MB'
                 buttonText='Subir comprobantes'
                 value={files}
                 onChange={(e) => onChangeFile(e)} />
@@ -623,8 +622,8 @@ const PreinscriptionForm = (props) => {
                   },
                   boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 0px rgb(0 170 225)'
                 }}
-                title='Sube los comprobantes de pago aqui, en caso de ser miembro de la comunidad universitaria
-              adjuntar los certificados correspondiente. Solo imagenes o pdf con tamaño maximo de 2MB'
+                title='En caso de ser miembro de la comunidad universitaria
+              adjunta el certificado correspondiente. Solo imagenes o pdf con tamaño maximo de 2MB'
                 buttonText='Subir comprobantes'
                 value={filespromo}
                 onChange={(e) => onChangeFilePromo(e)} />
