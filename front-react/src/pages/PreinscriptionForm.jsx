@@ -19,7 +19,7 @@ import { FormControl, FormControlLabel, FormLabel, Radio } from '@mui/material';
 import { RadioGroup } from '@headlessui/react';
 registerLocale('es', es);
 
-const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription''
+const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription'
 const sizes = [
   { value: 'S', label: 'S' },
   { value: 'M', label: 'M' },
@@ -95,8 +95,8 @@ const PreinscriptionForm = (props) => {
     [emergency_contac_bond, setemergency_contac_bond],
     [emergency_contac_phone, setemergency_contac_phone],
     [filevalidation, setfilevalidation],
-    [promo, setpromo]
-    [emergency_contac_phone, setemergency_contac_phone]
+    [promo, setpromo],
+    [emergency_contac_phone, setemergency_contac_phone],
     [promovalidation, setpromovalidation]
   ]
 
@@ -113,14 +113,13 @@ const PreinscriptionForm = (props) => {
   const storeInscription = async (e) => {
     e.preventDefault()
     //console.log(e)
-    console.log('archivos promo',filespromo)
-    var formularioValido = true
+    console.log('archivos promo',filespromo)   
     //console.log(arraycampos)
-    // eslint-disable-next-line array-callback-return
+    
     console.log(e)
     var formularioValido = true
     console.log(arraycampos)
-
+    // eslint-disable-next-line array-callback-return
     arraycampos.map((campo) => {
       let estado = campo[0]
       let cambiarEstado = campo[1]
