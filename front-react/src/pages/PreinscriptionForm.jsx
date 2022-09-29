@@ -299,7 +299,7 @@ const PreinscriptionForm = (props) => {
         // console.log('invalido', array[0].size)
       }
       setFiles(array);
-    }  
+    }
   }
   const onChangeFilePromo = (e) => {
     // console.log('evento promo', e[0])
@@ -325,7 +325,7 @@ const PreinscriptionForm = (props) => {
       if (array[0].size > 2088960) {
         setpromovalidation({ ...promovalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
         // console.log('invalido', array[0].size)
-      }          
+      }
       setfilespromo(array);
     }
   }
@@ -623,21 +623,42 @@ const PreinscriptionForm = (props) => {
                 onChange={(e) => onChangeFilePromo(e)} />
               <p className={promovalidation.valido === 'false' ? 'flex text-red-500 justify-center mt-1'
                 : 'invisible'}>{promovalidation.campo} </p>
-            </div>
+            </div>           
 
-            <div className='relative col-span-2 z-0 mb-1 -mt-1 -ml-3 w-full group'>
+            <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
+              <p>
+                <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:<br />
+                Banco Credicoop Cooperativo Limitado <br />
+                Adherente: Universidad Nacional del Comahue.<br />
+                Operador: 549505 Roberto Antonio Sepulveda.<br />
+                Nro Cuenta – Cuenta Corriente: $191-093-024908/9<br />
+                CBU 19100933-55009302490896 <br /><br />
+                <strong>Categoria: </strong><strong style={{color: props.categorie.color}}> {props.categorie.name}</strong><br />
+
+                <strong>Precio:</strong> ${props.categorie.price}<br /><br />
+                <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
+                Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar el cerfiticado correspondienteo para recibir dicho beneficio.<br />
+
+                <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br />
+
+                De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
+
+              </p>
+            </div>
+            <div className='relative col-span-2 justify-self-center z-0 -mt-1 -ml-3 w-full group'>
               <Checkbox
+                sx={{marginLeft: -1}}
                 checked={checked}
                 onChange={(e) => onChangeTerminos(e)}
                 inputProps={{ 'aria-label': 'uncontrolled' }}
                 id='check'
               />
               <label htmlFor={'check'} className='dark:text-gray-darker -mt-1 text-gray-darker'>{'Acepto los terminos y condiciones del '}
-                <button type='button' onClick={handleClickOpenRules} className='text-blue-cyan'>Reglamento de la carrera</button> </label>
-              <p className={checked === 'false' ? 'text-red-500 block' : 'invisible'}>Debes aceptar los terminos y condiciones </p>
+                <button type='button' onClick={handleClickOpenRules} className='text-blue-cyan '>Reglamento de la carrera</button> </label>
+              <p className={checked === false ? 'text-red-500 block' : 'invisible'}>Debes aceptar los terminos y condiciones </p>
             </div>
 
-            <div className='relative col-span-2  flex-none w-24 ...'>
+            <div className='relative col-span-2 mt-3 md:-mt-1 mb-3 md:mb-0 flex-none w-24 ...'>
               <ButtonInput type='submit' text='Enviar' divclass='lg:w-28 md:w-28 sm:w-auto flex-none' />
             </div>
             <div className='relative col-span-2 md:col-span-1  ...'>
@@ -647,6 +668,7 @@ const PreinscriptionForm = (props) => {
             </div>
           </form>
           <ModalRules open={openrules} onClose={setopenrules}
+            categorie={props.categorie}
             bg=' rgb(240 240 240)'
             titlecolor=''
             title='REGLAS GENERALES PARA LOS PARTICIPANTES'
