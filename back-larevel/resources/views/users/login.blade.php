@@ -8,9 +8,8 @@
             </header>
 
             <form method="POST" action="/users/authenticate">
-                @csrf
-                
-
+                {{-- @csrf --}}
+                {{ csrf_field() }}
                 <div class="grid">
                     <label for="email" class="inline-block text-lg"
                         >Correo Electronico</label
