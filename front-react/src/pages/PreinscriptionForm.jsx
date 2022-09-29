@@ -160,12 +160,12 @@ const PreinscriptionForm = (props) => {
     // };
     for (let i = 0; i < files.length; i++) {
       // console.log('imagen' + i, files[i] )
-      formdata.append('files[]', files[i]);
+      formdata.append('files["payment"]', files[i]);
     }
     
     for (let i = 0; i < filespromo.length; i++) {
       console.log('imagen' + i, filespromo[i] )
-      formdata.append('files[]', filespromo[i]);
+      formdata.append('files["promo"]', filespromo[i]);
     }
     console.log('categorie', props.categorie.id)
     formdata.append('name', name.campo);
@@ -275,7 +275,10 @@ const PreinscriptionForm = (props) => {
   }
 
   const onChangeFile = (e) => {
-    console.log(e)
+
+    console.log(e)    
+    let array = []
+    array[0] = e[0];
     setfilevalidation({ valido: true })
     if (e.length === 0) {
       setfilevalidation({
@@ -287,7 +290,7 @@ const PreinscriptionForm = (props) => {
     }
     else {
       // eslint-disable-next-line array-callback-return
-      e.map((file) => {
+      array.map((file) => {
         if ((file.type.indexOf('image') !== -1) || (file.type.indexOf('application/pdf') !== -1)) {
           console.log('tipo imagen', file.type, file.type.indexOf('image'))
         }
@@ -300,11 +303,14 @@ const PreinscriptionForm = (props) => {
         }
       })
     }
-    setFiles(e);
+    
+    setFiles(array);
 
   }
   const onChangeFilePromo = (e) => {
-    console.log('evento promo', e)
+    console.log('evento promo', e[0])
+    let array = []
+    array[0] = e[0];
     setpromovalidation({ valido: true })
     if (e.length === 0) {
       setpromovalidation({
@@ -313,10 +319,10 @@ const PreinscriptionForm = (props) => {
         valido: 'false'
       })
       console.log('invalido', e)
-    }
+    }         
     else {
       // eslint-disable-next-line array-callback-return
-      e.map((file) => {
+      array.map((file) => {
         if ((file.type.indexOf('image') !== -1) || (file.type.indexOf('application/pdf') !== -1)) {
           console.log('tipo imagen', file.type, file.type.indexOf('image'))
         }
@@ -329,7 +335,7 @@ const PreinscriptionForm = (props) => {
         }
       })
     }
-    setfilespromo(e);   
+    setfilespromo(array);   
   }
   return (
     <AppLayout>
@@ -548,7 +554,7 @@ const PreinscriptionForm = (props) => {
             />
             <div className="relative col-span-2 justify-items-center self-center z-0 mx-20 mb-2">
               <FileUpload
-                multiFile={true}
+                multiFile={false}
                 maxUploadFiles={3}
                 accept='image/*, application/pdf'
                 sx={{
@@ -603,7 +609,7 @@ const PreinscriptionForm = (props) => {
             <div className={promo.campo !== 'si' ? 'hidden'
               : 'relative col-span-2 self-center z-0 -mt-5 mx-20 mb-1'}>
               <FileUpload
-                multiFile={true}
+                multiFile={false}
                 maxUploadFiles={3}
                 accept='image/*, application/pdf'
                 sx={{
