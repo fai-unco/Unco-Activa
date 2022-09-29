@@ -162,12 +162,12 @@ const PreinscriptionForm = (props) => {
     // };
     for (let i = 0; i < files.length; i++) {
       // console.log('imagen' + i, files[i] )
-      formdata.append('files["payment"]', files[i]);
+      formdata.append('files[]', files[i]);
     }
 
     for (let i = 0; i < filespromo.length; i++) {
       console.log('imagen' + i, filespromo[i])
-      formdata.append('files["promo"]', filespromo[i]);
+      formdata.append('files[]', filespromo[i]);
     }
     console.log('categorie', props.categorie.id)
     formdata.append('name', name.campo);
@@ -299,8 +299,7 @@ const PreinscriptionForm = (props) => {
         console.log('invalido', array[0].size)
       }
       setFiles(array);
-    }
-
+    }  
   }
   const onChangeFilePromo = (e) => {
     console.log('evento promo', e[0])
@@ -325,9 +324,9 @@ const PreinscriptionForm = (props) => {
       if (array[0].size > 2088960) {
         setpromovalidation({ ...promovalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
         console.log('invalido', array[0].size)
-      }
+      }          
+      setfilespromo(array);
     }
-    setfilespromo(array);
   }
 
   return (
