@@ -3,7 +3,7 @@
     <div class="bg-unco min-h-screen flex flex-col justify-center sm:justify-center items-center sm:pt-0">
         <x-card class="max-w-md px-6 sm:px-6 py-4 shadow-md overflow-hidden rounded-lg">
             <header class="text-center grid justify-center">
-                <img src='/logos/UNCO_activa.svg' alt='logo unco activa' className="py-6 flex justify-center" />
+                <img src='/logos/UNCO_activa.png' alt='logo unco activa' className="py-6 flex justify-center" />
                 <h2 class="text-sm font-bold italic py-5">Iniciar sesion</h2>
             </header>
 
