@@ -96,8 +96,7 @@ const PreinscriptionForm = (props) => {
     [emergency_contac_phone, setemergency_contac_phone],
     [filevalidation, setfilevalidation],
     [promo, setpromo],
-    [emergency_contac_phone, setemergency_contac_phone],
-    [promovalidation, setpromovalidation]
+    [emergency_contac_phone, setemergency_contac_phone]
   ]
 
   const expresiones = {
@@ -398,7 +397,7 @@ const PreinscriptionForm = (props) => {
                 onKeyUp={validaciondate}
                 onBlur={validaciondate}
                 placeholderText='Fecha de nacimiento'
-                maxDate={datebirth}
+                maxDate={props.categorie.name !== '3k' ? datebirth : new Date()}
                 showYearDropdown
                 showMonthDropdown
                 scrollableYearDropdown

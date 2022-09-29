@@ -1,7 +1,5 @@
 import ApplicationLogo from 'components/ApplicationLogo'
-import Dropdown from 'components/Dropdown'
 import ResponsiveNavLink, { ResponsiveNavButton } from 'components/ResponsiveNavLink'
-import { DropdownButton } from 'components/DropdownLink'
 import { useAuth } from 'hooks/auth'
 import { useState } from 'react'
 import CustomNavLink from 'components/NavLink';
