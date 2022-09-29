@@ -1,5 +1,5 @@
 <x-layout>
-    <div class='min-h-screen py-7 px-2 sm:px-10 md:px-10 xl:px-32'>
+    <div class='bg-pre min-h-screen py-7 px-2 sm:px-10 md:px-10 xl:px-32 bg-gray-darker'>
       <div class='justify-center bg-gray-light rounded-lg pb-2  w-full'>
         <h1 class='flex justify-center text-[1.5rem] sm:text-[2rem] font-Hurme-Geometric-BO text-blue-dark py-5  w-full'>PRE-INSCRIPTOS</h1>
         <div class='overflow-x-auto pb-5'>
