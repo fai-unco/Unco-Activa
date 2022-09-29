@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Login from 'pages/login';
-import Register from 'pages/register';
 import Home from 'pages/home';
 import ForgotPassword from 'pages/forgot-password';
 import PasswordReset from 'pages/password-reset';
@@ -12,7 +10,7 @@ import axios from 'axios'
 
 function App() {
   const [categories, setcategories] = useState([])
-  const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api'
+  const endpoint = 'http://127.0.0.1:8000/api'
   useEffect(() => {
     getAllCategories()
   }, [])
