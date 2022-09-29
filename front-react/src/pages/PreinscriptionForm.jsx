@@ -398,7 +398,7 @@ const PreinscriptionForm = (props) => {
                 onKeyUp={validaciondate}
                 onBlur={validaciondate}
                 placeholderText='Fecha de nacimiento'
-                maxDate={datebirth}
+                maxDate={props.categorie.name !== '3k' ? datebirth : new Date()}
                 showYearDropdown
                 showMonthDropdown
                 scrollableYearDropdown
