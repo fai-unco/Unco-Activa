@@ -105,6 +105,7 @@ const Hero = (categories, setcategories) => {
                                 justifyContent: 'center',
                                 '& > :not(style)': {
                                     m: 2,
+                                    mb: 4,
                                     maxWidth: 250,
                                     width: 2 / 2,
                                     height: 150

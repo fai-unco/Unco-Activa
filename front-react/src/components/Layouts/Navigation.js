@@ -1,7 +1,5 @@
 import ApplicationLogo from 'components/ApplicationLogo'
-import Dropdown from 'components/Dropdown'
 import ResponsiveNavLink, { ResponsiveNavButton } from 'components/ResponsiveNavLink'
-import { DropdownButton } from 'components/DropdownLink'
 import { useAuth } from 'hooks/auth'
 import { useState } from 'react'
 import CustomNavLink from 'components/NavLink';
@@ -34,7 +32,7 @@ const Navigation = ({ user }) => {
             </div>
           </div>
           {/* Settings Dropdown */}
-          {user ?
+          {/* {user ?
             <div className="hidden sm:flex sm:items-center sm:ml-6">
               <Dropdown
                 align="right"
@@ -57,9 +55,9 @@ const Navigation = ({ user }) => {
                       </svg>
                     </div>
                   </button>
-                }>
+                }> */}
                 {/* Authentication */}
-                <DropdownButton onClick={logout}>
+                {/* <DropdownButton onClick={logout}>
                   Cerrar Sesion
                 </DropdownButton>
               </Dropdown>
@@ -81,7 +79,7 @@ const Navigation = ({ user }) => {
                 </CustomNavLink>
               </div>
             </>
-          }
+          } */}
           {/* Hamburger */}
           <div className="-mr-2 flex items-center sm:hidden">
             <button
@@ -127,7 +125,7 @@ const Navigation = ({ user }) => {
               >
                 Inicio
               </ResponsiveNavLink>
-              <ResponsiveNavLink
+              {/* <ResponsiveNavLink
                 to="/login"
               >
                 Iniciar Sesion
@@ -136,7 +134,7 @@ const Navigation = ({ user }) => {
                 to="/register"
               >
                 Registrate
-              </ResponsiveNavLink>
+              </ResponsiveNavLink> */}
             </div>
             :
             <>

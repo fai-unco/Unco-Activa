@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Login from 'pages/login';
-import Register from 'pages/register';
 import Home from 'pages/home';
 import ForgotPassword from 'pages/forgot-password';
 import PasswordReset from 'pages/password-reset';
@@ -12,7 +10,7 @@ import axios from 'axios'
 
 function App() {
   const [categories, setcategories] = useState([])
-  const endpoint = 'http://127.0.0.1:8000/api'
+  const endpoint = 'http://127.0.0.1:8000/api/inscription'
   useEffect(() => {
     getAllCategories()
   }, [])
@@ -27,12 +25,13 @@ function App() {
       });
     //console.log(response.data)
   }
+  
   return (
     <div className="antialiased">
       <Routes>
         <Route path="/" element={<Home categories={categories} setcategories={setcategories} />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} /> */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/password-reset/:token" element={<PasswordReset />} />
         InscriptionFormModalRules
