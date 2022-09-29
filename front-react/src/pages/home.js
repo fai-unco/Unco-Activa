@@ -103,7 +103,7 @@ function Home(categories, setcategories) {
             <div className='grid lg:grid-cols-4  items-center justify-center p-5'>
               <img width='100%' className='col-span-4 lg:col-span-2 h-24 md:h-[180px]' alt='logo deporte y gob' src={'/logos/logo-deporte-y-gob.svg'} />
               <img width='50%' alt='logo ijan' className='col-span-2 justify-self-center  lg:mt-0 lg:col-span-1 j w-24 md:w-[120px] lg:ml-5 mt-5 h-24 md:h-[180px]' src={'/logos/logo-ijan.svg'} />
-              <img className='col-span-2 lg:col-span-1  h-18 mt-5 lg:m-0' alt='logo muni' src={'/logos/logo-muni.png'} />
+              <img className='col-span-2 lg:col-span-1  h-18 mt-5 lg:m-0 lg:justify-self-center xl:h-[120px]' alt='logo muni' src={'/logos/logo-muni.png'} />
             </div>
             <div className='grid justify-center pb-5'>
               <h1 class="text-center text-[2rem]  md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
