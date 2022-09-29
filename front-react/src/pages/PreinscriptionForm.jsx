@@ -111,12 +111,12 @@ const PreinscriptionForm = (props) => {
 
   const storeInscription = async (e) => {
     e.preventDefault()
-    //console.log(e)
-    //console.log(arraycampos)
+    // //console.log(e)
+    // //console.log(arraycampos)
 
-    console.log(e)
+    // console.log(e)
     var formularioValido = true
-    console.log(arraycampos)
+    // console.log(arraycampos)
     // eslint-disable-next-line array-callback-return
     arraycampos.map((campo) => {
       let estado = campo[0]
@@ -131,8 +131,8 @@ const PreinscriptionForm = (props) => {
         cambiarEstado({ ...estado, valido: 'false' });
       }
     })
-    console.log(files)
-    console.log(formularioValido)
+    // console.log(files)
+    // console.log(formularioValido)
     if (formularioValido
     ) {
       if (phone.campo === emergency_contac_phone.campo) {
@@ -146,7 +146,7 @@ const PreinscriptionForm = (props) => {
     else {
       seterrorMessage('completa todos los campos porfavor')
       setopenfail(true)
-      console.log('no se envio')
+      // console.log('no se envio')
     }
   }
 
@@ -161,15 +161,15 @@ const PreinscriptionForm = (props) => {
     //   emergency_contac_bond: emergency_contac_bond.campo      
     // };
     for (let i = 0; i < files.length; i++) {
-      // console.log('imagen' + i, files[i] )
+      // // console.log('imagen' + i, files[i] )
       formdata.append('files[]', files[i]);
     }
 
     for (let i = 0; i < filespromo.length; i++) {
-      console.log('imagen' + i, filespromo[i])
+      // console.log('imagen' + i, filespromo[i])
       formdata.append('files[]', filespromo[i]);
     }
-    console.log('categorie', props.categorie.id)
+    // console.log('categorie', props.categorie.id)
     formdata.append('name', name.campo);
     formdata.append('race_categorie_id', props.categorie.id);
     formdata.append('surname', surname.campo);
@@ -189,10 +189,10 @@ const PreinscriptionForm = (props) => {
     formdata.append('emergency_contac_phone', emergency_contac_phone.campo);
     formdata.append('promo', promo.campo);
 
-    console.log('datos', formdata);
+    // console.log('datos', formdata);
     await axios.post(endpoint, formdata)
       .then(function (response) {
-        console.log('success store', response);
+        // console.log('success store', response);
         setopenInscription(false)
         setopensucces(true)
         //window.location.reload(false);
@@ -202,7 +202,7 @@ const PreinscriptionForm = (props) => {
         setalertnavigate('/')
         seterrorMessage(error.response.data.message)
         setopenfail(true)
-        console.error('error store', error.response.data.message);
+        // console.error('error store', error.response.data.message);
       });
   }
 
@@ -217,27 +217,27 @@ const PreinscriptionForm = (props) => {
 
     if (birth.campo === null) {
       setbirth({ ...birth, valido: 'false' });
-      console.log('invalido', birth)
+      // console.log('invalido', birth)
     } else {
       setbirth({ ...birth, valido: 'true' });
-      console.log('valido', birth)
+      // console.log('valido', birth)
     }
   }
   const validargenero = () => {
 
     if (gender.campo === '') {
       setgender({ ...gender, valido: 'false' })
-      console.log('invalido', gender)
+      // console.log('invalido', gender)
     } else {
       setgender({ ...gender, valido: 'true' })
-      console.log('valido', gender)
+      // console.log('valido', gender)
     }
   }
 
   const validarsize = () => {
     if (shirt_size.campo === '') {
       setshirt_size({ ...shirt_size, valido: 'false' })
-      console.log('invalido', shirt_size)
+      // console.log('invalido', shirt_size)
     } else {
       setshirt_size({ ...shirt_size, valido: 'true' })
 
@@ -274,7 +274,7 @@ const PreinscriptionForm = (props) => {
 
   const onChangeFile = (e) => {
 
-    console.log(e)
+    // console.log(e)
     let array = []
     array[0] = e[0];
     setfilevalidation({ valido: true })
@@ -284,25 +284,25 @@ const PreinscriptionForm = (props) => {
         campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.',
         valido: 'false'
       })
-      console.log('invalido', e)
+      // console.log('invalido', e)
       setFiles(e);
     }
     else {
       if ((array[0].type.indexOf('image') !== -1) || (array[0].type.indexOf('application/pdf') !== -1)) {
-        console.log('tipo imagen', array[0].type, array[0].type.indexOf('image'))
+        // console.log('tipo imagen', array[0].type, array[0].type.indexOf('image'))
       }
       else {
         setfilevalidation({ ...filevalidation, campo: 'Formato de archivo invalido, formatos admitidos: png, jpg, pdf', valido: 'false' })
       }
       if (array[0].size > 2088960) {
         setfilevalidation({ ...filevalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
-        console.log('invalido', array[0].size)
+        // console.log('invalido', array[0].size)
       }
       setFiles(array);
     }  
   }
   const onChangeFilePromo = (e) => {
-    console.log('evento promo', e[0])
+    // console.log('evento promo', e[0])
     let array = []
     array[0] = e[0];
     setpromovalidation({ valido: true })
@@ -312,19 +312,19 @@ const PreinscriptionForm = (props) => {
         campo: 'Debes enviar el certificado de alumno regular o legajo para poder hacer el descuento.',
         valido: 'false'
       })
-      console.log('invalido', e)
+      // console.log('invalido', e)
       setfilespromo(e);
     }
     else {
       if ((array[0].type.indexOf('image') !== -1) || (array[0].type.indexOf('application/pdf') !== -1)) {
-        console.log('tipo imagen', array[0].type, array[0].type.indexOf('image'))
+        // console.log('tipo imagen', array[0].type, array[0].type.indexOf('image'))
       }
       else {
         setpromovalidation({ ...promovalidation, campo: 'Formato de archivo invalido, formatos admitidos: png, jpg, pdf', valido: 'false' })
       }
       if (array[0].size > 2088960) {
         setpromovalidation({ ...promovalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
-        console.log('invalido', array[0].size)
+        // console.log('invalido', array[0].size)
       }          
       setfilespromo(array);
     }

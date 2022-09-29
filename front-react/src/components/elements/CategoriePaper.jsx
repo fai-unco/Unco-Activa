@@ -8,7 +8,9 @@ const CategoriePaper = (props) => {
     const theme = useTheme();
     const navigate = useNavigate()
     const handleClick = () => {
-        navigate(props.navigate)
+        if(props.navigate){
+            navigate(props.navigate)
+        }
     };
 
     const Categorie = styled(Paper)(({ theme }) => ({

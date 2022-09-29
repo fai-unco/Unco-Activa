@@ -22,7 +22,12 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        return Inscription::all();
+        $preInscriptions = Inscription::join('race_categories', 'race_categories.id', '=', 'inscriptions.race_categorie_id')
+            ->get( ['inscriptions.*', 'race_categories.name as categorie_name']);
+
+        $categories = RaceCategorie::all();
+
+        return view('pages.pre-inscripciones', ['preInscriptions' => $preInscriptions, 'categories' => $categories]);
     }
 
     /**
@@ -64,16 +69,21 @@ class InscriptionController extends Controller
                 mkdir($inscriptionFiles, 0777, true);
             }
             $destinationPath = 'files/' . $users . "/";
-            foreach($request->file('files') as $file)
-            {
-                $name = time().'.'.$file->getClientOriginalName();
-                $file->move(public_path().'/files/'.$users.'/', $name);  
-                $data[] = $name;  
+            $file = $request->file('files')[0];
+            $name = 'payment-' .  $file->getClientOriginalName();
+            $file->move(public_path() . '/files/' . $users . '/', $name);
+            $destinationPath = $destinationPath . $name;
+            $destinationPathFile = 'null';
+            if ($request->promo == 'si') {
+                $promoFile = $request->file('files')[1];
+                $namefilepromo = 'promo-' . $promoFile->getClientOriginalName();
+                $promoFile->move(public_path() . '/files/' . $users . '/', $namefilepromo);
+                $destinationPathFile = '/files/' . $users . '/' . $namefilepromo;
             }
             $inscription->race_categorie_id = $request->race_categorie_id;
             $inscription->files = $destinationPath;
             $inscription->name = $request->name;
-            $inscription->promo = $request->promo;
+            $inscription->promo = $destinationPathFile;
             $inscription->surname = $request->surname;
             $inscription->dni = $request->dni;
             $inscription->birth = date($request->birth);
@@ -96,7 +106,8 @@ class InscriptionController extends Controller
             $arreglocontacto = [
                 "name" => $request->name . " " . $request->surname,
                 "categoriename" => $categorie->name,
-                "price" => $categorie->price
+                "price" => $categorie->price,
+                "promo" => $categorie->promo
             ];
             $correo = new PreInscriptionMail($arreglocontacto);
             if (!Mail::to($request->email)->send($correo)) abort(500, 'Error al enviar el mail.');
@@ -137,7 +148,25 @@ class InscriptionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $inscription = Inscription::find($id);
+        $idCategorie = $inscription->race_categorie_id;
+        $categorie = RaceCategorie::find($idCategorie);
+
+        if ($inscription->billing_verified_at) {
+            $categorie->quotas = $categorie->quotas + 1;
+            if ($categorie->save()) {
+                $inscription->billing_verified_at = NULL;
+                $inscription->save();
+            };
+        } else {
+            $categorie->quotas = $categorie->quotas - 1;
+            if ($categorie->save()) {
+                $inscription->billing_verified_at = date('Y-m-d');
+                $inscription->save();
+            };
+        }
+
+        return redirect('/pre-inscripciones');
     }
 
     /**
@@ -148,6 +177,7 @@ class InscriptionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $inscription = Inscription::destroy($id);
+        return redirect('/pre-inscripciones');
     }
 }
