@@ -10,7 +10,7 @@ import axios from 'axios'
 
 function App() {
   const [categories, setcategories] = useState([])
-  const endpoint = 'http://127.0.0.1:8000/api'
+  const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api'
   useEffect(() => {
     getAllCategories()
   }, [])
