@@ -96,8 +96,7 @@ const PreinscriptionForm = (props) => {
     [emergency_contac_phone, setemergency_contac_phone],
     [filevalidation, setfilevalidation],
     [promo, setpromo],
-    [emergency_contac_phone, setemergency_contac_phone],
-    [promovalidation, setpromovalidation]
+    [emergency_contac_phone, setemergency_contac_phone]
   ]
 
   const expresiones = {
