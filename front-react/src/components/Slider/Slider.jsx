@@ -22,7 +22,7 @@ function Slider({imagenes}){
     <div className=''>
       <h1 className='text-center text-[2rem]  md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark' fill='currentColor'>50 AÑOS CARRERA UNIVERSITARIO</h1>
       <div className='flex align-center items-center justify-center text-gray '>
-        <div className='relative flex flex-row justify-between w-52 h-52 sm:w-96 sm:h-96 items-center overflow-hidden'>
+        <div className='relative flex flex-row justify-between w-72 h-72 sm:w-96 sm:h-96 items-center overflow-hidden'>
           <button className='bg-gray-darker hover:bg-blue-cyan bg-opacity-70 h-10 w-10 rounded-full hover:text-gray-light z-20' onClick={anteriorImagen}>{/* ↶ */}{'<'}</button>
           {imagenes.map((imagen, index) => {
             return <img 
