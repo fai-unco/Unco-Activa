@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
 //Log User Out
 Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
 //show login form
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->middleware('guest');
 //log in User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
