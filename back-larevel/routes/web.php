@@ -39,3 +39,5 @@ Route::get('/inscripcion', function(){
 })->name('inscription');
 
 require __DIR__.'/auth.php';
+
+?>
