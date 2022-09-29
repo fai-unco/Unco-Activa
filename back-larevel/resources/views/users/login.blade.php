@@ -9,8 +9,7 @@
 
             <form method="POST" action="/users/authenticate">
                 {{-- @csrf --}}
-                {{-- {{ csrf_field() }} --}}
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                {{ csrf_field() }}
                 <div class="grid">
                     <label for="email" class="inline-block text-lg"
                         >Correo Electronico</label
