@@ -365,7 +365,7 @@ const PreinscriptionForm = (props) => {
             description={errorMessage}
           />
 
-          <form onSubmit={storeInscription} className='grid md:grid-cols-2 md:gap-6'>
+          <form onSubmit={storeInscription} className='grid grid-cols-1 md:grid-cols-2 md:gap-6'>
 
             <InputColForm
               regularExpression={expresiones.name}
