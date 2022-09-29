@@ -71,7 +71,7 @@ const PreinscriptionForm = (props) => {
 
   const handleRadioChange = (event) => {
     setpromo({ ...promo, campo: event.target.value, valido: 'true' });
-    if(event.target.value === 'no'){
+    if (event.target.value === 'no') {
       setfilespromo([]);
     }
   };
@@ -113,7 +113,7 @@ const PreinscriptionForm = (props) => {
     e.preventDefault()
     //console.log(e)
     //console.log(arraycampos)
-    
+
     console.log(e)
     var formularioValido = true
     console.log(arraycampos)
@@ -164,9 +164,9 @@ const PreinscriptionForm = (props) => {
       // console.log('imagen' + i, files[i] )
       formdata.append('files["payment"]', files[i]);
     }
-    
+
     for (let i = 0; i < filespromo.length; i++) {
-      console.log('imagen' + i, filespromo[i] )
+      console.log('imagen' + i, filespromo[i])
       formdata.append('files["promo"]', filespromo[i]);
     }
     console.log('categorie', props.categorie.id)
@@ -233,7 +233,7 @@ const PreinscriptionForm = (props) => {
       console.log('valido', gender)
     }
   }
-  
+
   const validarsize = () => {
     if (shirt_size.campo === '') {
       setshirt_size({ ...shirt_size, valido: 'false' })
@@ -274,7 +274,7 @@ const PreinscriptionForm = (props) => {
 
   const onChangeFile = (e) => {
 
-    console.log(e)    
+    console.log(e)
     let array = []
     array[0] = e[0];
     setfilevalidation({ valido: true })
@@ -285,24 +285,21 @@ const PreinscriptionForm = (props) => {
         valido: 'false'
       })
       console.log('invalido', e)
+      setFiles(e);
     }
     else {
-      // eslint-disable-next-line array-callback-return
-      array.map((file) => {
-        if ((file.type.indexOf('image') !== -1) || (file.type.indexOf('application/pdf') !== -1)) {
-          console.log('tipo imagen', file.type, file.type.indexOf('image'))
-        }
-        else {
-          setfilevalidation({ ...filevalidation, campo: 'Formato de archivo invalido, formatos admitidos: png, jpg, pdf', valido: 'false' })
-        }
-        if (file.size > 2088960) {
-          setfilevalidation({ ...filevalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
-          console.log('invalido', file.size)
-        }
-      })
+      if ((array[0].type.indexOf('image') !== -1) || (array[0].type.indexOf('application/pdf') !== -1)) {
+        console.log('tipo imagen', array[0].type, array[0].type.indexOf('image'))
+      }
+      else {
+        setfilevalidation({ ...filevalidation, campo: 'Formato de archivo invalido, formatos admitidos: png, jpg, pdf', valido: 'false' })
+      }
+      if (array[0].size > 2088960) {
+        setfilevalidation({ ...filevalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
+        console.log('invalido', array[0].size)
+      }
+      setFiles(array);
     }
-    
-    setFiles(array);
 
   }
   const onChangeFilePromo = (e) => {
@@ -317,23 +314,20 @@ const PreinscriptionForm = (props) => {
         valido: 'false'
       })
       console.log('invalido', e)
-    }         
-    else {
-      // eslint-disable-next-line array-callback-return
-      array.map((file) => {
-        if ((file.type.indexOf('image') !== -1) || (file.type.indexOf('application/pdf') !== -1)) {
-          console.log('tipo imagen', file.type, file.type.indexOf('image'))
-        }
-        else {
-          setpromovalidation({ ...promovalidation, campo: 'Formato de archivo invalido, formatos admitidos: png, jpg, pdf', valido: 'false' })
-        }
-        if (file.size > 2088960) {
-          setpromovalidation({ ...promovalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
-          console.log('invalido', file.size)
-        }
-      })
     }
-    setfilespromo(array);   
+    else {
+      if ((array[0].type.indexOf('image') !== -1) || (array[0].type.indexOf('application/pdf') !== -1)) {
+        console.log('tipo imagen', array[0].type, array[0].type.indexOf('image'))
+      }
+      else {
+        setpromovalidation({ ...promovalidation, campo: 'Formato de archivo invalido, formatos admitidos: png, jpg, pdf', valido: 'false' })
+      }
+      if (array[0].size > 2088960) {
+        setpromovalidation({ ...promovalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
+        console.log('invalido', array[0].size)
+      }
+    }
+    setfilespromo(array);
   }
 
   return (
@@ -545,7 +539,7 @@ const PreinscriptionForm = (props) => {
               regularExpression={expresiones.phone}
               error='Inngresa un telefono de contacto de emergencia'
             />
-            <div className="relative col-span-2 justify-items-center self-center z-0 mx-20 mb-2">
+            <div className="relative col-span-2 justify-items-center self-center z-0 lg:mx-20 mb-2">
               <FileUpload
                 multiFile={false}
                 maxUploadFiles={3}
@@ -568,8 +562,7 @@ const PreinscriptionForm = (props) => {
                   },
                   boxShadow: filevalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 0px rgb(0 170 225)'
                 }}
-                title='Sube los comprobantes de pago aqui, en caso de ser miembro de la comunidad universitaria
-              adjuntar los certificados correspondiente. Solo imagenes o pdf con tamaño maximo de 2MB'
+                title='Sube el comprobante de pago aqui. Solo imagenes o pdf con tamaño maximo de 2MB'
                 buttonText='Subir comprobantes'
                 value={files}
                 onChange={(e) => onChangeFile(e)} />
@@ -600,7 +593,7 @@ const PreinscriptionForm = (props) => {
             </div>
 
             <div className={promo.campo !== 'si' ? 'hidden'
-              : 'relative col-span-2 self-center z-0 -mt-5 mx-20 mb-1'}>
+              : 'relative col-span-2 self-center z-0 -mt-5 lg:mx-20 mb-1'}>
               <FileUpload
                 multiFile={false}
                 maxUploadFiles={3}
@@ -623,8 +616,8 @@ const PreinscriptionForm = (props) => {
                   },
                   boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 0px rgb(0 170 225)'
                 }}
-                title='Sube los comprobantes de pago aqui, en caso de ser miembro de la comunidad universitaria
-              adjuntar los certificados correspondiente. Solo imagenes o pdf con tamaño maximo de 2MB'
+                title='En caso de ser miembro de la comunidad universitaria
+              adjunta el certificado correspondiente. Solo imagenes o pdf con tamaño maximo de 2MB'
                 buttonText='Subir comprobantes'
                 value={filespromo}
                 onChange={(e) => onChangeFilePromo(e)} />
@@ -658,10 +651,9 @@ const PreinscriptionForm = (props) => {
             titlecolor=''
             title='REGLAS GENERALES PARA LOS PARTICIPANTES'
           />
-          
+
           <ModalInscription
             loading={opensucces}
-
             categorie={props.categorie}
             setopenInscription={setopenInscription}
             openInscription={openInscription}
