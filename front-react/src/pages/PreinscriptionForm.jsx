@@ -113,7 +113,6 @@ const PreinscriptionForm = (props) => {
   const storeInscription = async (e) => {
     e.preventDefault()
     //console.log(e)
-    console.log('archivos promo',filespromo)   
     //console.log(arraycampos)
     
     console.log(e)
