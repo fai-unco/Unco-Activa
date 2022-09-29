@@ -313,6 +313,7 @@ const PreinscriptionForm = (props) => {
         valido: 'false'
       })
       console.log('invalido', e)
+      setfilespromo(e);
     }
     else {
       if ((array[0].type.indexOf('image') !== -1) || (array[0].type.indexOf('application/pdf') !== -1)) {
