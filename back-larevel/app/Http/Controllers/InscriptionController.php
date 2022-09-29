@@ -73,7 +73,7 @@ class InscriptionController extends Controller
             $name = 'payment-' .  $file->getClientOriginalName();
             $file->move(public_path() . '/files/' . $users . '/', $name);
             $destinationPath = $destinationPath . $name;
-            $destinationPathFile = 'null';
+            $destinationPathFile = null;
             if ($request->promo == 'si') {
                 $promoFile = $request->file('files')[1];
                 $namefilepromo = 'promo-' . $promoFile->getClientOriginalName();
