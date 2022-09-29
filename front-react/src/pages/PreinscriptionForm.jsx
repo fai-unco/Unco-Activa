@@ -545,7 +545,7 @@ const PreinscriptionForm = (props) => {
               regularExpression={expresiones.phone}
               error='Inngresa un telefono de contacto de emergencia'
             />
-            <div className="relative col-span-2 justify-items-center self-center z-0 mx-20 mb-2">
+            <div className="relative col-span-2 justify-items-center self-center z-0 lg:mx-20 mb-2">
               <FileUpload
                 multiFile={false}
                 maxUploadFiles={3}
@@ -600,7 +600,7 @@ const PreinscriptionForm = (props) => {
             </div>
 
             <div className={promo.campo !== 'si' ? 'hidden'
-              : 'relative col-span-2 self-center z-0 -mt-5 mx-20 mb-1'}>
+              : 'relative col-span-2 self-center z-0 -mt-5 lg:mx-20 mb-1'}>
               <FileUpload
                 multiFile={false}
                 maxUploadFiles={3}
