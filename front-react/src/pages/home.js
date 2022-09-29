@@ -3,13 +3,14 @@ import Hero from 'components/Layouts/Hero';
 import Slider from 'components/Slider';
 
 const mockImagenes = [
-  'elements/Remera frente 1.jpg',
-  'elements/Remera Espalda 1.jpg',
-  'elements/0_mockup 1.png',
-  'elements/FLYERS 1.jpg',
-  'elements/FLYERS 2.jpg',
-  'elements/FLYERS 3.jpg',
-  'elements/FLYERS 4.jpg'
+  'elements/Remera_FRENTE.jpg',
+  'elements/Remera_ESPALDA.jpg',
+  'elements/Remera_1_b.png',
+  'elements/Remera_1.png',
+  'elements/UNCO_ACT_50_FEED_1.jpg',
+  'elements/UNCO_ACT_50_FEED_2.jpg',
+  'elements/UNCO_ACT_50_FEED_3.jpg',
+  'elements/UNCO_ACT_50_FEED_4.jpg'
 ]
 
 function Home(categories, setcategories) {
