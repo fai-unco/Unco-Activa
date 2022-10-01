@@ -1,6 +1,6 @@
 <x-layout>
     <div class='bg-pre min-h-screen py-7 px-2 sm:px-10 md:px-10 xl:px-32 bg-gray-darker'>
-      <div class='justify-center bg-gray-light rounded-lg pb-2  w-full'>
+      <div class='justify-center bg-white rounded-lg pb-2  w-full'>
         <h1 class='flex justify-center text-[1.5rem] sm:text-[2rem] font-Hurme-Geometric-BO text-blue-dark py-5 font-bold italic w-full'>PRE-INSCRIPTOS</h1>
         <div class='overflow-x-auto pb-5'>
           <div class='px-3 font-Hurme-Geometric-BO italic font-bold'>
@@ -25,7 +25,7 @@
             <tbody>
               @foreach ($preInscriptions as $preInscription)
                 @if(!$preInscription->billing_verified_at)
-                  <tr key={PreInscription.unic} class='bg-gray border-y border-blue-cyan '>
+                  <tr class='bg-gray-light border-y border-blue-cyan'>
                     <td class='px-3'>
                       {{$preInscription->id}}
                     </td>
@@ -60,7 +60,8 @@
                       <a href="inscription/{{$preInscription->id}}">
                         <button class="bg-board text-gray-light mx-1 px-2 my-1 rounded-full">aceptar</button>
                       </a>
-                      <a href="inscriptionDelete/{{$preInscription->id}}">
+                      <!-- <a href="inscriptionDelete/{{$preInscription->id}}"> -->
+                      <a href="#">
                         <button class="bg-yellow text-gray-darker mx-1 px-2 my-1 rounded-full">rechazar</button>
                       </a>
                     </td>
