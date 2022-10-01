@@ -22,9 +22,9 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        $preInscriptions = Inscription::join('race_categories', 'race_categories.id', '=', 'inscriptions.race_categorie_id')
-            ->get( ['inscriptions.*', 'race_categories.name as categorie_name']);
-
+        $preInscriptions = Inscription::join('race_categories', 'race_categories.id', '=', 'inscriptions.race_categorie_id')->orderBy('id', 'ASC')
+        ->get(['inscriptions.*', 'race_categories.name as categorie_name']);
+        
         $categories = RaceCategorie::all();
 
         return view('pages.pre-inscripciones', ['preInscriptions' => $preInscriptions, 'categories' => $categories]);
