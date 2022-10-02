@@ -22,12 +22,17 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        $preInscriptions = Inscription::join('race_categories', 'race_categories.id', '=', 'inscriptions.race_categorie_id')->orderBy('id', 'ASC')
-        ->get(['inscriptions.*', 'race_categories.name as categorie_name']);
-        
+        $preInscriptions = Inscription::where('billing_verified_at', null )->paginate(10);
         $categories = RaceCategorie::all();
 
         return view('pages.pre-inscripciones', ['preInscriptions' => $preInscriptions, 'categories' => $categories]);
+    }
+
+    public function indexInscriptions()
+    {
+        $inscriptions = Inscription::where('billing_verified_at', '!=', null )->paginate(10);
+        $inscriptionCategories = RaceCategorie::all();
+        return view('pages.inscripciones', ['inscriptions' => $inscriptions, 'inscriptionCategories' => $inscriptionCategories]);
     }
 
     /**
@@ -157,16 +162,18 @@ class InscriptionController extends Controller
             if ($categorie->save()) {
                 $inscription->billing_verified_at = NULL;
                 $inscription->save();
+
+                return redirect('/inscripciones');
             };
         } else {
             $categorie->quotas = $categorie->quotas - 1;
             if ($categorie->save()) {
                 $inscription->billing_verified_at = date('Y-m-d');
                 $inscription->save();
+
+                return redirect('/pre-inscripciones');
             };
         }
-
-        return redirect('/pre-inscripciones');
     }
 
     /**

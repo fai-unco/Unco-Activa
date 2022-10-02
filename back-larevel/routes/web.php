@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/pre-inscripciones', [InscriptionController::class, 'index']);
+    Route::get('/inscripciones', [InscriptionController::class, 'indexInscriptions']);
     Route::get('/inscription/{id}', [InscriptionController::class, 'update']);
     Route::get('/inscriptionDelete/{id}', [InscriptionController::class, 'destroy']);
 });

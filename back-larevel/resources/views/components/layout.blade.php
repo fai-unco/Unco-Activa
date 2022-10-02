@@ -67,7 +67,13 @@
                 @auth
                 <li>
                     <a href="/pre-inscripciones" class="hover:text-gray  border-b-2 hover:border-blue-cyan ">
-                        Pre-iscripciones</a>
+                        Pre-iscripciones
+                    </a>
+                </li>
+                <li>
+                    <a href="/inscripciones" class="hover:text-gray  border-b-2 hover:border-blue-cyan ">
+                        Inscripciones
+                    </a>
                 </li>
                 <li>
                     <a href="/logout" class="hover:text-gray border-b-2 hover:border-blue-cyan">
