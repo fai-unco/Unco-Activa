@@ -67,7 +67,7 @@
                 @auth
                 <li>
                     <a href="/pre-inscripciones" class="hover:text-gray  border-b-2 hover:border-blue-cyan ">
-                        Pre-iscripciones
+                        Pre-inscripciones
                     </a>
                 </li>
                 <li>
