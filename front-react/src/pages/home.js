@@ -1,6 +1,7 @@
 import AppLayout from 'components/Layouts/AppLayout';
 import Hero from 'components/Layouts/Hero';
 import Slider from 'components/Slider';
+import { Link } from 'react-router-dom';
 
 const mockImagenes = [
   'elements/Remera_FRENTE.jpg',
@@ -92,7 +93,7 @@ function Home(categories, setcategories) {
                     <li><span className='font-Hurme-Geometric-N'>Nro Cuenta – Cuenta Corriente:</span> $191-093-024908/9</li>
                     <li><span className='font-Hurme-Geometric-N'>CBU:</span> 19100933-55009302490896</li>
                   </ul>
-                  <p className='text-blue-high text-[1.2rem] font-Hurme-Geometric-BO'>Se deberá enviar de manera obligatoria el comprobante de transferencia con todos los datos de la operación al mail <span className='text-board'>uncoactiva@gmail.com</span>
+                  <p className='text-blue-high text-[1.2rem] font-Hurme-Geometric-BO'>Una vez hecha la transferencia se debera adjuntar en el formulario de inscripcion, en caso de tener algun inconveniente comunicarse a nuestro <Link className='text-yellow' to='mailto:uncoactiva@gmail.com'> email </Link> 
                   </p>
 
                 </div>
@@ -101,10 +102,11 @@ function Home(categories, setcategories) {
             <h1 class="text-center text-[2rem] mt-20 md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
               SPONSORS
             </h1>
-            <div className='grid lg:grid-cols-4  items-center justify-center p-5'>
-              <img width='100%' className='col-span-4 lg:col-span-2 h-24 md:h-[180px]' alt='logo deporte y gob' src={'/logos/logo-deporte-y-gob.svg'} />
-              <img width='50%' alt='logo ijan' className='col-span-2 justify-self-center  lg:mt-0 lg:col-span-1 j w-24 md:w-[120px] lg:ml-5 mt-5 h-24 md:h-[180px]' src={'/logos/logo-ijan.svg'} />
-              <img className='col-span-2 lg:col-span-1  h-18 mt-5 lg:m-0 lg:justify-self-center xl:h-[120px]' alt='logo muni' src={'/logos/logo-muni.png'} />
+            <div className='grid lg:grid-cols-7  items-center justify-center p-5'>
+              <img alt='logo ijan' className='col-span-7 justify-self-center p-5 w-1/3 lg:w-2/3 lg:mt-0 lg:col-span-1' src={'/logos/logo-ijan.svg'} />
+              <img width='100%' className='col-span-4 lg:col-span-2 p-5 ' alt='logo deporte y gob' src={'/logos/logo-deporte-y-gob.svg'} />
+              <img width='100%' className='col-span-4 lg:col-span-2 p-5' alt='logo deporte y gob' src={'/logos/Marca_ANAAR_Positiva.svg'} />
+              <img width='80%' className='col-span-4 lg:col-span-2 p-5  lg:m-0 justify-self-center' alt='logo muni' src={'/logos/logo-muni.png'} />
             </div>
             <div className='grid justify-center pb-5'>
               <h1 class="text-center text-[2rem]  md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
@@ -112,7 +114,7 @@ function Home(categories, setcategories) {
               </h1>
 
               <div className='grid grid-cols-3 gap-5 items-center justify-center p-5'>
-                <img className='col-span-1 h-24 md:h-[180px] justify-self-end' alt='logo ijan' src={'/logos/Logo Dirección de Deportes y Recreación 4-10.png'} />
+                <img className='col-span-1 h-24 md:h-[180px] justify-self-end' alt='logo ijan' src={'/logos/Logo Dirección de Deportes y Recreación 4-10.png'} />                
                 <img className='col-span-1 h-24 md:h-[180px] justify-self-center ' alt='logo ijan' src={'/logos/LOGO UNCO PNG.png'} />
                 <img className='col-span-1 h-24 md:h-[180px] justify-self-start bg-gray-darker' alt='logo ijan' src={'/logos/Secretaría de Bienestar Universitario-02.png'} />
               </div>
