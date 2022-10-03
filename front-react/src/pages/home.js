@@ -1,7 +1,6 @@
 import AppLayout from 'components/Layouts/AppLayout';
 import Hero from 'components/Layouts/Hero';
 import Slider from 'components/Slider';
-import { Link } from 'react-router-dom';
 
 const mockImagenes = [
   'elements/Remera_FRENTE.jpg',
@@ -73,7 +72,7 @@ function Home(categories, setcategories) {
                     Derecho a participación / Remera técnica / servicios de control / servicio de hidratación seguro de corredor.
                   </p>
                   <p className='pt-1'><span className='font-Hurme-Geometric-N'>ATENCIÓN COMUNIDAD UNIVERSITARIA: </span>
-                    Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar email a uncoactiva@gmail.com para recibir dicho beneficio.
+                    Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales.
                   </p>
                   <ul className='list-disc pl-5 pt-2'>
                     <li>25km tiene un costo de $4000 por participante.</li>
@@ -93,7 +92,7 @@ function Home(categories, setcategories) {
                     <li><span className='font-Hurme-Geometric-N'>Nro Cuenta – Cuenta Corriente:</span> $191-093-024908/9</li>
                     <li><span className='font-Hurme-Geometric-N'>CBU:</span> 19100933-55009302490896</li>
                   </ul>
-                  <p className='text-blue-high text-[1.2rem] font-Hurme-Geometric-BO'>Una vez hecha la transferencia se debera adjuntar en el formulario de inscripcion, en caso de tener algun inconveniente comunicarse a nuestro <Link className='text-yellow' to='mailto:uncoactiva@gmail.com'> email </Link> 
+                  <p className='text-blue-high text-[1.2rem] font-Hurme-Geometric-BO'>Una vez hecha la transferencia se debera adjuntar en el formulario de inscripcion, en caso de tener algun inconveniente comunicarse a nuestro <a className='text-yellow' href='mailto:uncoactiva@gmail.com'> email </a> 
                   </p>
 
                 </div>
