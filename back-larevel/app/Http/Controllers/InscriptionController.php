@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\PreInscriptionMail;
 use App\Models\Inscription;
-use App\Models\RaceCategorie;
 use Illuminate\Http\Request;
+use App\Mail\InscriptionMail;
+use App\Models\RaceCategorie;
+use App\Mail\PreInscriptionMail;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 
+use Illuminate\Support\Facades\Mail;
 use function PHPUnit\Framework\isNull;
 
 class InscriptionController extends Controller
@@ -170,6 +171,13 @@ class InscriptionController extends Controller
             if ($categorie->save()) {
                 $inscription->billing_verified_at = date('Y-m-d');
                 $inscription->save();
+
+                $arreglocontacto = [
+                    "name" => $inscription->name . " " . $inscription->surname,
+                    "categoriename" => $categorie->name,
+                ];
+                $correo = new InscriptionMail($arreglocontacto);
+                if (!Mail::to($inscription->email)->send($correo)) abort(500, 'Error al enviar el mail.');
 
                 return redirect('/pre-inscripciones');
             };
