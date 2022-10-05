@@ -11,6 +11,7 @@
               <th class='px-3'>NOMBRE APELLIDO</th>
               <th class='px-3'>DNI</th>
               <th class='px-3'>TELEFONO</th>
+              <th class='px-3'>ARCHIVOS</th>
               <th class='px-3'>EMAIL</th>
               <th class='px-3'>OPCIONES</th>
             </tr>
@@ -37,6 +38,22 @@
                   </td>
                   <td class='px-3' >
                     {{$inscription->phone}}
+                  </td>
+                  <td class='px-3' >
+                    <div class="grid">
+                      <a class="text-blue-high hover:text-board text-base font-semibold " 
+                        href="{{asset($inscription->files)}}"
+                        target="_blank">Comprobate
+                      </a>
+                      @if($inscription->promo)
+                        <a class="text-blue-high hover:text-board text-base font-semibold "
+                          href="{{asset($inscription->promo)}}"
+                          target="_blank">Certificado
+                        </a>
+                      @else
+                        <p>Sin Promo</p>
+                      @endif
+                    </div>
                   </td>
                   <td class='px-3' >
                     {{$inscription->email}}

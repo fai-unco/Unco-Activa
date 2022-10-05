@@ -36,6 +36,7 @@ return new class extends Migration
             $table->bigInteger('emergency_contac_phone');
             $table->string('emergency_contac_bond');          
             $table->timestamp('billing_verified_at')->nullable();
+            $table->timestamp('verification_denied')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
