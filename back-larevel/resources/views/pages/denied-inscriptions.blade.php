@@ -40,7 +40,7 @@
                     {{$inscription->phone}}
                   </td>
                   <td class='px-3' >
-                    <div class="grid">
+                    {{-- <div class="grid">
                       <a class="text-blue-high hover:text-board text-base font-semibold " 
                         href="{{asset($inscription->files)}}"
                         target="_blank">Comprobate
@@ -53,7 +53,7 @@
                       @else
                         <p>Sin Promo</p>
                       @endif
-                    </div>
+                    </div> --}}
                   </td>
                   <td class='px-3' >
                     {{$inscription->email}}
