@@ -5,8 +5,8 @@ import Slider from 'components/Slider';
 const mockImagenes = [
   'elements/Remera_FRENTE.jpg',
   'elements/Remera_ESPALDA.jpg',
-  'elements/Remera_1_b.png',
   'elements/Remera_1.png',
+  'elements/Remera_1_b.png',
   'elements/UNCO_ACT_50_FEED_1.jpg',
   'elements/UNCO_ACT_50_FEED_2.jpg',
   'elements/UNCO_ACT_50_FEED_3.jpg',
@@ -39,9 +39,9 @@ function Home(categories, setcategories) {
               </div>
               <div className="grid sm:grid-cols-2 px-5 lg:px-16">
                 <div className="sm:px-5">
-                  <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Quien participa</h4>
+                  <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Quien participa</h4>
                   <p className="">Toda persona que cumpla los requisitos de la inscripción. La modalidad de dicha carrera se va a dar en fomar individual.</p>
-                  <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">¿Como ganar?</h4>
+                  <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">¿Como ganar?</h4>
                   <p>Los y las participantes deberan:</p>
                   <ul className='list-decimal pl-5'>
                     <li>Realizar el recorrido en el menor tiempo posible.</li>
@@ -49,17 +49,23 @@ function Home(categories, setcategories) {
                     <li>No se puede ser asistido por otras personas en competencia (fair play).</li>
                     <li>La largada será común para todas las distancias. Deberán seguir las marcas.</li>
                   </ul>
-                  <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Sevicios, Asistencia, Hidratacíon y Controles</h4>
+                  <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Sevicios, Asistencia, Hidratacíon y Controles</h4>
                   <ul className='list-decimal pl-5'>
                     <li>En un punto intermedio del recorrido y en la llegada se montarán puestos de asistencia e hidratación.</li>
                     <li>A lo largo del recorrido se establecerán controles de paso de los corredores y las corredoras en donde habrá colaboradores con remeras.</li>
                   </ul>
-                  <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Remera de competencia y numero de identificacion de corredor</h4>
+                  <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Remera de competencia y numero de identificacion de corredor</h4>
                   <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
+                  <p className='font-Hurme-Geometric-BO text-blue-dark'>Acreditaciones: <span className='font-Hurme-Geometric-N'>El participante deberá asistir a las acreditaciones, los días:</span></p>
+                  <ul className='list-decimal pl-5 text-blue-high font-Hurme-Geometric-BO'>
+                    <li>Jueves 20 de oct de 18 a 21hs.</li>
+                    <li>viernes 21 de oct de 12.00 a 16hs.</li>
+                  </ul>
+                  <p>Para retirar su remera, número y chip, y firmar el deslinde de responsabilidad.</p>
                 </div>
 
                 <div className="sm:px-5">
-                  <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Inscripciones</h4>
+                  <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Inscripciones</h4>
                   <p>El costo de la inscripción para cada distancia es el siguiente:</p>
                   <ul className='list-disc pl-5'>
                     <li>25km tiene un costo de $5500 por participante.</li>
@@ -82,7 +88,7 @@ function Home(categories, setcategories) {
                   </ul>
                   {/* <h4 className="text-blue-dark text-[2rem] py-3 font-bold font-Hurme-Geometric-BO"> Recorrido</h4>
                                 <p>Tanto el recorrido de los 25km como el de 15km, será por senderos de barda y calles.  El recorrido de los 7km será por barda pero de dificultad baja. Y por último, los 3km de la caminata será por senderos accesibles casi sin desnivel.</p> */}
-                  <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">MODO DE INSCRIPCIÓN:</h4>
+                  <h4 className="text-[1.2rem] text-blue-high pt-5 font-Hurme-Geometric-BO">MODO DE INSCRIPCIÓN:</h4>
                   <p className=''>Las inscripciones se realizan vía Internet en la web:
                     Pago únicamente por transferencia:</p>
                   <ul className='list-none py-3'>
@@ -94,14 +100,41 @@ function Home(categories, setcategories) {
                   </ul>
                   <p className='text-blue-high text-[1.2rem] font-Hurme-Geometric-BO'>Una vez hecha la transferencia se debera adjuntar en el formulario de inscripcion, en caso de tener algun inconveniente comunicarse a nuestro <a className='text-yellow' href='mailto:uncoactiva@gmail.com'> email </a> 
                   </p>
-
+                </div>
+              </div>
+              <div className='px-5 sm:px-5 lg:px-16 pt-10'>
+                <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>Premiación categorias de los 25 , 15 y 7 KM:</p>
+                <h1 className=' bg-yellow py-1 w-1/6 mt-5'> </h1>
+              </div>
+              <div className="grid sm:grid-cols-2 px-5 lg:px-16">
+                <div className='sm:px-5'>
+                  <p className='text-[1.2rem] text-blue-high pt-5 font-Hurme-Geometric-BO'>
+                    Premiación por categoría por edades, tanto en la rama femenina y masculina
+                  </p>
+                  <ul className='list-disc pl-5 pt-2'>
+                    <li>Hasta 19 años</li>
+                    <li>Hasta 29 años</li>
+                    <li>Hasta 39 años</li>
+                    <li>Hasta 49 años</li>
+                    <li>Hasta 59 años</li>
+                    <li>+ 60 años</li>
+                  </ul>
+                </div>
+                <div className="sm:px-5">
+                  <p className='text-[1.2rem] text-blue-high pt-5 font-Hurme-Geometric-BO'>Formato de clasificación</p>
+                  <p className='font-Hurme-Geometric-N'>Los participantes deberán:</p>
+                  <ul className='list-none pt-2'>
+                    <li><span className='font-Hurme-Geometric-N'>a)</span> Realizar el recorrido en el menor tiempo posible.</li>
+                    <li><span className='font-Hurme-Geometric-N'>b)</span> No podrán utilizar vehículos ni acortar el recorrido.</li>
+                    <li><span className='font-Hurme-Geometric-N'>c)</span> No se puede ser asistido por otras personas en competencia (fair play).</li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <h1 class="text-center text-[2rem] mt-20 md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
-              SPONSORS
-            </h1>
             <div className='grid lg:grid-cols-7  items-center justify-center p-5'>
+              <h1 class="text-center col-span-7 text-[2rem] mt-5 md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
+                SPONSORS
+              </h1>
               <img alt='logo ijan' className='col-span-7 justify-self-center p-5 w-1/3 lg:w-2/3 lg:mt-0 lg:col-span-1' src={'/logos/logo-ijan.svg'} />
               <img width='100%' className='col-span-4 lg:col-span-2 p-5 ' alt='logo deporte y gob' src={'/logos/logo-deporte-y-gob.svg'} />
               <img width='100%' className='col-span-4 lg:col-span-2 p-5' alt='logo deporte y gob' src={'/logos/Marca_ANAAR_Positiva.svg'} />
