@@ -18,17 +18,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.index');
-});
+})->name('index');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/pre-inscripciones', [InscriptionController::class, 'index']);
-    Route::get('/inscripciones', [InscriptionController::class, 'indexInscriptions']);
+    Route::get('/pre-inscripciones', [InscriptionController::class, 'index'])->name('pre-inscripciones');
+    Route::get('/inscripciones', [InscriptionController::class, 'indexInscriptions'])->name('inscripciones');
+    Route::get('/pre-inscripciones-rechazadas', [InscriptionController::class, 'indexDeniedInscriptions'])->name('pre-inscripciones-rechazadas');
     Route::get('/inscription/{id}', [InscriptionController::class, 'update']);
-    Route::get('/inscriptionDelete/{id}', [InscriptionController::class, 'destroy']);
+    Route::get('/inscriptionDelete/{id}', [InscriptionController::class, 'edit']);
 });
 
 //Log User Out
-Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
+Route::get('/logout', [UserController::class, 'logout'])->middleware('auth')->name('logout');
 //show login form
 Route::get('/login', [UserController::class, 'login'])->middleware('guest');
 //log in User

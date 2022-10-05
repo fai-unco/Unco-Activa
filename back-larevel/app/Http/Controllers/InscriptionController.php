@@ -23,17 +23,24 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        $preInscriptions = Inscription::where('billing_verified_at', null )->paginate(10);
+        $preInscriptions = Inscription::where('billing_verified_at', null )->where('verification_denied', null )->paginate(10);
         $categories = RaceCategorie::all();
 
-        return view('pages.pre-inscripciones', ['preInscriptions' => $preInscriptions, 'categories' => $categories]);
+        return view('pages.pre-inscriptions', ['preInscriptions' => $preInscriptions, 'categories' => $categories]);
     }
 
     public function indexInscriptions()
     {
-        $inscriptions = Inscription::where('billing_verified_at', '!=', null )->paginate(10);
+        $inscriptions = Inscription::where('billing_verified_at', '!=', null )->where('verification_denied', null )->paginate(10);
         $inscriptionCategories = RaceCategorie::all();
-        return view('pages.inscripciones', ['inscriptions' => $inscriptions, 'inscriptionCategories' => $inscriptionCategories]);
+        return view('pages.inscriptions', ['inscriptions' => $inscriptions, 'inscriptionCategories' => $inscriptionCategories]);
+    }
+
+    public function indexDeniedInscriptions()
+    {
+        $DeniedInscriptions = Inscription::where('verification_denied', '!=', null )->paginate(10);
+        $inscriptionCategories = RaceCategorie::all();
+        return view('pages.denied-inscriptions', ['DeniedInscriptions' => $DeniedInscriptions, 'inscriptionCategories' => $inscriptionCategories]);
     }
 
     /**
@@ -123,35 +130,22 @@ class InscriptionController extends Controller
         // }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $inscription = Inscription::find($id);
+        if ($inscription->verification_denied) {
+            $inscription->verification_denied = NULL;
+            $inscription->save();
+
+            return redirect('/pre-inscripciones-rechazadas')->with('message', 'Has habilitado a '.$inscription->name.' '.$inscription->surname.'!');
+        } else {
+            $inscription->verification_denied = date('Y-m-d');
+            $inscription->save();
+
+            return redirect('/pre-inscripciones')->with('message', 'Has rechazado a '.$inscription->name.' '.$inscription->surname.'!');
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $inscription = Inscription::find($id);
@@ -164,7 +158,7 @@ class InscriptionController extends Controller
                 $inscription->billing_verified_at = NULL;
                 $inscription->save();
 
-                return redirect('/inscripciones');
+                return redirect('/inscripciones')->with('message', 'Has desinscripto a '.$inscription->name.' '.$inscription->surname.'!');
             };
         } else {
             $categorie->quotas = $categorie->quotas - 1;
@@ -176,23 +170,12 @@ class InscriptionController extends Controller
                     "name" => $inscription->name . " " . $inscription->surname,
                     "categoriename" => $categorie->name,
                 ];
+                
                 $correo = new InscriptionMail($arreglocontacto);
                 if (!Mail::to($inscription->email)->send($correo)) abort(500, 'Error al enviar el mail.');
 
-                return redirect('/pre-inscripciones');
-            };
+                return redirect('/pre-inscripciones')->with('message', 'Has aprobado a '.$inscription->name.' '.$inscription->surname.'!');
+            }
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $inscription = Inscription::destroy($id);
-        return redirect('/pre-inscripciones');
     }
 }
