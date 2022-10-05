@@ -57,13 +57,13 @@
         <title>Unco Activa</title>
     </head>
     <body>
-        <nav class="flex justify-between items-center h-16 sticky top-0 z-50 bg-gray-darker text-gray-light">
+        <nav class="flex justify-between items-center h-16 sticky top-0 bg-gray-darker text-gray-light">
             <div class="flex items-center">
             <a href="/">
                 <img class="ml-2 sm:ml-6 w-16" src="{{asset('logos/logoUNCOactiva.png')}}" alt="logo unco activa" />
             </a>
             </div>
-            <ul class="flex space-x-6 mr-2 sm:mr-6 text-sm sm:text-lg">
+            <ul class="flex space-x-6 mr-2 sm:mr-6">
                 @auth
                 <li>
                     <a href="/pre-inscripciones" class="hover:text-gray  border-b-2 hover:border-blue-cyan ">
@@ -73,6 +73,11 @@
                 <li>
                     <a href="/inscripciones" class="hover:text-gray  border-b-2 hover:border-blue-cyan ">
                         Inscripciones
+                    </a>
+                </li>
+                <li>
+                    <a href="/pre-inscripciones-rechazadas" class="hover:text-gray  border-b-2 hover:border-blue-cyan">
+                        Inscripciones Rechazadas
                     </a>
                 </li>
                 <li>
@@ -101,7 +106,7 @@
 
         </footer>
 
-        {{-- <x-flash-message /> --}}
+        <x-flash-message />
 
     </body>
 </html>

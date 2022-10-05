@@ -45,27 +45,27 @@
                     <td class='px-3' >
                       <div class="grid">
                         <a class="text-blue-high hover:text-board text-base font-semibold " 
-                        href="{{asset($preInscription->files)}}"
-                        target="_blank">Comprobate</a>
+                          href="{{asset($preInscription->files)}}"
+                          target="_blank">Comprobate
+                        </a>
                         @if($preInscription->promo)
-                        <a class="text-blue-high hover:text-board text-base font-semibold "
-                        href="{{asset($preInscription->promo)}}"
-                        target="_blank">Certificado
+                          <a class="text-blue-high hover:text-board text-base font-semibold "
+                            href="{{asset($preInscription->promo)}}"
+                            target="_blank">Certificado
+                          </a>
+                        @else
+                          <p>Sin Promo</p>
+                        @endif
+                      </div>
+                    </td>
+                    <td class='px-3' >
+                      {{$preInscription->email}}
+                    </td>
+                    <td class='flex justify-center px-3'>
+                      <a href="inscription/{{$preInscription->id}}">
+                        <button class="bg-board text-gray-light mx-1 px-2 my-1 rounded-full">aceptar</button>
                       </a>
-                      @else
-                      <p>Sin Promo</p>
-                      @endif
-                    </div>
-                  </td>
-                  <td class='px-3' >
-                    {{$preInscription->email}}
-                  </td>
-                  <td class='flex justify-center px-3'>
-                    <a href="inscription/{{$preInscription->id}}">
-                      <button class="bg-board text-gray-light mx-1 px-2 my-1 rounded-full">aceptar</button>
-                    </a>
-                    <!-- <a href="inscriptionDelete/{{$preInscription->id}}"> -->
-                      <a href="#">
+                      <a href="inscriptionDelete/{{$preInscription->id}}">
                         <button class="bg-yellow text-gray-darker mx-1 px-2 my-1 rounded-full">rechazar</button>
                       </a>
                     </td>

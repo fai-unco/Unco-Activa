@@ -29,6 +29,7 @@ class Inscription extends Model
         'emergency_contac_bond',
         'emergency_contac_phone_',
         'billing_verified_at',
+        'verification_denied'
     ];
 
     protected $casts = [

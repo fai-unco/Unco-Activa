@@ -15,7 +15,7 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('message', 'You have been logget out!');
+        return redirect('/')->with('message', 'Has cerrado sesion!');
     }
 
     //Show Login Form
@@ -33,7 +33,7 @@ class UserController extends Controller
         if(auth()->attempt($formFields)){
             $request->session()->regenerate();
 
-            return redirect('/')->with('message', 'You are now logged in!');
+            return redirect('/')->with('message', 'Has iniciado sesion!');
         }
         return back()->withErrors(['credenciales' => 'Credenciales Invalidas'])->onlyInput('email');
     }
