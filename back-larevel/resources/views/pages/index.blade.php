@@ -7,7 +7,7 @@
                     </span>
                 </h1>
             @endauth
-            <div class="flex justify-center items-center h-screen w-screen absolute top-0 z-0">
+            <div class="flex justify-center items-center h-screen w-full absolute top-0 z-0">
                 <h1 class="text-[3rem] sm:text-[5rem] text-blue-cyan font-bold italic">Unco Activa</h1>
             </div>
         </div>
