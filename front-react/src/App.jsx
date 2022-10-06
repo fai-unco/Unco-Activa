@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from 'pages/home';
@@ -6,7 +7,7 @@ import ForgotPassword from 'pages/forgot-password';
 import PasswordReset from 'pages/password-reset';
 import NotFoundPage from 'pages/404';
 import PreinscriptionForm from 'pages/PreinscriptionForm';
-import axios from 'axios'
+import Regulation from 'pages/Regulation';
 
 function App() {
   const [categories, setcategories] = useState([])
@@ -30,6 +31,7 @@ function App() {
     <div className="antialiased">
       <Routes>
         <Route path="/" element={<Home categories={categories} setcategories={setcategories} />} />
+        <Route path="/reglamento" element={<Regulation />} />
         {/* <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} /> */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -37,15 +39,13 @@ function App() {
         InscriptionFormModalRules
         <Route element={<PreinscriptionForm />} path='/inscribirse' />
         {categories.map( (categorie) =>  (          
-            categorie.quotas > 0 ? 
+          categorie.quotas > 0 ? 
             <Route
               key={categorie.id}
               element={<PreinscriptionForm categorie={categorie} />}
               path={'/inscribirse/' + categorie.name} /> : <></>      
         ))}
-        <Route path="*" element={<NotFoundPage />}
-
-        />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );

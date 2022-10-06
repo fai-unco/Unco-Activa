@@ -24,10 +24,11 @@ const Navigation = ({ user }) => {
             </div>
             {/* Navigation Links */}
             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-              <CustomNavLink
-                to="/"
-              >
+              <CustomNavLink to="/">
                 Inicio
+              </CustomNavLink>
+              <CustomNavLink to="/reglamento">
+                Reglamento
               </CustomNavLink>
             </div>
           </div>

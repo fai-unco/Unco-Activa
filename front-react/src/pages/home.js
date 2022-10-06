@@ -132,7 +132,7 @@ function Home(categories, setcategories) {
               </div>
             </div>
             <div className='grid lg:grid-cols-7  items-center justify-center p-5'>
-              <h1 class="text-center col-span-7 text-[2rem] mt-5 md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
+              <h1 className="text-center col-span-7 text-[2rem] mt-5 md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
                 SPONSORS
               </h1>
               <img alt='logo ijan' className='col-span-7 justify-self-center p-5 w-1/3 lg:w-2/3 lg:mt-0 lg:col-span-1' src={'/logos/logo-ijan.svg'} />
@@ -141,7 +141,7 @@ function Home(categories, setcategories) {
               <img width='80%' className='col-span-4 lg:col-span-2 p-5  lg:m-0 justify-self-center' alt='logo muni' src={'/logos/logo-muni.png'} />
             </div>
             <div className='grid justify-center pb-5'>
-              <h1 class="text-center text-[2rem]  md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
+              <h1 className="text-center text-[2rem]  md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
                 ORGANIZADORES
               </h1>
 
