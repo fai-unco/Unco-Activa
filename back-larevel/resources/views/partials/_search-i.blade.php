@@ -1,5 +1,5 @@
 <form action="/inscripciones">
-    <div class="flex relative px-2 rounded-lg">
+    <div class="flex relative pl-2 rounded-lg">
         <div >
             <div class="flex items-center px-1 h-10 absolute">
                 <i class="fa fa-search text-blue-high hover:text-blue-cyan"></i>
@@ -14,4 +14,4 @@
             </button>
         </div>
     </div>
-  </form>
+</form>
