@@ -35,4 +35,14 @@ class Inscription extends Model
     protected $casts = [
         'billing_verified_at' => 'datetime',
     ];
+
+    public function scopeFilter($query, array $filters){
+
+        if($filters['search'] ?? false){
+            $query->where('name', 'like', '%' . request('search') . '%')
+            ->orwhere('surname', 'like', '%' . request('search') . '%')
+            ->orwhere('dni', 'like', '%' . request('search') . '%')
+            ->orwhere('email', 'like', '%' . request('search') . '%');
+        }
+    }
 }
