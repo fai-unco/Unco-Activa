@@ -120,15 +120,6 @@ function Home(categories, setcategories) {
                     <li>+ 60 años</li>
                   </ul>
                 </div>
-                <div className="sm:px-5">
-                  <p className='text-[1.2rem] text-blue-high pt-5 font-Hurme-Geometric-BO'>Formato de clasificación</p>
-                  <p className='font-Hurme-Geometric-N'>Los participantes deberán:</p>
-                  <ul className='list-none pt-2'>
-                    <li><span className='font-Hurme-Geometric-N'>a)</span> Realizar el recorrido en el menor tiempo posible.</li>
-                    <li><span className='font-Hurme-Geometric-N'>b)</span> No podrán utilizar vehículos ni acortar el recorrido.</li>
-                    <li><span className='font-Hurme-Geometric-N'>c)</span> No se puede ser asistido por otras personas en competencia (fair play).</li>
-                  </ul>
-                </div>
               </div>
             </div>
             <div className='grid lg:grid-cols-7  items-center justify-center p-5'>
