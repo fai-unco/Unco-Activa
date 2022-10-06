@@ -23,7 +23,7 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        $preInscriptions = Inscription::where('billing_verified_at', null )->where('verification_denied', null )->paginate(10);
+        $preInscriptions = Inscription::where('billing_verified_at', null )->where('verification_denied', null )->filter(request(['search']))->paginate(10);
         $categories = RaceCategorie::all();
 
         return view('pages.pre-inscriptions', ['preInscriptions' => $preInscriptions, 'categories' => $categories]);
@@ -31,7 +31,7 @@ class InscriptionController extends Controller
 
     public function indexInscriptions()
     {
-        $inscriptions = Inscription::where('billing_verified_at', '!=', null )->where('verification_denied', null )->paginate(10);
+        $inscriptions = Inscription::where('billing_verified_at', '!=', null )->where('verification_denied', null )->filter(request(['search']))->paginate(10);
         $inscriptionCategories = RaceCategorie::all();
         return view('pages.inscriptions', ['inscriptions' => $inscriptions, 'inscriptionCategories' => $inscriptionCategories]);
     }

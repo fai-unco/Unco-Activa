@@ -3,12 +3,24 @@
       <div class='justify-center bg-white rounded-lg pb-2  w-full'>
         <h1 class='flex justify-center text-[1.5rem] sm:text-[2rem] font-Hurme-Geometric-BO text-blue-dark py-5 font-bold italic w-full'>PRE-INSCRIPTOS</h1>
         <div class='overflow-x-auto pb-5'>
+          <div class="grid sm:flex items-center">
+            @include('partials._search')
+            <div class="flex items-center pl-2 sm:pl-0 py-1">
+              <a href="/pre-inscripciones">
+                <button
+                  type="submit"
+                  class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
+                  Restablecer
+                </button>
+              </a>
+            </div>
+          </div>
           <div class='px-3 font-Hurme-Geometric-BO italic font-bold'>
             <p class='text-blue-high'>Cupos Disponibles:</p>
-              @foreach ($categories as $categorie)
-                <span >{{$categorie->name}}</span>:
-                <span class='font-Hurme-Geometric-N px-1'>{{$categorie->quotas}}</span>
-              @endforeach
+            @foreach ($categories as $categorie)
+              <span >{{$categorie->name}}</span>:
+              <span class='font-Hurme-Geometric-N px-1'>{{$categorie->quotas}}</span>
+            @endforeach
           </div>
           <table class='font-Hurme-Geometric-N w-full'>
             <thead>
