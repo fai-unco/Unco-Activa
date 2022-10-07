@@ -23,11 +23,12 @@ const Navigation = ({ user }) => {
               </NavLink>
             </div>
             {/* Navigation Links */}
-            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-              <CustomNavLink
-                to="/"
-              >
+            <div className="hidden space-x-2 sm:-my-px sm:ml-10 sm:flex">
+              <CustomNavLink to="/">
                 Inicio
+              </CustomNavLink>
+              <CustomNavLink to="/reglamento">
+                Reglamento
               </CustomNavLink>
             </div>
           </div>
@@ -120,10 +121,11 @@ const Navigation = ({ user }) => {
         <div className="block sm:hidden border-t border-gray">
           {!user ?
             <div className="pt-2 pb-3 space-y-1">
-              <ResponsiveNavLink
-                to="/"
-              >
+              <ResponsiveNavLink to="/">
                 Inicio
+              </ResponsiveNavLink>
+              <ResponsiveNavLink to="/reglamento">
+                Reglamento
               </ResponsiveNavLink>
               {/* <ResponsiveNavLink
                 to="/login"
