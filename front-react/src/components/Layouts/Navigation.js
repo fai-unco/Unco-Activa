@@ -124,7 +124,7 @@ const Navigation = ({ user }) => {
               <ResponsiveNavLink to="/">
                 Inicio
               </ResponsiveNavLink>
-              <ResponsiveNavLink to="/">
+              <ResponsiveNavLink to="/reglamento">
                 Reglamento
               </ResponsiveNavLink>
               {/* <ResponsiveNavLink
