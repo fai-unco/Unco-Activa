@@ -23,7 +23,7 @@ const Navigation = ({ user }) => {
               </NavLink>
             </div>
             {/* Navigation Links */}
-            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <div className="hidden space-x-2 sm:-my-px sm:ml-10 sm:flex">
               <CustomNavLink to="/">
                 Inicio
               </CustomNavLink>
