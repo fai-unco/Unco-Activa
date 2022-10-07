@@ -121,10 +121,11 @@ const Navigation = ({ user }) => {
         <div className="block sm:hidden border-t border-gray">
           {!user ?
             <div className="pt-2 pb-3 space-y-1">
-              <ResponsiveNavLink
-                to="/"
-              >
+              <ResponsiveNavLink to="/">
                 Inicio
+              </ResponsiveNavLink>
+              <ResponsiveNavLink to="/">
+                Reglamento
               </ResponsiveNavLink>
               {/* <ResponsiveNavLink
                 to="/login"
