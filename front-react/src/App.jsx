@@ -37,7 +37,7 @@ function App() {
         InscriptionFormModalRules
         <Route element={<PreinscriptionForm />} path='/inscribirse' />
         {categories.map( (categorie) =>  (          
-            categorie.quotas > 0 ? 
+          categorie.quotas > 0 ? 
             <Route
               key={categorie.id}
               element={<PreinscriptionForm categorie={categorie} />}
