@@ -1,3 +1,5 @@
+import RacePath from 'components/home/RacePath';
+import ShortRegulation from 'components/home/ShortRegulation';
 import AppLayout from 'components/Layouts/AppLayout';
 import Hero from 'components/Layouts/Hero';
 import Slider from 'components/Slider';
@@ -12,16 +14,14 @@ const mockImagenes = [
   'elements/UNCO_ACT_50_FEED_3.jpg',
   'elements/UNCO_ACT_50_FEED_4.jpg'
 ]
-
-function Home(categories, setcategories) {
-
+const Home = (categories) => {  
   return (
-    <AppLayout>
+    <AppLayout  >
       <div className="font-Hurme-Geometric-R min-h-screen">
         <div>
-          <Hero categories={categories} setcategories={setcategories} />
+          <Hero categories={categories} />
         </div>
-        <div className="px-3 md:px-12 py-7 ">
+        <div  className="px-3 md:px-12 py-7 ">
           <div className=' bg-gray-light rounded-lg text-black'>
             <div className='flex justify-center pt-5'>
               <Slider imagenes={mockImagenes} className='bg-white' />
@@ -98,7 +98,7 @@ function Home(categories, setcategories) {
                 </div>
               </div>
             </div>
-            <h1 class="text-center text-[2rem] mt-20 md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
+            <h1 className="text-center text-[2rem] mt-20 md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
               SPONSORS
             </h1>
             <div className='grid lg:grid-cols-7  items-center justify-center p-5'>
@@ -108,19 +108,25 @@ function Home(categories, setcategories) {
               <img width='80%' className='col-span-4 lg:col-span-2 p-5  lg:m-0 justify-self-center' alt='logo muni' src={'/logos/logo-muni.png'} />
             </div>
             <div className='grid justify-center pb-5'>
-              <h1 class="text-center text-[2rem]  md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
+              <h1 className="text-center text-[2rem]  md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
                 ORGANIZADORES
               </h1>
-
-              <div className='grid grid-cols-3 gap-5 items-center justify-center p-5'>
+              
+              <div id='racePath' className='grid grid-cols-3 gap-5 items-center justify-center p-5'>
                 <img className='col-span-1 h-24 md:h-[180px] justify-self-end' alt='logo ijan' src={'/logos/Logo Dirección de Deportes y Recreación 4-10.png'} />                
-                <img className='col-span-1 h-24 md:h-[180px] justify-self-center ' alt='logo ijan' src={'/logos/LOGO UNCO PNG.png'} />
+                <img  className='col-span-1 h-24 md:h-[180px] justify-self-center ' alt='logo ijan' src={'/logos/LOGO UNCO PNG.png'} />
+                
                 <img className='col-span-1 h-24 md:h-[180px] justify-self-start bg-gray-darker' alt='logo ijan' src={'/logos/Secretaría de Bienestar Universitario-02.png'} />
+              </div>
+              <div >
+
               </div>
             </div>
           </div>
 
         </div>
+        <RacePath  />
+        <ShortRegulation />
 
       </div>
     </AppLayout>

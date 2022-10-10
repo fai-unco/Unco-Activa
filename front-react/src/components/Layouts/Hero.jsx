@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
@@ -12,12 +9,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
-import { useNavigate } from 'react-router-dom';
 import CategoriePaper from 'components/elements/CategoriePaper';
 
 const Hero = (categories, setcategories) => {
 
-  const navigate = useNavigate()
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -128,6 +123,7 @@ const Hero = (categories, setcategories) => {
       <div className='grid items-end justify-center'>
         <div>
           <img
+            alt='unco activa logo'
             src='./logos/logoUNCOactiva.png'
             className='h-40'>
           </img>
@@ -147,12 +143,16 @@ const Hero = (categories, setcategories) => {
           </button>
           <ModalCategories />
         </div>
-        <div className='flex justify-center px-2'>
-          <a
-            href="#conoceMas"
-            className='border-2 border-white rounded-full px-5 py-1 text-white  hover:bg-white hover:text-black bg-opacity-0 ease-in-out duration-[1500ms]'>
+        <div className='flex justify-center px-2'>          
+          <div
+            onClick={(e) => {
+              e.preventDefault();              
+              let racepath = document.getElementById('conoceMas');
+              racepath.scrollIntoView({ behavior: 'smooth' });
+            }}           
+            className='cursor-pointer border-2 scroll-smooth  border-white rounded-full px-5 py-1 text-white  hover:bg-white hover:text-black bg-opacity-0 ease-in-out duration-[1500ms]'>
             CONOCE MAS
-          </a>
+          </div>
         </div>
       </div>
     </div>

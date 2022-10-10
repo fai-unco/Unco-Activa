@@ -6,6 +6,7 @@ import ForgotPassword from 'pages/forgot-password';
 import PasswordReset from 'pages/password-reset';
 import NotFoundPage from 'pages/404';
 import PreinscriptionForm from 'pages/PreinscriptionForm';
+import Regulation from 'pages/Regulation';
 import axios from 'axios'
 
 function App() {
@@ -25,9 +26,8 @@ function App() {
       });
     //console.log(response.data)
   }
-  
   return (
-    <div className="antialiased">
+    <div id='top' className="antialiased">
       <Routes>
         <Route path="/" element={<Home categories={categories} setcategories={setcategories} />} />
         {/* <Route path="/login" element={<Login />} />
@@ -43,6 +43,7 @@ function App() {
               element={<PreinscriptionForm categorie={categorie} />}
               path={'/inscribirse/' + categorie.name} /> : <></>      
         ))}
+        <Route element={<Regulation />} path='/reglamento' />
         <Route path="*" element={<NotFoundPage />}
 
         />

@@ -3,9 +3,9 @@ import ResponsiveNavLink, { ResponsiveNavButton } from 'components/ResponsiveNav
 import { useAuth } from 'hooks/auth'
 import { useState } from 'react'
 import CustomNavLink from 'components/NavLink';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Navigation = ({ user }) => {
+const Navigation = () => {
   const { logout } = useAuth()
   const [open, setOpen] = useState(false)
 
@@ -18,17 +18,66 @@ const Navigation = ({ user }) => {
           <div className="flex">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <NavLink to="/">
+              <NavLink onClick={(e) => {
+                e.preventDefault();
+                if (window.location.pathname !== '/') {
+                  window.location.replace('/#top');
+                }
+                else {
+                  let racepath = document.getElementById('top');
+                  racepath.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}>
                 <ApplicationLogo className="block h-10 w-auto fill-current text-gray-light" />
               </NavLink>
             </div>
             {/* Navigation Links */}
             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
               <CustomNavLink
-                to="/"
+                onClick={(e) => {
+                  e.preventDefault();                 
+                  if (window.location.pathname !== '/') {
+                    window.location.replace('/#top');
+                  }
+                  else {
+                    let racepath = document.getElementById('top');
+                    racepath.scrollIntoView({ behavior: 'smooth' });
+                  }                   
+                }}
               >
                 Inicio
               </CustomNavLink>
+
+              <CustomNavLink
+                onClick={(e) => {
+                  e.preventDefault();                  
+                  if (window.location.pathname !== '/') {
+                    window.location.replace('/#racePath');                    
+                  } 
+                  else{
+                    let racepath = document.getElementById('racePath');
+                    racepath.scrollIntoView({ behavior: 'smooth' });                  
+                  }              
+                }}
+              >
+                Recorrido
+              </CustomNavLink>
+
+              <CustomNavLink
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.pathname !== '/') {
+                    window.location.replace('/#shortRegulation');
+                  }
+                  else {
+                    let racepath = document.getElementById('shortRegulation');
+                    racepath.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Reglamento
+              </CustomNavLink>
+
             </div>
           </div>
           {/* Settings Dropdown */}
@@ -56,8 +105,8 @@ const Navigation = ({ user }) => {
                     </div>
                   </button>
                 }> */}
-                {/* Authentication */}
-                {/* <DropdownButton onClick={logout}>
+          {/* Authentication */}
+          {/* <DropdownButton onClick={logout}>
                   Cerrar Sesion
                 </DropdownButton>
               </Dropdown>
@@ -118,14 +167,53 @@ const Navigation = ({ user }) => {
       {/* Responsive Navigation Menu */}
       {open && (
         <div className="block sm:hidden border-t border-gray">
-          {!user ?
-            <div className="pt-2 pb-3 space-y-1">
-              <ResponsiveNavLink
-                to="/"
-              >
-                Inicio
-              </ResponsiveNavLink>
-              {/* <ResponsiveNavLink
+          {            <div className="pt-2 pb-3 space-y-1">
+            
+            <ResponsiveNavLink
+              onClick={(e) => {
+                e.preventDefault();
+                if (window.location.pathname !== '/') {
+                  window.location.replace('/#top');
+                }
+                else {
+                  let racepath = document.getElementById('top');
+                  racepath.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              Inicio
+            </ResponsiveNavLink>
+
+            <ResponsiveNavLink
+              onClick={(e) => {
+                e.preventDefault();
+                if (window.location.pathname !== '/') {
+                  window.location.replace('/#racePath');
+                }
+                else {
+                  let racepath = document.getElementById('racePath');
+                  racepath.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              Recorrido
+            </ResponsiveNavLink>
+
+            <ResponsiveNavLink
+              onClick={(e) => {
+                e.preventDefault();
+                if (window.location.pathname !== '/') {
+                  window.location.replace('/#shortRegulation');
+                }
+                else {
+                  let racepath = document.getElementById('shortRegulation');
+                  racepath.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              Reglamento
+            </ResponsiveNavLink>
+            {/* <ResponsiveNavLink
                 to="/login"
               >
                 Iniciar Sesion
@@ -135,49 +223,8 @@ const Navigation = ({ user }) => {
               >
                 Registrate
               </ResponsiveNavLink> */}
-            </div>
-            :
-            <>
-              {/* Responsive Settings Options */}
-              <div className="pt-4 pb-1">
-                <div className="flex items-center px-4">
-                  <div className="flex-shrink-0">
-                    <svg
-                      className="h-10 w-10 fill-current text-gray"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
-                  </div>
-                  <div className="ml-3">
-                    <div className="font-medium text-base text-gray">
-                      {user?.name}
-                    </div>
-                    <div className="font-medium text-sm text-gray">
-                      {user?.email}
-                    </div>
-                  </div>
-                </div>
-                <div className="pt-2 pb-3 space-y-1">
-                  <ResponsiveNavLink
-                    to="/"
-                  >
-                    Home
-                  </ResponsiveNavLink>
-                  {/* Authentication */}
-                  <ResponsiveNavButton onClick={logout}>
-                    Cerrar Sesion
-                  </ResponsiveNavButton>
-                </div>
-              </div>
-            </>
+          </div>
+            
           }
         </div>
       )}
@@ -185,5 +232,4 @@ const Navigation = ({ user }) => {
     // </div>
   )
 }
-
 export default Navigation
