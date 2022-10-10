@@ -4,8 +4,7 @@ import { useState } from 'react'
 import CustomNavLink from 'components/NavLink';
 import { NavLink } from 'react-router-dom';
 
-const Navigation = () => {
-  // const { logout } = useAuth()
+const Navigation = () => {  
   const [open, setOpen] = useState(false)
 
   return (
@@ -83,7 +82,6 @@ const Navigation = () => {
               >
                 Inscribirse
               </CustomNavLink>
-
             </div>
           </div>
           {/* Settings Dropdown */}
@@ -225,17 +223,7 @@ const Navigation = () => {
                 }}
               >
               Reglamento
-              </ResponsiveNavLink>            
-              {/* <ResponsiveNavLink
-                to="/login"
-              >
-                Iniciar Sesion
-              </ResponsiveNavLink>
-              <ResponsiveNavLink
-                to="/register"
-              >
-                Registrate
-              </ResponsiveNavLink> */}
+              </ResponsiveNavLink>          
             </div>
             
           }

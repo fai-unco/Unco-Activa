@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\PreInscriptionMail;
 use App\Models\Inscription;
-use App\Models\RaceCategorie;
 use Illuminate\Http\Request;
+use App\Mail\InscriptionMail;
+use App\Models\RaceCategorie;
+use App\Mail\PreInscriptionMail;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 
+use Illuminate\Support\Facades\Mail;
 use function PHPUnit\Framework\isNull;
 
 class InscriptionController extends Controller
@@ -22,7 +23,7 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        $preInscriptions = Inscription::where('billing_verified_at', null )->where('verification_denied', null )->paginate(10);
+        $preInscriptions = Inscription::where('billing_verified_at', null )->where('verification_denied', null )->filter(request(['search']))->paginate(10);
         $categories = RaceCategorie::all();
 
         return view('pages.pre-inscriptions', ['preInscriptions' => $preInscriptions, 'categories' => $categories]);
@@ -30,7 +31,7 @@ class InscriptionController extends Controller
 
     public function indexInscriptions()
     {
-        $inscriptions = Inscription::where('billing_verified_at', '!=', null )->where('verification_denied', null )->paginate(10);
+        $inscriptions = Inscription::where('billing_verified_at', '!=', null )->where('verification_denied', null )->filter(request(['search']))->paginate(10);
         $inscriptionCategories = RaceCategorie::all();
         return view('pages.inscriptions', ['inscriptions' => $inscriptions, 'inscriptionCategories' => $inscriptionCategories]);
     }
@@ -165,8 +166,16 @@ class InscriptionController extends Controller
                 $inscription->billing_verified_at = date('Y-m-d');
                 $inscription->save();
 
+                $arreglocontacto = [
+                    "name" => $inscription->name . " " . $inscription->surname,
+                    "categoriename" => $categorie->name,
+                ];
+                
+                $correo = new InscriptionMail($arreglocontacto);
+                if (!Mail::to($inscription->email)->send($correo)) abort(500, 'Error al enviar el mail.');
+
                 return redirect('/pre-inscripciones')->with('message', 'Has aprobado a '.$inscription->name.' '.$inscription->surname.'!');
-            };
+            }
         }
     }
 }

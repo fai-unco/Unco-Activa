@@ -3,6 +3,18 @@
     <div class='justify-center bg-white rounded-lg pb-2 my-7'>
       <h1 class='flex justify-center text-[1.5rem] sm:text-[2rem] font-Hurme-Geometric-BO font-bold italic text-blue-dark py-5'>INSCRIPTOS</h1>
       <div class='overflow-x-auto pb-5'>
+        <div class="grid sm:flex items-center">
+          @include('partials._search-i')
+          <div class="flex items-center pl-2 sm:pl-0 py-1">
+            <a href="/inscripciones" >
+              <button
+                type="submit"
+                class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
+                Restablecer
+              </button>
+            </a>
+          </div>
+        </div>
         <table class='font-Hurme-Geometric-N w-full px-1'>
           <thead>
             <tr class='font-Hurme-Geometric-BO italic text-blue-dark'>

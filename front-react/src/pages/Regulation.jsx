@@ -1,6 +1,5 @@
 import React from 'react'
-
-const regulation = (/* categories, setcategories */) => {
+const regulation = () => {
   return (    
     <div className="font-Hurme-Geometric-R min-h-screen">
       <div className="px-3 sm:px-10 md:px-20 lg:px-32 py-7 ">
@@ -84,7 +83,7 @@ const regulation = (/* categories, setcategories */) => {
           </div>
         </div>
       </div>
-    </div>    
+    </div>  
   )
 }
 
