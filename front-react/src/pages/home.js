@@ -92,19 +92,18 @@ const Home = () => {
                     <li>3km tiene un costo de $2500 por participante. Es sin clasificación ni premiación.</li>
                   </ul>
 
-
-                <p className='pt-2'><span className='font-Hurme-Geometric-N'>Incluye: </span>
+                  <p className='pt-2'><span className='font-Hurme-Geometric-N'>Incluye: </span>
                     Derecho a participación / Remera técnica / servicios de control / servicio de hidratación seguro de corredor.
-                </p>
-                <p className='pt-1'><span className='font-Hurme-Geometric-N'>ATENCIÓN COMUNIDAD UNIVERSITARIA: </span>
+                  </p>
+                  <p className='pt-1'><span className='font-Hurme-Geometric-N'>ATENCIÓN COMUNIDAD UNIVERSITARIA: </span>
                     Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales.
-                </p>
-                <ul className='list-disc pl-5 pt-2'>
-                  <li>25km tiene un costo de $4000 por participante.</li>
-                  <li>15km tiene un costo de $3000 por participante.</li>
-                  <li>7km tiene un costo de $2500 por participante.</li>
-                  <li>3km tiene un costo de $2000 por participante. Es sin clasificación ni premiación.</li>
-                </ul>                
+                  </p>
+                  <ul className='list-disc pl-5 pt-2'>
+                    <li>25km tiene un costo de $4000 por participante.</li>
+                    <li>15km tiene un costo de $3000 por participante.</li>
+                    <li>7km tiene un costo de $2500 por participante.</li>
+                    <li>3km tiene un costo de $2000 por participante. Es sin clasificación ni premiación.</li>
+                  </ul>                
 
                   <h4 className="text-[1.2rem] text-blue-high pt-5 font-Hurme-Geometric-BO">MODO DE INSCRIPCIÓN:</h4>
                   <p className=''>Las inscripciones se realizan vía Internet en la web:
@@ -155,21 +154,22 @@ const Home = () => {
               </h1>
               
               <div id='racePath' className='grid grid-cols-3 gap-5 items-center justify-center p-5'>
-              <img className='col-span-1 h-24 md:h-[180px] justify-self-end' alt='logo ijan' src={'/logos/Logo Dirección de Deportes y Recreación 4-10.png'} />                
-              <img  className='col-span-1 h-24 md:h-[180px] justify-self-center ' alt='logo ijan' src={'/logos/LOGO UNCO PNG.png'} />
+                <img className='col-span-1 h-24 md:h-[180px] justify-self-end' alt='logo ijan' src={'/logos/Logo Dirección de Deportes y Recreación 4-10.png'} />                
+                <img  className='col-span-1 h-24 md:h-[180px] justify-self-center ' alt='logo ijan' src={'/logos/LOGO UNCO PNG.png'} />
                 
-              <img className='col-span-1 h-24 md:h-[180px] justify-self-start bg-gray-darker' alt='logo ijan' src={'/logos/Secretaría de Bienestar Universitario-02.png'} />
-            </div>
-            <div >
+                <img className='col-span-1 h-24 md:h-[180px] justify-self-start bg-gray-darker' alt='logo ijan' src={'/logos/Secretaría de Bienestar Universitario-02.png'} />
+              </div>
+              <div >
+              </div>
             </div>
           </div>
+
         </div>
+        <RacePath  />
+        <ShortRegulation />
 
-      </div>
-      <RacePath  />
-      <ShortRegulation />
-
-    </div>    
+      </div>  
+    </div>  
   );
 }
 
