@@ -165,10 +165,10 @@ const Home = () => {
           </div>
 
         </div>
-        <RacePath  />
-        <ShortRegulation />
 
       </div>  
+      <RacePath  />
+      <ShortRegulation />
     </div>  
   );
 }

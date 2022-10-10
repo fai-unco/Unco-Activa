@@ -6,7 +6,7 @@ const ShortRegulation = props => {
     <div id={'shortRegulation'} className=' px-3 md:px-12 lg:px-0 py-7 '>
       <div className='bg-gray-light flex flex-col lg:flex-row rounded-lg xl:max-h-[850px] lg:rounded-none text-black'>
               
-        <div className='lg:min-w-[50%] xl:min-w-[35%] xl:max-h-full '>
+        <div className='lg:min-w-[50%] xl:min-w-[25%] xl:max-h-full '>
           <img className='w-full h-full rounded-t-lg lg:hidden justify-self-end' alt='logo ijan' src={'elements/UNCO_ACT_50_FEED_1.jpg'} />
           <img className='w-full hidden h-full  lg:block justify-self-end' alt='feed story' src={'elements/UNCO_ACT_50_ST_1.jpg'} />
           
