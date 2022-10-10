@@ -1,4 +1,3 @@
-import AppLayout from 'components/Layouts/AppLayout';
 import axios from 'axios'
 import React, { useState } from 'react'
 import ButtonInput from 'components/elements/ButtonInput'

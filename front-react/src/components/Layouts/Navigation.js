@@ -1,6 +1,5 @@
 import ApplicationLogo from 'components/ApplicationLogo'
-import ResponsiveNavLink, { ResponsiveNavButton } from 'components/ResponsiveNavLink'
-import { useAuth } from 'hooks/auth'
+import ResponsiveNavLink from 'components/ResponsiveNavLink'
 import { useState } from 'react'
 import CustomNavLink from 'components/NavLink';
 import { NavLink } from 'react-router-dom';

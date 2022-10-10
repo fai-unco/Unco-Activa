@@ -1,6 +1,5 @@
 import RacePath from 'components/home/RacePath';
 import ShortRegulation from 'components/home/ShortRegulation';
-import AppLayout from 'components/Layouts/AppLayout';
 import Hero from 'components/Layouts/Hero';
 import Slider from 'components/Slider';
 

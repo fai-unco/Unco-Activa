@@ -1,6 +1,5 @@
 import Navigation from 'components/Layouts/Navigation'
 import Footer from './Footer'
-import { useAuth } from 'hooks/auth'
 
 const AppLayout = ({ children, resultRef }) => {
     

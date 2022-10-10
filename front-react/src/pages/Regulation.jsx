@@ -1,5 +1,4 @@
 import React from 'react'
-import AppLayout from 'components/Layouts/AppLayout'
 
 const regulation = (/* categories, setcategories */) => {
   return (    
