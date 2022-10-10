@@ -6,12 +6,9 @@ import { useTheme } from '@mui/material/styles';
 
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
+import BoxCategories from 'components/inscriptionform/boxCategories';
 
-import CategoriePaper from 'components/elements/CategoriePaper';
-
-const Hero = (categories, setcategories) => {
+const Hero = () => {
 
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
@@ -54,64 +51,7 @@ const Hero = (categories, setcategories) => {
             >
               <CloseIcon />
             </IconButton>
-            <Box
-              sx={{
-                className: 'xs:h-48',
-                width: 2 / 2,
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                '& > :not(style)': {
-                  m: 1,
-                  mt: 4,
-                  mb: 4,
-                  maxWidth: 300,
-                  width: 2 / 2,
-                  height: '50'
-                }
-              }}
-            >
-              <Paper elevation={3}
-                className="xs:h-24"
-                sx={{              
-                  textAlign: 'center',
-                  color: '#0F3759',
-                  lineHeight: '50px',
-                  overflow: 'hidden',
-                  textOverflow: 'clip',
-                  fontSize: 20,
-                  fontWeight: 600,
-                  maxHeight: 100
-                }}> ELEGI UNA CATEGORIA</Paper>
-            </Box>
-            <Box
-              sx={{
-                width: 2 / 2,
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: 2,
-                gridTemplateColumns: { md: '1fr 1fr' },
-                justifyContent: 'center',
-                '& > :not(style)': {
-                  m: 2,
-                  mb: 4,
-                  maxWidth: 250,
-                  width: 2 / 2,
-                  height: 150
-                }
-              }}
-            >
-              {
-                categories.categories.categories.map((categorie) => (
-                  <CategoriePaper
-                    key={categorie.id}
-                    navigate={'inscribirse/' + categorie.name}
-                    backgroundColor='rgb(245 245 245)'
-                    color={categorie.color}
-                    name={categorie.name} ></CategoriePaper>
-                ))
-              }
-            </Box>
+            <BoxCategories  />
           </DialogContent>
         </Dialog>
       </div >

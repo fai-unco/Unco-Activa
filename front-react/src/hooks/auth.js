@@ -16,10 +16,10 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
         mutate('/verify-email')
       }),
-    {
-      revalidateIfStale: false,
-      revalidateOnFocus: false
-    }
+  {
+    revalidateIfStale: false,
+    revalidateOnFocus: false
+  }
   )
 
   const csrf = () => axios.get('/sanctum/csrf-cookie')

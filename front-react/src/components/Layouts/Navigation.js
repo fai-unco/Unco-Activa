@@ -6,7 +6,7 @@ import CustomNavLink from 'components/NavLink';
 import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
-  const { logout } = useAuth()
+  // const { logout } = useAuth()
   const [open, setOpen] = useState(false)
 
   return (
@@ -76,6 +76,13 @@ const Navigation = () => {
                 }}
               >
                 Reglamento
+              </CustomNavLink>
+
+              <CustomNavLink
+                to='/inscribirse'                 
+              
+              >
+                Inscribirse
               </CustomNavLink>
 
             </div>
@@ -167,53 +174,60 @@ const Navigation = () => {
       {/* Responsive Navigation Menu */}
       {open && (
         <div className="block sm:hidden border-t border-gray">
-          {            <div className="pt-2 pb-3 space-y-1">
-            
-            <ResponsiveNavLink
-              onClick={(e) => {
-                e.preventDefault();
-                if (window.location.pathname !== '/') {
-                  window.location.replace('/#top');
-                }
-                else {
-                  let racepath = document.getElementById('top');
-                  racepath.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
+          {        
+            <div className="pt-2 pb-3 space-y-1">            
+              <ResponsiveNavLink
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.pathname !== '/') {
+                    window.location.replace('/#top');
+                  }
+                  else {
+                    let racepath = document.getElementById('top');
+                    racepath.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
               Inicio
-            </ResponsiveNavLink>
+              </ResponsiveNavLink>
 
-            <ResponsiveNavLink
-              onClick={(e) => {
-                e.preventDefault();
-                if (window.location.pathname !== '/') {
-                  window.location.replace('/#racePath');
-                }
-                else {
-                  let racepath = document.getElementById('racePath');
-                  racepath.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
+              <ResponsiveNavLink
+                to='/inscribirse'
+
+              >
+              Inscribirse
+              </ResponsiveNavLink>
+
+              <ResponsiveNavLink
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.pathname !== '/') {
+                    window.location.replace('/#racePath');
+                  }
+                  else {
+                    let racepath = document.getElementById('racePath');
+                    racepath.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
               Recorrido
-            </ResponsiveNavLink>
+              </ResponsiveNavLink>
 
-            <ResponsiveNavLink
-              onClick={(e) => {
-                e.preventDefault();
-                if (window.location.pathname !== '/') {
-                  window.location.replace('/#shortRegulation');
-                }
-                else {
-                  let racepath = document.getElementById('shortRegulation');
-                  racepath.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
+              <ResponsiveNavLink
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.pathname !== '/') {
+                    window.location.replace('/#shortRegulation');
+                  }
+                  else {
+                    let racepath = document.getElementById('shortRegulation');
+                    racepath.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
               Reglamento
-            </ResponsiveNavLink>
-            {/* <ResponsiveNavLink
+              </ResponsiveNavLink>            
+              {/* <ResponsiveNavLink
                 to="/login"
               >
                 Iniciar Sesion
@@ -223,7 +237,7 @@ const Navigation = () => {
               >
                 Registrate
               </ResponsiveNavLink> */}
-          </div>
+            </div>
             
           }
         </div>
