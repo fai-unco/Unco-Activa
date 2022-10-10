@@ -5,8 +5,8 @@ const CustomNavLink = ({ children, ...props }) => (
     className={({isActive}) => (isActive
       ? 'inline-flex items-center px-1 pt-1 border-b-2 ' +
       'text-sm font-medium leading-5 focus:outline-none transition ' +
-      'duration-150 ease-in-out border-blue-cyan text-gray focus:border-blue-cyan'
-      : 'inline-flex items-center px-1 pt-1 border-b-2 text-sm ' +
+      'duration-150 ease-in-out border-yellow text-gray focus:border-blue-cyan'
+      : 'inline-flex items-center border-yellow px-1 pt-1 border-b-2 text-sm ' +
       'font-medium leading-5 focus:outline-none transition duration-150 ' +
       'ease-in-out border-transparent text-gray-light hover:text-gray ' +
       'hover:border-blue-cyan focus:text-gray-dark focus:border-blue-cyan')
