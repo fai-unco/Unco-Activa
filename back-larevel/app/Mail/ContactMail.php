@@ -9,16 +9,19 @@ use Illuminate\Queue\SerializesModels;
 
 class ContactMail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable, SerializesModels;    
 
+    public $subject = "ContacUs";
+
+    public $contacto;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($contacto)
     {
-        //
+        $this->contacto = $contacto;
     }
 
     /**
@@ -28,6 +31,7 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+
+        return $this->markdown('mail.contact');
     }
 }

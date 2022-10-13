@@ -12,7 +12,7 @@ const ShortRegulation = props => {
           
         </div>
 
-        <div id='reglamento' className={'px-5 lg:pl-10'}>
+        <div id='reglamento' className={'p-5 lg:pl-10'}>
           <div className='grid justify-center pt-5 '>
             <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>REGLAMENTO</p>
             <h1 className=' bg-yellow py-1 w-1/3 mt-5'> </h1>

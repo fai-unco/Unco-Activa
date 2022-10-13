@@ -1,3 +1,4 @@
+import ContacUs from 'components/home/ContacUs';
 import RacePath from 'components/home/RacePath';
 import ShortRegulation from 'components/home/ShortRegulation';
 import Hero from 'components/Layouts/Hero';
@@ -169,6 +170,9 @@ const Home = () => {
       </div>  
       <RacePath  />
       <ShortRegulation />
+      <div id='contactUs'className='flex justify-center px-3 md:px-12 py-7 '>
+        <ContacUs />
+      </div>
     </div>  
   );
 }
