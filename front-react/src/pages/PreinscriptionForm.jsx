@@ -32,6 +32,14 @@ const genders = [
   { value: 'X', label: 'X' },
   { value: 'No se', label: 'No se' }
 ];
+
+export const expresiones = {
+  address: /^[a-zA-ZÀ-ÿ-Z0-9_-\s\W]{4,100}$/, // Letras, numeros, y caracteres especiales
+  name: /^[a-zA-ZÀ-ÿ\s]{3,50}$/, // Letras y espacios, pueden llevar acentos.
+  dni: /^[0-9]{8}$/, // 4 a 12 digitos.
+  email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+  phone: /^\d{7,14}$/ // 7 a 14 numeros.
+}
 const PreinscriptionForm = (props) => {
 
   // const { user } = useAuth({ middleware: 'auth' })
@@ -97,14 +105,6 @@ const PreinscriptionForm = (props) => {
     [promo, setpromo],
     [emergency_contac_phone, setemergency_contac_phone]
   ]
-
-  const expresiones = {
-    address: /^[a-zA-ZÀ-ÿ-Z0-9_-\s]{4,45}$/, // Letras, numeros, guion y guion_bajo
-    name: /^[a-zA-ZÀ-ÿ\s]{3,50}$/, // Letras y espacios, pueden llevar acentos.
-    dni: /^[0-9]{8}$/, // 4 a 12 digitos.
-    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    phone: /^\d{7,14}$/ // 7 a 14 numeros.
-  }
 
   // const csrf = () => axios.get('/sanctum/csrf-cookie')
 
@@ -460,7 +460,7 @@ const PreinscriptionForm = (props) => {
             id='address'
             value={address}
             onChange={setaddress}
-            error='Inngresa un domicilio valido'
+            error='Inngresa un domicilio valido, Letras, numeros, y caracteres especiales'
           />
           <InputColForm
             regularExpression={expresiones.email}

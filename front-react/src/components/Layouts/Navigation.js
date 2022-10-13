@@ -45,6 +45,12 @@ const Navigation = () => {
               >
                 Inicio
               </CustomNavLink>
+              <CustomNavLink
+                to='/inscribirse'
+
+              >
+                Inscribirse
+              </CustomNavLink>
 
               <CustomNavLink
                 onClick={(e) => {
@@ -75,12 +81,20 @@ const Navigation = () => {
               >
                 Reglamento
               </CustomNavLink>
-
-              <CustomNavLink
-                to='/inscribirse'                 
               
+              <CustomNavLink
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.pathname !== '/') {
+                    window.location.replace('/#contactUs');
+                  }
+                  else {
+                    let racepath = document.getElementById('contactUs');
+                    racepath.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
-                Inscribirse
+                Contactanos
               </CustomNavLink>
             </div>
           </div>
