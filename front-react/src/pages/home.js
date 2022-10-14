@@ -39,26 +39,26 @@ const Home = () => {
             <div className="grid sm:grid-cols-2 px-5 lg:px-16">
               <div className="sm:px-5">
                 <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Quien participa</h4>
-                <p className="">Toda persona que cumpla los requisitos de la inscripción. La modalidad de dicha carrera se va a dar en fomar individual.</p>
+                <p className="">Toda persona que cumpla los requisitos de la inscripción. La modalidad de dicha carrera se va a dar en forma individual.</p>
                 <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">¿Como ganar?</h4>
-                <p>Los y las participantes deberan:</p>
+                <p>Los y las participantes deberán:</p>
                 <ul className='list-decimal pl-5'>
                   <li>Realizar el recorrido en el menor tiempo posible.</li>
                   <li>No podrán utilizar vehículos ni acortar el recorrido.</li>
                   <li>No se puede ser asistido por otras personas en competencia (fair play).</li>
                   <li>La largada será común para todas las distancias. Deberán seguir las marcas.</li>
                 </ul>
-                <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Sevicios, Asistencia, Hidratacíon y Controles</h4>
+                <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Servicios, Asistencia, Hidratación y Controles</h4>
                 <ul className='list-decimal pl-5'>
                   <li>En un punto intermedio del recorrido y en la llegada se montarán puestos de asistencia e hidratación.</li>
                   <li>A lo largo del recorrido se establecerán controles de paso de los corredores y las corredoras en donde habrá colaboradores con remeras.</li>
                 </ul>
-                <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Remera de competencia y numero de identificacion de corredor</h4>
+                <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Remera de competencia y numero de identificación de corredor</h4>
                 <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
                 <p className='font-Hurme-Geometric-BO text-blue-dark'>Acreditaciones: <span className='font-Hurme-Geometric-N'>El participante deberá asistir a las acreditaciones, los días:</span></p>
                 <ul className='list-decimal pl-5 text-blue-high font-Hurme-Geometric-BO'>
-                  <li>Jueves 20 de oct de 18 a 21hs.</li>
-                  <li>viernes 21 de oct de 12.00 a 16hs.</li>
+                  <li>Jueves 20 de oct de 18 a 21 hs.</li>
+                  <li>viernes 21 de oct de 12.00 a 16 hs.</li>
                 </ul>
                 <p>Para retirar su remera, número y chip, y firmar el deslinde de responsabilidad.</p>
               </div>
@@ -67,10 +67,10 @@ const Home = () => {
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Inscripciones</h4>
                 <p>El costo de la inscripción para cada distancia es el siguiente:</p>
                 <ul className='list-disc pl-5'>
-                  <li>25km tiene un costo de $5500 por participante.</li>
-                  <li>15km tiene un costo de $4000 por participante.</li>
-                  <li>7km tiene un costo de $3000 por participante</li>
-                  <li>3km tiene un costo de $2500 por participante. Es sin clasificación ni premiación.</li>
+                  <li>25 km tiene un costo de $5500 por participante.</li>
+                  <li>15 km tiene un costo de $4000 por participante.</li>
+                  <li>7 km tiene un costo de $3000 por participante</li>
+                  <li>3 km tiene un costo de $2500 por participante. Es sin clasificación ni premiación.</li>
                 </ul>
 
                 <p className='pt-2'><span className='font-Hurme-Geometric-N'>Incluye: </span>
@@ -80,10 +80,10 @@ const Home = () => {
                     Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales.
                 </p>
                 <ul className='list-disc pl-5 pt-2'>
-                  <li>25km tiene un costo de $4000 por participante.</li>
-                  <li>15km tiene un costo de $3000 por participante.</li>
-                  <li>7km tiene un costo de $2500 por participante.</li>
-                  <li>3km tiene un costo de $2000 por participante. Es sin clasificación ni premiación.</li>
+                  <li>25 km tiene un costo de $4000 por participante.</li>
+                  <li>15 km tiene un costo de $3000 por participante.</li>
+                  <li>7 km tiene un costo de $2500 por participante.</li>
+                  <li>3 km tiene un costo de $2000 por participante. Es sin clasificación ni premiación.</li>
                 </ul>                
 
                 <h4 className="text-[1.2rem] text-blue-high pt-5 font-Hurme-Geometric-BO">MODO DE INSCRIPCIÓN:</h4>
@@ -93,15 +93,15 @@ const Home = () => {
                   <li className='font-Hurme-Geometric-N'>Banco Credicoop Cooperativo Limitado</li>
                   <li><span className='font-Hurme-Geometric-N'>Adherente:</span> Universidad Nacional del Comahue.</li>
                   <li><span className='font-Hurme-Geometric-N'>Operador:</span> 549505 Roberto Antonio Sepulveda.</li>
-                  <li><span className='font-Hurme-Geometric-N'>Nro Cuenta – Cuenta Corriente:</span> $191-093-024908/9</li>
+                  <li><span className='font-Hurme-Geometric-N'>Nro. Cuenta – Cuenta Corriente:</span> $191-093-024908/9</li>
                   <li><span className='font-Hurme-Geometric-N'>CBU:</span> 19100933-55009302490896</li>
                 </ul>
-                <p className='text-blue-high text-[1.2rem] font-Hurme-Geometric-BO'>Una vez hecha la transferencia se debera adjuntar en el formulario de inscripcion, en caso de tener algun inconveniente comunicarse a nuestro <a className='text-yellow' href='mailto:uncoactiva@gmail.com'> email </a> 
+                <p className='text-blue-high text-[1.2rem] font-Hurme-Geometric-BO'>Una vez hecha la transferencia se deberá  adjuntar en el formulario de inscripción, en caso de tener algún inconveniente comunicarse a nuestro <a className='text-yellow' href='mailto:uncoactiva@gmail.com'> email </a> 
                 </p>
               </div>
             </div>
             <div className='px-5 sm:px-5 lg:px-16 pt-10'>
-              <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>Premiación categorias de los 25 , 15 y 7 KM:</p>
+              <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>Premiación categorías de los 25 , 15 y 7 KM:</p>
               <h1 className=' bg-yellow py-1 w-1/6 mt-5'> </h1>
             </div>
             <div className="grid sm:grid-cols-2 px-5 lg:px-16">

@@ -20,7 +20,7 @@ const RacePath = props => {
         <p className='text-[1.5rem] font-Hurme-Geometric-N pt-2'>Las áreas involucradas son:</p>
         <div className={'grid grid-cols-4'}>
           <p className={'col-span-4 text-[1.2rem]'}>
-       Sector unco bardas, pista motocross, paseo agreste , sector canal 7, observatorio.
+       Sector unco bardas, pista motocross, paseo agreste, sector canal 7, observatorio.
           </p>
 
         </div>    

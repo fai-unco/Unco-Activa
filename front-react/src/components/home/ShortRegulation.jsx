@@ -21,15 +21,15 @@ const ShortRegulation = props => {
           </p>
           <ul className='pl-10 py-3'>
             <li>a) Saber que habrá lugares a los que no se puede acceder con vehículos, con lo cual la atención médica inmediata es limitada.</li>
-            <li>b) Conocer las características del terreno y los riesgos posibles de lesiones traumatológicas como torceduras, esguinces, incluso fracturas y, que por razones de seguridad, la organización priorizará la atención y evacuación de las emergencias y urgencias médicas, considerándose como tales a aquellos casos que puedan evolucionar en riesgo de muerte, pudiendo demandar más tiempo que la atención de lesiones como las antes descriptas.</li>
-            <li>c) Eximir a los Organizadores, Municipios, Propietarios de las tierras del circuito de la carrera y los Patrocinantes de toda responsabilidad por accidentes personales; daños y/o pérdidas de objetos que pudiera ocurrirle antes, durante o después de su participación en la prueba.</li>
+            <li>b) Conocer las características del terreno y los riesgos posibles de lesiones traumatológicas como torceduras, esguinces, incluso fracturas y, que por razones de seguridad, la organización priorizará la atención y evacuación de las emergencias y urgencias médicas, considerándose como tales a aquellos casos que puedan evolucionar en riesgo de muerte, pudiendo demandar más tiempo que la atención de lesiones como las antes descritas.</li>
+            <li>c) Eximir a los Organizadores, Municipios, Propietarios de las tierras del circuito de la carrera y los Patrocinadores de toda responsabilidad por accidentes personales; daños y/o pérdidas de objetos que pudiera ocurrirle antes, durante o después de su participación en la prueba.</li>
           </ul> 
           <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
-          <p className="">Trail de 3K, 7K, 15K y 25K.</p>
+          <p className="">Trail de 3 km, 7 km, 15 km y 25 km.</p>
           <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Recorrido</h4>
-          <p className="">Tanto el recorrido de los 25km como el de 15km, será por senderos de barda y calles.  El recorrido de los 7km será por barda pero de dificultad baja. Y por último, los 3km de la caminata será por senderos accesibles casi sin desnivel.</p>
+          <p className="">Tanto el recorrido de los 25 km como el de 15 km, será por senderos de barda y calles.  El recorrido de los 7 km será por barda pero de dificultad baja. Y por último, los 3 km de la caminata será por senderos accesibles casi sin desnivel.</p>
           <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Formato de Calificación</h4>
-          <p>Los y las participantes deberan:</p>
+          <p>Los y las participantes deberán:</p>
           <ul className='list-decimal pl-5'>
             <li>Realizar el recorrido en el menor tiempo posible.</li>
             <li>No podrán utilizar vehículos ni acortar el recorrido.</li>

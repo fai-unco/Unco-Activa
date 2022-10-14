@@ -77,7 +77,7 @@ const ContacUs = () => {
   return (
     <div className='text-black bg-gray-light rounded-lg max-w-lg p-5'>
       <div className='grid justify-center'>
-        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>CONTACTANOS</p>
+        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>CONTÁCTANOS</p>
         <h1 className=' bg-yellow py-1 w-1/3 mt-5'> </h1>
       </div>
       <div className='container max-w-4xl mx-auto text-center  py-5'>
