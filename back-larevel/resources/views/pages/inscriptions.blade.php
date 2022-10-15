@@ -13,7 +13,7 @@
                 Restablecer
               </button>
             </a>
-            <a href="{{route('inscriptions.export')}}" class="pl-1 sm:px-2" >
+            <a href="/inscripciones/export" class="pl-1 sm:px-2" >
               <button
                 type="submit"
                 class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
