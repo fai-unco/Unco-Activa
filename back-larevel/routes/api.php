@@ -29,6 +29,7 @@ Route::get('/categories', [RaceCategorieController::class, 'index']);
 Route::controller(InscriptionController::class)->group(function () {
     Route::get('/inscriptions', [InscriptionController::class, 'index']);
     Route::post('/inscription', 'store');
+    Route::get('/frontInscriptions', [InscriptionController::class, 'indexFrontInscriptions']);
 });
 
 Route::controller(ContactUsController::class)->group(function () {

@@ -43,6 +43,19 @@ class InscriptionController extends Controller
         return view('pages.denied-inscriptions', ['DeniedInscriptions' => $DeniedInscriptions, 'inscriptionCategories' => $inscriptionCategories]);
     }
 
+    public function indexFrontInscriptions()
+    {
+        $test = Inscription::join('race_categories', 'race_categories.id', '=', 'inscriptions.race_categorie_id')
+        ->where('billing_verified_at', '!=', null)->where('verification_denied', null)
+        ->get(['inscriptions.id as id', 'inscriptions.name', 'inscriptions.surname', 'race_categories.name as categorie_name']);
+        // dd($test);
+        return $test;
+
+        // $inscriptions = Inscription::where('billing_verified_at', '!=', null)->where('verification_denied', null)->filter(request(['search']))->paginate(10);
+        // $inscriptionCategories = RaceCategorie::all();
+        // return view('pages.inscriptions', ['inscriptions' => $inscriptions, 'inscriptionCategories' => $inscriptionCategories]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
