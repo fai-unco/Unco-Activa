@@ -15,12 +15,12 @@ const RacePath = props => {
                   Ver en pantalla completa
         </a>
       </div> 
-      <div className='flex flex-col justify-center items-center my-5 px-10 pb-5'> 
-        <h4 className="text-[1.7rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">Estamos trabajando para ofrecerles un recorrido atractivo y seguro </h4>
+      <div className='flex flex-col justify-center items-center p-5'> 
+        <h4 className="text-[1.7rem] text-blue-high font-bold font-Hurme-Geometric-BO">Estamos trabajando para ofrecerles un recorrido atractivo y seguro </h4>
         <p className='text-[1.5rem] font-Hurme-Geometric-N pt-2'>Las áreas involucradas son:</p>
         <div className={'grid grid-cols-4'}>
           <p className={'col-span-4 text-[1.2rem]'}>
-       Sector unco bardas, pista motocross, paseo agreste , sector canal 7, observatorio.
+       Sector unco bardas, pista motocross, paseo agreste, sector canal 7, observatorio.
           </p>
 
         </div>    
