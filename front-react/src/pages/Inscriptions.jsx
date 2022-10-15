@@ -5,15 +5,15 @@ import axios from '../lib/axios'
 const Inscriptions = () => {
   const [inscriptions, setinscriptions] = useState([])
   const [currentPage, setcurrentPage] = useState(1)
-  const [participantsPerPage, setparticipantsPerPage] = useState(2)
-  const endpoint = 'http://127.0.0.1:8000/api'
+  const [participantsPerPage] = useState(10)
+  const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api'
   useEffect(() => {
     getAllInscriptos()
   }, [])
   const getAllInscriptos = async () => {
     await axios.get(`${endpoint}/frontInscriptions`)
       .then(function (response) {
-        console.log('success', response.data);
+        //console.log('success', response.data);
         setinscriptions(response.data)
       })
       .catch(function (error) {
@@ -21,11 +21,11 @@ const Inscriptions = () => {
       });
     //console.log(response.data)
   }
-  console.log('original', inscriptions);
+  //console.log('original', inscriptions);
   for (let index = 0; index < inscriptions.length; index++) {
     inscriptions[index].id = index + 1  
   }
-  console.log('reemplaazar id', inscriptions);
+  //console.log('reemplaazar id', inscriptions);
 
   const paginateTo = (pageNumber ) => {
     setcurrentPage(pageNumber)
@@ -34,7 +34,7 @@ const Inscriptions = () => {
   const indexOfLastParticipant = currentPage * participantsPerPage
   const indexOfFisrtParticipant = indexOfLastParticipant  - participantsPerPage
   const currentParticpants = inscriptions.slice(indexOfFisrtParticipant, indexOfLastParticipant)
-  console.log(currentParticpants)
+  //console.log(currentParticpants)
   const Particpants = () => {
 
     return (
