@@ -31,19 +31,13 @@ const Pagination = ({participantsPerPage, totalParticpants , paginateTo, current
       }      
       else {
         endPage = totalPages;
-      }
-      console.log('incio', startPage)
-      console.log('total', totalPages)
-      console.log('final actual', endPage)
-
-    }
-    
+      }     
+    }    
   }
   for (let index = startPage; index < endPage; index++) {
     pageNumbers.push(index )    
     // pageNumbers.pop(startPage)        
-  }
-  console.log('actual',currentPage)
+  }  
   return (
     <nav className='flex flex-col flex-w pt-5  items-center'>
 
