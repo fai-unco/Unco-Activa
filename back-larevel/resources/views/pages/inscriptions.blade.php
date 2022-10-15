@@ -5,12 +5,19 @@
       <div class='overflow-x-auto pb-5'>
         <div class="grid sm:flex items-center">
           @include('partials._search-i')
-          <div class="flex items-center pl-2 sm:pl-0 py-1">
+          <div class="flex items-center sm:justify-between w-full pl-2 sm:pl-0 py-1">
             <a href="/inscripciones" >
               <button
                 type="submit"
                 class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
                 Restablecer
+              </button>
+            </a>
+            <a href="{{route('inscriptions.export')}}" class="pl-1 sm:px-2" >
+              <button
+                type="submit"
+                class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
+                exportar 
               </button>
             </a>
           </div>

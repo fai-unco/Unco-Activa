@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pre-inscripciones-rechazadas', [InscriptionController::class, 'indexDeniedInscriptions'])->name('pre-inscripciones-rechazadas');
     Route::get('/inscription/{id}', [InscriptionController::class, 'update']);
     Route::get('/inscriptionDelete/{id}', [InscriptionController::class, 'edit']);
+    Route::get('/inscripciones/export', [InscriptionController::class, 'exportAllInscriptions'])->name('inscriptions.export');
 });
 
 //Log User Out

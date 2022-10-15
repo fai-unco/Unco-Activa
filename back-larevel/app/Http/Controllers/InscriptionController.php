@@ -8,11 +8,9 @@ use App\Mail\InscriptionMail;
 use App\Models\RaceCategorie;
 use App\Mail\PreInscriptionMail;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Date;
-
 use Illuminate\Support\Facades\Mail;
-use function PHPUnit\Framework\isNull;
+use App\Exports\InscriptionsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InscriptionController extends Controller
 {
@@ -31,6 +29,11 @@ class InscriptionController extends Controller
 
     public function indexInscriptions()
     {
+        /* $test = Inscription::join('race_categories', 'race_categories.id', '=', 'inscriptions.race_categorie_id')
+        ->where('billing_verified_at', '!=', null )->where('verification_denied', null )
+        ->get(['inscriptions.*', 'race_categories.name as categorie_name']); */
+        // dd($test);
+
         $inscriptions = Inscription::where('billing_verified_at', '!=', null )->where('verification_denied', null )->filter(request(['search']))->paginate(10);
         $inscriptionCategories = RaceCategorie::all();
         return view('pages.inscriptions', ['inscriptions' => $inscriptions, 'inscriptionCategories' => $inscriptionCategories]);
@@ -41,6 +44,11 @@ class InscriptionController extends Controller
         $DeniedInscriptions = Inscription::where('verification_denied', '!=', null )->paginate(10);
         $inscriptionCategories = RaceCategorie::all();
         return view('pages.denied-inscriptions', ['DeniedInscriptions' => $DeniedInscriptions, 'inscriptionCategories' => $inscriptionCategories]);
+    }
+
+
+    public function exportAllInscriptions(){
+        return Excel::download(new InscriptionsExport, 'inscriptos_Unco_Activa.xlsx');
     }
 
     public function indexFrontInscriptions()
@@ -55,16 +63,7 @@ class InscriptionController extends Controller
         // $inscriptionCategories = RaceCategorie::all();
         // return view('pages.inscriptions', ['inscriptions' => $inscriptions, 'inscriptionCategories' => $inscriptionCategories]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    
 
     /**
      * Store a newly created resource in storage.
