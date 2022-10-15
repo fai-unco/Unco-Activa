@@ -1,7 +1,7 @@
 import React from 'react'
 import BoxCategories from 'components/inscriptionform/boxCategories';
 
-const Preinscription = (categories) => {
+const Preinscription = () => {
   return (
     
     <div className="font-Hurme-Geometric-R min-h-screen">
@@ -16,7 +16,7 @@ const Preinscription = (categories) => {
               <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Recorrido</h4>
               <p className="">Tanto el recorrido de los 25km como el de 15km, será por senderos de barda y calles.  El recorrido de los 7km será por barda pero de dificultad baja. Y por último, los 3km de la caminata será por senderos accesibles casi sin desnivel.</p>
             </div>
-            <BoxCategories categories={categories} />
+            <BoxCategories />
           </div >    
         </div>
       </div>

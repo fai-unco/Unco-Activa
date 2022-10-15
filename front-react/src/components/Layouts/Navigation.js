@@ -30,7 +30,7 @@ const Navigation = () => {
               </NavLink>
             </div>
             {/* Navigation Links */}
-            <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <div className="hidden space-x-8 md:-my-px md:ml-10 md:flex">
               <CustomNavLink
                 onClick={(e) => {
                   e.preventDefault();                 
@@ -49,7 +49,16 @@ const Navigation = () => {
                 to='/inscribirse'
 
               >
+                
                 Inscribirse
+              </CustomNavLink>
+
+              <CustomNavLink
+                to='/participantes'
+
+              >
+
+                Participantes
               </CustomNavLink>
 
               <CustomNavLink
@@ -148,7 +157,7 @@ const Navigation = () => {
             </>
           } */}
           {/* Hamburger */}
-          <div className="-mr-2 flex items-center sm:hidden">
+          <div className="-mr-2 flex items-center md:hidden">
             <button
               onClick={() => setOpen(open => !open)}
               className="inline-flex items-center justify-center p-2
@@ -184,7 +193,7 @@ const Navigation = () => {
       </div>
       {/* Responsive Navigation Menu */}
       {open && (
-        <div className="block sm:hidden border-t border-gray">
+        <div className="block md:hidden border-t border-gray">
           {        
             <div className="pt-2 pb-3 space-y-1">            
               <ResponsiveNavLink
@@ -207,6 +216,13 @@ const Navigation = () => {
 
               >
               Inscribirse
+              </ResponsiveNavLink>
+
+              <ResponsiveNavLink
+                to='/participantes'
+
+              >
+                Participantes
               </ResponsiveNavLink>
 
               <ResponsiveNavLink
