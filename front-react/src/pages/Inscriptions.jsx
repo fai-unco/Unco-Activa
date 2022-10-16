@@ -80,7 +80,7 @@ const Inscriptions = () => {
 
     return (
       currentParticpants.map((inscription, index) => (
-        <div key={index} className=' grid-cols-3 grid bg-gray-light border-y border-blue-cyan'>
+        <div key={index} className=' items-center grid-cols-3 grid bg-gray-light border-t-2 border-blue-cyan'>
 
           <div className='text-center px-3'>
             {inscription.id}
@@ -132,12 +132,12 @@ const Inscriptions = () => {
             </div>
 
             <div className='flex justify-center overflow-x-auto p-5 '>    
-              <div className='font-Hurme-Geometric-N w-full px-1 md:w-5/6 border border-blue-cyan'>
+              <div className='font-Hurme-Geometric-N w-full px-1 md:w-5/6 border-2 border-blue-cyan rounded-lg pb-2 '>
                 
-                <div className='  border-b border-blue-cyan grid grid-cols-3 text-center font-Hurme-Geometric-BO italic text-blue-dark'>
+                <div className='  border-b-2 border-blue-cyan grid grid-cols-3 text-center font-Hurme-Geometric-BO italic text-blue-dark'>
                   <div className='px-3'>#</div>
-                  <div className='px-3'>CATEGORIA</div>
-                  <div className='px-3'>NOMBRE Y APELLIDO</div>                    
+                  <div className='px-3 overflow-auto'>CATEGORIA</div>
+                  <div className='px-3 overflow-auto '>NOMBRE Y APELLIDO</div>                    
                 </div>                
                                    
                 <Particpants />
