@@ -128,13 +128,13 @@ const Inscriptions = () => {
                 options={options}
                 value={selectCategorie}
                 placeholder='categoria'
-                className='w-36' />
+                className='w-36 border border-blue-cyan' />
             </div>
 
-            <div className='overflow-x-auto p-5'>    
-              <div className='font-Hurme-Geometric-N w-full px-1'>
+            <div className='flex justify-center overflow-x-auto p-5 '>    
+              <div className='font-Hurme-Geometric-N w-full px-1 md:w-5/6 border border-blue-cyan'>
                 
-                <div className=' grid grid-cols-3 text-center font-Hurme-Geometric-BO italic text-blue-dark'>
+                <div className='  border-b border-blue-cyan grid grid-cols-3 text-center font-Hurme-Geometric-BO italic text-blue-dark'>
                   <div className='px-3'>#</div>
                   <div className='px-3'>CATEGORIA</div>
                   <div className='px-3'>NOMBRE Y APELLIDO</div>                    
@@ -143,12 +143,12 @@ const Inscriptions = () => {
                 <Particpants />
                 
               </div> 
-              <Pagination
-                participantsPerPage={participantsPerPage}
-                totalParticpants={inscriptions.length}
-                paginateTo={paginateTo}
-                currentPage={currentPage} />
             </div >
+            <Pagination
+              participantsPerPage={participantsPerPage}
+              totalParticpants={inscriptions.length}
+              paginateTo={paginateTo}
+              currentPage={currentPage} />
           </div>
         </div>
       </div>
