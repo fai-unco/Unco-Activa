@@ -1,9 +1,7 @@
 import Pagination from 'components/elements/Pagination'
 import React, { useContext, useEffect, useState } from 'react'
-import InputColForm from 'components/inscriptionform/InputColForm'
 import axios from '../lib/axios'
 import ReactSelect from 'react-select'
-import { SettingsEthernet } from '@mui/icons-material'
 import {CategorieContext} from '../context/CategorieContext'
 
 const Inscriptions = () => {
