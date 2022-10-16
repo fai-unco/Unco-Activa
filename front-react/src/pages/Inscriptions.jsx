@@ -57,7 +57,7 @@ const Inscriptions = () => {
     setselectCategorie(e)    
     //console.log(selectCategorie)
     if(e.value === null){
-      console.log(inicialInscriptions)
+      //console.log(inicialInscriptions)
       setinscriptions(inicialInscriptions)
     }
     else{
