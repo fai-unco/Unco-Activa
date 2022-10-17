@@ -41,13 +41,14 @@ const Inscriptions = () => {
   )) 
   //console.log('reemplaazar id', inscriptions);  
   const handleSearch = (e) => {
+    setcurrentPage(1)
     setselectCategorie(null)
     setinputbusqueda(e.target.value)
-    setinscriptions(inicialInscriptions.filter(function (inscription) {
-      return inscription.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
-          inscription.surname.toLowerCase().includes(e.target.value.toLowerCase())
+    setinscriptions(inicialInscriptions.filter(function ({name, surname, categorie_name}) {
+      return name.toLowerCase().includes(e.target.value.toLowerCase()) ||
+          surname.toLowerCase().includes(e.target.value.toLowerCase())
           ||
-          inscription.categorie_name.toLowerCase().includes(e.target.value.toLowerCase())
+          categorie_name.toLowerCase().includes(e.target.value.toLowerCase())
     } 
     ))
   }
