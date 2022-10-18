@@ -14,25 +14,7 @@ const mockImagenes = [
   'elements/UNCO_ACT_50_FEED_3.jpg',
   'elements/UNCO_ACT_50_FEED_4.jpg'
 ]
-const devs = [
-  {
-    'name' : 'Cristian Garrado',
-    'socials' : {
-      'github' : 'https://github.com/cristian96-code',
-      'linkedin' : 'https://www.linkedin.com/in/cristian-garrado-517a23209/',
-      'envelope' : 'cristiangarrado45@gmail.com'
-    },
-    'image' : 'CG'
-  },
-  {'name' : 'Santiago Avilez Ariza',
-    'socials' : {
-      'github' : 'https://github.com/santiagoavilez',
-      'linkedin' : 'https://www.linkedin.com/in/santiago-avilez-ariza-431b5a203/',
-      'envelope' : 'santiago.avilez@est.fi.uncoma.edu.ar'
-    },
-    'image' : 'SA'
-  }
-]
+
 const Home = () => {  
   return (    
     <div className="font-Hurme-Geometric-R min-h-screen">
