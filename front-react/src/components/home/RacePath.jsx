@@ -4,10 +4,10 @@ const RacePath = props => {
   const [imagenActual, setImagenActual] = React.useState(0);
   
   const mockImagenes = [
-    'elements/Recorrido-3k.jpg',
-    'elements/Recorrido-7k.jpg',
-    'elements/Recorrido-15k.jpg',
-    'elements/Recorrido-25k.jpg'
+    'elements/Recorrido-3K.jpg',
+    'elements/Recorrido-7K.jpg',
+    'elements/Recorrido-15K.jpg',
+    'elements/Recorrido-25K.jpg'
   ]
   const cantidad = mockImagenes?.length;
   const siguienteImagen = () => {
