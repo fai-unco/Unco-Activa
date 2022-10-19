@@ -14,6 +14,7 @@ const mockImagenes = [
   'elements/UNCO_ACT_50_FEED_3.jpg',
   'elements/UNCO_ACT_50_FEED_4.jpg'
 ]
+const isdateOfRace = Date.now() > new Date('October 19, 2022 12:00:00') 
 
 const Home = () => {  
   return (    
@@ -86,19 +87,23 @@ const Home = () => {
                   <li>7 km tiene un costo de $2500 por participante.</li>
                   <li>3 km tiene un costo de $2000 por participante. Es sin clasificación ni premiación.</li>
                 </ul>                
-
-                <h4 className="text-[1.2rem] text-blue-high pt-5 font-Hurme-Geometric-BO">MODO DE INSCRIPCIÓN:</h4>
-                <p className=''>Las inscripciones se realizan vía Internet en la web:
+                
+                {!isdateOfRace ? 
+                  <>
+                    <h4 className="text-[1.2rem] text-blue-high pt-5 font-Hurme-Geometric-BO">MODO DE INSCRIPCIÓN:</h4>
+                    <p className=''>Las inscripciones se realizan vía Internet en la web:
                     Pago únicamente por transferencia:</p>
-                <ul className='list-none py-3'>
-                  <li className='font-Hurme-Geometric-N'>Banco Credicoop Cooperativo Limitado</li>
-                  <li><span className='font-Hurme-Geometric-N'>Adherente:</span> Universidad Nacional del Comahue.</li>
-                  <li><span className='font-Hurme-Geometric-N'>Operador:</span> 549505 Roberto Antonio Sepulveda.</li>
-                  <li><span className='font-Hurme-Geometric-N'>Nro. Cuenta – Cuenta Corriente:</span> $191-093-024908/9</li>
-                  <li><span className='font-Hurme-Geometric-N'>CBU:</span> 19100933-55009302490896</li>
-                </ul>
-                <p className='text-blue-high text-[1.2rem] font-Hurme-Geometric-BO'>Una vez hecha la transferencia se deberá  adjuntar en el formulario de inscripción, en caso de tener algún inconveniente comunicarse a nuestro <a className='text-yellow' href='mailto:uncoactiva@gmail.com'> email </a> 
-                </p>
+                    <ul className='list-none py-3'>
+                      <li className='font-Hurme-Geometric-N'>Banco Credicoop Cooperativo Limitado</li>
+                      <li><span className='font-Hurme-Geometric-N'>Adherente:</span> Universidad Nacional del Comahue.</li>
+                      <li><span className='font-Hurme-Geometric-N'>Operador:</span> 549505 Roberto Antonio Sepulveda.</li>
+                      <li><span className='font-Hurme-Geometric-N'>Nro. Cuenta – Cuenta Corriente:</span> $191-093-024908/9</li>
+                      <li><span className='font-Hurme-Geometric-N'>CBU:</span> 19100933-55009302490896</li>
+                    </ul>
+                    <p className='text-blue-high text-[1.2rem] font-Hurme-Geometric-BO'>Una vez hecha la transferencia se deberá  adjuntar en el formulario de inscripción, en caso de tener algún inconveniente comunicarse a nuestro <a className='text-yellow' href='mailto:uncoactiva@gmail.com'> email </a> 
+                    </p> 
+                  </> : ' '}
+                
               </div>
             </div>
             <div className='px-5 sm:px-5 lg:px-16 pt-10'>

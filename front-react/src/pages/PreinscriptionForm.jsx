@@ -82,6 +82,9 @@ const PreinscriptionForm = (props) => {
       setfilespromo([]);
     }
   };
+
+  const isdateOfRace = Date.now() > new Date('October 19, 2022 12:00:00') 
+
   const [alertnavigate, setalertnavigate] = useState(false);
 
   const arraycampos = [
@@ -129,13 +132,17 @@ const PreinscriptionForm = (props) => {
         formularioValido = false
         cambiarEstado({ ...estado, valido: 'false' });
       }
-    })
+    })    
     // console.log(files)
     // console.log(formularioValido)
     if (formularioValido
     ) {
       if (phone.campo === emergency_contac_phone.campo) {
         seterrorMessage('Ingresa un numero de conctacto de emergencia que sea diferente al tuyo porfavor')
+        setopenfail(true)
+      }
+      else if (isdateOfRace){
+        seterrorMessage('Ya no esta disponible la carrera')
         setopenfail(true)
       }
       else {
@@ -623,26 +630,28 @@ const PreinscriptionForm = (props) => {
               : 'invisible'}>{promovalidation.campo} </p>
           </div>           
 
-          <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
-            <p>
-              <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:<br />
-                Banco Credicoop Cooperativo Limitado <br />
-                Adherente: Universidad Nacional del Comahue.<br />
-                Operador: 549505 Roberto Antonio Sepulveda.<br />
-                Nro Cuenta – Cuenta Corriente: $191-093-024908/9<br />
-                CBU 19100933-55009302490896 <br /><br />
-              <strong>Categoria: </strong><strong style={{color: props.categorie.color}}> {props.categorie.name}</strong><br />
+          {!isdateOfRace ? 
+            <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
+              <p>
+                <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:<br />
+              Banco Credicoop Cooperativo Limitado <br />
+              Adherente: Universidad Nacional del Comahue.<br />
+              Operador: 549505 Roberto Antonio Sepulveda.<br />
+              Nro Cuenta – Cuenta Corriente: $191-093-024908/9<br />
+              CBU 19100933-55009302490896 <br /><br />
+                <strong>Categoria: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong><br />
 
-              <strong>Precio:</strong> ${props.categorie.price}<br /><br />
-              <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
-                Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar el cerfiticado correspondienteo para recibir dicho beneficio.<br />
+                <strong>Precio:</strong> ${props.categorie.price}<br /><br />
+                <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
+              Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar el cerfiticado correspondienteo para recibir dicho beneficio.<br />
 
-              <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br />
+                <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br />
 
-                De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
+              De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
 
-            </p>
-          </div>
+              </p>
+            </div> : ''}
+          
           <div className='relative col-span-2 justify-self-center z-0 -mt-1 -ml-3 w-full group'>
             <Checkbox
               sx={{marginLeft: -1}}
