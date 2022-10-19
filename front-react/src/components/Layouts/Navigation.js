@@ -30,7 +30,7 @@ const Navigation = () => {
               </NavLink>
             </div>
             {/* Navigation Links */}
-            <div className="hidden space-x-8 md:-my-px md:ml-10 md:flex">
+            <div className="hidden space-x-3 lg:space-x-6  md:-my-px md:ml-10 md:flex">
               <CustomNavLink
                 onClick={(e) => {
                   e.preventDefault();                 
@@ -104,6 +104,12 @@ const Navigation = () => {
                 }}
               >
                 Contactanos
+              </CustomNavLink>
+              <CustomNavLink
+                to='/sobrenosotros'
+
+              >
+                Sobre Nosotros
               </CustomNavLink>
             </div>
           </div>
@@ -253,7 +259,14 @@ const Navigation = () => {
                 }}
               >
               Reglamento
-              </ResponsiveNavLink>          
+              </ResponsiveNavLink>
+              
+              <ResponsiveNavLink
+                to='/sobrenosotros'
+
+              >
+                Sobre Nosotros
+              </ResponsiveNavLink>         
             </div>
             
           }
