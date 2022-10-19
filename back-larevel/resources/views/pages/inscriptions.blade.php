@@ -2,26 +2,26 @@
   <div class='bg-pre min-h-screen py-7 px-2 sm:px-10 md:px-10 xl:px-32 bg-gray-darker'>
     <div class='justify-center bg-white rounded-lg pb-2 my-7'>
       <h1 class='flex justify-center text-[1.5rem] sm:text-[2rem] font-Hurme-Geometric-BO font-bold italic text-blue-dark py-5'>INSCRIPTOS</h1>
-      <div class='overflow-x-auto pb-5'>
-        <div class="grid sm:flex items-center">
-          @include('partials._search-i')
-          <div class="flex items-center sm:justify-between w-full pl-2 sm:pl-0 py-1">
-            <a href="/inscripciones" >
-              <button
-                type="submit"
-                class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
-                Restablecer
-              </button>
-            </a>
-            <a href="/inscripciones/export" class="pl-1 sm:px-2" >
-              <button
-                type="submit"
-                class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
-                exportar 
-              </button>
-            </a>
-          </div>
+      <div class="grid sm:flex items-center">
+        @include('partials._search-i')
+        <div class="flex items-center sm:justify-between w-full pl-2 sm:pl-0 py-1">
+          <a href="/inscripciones" >
+            <button
+              type="submit"
+              class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
+              Restablecer
+            </button>
+          </a>
+          <a href="/inscripciones/export" class="pl-1 sm:px-2" >
+            <button
+              type="submit"
+              class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
+              exportar 
+            </button>
+          </a>
         </div>
+      </div>
+      <div class='overflow-x-auto pb-5'>
         <table class='font-Hurme-Geometric-N w-full px-1'>
           <thead>
             <tr class='font-Hurme-Geometric-BO italic text-blue-dark'>
@@ -89,9 +89,9 @@
             @endforeach
           </tbody>
         </table>
-        <div class="text-blue-high pt-3 px-3">
-          {{$inscriptions->links()}}
-        </div>
+      </div>
+      <div class="text-blue-high pt-3 px-3">
+        {{$inscriptions->links()}}
       </div>
     </div>
   </div>

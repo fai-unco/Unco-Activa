@@ -70,9 +70,9 @@
             @endforeach
           </tbody>
         </table>
-        <div class="text-blue-high pt-3 px-3">
-          {{$DeniedInscriptions->links()}}
-        </div>
+      </div>
+      <div class="text-blue-high pt-3 px-3">
+        {{$DeniedInscriptions->links()}}
       </div>
     </div>
   </div>
