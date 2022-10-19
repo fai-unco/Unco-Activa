@@ -53,6 +53,9 @@ const Home = () => {
                 <ul className='list-decimal pl-5'>
                   <li>En un punto intermedio del recorrido y en la llegada se montarán puestos de asistencia e hidratación.</li>
                   <li>A lo largo del recorrido se establecerán controles de paso de los corredores y las corredoras en donde habrá colaboradores con remeras.</li>
+                  <li>
+                  El Mercado concentrador nos acompaña en nuestro trail aniversario 50 años sabiendo de la importancia que es la unco para toda la región y nos dan apoyo logístico en la provisión de toda las frutas para un stand saludable y los puestos de hidratación para toda la carrera.
+                  </li>
                 </ul>
                 <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Remera de competencia y numero de identificación de corredor</h4>
                 <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
@@ -60,7 +63,9 @@ const Home = () => {
                 <ul className='list-decimal pl-5 text-blue-high font-Hurme-Geometric-BO'>
                   <li>Jueves 20 de oct de 18 a 21 hs.</li>
                   <li>viernes 21 de oct de 12.00 a 16 hs.</li>
+                  
                 </ul>
+                <p className='mt-3'><span className='font-Hurme-Geometric-N'>Ubicaion: </span>Buenos Aires 1400</p>
                 <p>Para retirar su remera, número y chip, y firmar el deslinde de responsabilidad.</p>
               </div>
 
