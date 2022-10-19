@@ -14,7 +14,7 @@ const mockImagenes = [
   'elements/UNCO_ACT_50_FEED_3.jpg',
   'elements/UNCO_ACT_50_FEED_4.jpg'
 ]
-const isdateOfRace = Date.now() > new Date('October 19, 2022 12:00:00') 
+const isdateOfRace = Date.now() > new Date('October 19, 2022 20:00:00') 
 
 const Home = () => {  
   return (    
