@@ -22,7 +22,7 @@ const Home = () => {
       <div>
         <Hero />
       </div>
-      <div  className="px-3 md:px-12 py-7 ">
+      <div  className="px-3 md:px-12 py-7  ">
         <div className=' bg-gray-light rounded-lg text-black'>
           <div className='flex justify-center pt-5'>
             <Slider imagenes={mockImagenes} className='bg-white' />
