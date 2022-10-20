@@ -21,6 +21,7 @@ class InscriptionsExport implements FromCollection, ShouldAutoSize, WithHeadings
             'race_categories.name as catagorie_name',
             'inscriptions.name',
             'inscriptions.surname',
+            'inscriptions.birth',
             'inscriptions.dni',
             'inscriptions.phone',
             'inscriptions.email'
@@ -31,9 +32,10 @@ class InscriptionsExport implements FromCollection, ShouldAutoSize, WithHeadings
     {
         return [
             'ID',
-            'CATEGORIA',
+            'DISTANCIA',
             'NOMBRE',
             'APELLIDO',
+            'FECHA DE NACIMIENTO',
             'DNI',
             'TELEFONO',
             'EMAIL',
