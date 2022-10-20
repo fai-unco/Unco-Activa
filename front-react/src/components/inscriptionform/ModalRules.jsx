@@ -12,6 +12,7 @@ const ModalRules = (props) => {
     props.onClose(false);
 
   };
+  const isdateOfRace = Date.now() > new Date('October 19, 2022 20:00:00') 
   var sx = { sx: { bgcolor: 'gray-darker' } }
   return (
     <div>
@@ -29,24 +30,25 @@ const ModalRules = (props) => {
 
           <DialogContentText sx={{ color: 'text.primary' }} id="alert-dialog-description">
             <br />
-            <p> 
+            { !isdateOfRace ? 
+              <p> 
                         - <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:<br />
                         Banco Credicoop Cooperativo Limitado <br />
                         Adherente: Universidad Nacional del Comahue.<br />
                         Operador: 549505 Roberto Antonio Sepulveda.<br />
                         Nro Cuenta – Cuenta Corriente: $191-093-024908/9<br />
                         CBU 19100933-55009302490896 <br /><br />
-              <strong>Categoria: </strong><strong style={{color: props.categorie.color}}> {props.categorie.name}</strong><br />
+                <strong>Categoria: </strong><strong style={{color: props.categorie.color}}> {props.categorie.name}</strong><br />
 
-              <strong>Precio:</strong> ${props.categorie.price}<br /><br />
-              <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
+                <strong>Precio:</strong> ${props.categorie.price}<br /><br />
+                <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
                         Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar email a uncoactiva@gmail.com para recibir dicho beneficio.<br />
 
-              <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br />                        
+                <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br />                        
 
                         De no enviarse el comprobante de pago/transferencia con todos los datos de la operación al mail <strong>uncoactiva@gmail.com</strong>, no se considerará como inscripto.
 
-            </p>
+              </p> : ''}
             <br />
             <p> 1.-Es responsabilidad del participante estar bien preparado para la prueba. Esto es, gozar de buena salud en general, así como tener un nivel aceptable de preparación. La inscripción en una prueba no asegura ni cubre esta responsabilidad.
             </p>
