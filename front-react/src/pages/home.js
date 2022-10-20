@@ -1,8 +1,10 @@
+import AlertSuccess from 'components/alerts/AlertSuccess';
 import ContacUs from 'components/home/ContacUs';
 import RacePath from 'components/home/RacePath';
 import ShortRegulation from 'components/home/ShortRegulation';
 import Hero from 'components/Layouts/Hero';
 import Slider from 'components/Slider';
+import { useState } from 'react';
 
 const mockImagenes = [
   'elements/Remera_FRENTE.jpg',
@@ -17,8 +19,16 @@ const mockImagenes = [
 const isdateOfRace = Date.now() > new Date('October 19, 2022 20:00:00') 
 
 const Home = () => {  
+
+  const [openEnd, setopenEnd] = useState(isdateOfRace);
   return (    
     <div className="font-Hurme-Geometric-R min-h-screen">
+      <AlertSuccess open={openEnd} onClose={setopenEnd}
+        bg=' rgb(240 240 240)'
+        titlecolor='warning.main'
+        title='Atencion!'
+        description={'Las inscripciones estan cerradas, por favor no realizar transferencias ya que no nos responsabilizamos por inscribirte en fuera de termino.'}
+      />
       <div>
         <Hero />
       </div>

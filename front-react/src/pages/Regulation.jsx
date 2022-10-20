@@ -1,5 +1,6 @@
 import React from 'react'
 const regulation = () => {
+  const isdateOfRace = Date.now() > new Date('October 19, 2022 20:00:00') 
   return (    
     <div className="font-Hurme-Geometric-R min-h-screen">
       <div className="px-3 sm:px-10 md:px-20 lg:px-32 py-7 ">
@@ -33,15 +34,16 @@ const regulation = () => {
                       <li>c) Eximir a los Organizadores, Municipios, Propietarios de las tierras del circuito de la carrera y los Patrocinantes de toda responsabilidad por accidentes personales; daños y/o pérdidas de objetos que pudiera ocurrirle antes, durante o después de su participación en la prueba.</li>
                     </ul>
                   </li>
-                  <li className='pt-5'>Modo de inscripción: El participante deberá inscribirse a la carrera por la web  <a href='https://uncoactiva.fi.uncoma.edu.ar/' target='_blank' rel='noreferrer' className='font-Hurme-Geometric-BO text-blue-cyan'>Unco Activa</a>, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:
-                    <ul className='list-none pt-3 pl-5'>
-                      <li className='font-Hurme-Geometric-N'>Banco Credicoop Cooperativo Limitado</li>
-                      <li><span className='font-Hurme-Geometric-N'>Adherente:</span> Universidad Nacional del Comahue.</li>
-                      <li><span className='font-Hurme-Geometric-N'>Operador:</span> 549505 Roberto Antonio Sepulveda.</li>
-                      <li><span className='font-Hurme-Geometric-N'>Nro Cuenta – Cuenta Corriente:</span> $191-093-024908/9</li>
-                      <li><span className='font-Hurme-Geometric-N'>CBU:</span> 19100933-55009302490896</li>
-                    </ul>
-                  </li>
+                  {!isdateOfRace ? 
+                    <li className='pt-5'>Modo de inscripción: El participante deberá inscribirse a la carrera por la web  <a href='https://uncoactiva.fi.uncoma.edu.ar/' target='_blank' rel='noreferrer' className='font-Hurme-Geometric-BO text-blue-cyan'>Unco Activa</a>, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:
+                      <ul className='list-none pt-3 pl-5'>
+                        <li className='font-Hurme-Geometric-N'>Banco Credicoop Cooperativo Limitado</li>
+                        <li><span className='font-Hurme-Geometric-N'>Adherente:</span> Universidad Nacional del Comahue.</li>
+                        <li><span className='font-Hurme-Geometric-N'>Operador:</span> 549505 Roberto Antonio Sepulveda.</li>
+                        <li><span className='font-Hurme-Geometric-N'>Nro Cuenta – Cuenta Corriente:</span> $191-093-024908/9</li>
+                        <li><span className='font-Hurme-Geometric-N'>CBU:</span> 19100933-55009302490896</li>
+                      </ul>
+                    </li> : ''}
                   <li className='pt-5'>
                     <p className='font-Hurme-Geometric-BO'>Acreditaciones: <span className='font-Hurme-Geometric-N'>El participante deberá asistir a las acreditaciones, los días:</span></p>
                     <ul className='list-decimal pl-5 font-Hurme-Geometric-N'>

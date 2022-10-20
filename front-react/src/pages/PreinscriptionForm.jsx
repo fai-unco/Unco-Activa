@@ -84,7 +84,7 @@ const PreinscriptionForm = (props) => {
   };
 
   const isdateOfRace = Date.now() > new Date('October 19, 2022 20:00:00') 
-  const [openEnd, setopenEnd] = useState(!isdateOfRace);
+  const [openEnd, setopenEnd] = useState(isdateOfRace);
 
   const [alertnavigate, setalertnavigate] = useState(false);
 
@@ -353,7 +353,7 @@ const PreinscriptionForm = (props) => {
           bg=' rgb(240 240 240)'
           titlecolor='warning.main'
           title='Atencion!'
-          description={'Las inscripciones estaran abiertas hasta las 20hs del 19 de octubre.'}
+          description={'Las inscripciones estan cerradas, por favor no realizar transferencias ya que no nos responsabilizamos por inscribirte en fuera de termino.'}
         />
         <AlertSuccess open={opensucces} onClose={setopensucces}
           bg=' rgb(240 240 240)'
