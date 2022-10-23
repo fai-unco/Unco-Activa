@@ -20,7 +20,7 @@ const isdateOfRace = Date.now() > new Date('October 19, 2022 20:00:00')
 
 const Home = () => {  
 
-  const [openEnd, setopenEnd] = useState(isdateOfRace);
+  const [openEnd, setopenEnd] = useState(!isdateOfRace);
   return (    
     <div className="font-Hurme-Geometric-R min-h-screen">
       <AlertSuccess open={openEnd} onClose={setopenEnd}

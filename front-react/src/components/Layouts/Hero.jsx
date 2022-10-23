@@ -75,12 +75,12 @@ const Hero = () => {
       <div className='grid sm:flex items-end justify-center pb-10 text-sm text-black font-Hurme-Geometric-N max-h-full'>
 
         <div className='flex justify-center px-2'>
-          <button
+          <a
             variant="contained"
-            onClick={handleClickOpen}
+            href='https://cronometrajeinstantaneo.com/resultados/unco-activa-2022'
             className='border-2 border-white rounded-full px-5 py-1 bg-white hover:bg-opacity-0 hover:text-white ease-in-out duration-[1500ms]'>
-            PRE-INSCRIBITE
-          </button>
+            RESULTADOS
+          </a>
           <ModalCategories />
         </div>
         <div className='flex justify-center px-2'>          
