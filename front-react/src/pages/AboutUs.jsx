@@ -53,7 +53,7 @@ const AboutUs = () => {
       <div className='px-3 md:px-12 py-7'>
         
         <div className=" rounded-lg bg-gray-light ">
-          <h2 className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark">Equipo de Desarroladores Unco Activa 2022 </h2>
+          <h2 className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark">Equipo de Desarrolladores Unco Activa 2022 </h2>
           <hr className="my-[1rem]" />
           <div className='flex justify-center'> 
 
