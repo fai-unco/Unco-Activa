@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 
 const ContacUs = () => { 
 
+  // const endpoint = 'https://127.0.0.1:8000//api/contacUs'
   const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/contacUs'
   const [alertnavigate, setalertnavigate] = useState(false);
   const [errorMessage, seterrorMessage] = useState('');
@@ -67,7 +68,7 @@ const ContacUs = () => {
         });
     } 
     else {
-      seterrorMessage('completa todos los campos porfavor')
+      seterrorMessage('Complete todos los campos porfavor')
       setopenfail(true)      
       // console.log('no se envio')
     }
@@ -77,12 +78,12 @@ const ContacUs = () => {
   return (
     <div className='text-black bg-gray-light rounded-lg max-w-lg p-5'>
       <div className='grid justify-center'>
-        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>CONTÁCTANOS</p>
+        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>CONTACTANOS</p>
         <h1 className=' bg-yellow py-1 w-1/3 mt-5'> </h1>
       </div>
       <div className='container max-w-4xl mx-auto text-center  py-5'>
         <label className='mt-4  '>
-                  Por cualquier consulta, complete el formulario para contactarnos. Muchas Gracias
+                  Por cualquier consulta, complete el formulario para contactarnos. Muchas gracias!
         </label>
       </div>
 
@@ -91,7 +92,7 @@ const ContacUs = () => {
         titlecolor='success.main'
         title='Envio Exitoso!'
         navigate='/'
-        description='Gracias por comunicarte con nostros en breve te responderemos'
+        description='Gracias por comunicarte con nostros, en breve te responderemos'
       />
       <AlertSuccess open={openfail} onClose={setopenfail}
         bg=' rgb(240 240 240)'
@@ -109,7 +110,7 @@ const ContacUs = () => {
           label='Email'
           value={email}
           onChange={setemail}
-          error='Inngresa un email valido' />
+          error='Ingrese un email válido' />
         <InputColForm    
           regularExpression={expresiones.name}      
           value={subjet}
@@ -117,12 +118,12 @@ const ContacUs = () => {
           type='text'
           id='subjet'
           label='Asunto'
-          error='Ingrese un asunto, mayor a 3 caracteres con solo letras'
+          error='Ingrese un asunto, que sea mayor a 3 carácteres usando solo letras'
         />        
         <textarea
           // eslint-disable-next-line quotes
           className={` ${message.valido === 'false' ? 'dark:focus:border-red-500  dark:border-red-500 border-red-500 focus:border-red-500 ' : '' } block p-2.5 w-full text-sm text-gray-900 bg-transparent  rounded-lg border focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:text-black  dark:focus:border-blue-500  transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-10  duration-300 `}        
-          placeholder='Ingresa tu mensaje aqui'
+          placeholder='Ingrese su mensaje aquí'
           value={message.campo}
           onChange={(e) => {setmessage({...message, campo : e.target.value})}}         
           onKeyUp={validacion}
@@ -130,9 +131,9 @@ const ContacUs = () => {
           type='text'
           id='message'
           name='message'
-          label='Ingresa tu mensaje aqui'          
+          label='Ingrese su mensaje aquí'          
         /> 
-        <p className={message.valido === 'false' ? 'block text-red-500 ' : 'invisible'}   >{'Ingrese un mensaje valido, mayor a 3 caracteres'} </p>              
+        <p className={message.valido === 'false' ? 'block text-red-500 ' : 'invisible'}   >{'Ingrese un mensaje válido, mayor a 3 carácteres'} </p>              
         <div className='flex pt-7 justify-center'>
 
           <div className='relative col-span-2 mt-3 md:-mt-1 mb-3 md:mb-0 flex-none w-24 ...'>

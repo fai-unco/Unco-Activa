@@ -12,7 +12,7 @@ const ModalRules = (props) => {
     props.onClose(false);
 
   };
-  const isdateOfRace = Date.now() > new Date('October 19, 2022 20:00:00') 
+  const isdateOfRace = Date.now() > new Date('October 19, 2023 20:00:00') 
   var sx = { sx: { bgcolor: 'gray-darker' } }
   return (
     <div>
@@ -41,10 +41,10 @@ const ModalRules = (props) => {
                 <strong>Categoria: </strong><strong style={{color: props.categorie.color}}> {props.categorie.name}</strong><br />
 
                 <strong>Precio:</strong> ${props.categorie.price}<br /><br />
-                <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
+                {/* <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
                         Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar email a uncoactiva@gmail.com para recibir dicho beneficio.<br />
 
-                <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br />                        
+                <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br />                         */}
 
                         De no enviarse el comprobante de pago/transferencia con todos los datos de la operación al mail <strong>uncoactiva@gmail.com</strong>, no se considerará como inscripto.
 

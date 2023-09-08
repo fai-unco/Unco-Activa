@@ -32,7 +32,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         .post('/register', props, { withCredentials: true })
         .then(() => {
           mutate()
-          alert('Te has registrado con exito, Bienvenido!')
+          alert('Te has registrado con éxito. Bienvenido!')
         })
         .catch(error => {
           console.log(error.response.data)
@@ -50,7 +50,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
       .post('/login', props, { withCredentials: true, 'X-CSRF-TOKEN': csrf() })
       .then(() => {
         mutate()
-        alert('has iniciado secion con exito, Bienvenido!')
+        alert('Has iniciado sesión con éxito. Bienvenido!')
       })
       .catch(error => {
         console.log(error.response.data)

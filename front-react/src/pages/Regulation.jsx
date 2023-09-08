@@ -1,6 +1,6 @@
 import React from 'react'
 const regulation = () => {
-  const isdateOfRace = Date.now() > new Date('October 19, 2022 20:00:00') 
+  const isdateOfRace = Date.now() > new Date('October 19, 2023 20:00:00') 
   return (    
     <div className="font-Hurme-Geometric-R min-h-screen">
       <div className="px-3 sm:px-10 md:px-20 lg:px-32 py-7 ">
@@ -13,9 +13,59 @@ const regulation = () => {
             <div className="px-3 sm:px-5 lg:px-12">
               <div className="sm:px-5">
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">REGLAS GENERALES PARA LOS PARTICIPANTES</h4>
-                <p className='font-Hurme-Geometric-N pt-2'>Los y las participantes deberan:</p>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Largada y llegada</h4>
+                <p className="font-Hurme-Geometric-N">Gimnasio polideportivo Roberto Monteros (Escondido) predio de la UNCO – Neuquén Capital.</p>
+                <p className="font-Hurme-Geometric-N">Hora: 18hs</p>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
+                <p className="">Trail Running.</p>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Modalidad</h4>
+                <p className="">La modalidad de dicha carrera se va a dar en fomar individual.</p>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Distancia</h4>
                 <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
-                  <li >Es responsabilidad del participante estar bien preparado para la prueba. Esto es, gozar de buena salud en general,  así como tener un nivel aceptable de preparación. La inscripción en una prueba no asegura ni cubre esta responsabilidad.</li>
+                  <li className="pt-5">Prueba central: 15 Km</li>
+                  <li className="pt-5">Prueba central: 7 Km</li>
+                  <li className="pt-5">Prueba central: 3 Km</li>
+                </ul>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">A) PARTICIPANTES</h4>
+                <p className="font-Hurme-Geometric-N">INDIVIDUAL (Edades computadas al día de la competencia)</p>
+                <p>CATEGORÍAS POR EDADES: 15Km</p>
+                <ul>
+                  <li className="pt-5">MASCULINOS Y FEMENINOS HASTA 19 AÑOS</li>
+                  <li className="pt-5">MASCULINOS Y FEMENINOS DE 20 A 29 AÑOS</li>
+                  <li className="pt-5">MASCULINOS Y FEMENINOS DE 30 A 39 AÑOS</li>
+                  <li className="pt-5">MASCULINOS Y FEMENINOS DE 40 A 49 AÑOS</li>
+                  <li className="pt-5">MASCULINOS Y FEMENINOS DE 50 A 59 AÑOS</li>
+                  <li className="pt-5">MASCULINOS Y FEMENINOS +60 AÑOS</li>
+                </ul>
+                <h4 className="text-[1.2rem] text-red-500 font-bold pt-5 font-Hurme-Geometric-BO">Nota Importante: Aquellos corredores que no cumplan 18 años a la fecha de la carrera, deberán presentar al momento de la acreditación una autorización de padre/madre o tutor para poder participar y copia de la ficha de inscripción firmada por el participante y por el padre/madre o tutor.</h4>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">B) PREMIACIÓN</h4>
+                <p>Prueba de 15Km</p>
+                <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
+                  <li>Medalla de Finalista a todos los que crucen la meta.</li>
+                  <li>Medallones a los 1°, 2°, 3° de cada categoría masculina y femenina.</li>
+                  <li>Premiación general masculina y femenina a los 3 primeros de los 7Km y 15Km.</li>
+                </ul>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">C) REMERA DE LA COMPETENCIA Y NÚMERO IDENTIFICATORIO</h4>
+                <p>La remera de corredor es de uso obligatorio, con el número abrochado al frente sin ocultar sus partes.</p>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">D) SERVICIOS, ASISTENCIA, HIDRATACIÓN Y CONTROLES</h4>
+                <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
+                  <li>En puntos intermedios del recorrido y en la llegada se montará un puesto de asistencia e hidratación. (Solamente en 15Km)</li>
+                  <li>A lo largo del recorrido se establecerán controles de paso de los corredores.</li>
+                </ul>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">E) PENALIDADES</h4>
+                  <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
+                    <li className='pt-5'>Los participantes no pueden ser acompañados por bicicletas, automóviles, motocicletas ni otro tipo de vehículo, de ser observada esta situación por un Fiscal de la organización, será penalizado con:</li>
+                    <li className='pt-5'>1° Observación: Llamado de atención</li>
+                    <li className='pt-5'>2° Observación: 10' de recargo</li>
+                    <li className='pt-5'>3° Observación: Descalificación</li>
+                    <li className='pt-5'>Es obligatorio correr con la remera técnica entregada por la organización, por sobre cualquier prenda con el número completamente visible desde delante, estar sujeto por las cuatro esquinas y no debe ser cortado, doblado o escondido. La sanción por el inclumplimiento de este apartado será "el llamado de atención" y si no se rectifica, la descalificación.</li>
+                    <li className='pt-5'>No cumplir con el recorrido oficial, obteniendo una ventaja, será motivo de descalificación.</li>
+                    <li className='pt-5'>Está permitida la asistencia entre los corredores, excluyéndose cualquier forma que ayude en la marcha a otro corredor.</li>
+                  </ul>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">F) REGLAS GENERALES PARA LOS PARTICIPANTES</h4>
+                <p className='font-Hurme-Geometric-N pt-2'>Los y las participantes deberán:</p>
+                <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
+                  <li className='pt-5'>Es responsabilidad del participante estar bien preparado para la prueba Esto es, gozar de buena salud en general,  así como tener un nivel aceptable de preparación. La inscripción en una prueba no asegura ni cubre esta responsabilidad.</li>
                   <li className='pt-5'>La organización recomienda que todos los participantes se realicen un control médico previo a la carrera para asegurarse estar apto para el evento.</li>
                   <li className='pt-5'>Es obligatorio completar la ficha de inscripción publicada en forma on line en el sitio oficial de la carrera.</li>
                   <li className='pt-5'>La organización, a través de los fiscales autorizados, se reserva el derecho de interrumpir la participación de aquellos competidores que por su condición se considere que están poniendo en riesgo su integridad física, en caso de ser indicado, es obligación del participante hacer caso a la misma. De no respetarse, será descalificado y la responsabilidad corre por cuenta del propio participante.</li>
@@ -34,50 +84,7 @@ const regulation = () => {
                       <li>c) Eximir a los Organizadores, Municipios, Propietarios de las tierras del circuito de la carrera y los Patrocinantes de toda responsabilidad por accidentes personales; daños y/o pérdidas de objetos que pudiera ocurrirle antes, durante o después de su participación en la prueba.</li>
                     </ul>
                   </li>
-                  {!isdateOfRace ? 
-                    <li className='pt-5'>Modo de inscripción: El participante deberá inscribirse a la carrera por la web  <a href='https://uncoactiva.fi.uncoma.edu.ar/' target='_blank' rel='noreferrer' className='font-Hurme-Geometric-BO text-blue-cyan'>Unco Activa</a>, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:
-                      <ul className='list-none pt-3 pl-5'>
-                        <li className='font-Hurme-Geometric-N'>Banco Credicoop Cooperativo Limitado</li>
-                        <li><span className='font-Hurme-Geometric-N'>Adherente:</span> Universidad Nacional del Comahue.</li>
-                        <li><span className='font-Hurme-Geometric-N'>Operador:</span> 549505 Roberto Antonio Sepulveda.</li>
-                        <li><span className='font-Hurme-Geometric-N'>Nro Cuenta – Cuenta Corriente:</span> $191-093-024908/9</li>
-                        <li><span className='font-Hurme-Geometric-N'>CBU:</span> 19100933-55009302490896</li>
-                      </ul>
-                    </li> : ''}
-                  <li className='pt-5'>
-                    <p className='font-Hurme-Geometric-BO'>Acreditaciones: <span className='font-Hurme-Geometric-N'>El participante deberá asistir a las acreditaciones, los días:</span></p>
-                    <ul className='list-decimal pl-5 font-Hurme-Geometric-N'>
-                      <li>Jueves 20 de oct de 18 a 21hs.</li>
-                      <li>viernes 21 de oct de 12.00 a 16hs.</li>
-                    </ul>
-                    <p>Para retirar su remera, número y chip, y firmar el deslinde de responsabilidad.</p>
-                  </li>
                 </ul>
-
-                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Largada y llegada</h4>
-                <p className="font-Hurme-Geometric-N">Estacionamiento Central – Neuquén Capital.</p>
-                <p className="font-Hurme-Geometric-N">Hora: 11hs</p>
-                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Quien participa</h4>
-                <p className="">Toda persona que cumpla los requisitos de la inscripción. La modalidad de dicha carrera se va a dar en fomar individual.</p>
-                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
-                <p className="">Trail de 3K, 7K, 15K y 25K.</p>
-                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Recorrido</h4>
-                <p className="">La idea de hacer los recorridos por vueltas surge principalmente para hacer algo diferente e innovador, al estilo de las carreras de cross-country, a campo traviesa, y para darle al público y familias un seguimiento y acompañamiento más cercano al corredor y priorizando la seguridad sin cruces de rutas y alejados del parque cerrado; y sobre todo utilizando el 100% de los circuitos de la barda en el predio perteneciente a la Universidad. Será una verdadera y auténtica carrera de trail netamente en tierra universitaria.</p>
-                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Formato de Calificación</h4>
-                <p>Los y las participantes deberan:</p>
-                <ul className='list-decimal pl-5'>
-                  <li>Realizar el recorrido en el menor tiempo posible.</li>
-                  <li>No podrán utilizar vehículos ni acortar el recorrido.</li>
-                  <li>No se puede ser asistido por otras personas en competencia (fair play).</li>
-                  <li>La largada será común para todas las distancias. Deberán seguir las marcas.</li>
-                </ul>
-                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Sevicios, Asistencia, Hidratacíon y Controles</h4>
-                <ul className='list-decimal pl-5'>
-                  <li>En un punto intermedio del recorrido y en la llegada se montarán puestos de asistencia e hidratación.</li>
-                  <li>A lo largo del recorrido se establecerán controles de paso de los corredores y las corredoras en donde habrá colaboradores con remeras.</li>
-                </ul>
-                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Remera de competencia y numero de identificacion de corredor</h4>
-                <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
               </div>
 
             </div>

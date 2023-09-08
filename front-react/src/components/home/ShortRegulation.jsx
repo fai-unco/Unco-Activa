@@ -25,7 +25,7 @@ const ShortRegulation = props => {
             <li>c) Eximir a los Organizadores, Municipios, Propietarios de las tierras del circuito de la carrera y los Patrocinadores de toda responsabilidad por accidentes personales; daños y/o pérdidas de objetos que pudiera ocurrirle antes, durante o después de su participación en la prueba.</li>
           </ul> 
           <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
-          <p className="">Trail de 3 km, 7 km, 15 km y 25 km.</p>
+          <p className="">Trail de 3 km, 7 km y 15 km.</p>
           <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Recorrido</h4>
           <p className="">La idea de hacer los recorridos por vueltas surge principalmente para hacer algo diferente e innovador, al estilo de las carreras de cross-country, a campo traviesa, y para darle al público y familias un seguimiento y acompañamiento más cercano al corredor y priorizando la seguridad sin cruces de rutas y alejados del parque cerrado; y sobre todo utilizando el 100% de los circuitos de la barda en el predio perteneciente a la Universidad. Será una verdadera y auténtica carrera de trail netamente en tierra universitaria</p>
           {/* <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Formato de Calificación</h4>

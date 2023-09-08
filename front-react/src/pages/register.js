@@ -56,7 +56,7 @@ const Register = () => {
                   id="email"
                   type="email"
                   value={email}
-                  placeholder="Correo Electronico"
+                  placeholder="Correo Electrónico"
                   className="block mt-1 w-full h-[34px]"
                   onChange={event => setEmail(event.target.value)}
                 />
@@ -91,7 +91,7 @@ const Register = () => {
                   to="/login"
                   className="underline text-sm text-gray-600 hover:text-gray-900"
                 >
-                ¿Ya estas registrado?
+                ¿Ya estás registrado?
                 </NavLink>
               </div>
               <div className="flex justify-center">

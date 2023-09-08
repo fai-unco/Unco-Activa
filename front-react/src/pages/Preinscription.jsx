@@ -14,7 +14,7 @@ const Preinscription = () => {
             </div>
             <div className="px-3 sm:px-10 lg:px-12">
               <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Recorrido</h4>
-              <p className="">Tanto el recorrido de los 25km como el de 15km, será por senderos de barda y calles.  El recorrido de los 7km será por barda pero de dificultad baja. Y por último, los 3km de la caminata será por senderos accesibles casi sin desnivel.</p>
+              <p className="">El recorrido de los 15km, será por senderos de barda y calles.  El recorrido de los 7km será por barda pero de dificultad baja. Y por último, los 3km de la caminata será por senderos accesibles casi sin desnivel.</p>
             </div>
             <BoxCategories />
           </div >    

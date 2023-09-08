@@ -15,6 +15,7 @@ const Inscriptions = () => {
   const [inscriptions, setinscriptions] = useState([])
   const [currentPage, setcurrentPage] = useState(1)
   const [participantsPerPage] = useState(10)
+  // const endpoint = 'http://127.0.0.1:8000/api'
   const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api'
   useEffect(() => {
     getAllInscriptos()
@@ -137,7 +138,7 @@ const Inscriptions = () => {
                 
                 <div className='  border-b-2 border-blue-cyan grid grid-cols-3 text-center font-Hurme-Geometric-BO italic text-blue-dark'>
                   <div className='px-3'>#</div>
-                  <div className='px-3 overflow-auto'>CATEGORIA</div>
+                  <div className='px-3 overflow-auto'>CATEGORÍA</div>
                   <div className='px-3 overflow-auto '>NOMBRE Y APELLIDO</div>                    
                 </div>                
                                    

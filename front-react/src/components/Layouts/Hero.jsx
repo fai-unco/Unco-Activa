@@ -75,12 +75,18 @@ const Hero = () => {
       <div className='grid sm:flex items-end justify-center pb-10 text-sm text-black font-Hurme-Geometric-N max-h-full'>
 
         <div className='flex justify-center px-2'>
-          <a
+          {/* <a
             variant="contained"
             href='https://cronometrajeinstantaneo.com/resultados/unco-activa-2022'
             className='border-2 border-white rounded-full px-5 py-1 bg-white hover:bg-opacity-0 hover:text-white ease-in-out duration-[1500ms]'>
             RESULTADOS
-          </a>
+          </a> */}
+          <button
+            variant="contained"
+            onClick={handleClickOpen}
+            className='border-2 border-white rounded-full px-5 py-1 bg-white hover:bg-opacity-0 hover:text-white ease-in-out duration-[1500ms]'>
+            PRE-INSCRIBITE
+          </button>
           <ModalCategories />
         </div>
         <div className='flex justify-center px-2'>          
@@ -91,7 +97,7 @@ const Hero = () => {
               racepath.scrollIntoView({ behavior: 'smooth' });
             }}           
             className='cursor-pointer border-2 scroll-smooth  border-white rounded-full px-5 py-1 text-white  hover:bg-white hover:text-black bg-opacity-0 ease-in-out duration-[1500ms]'>
-            CONOCE MAS
+            CONOCE MÁS
           </div>
         </div>
       </div>

@@ -37,7 +37,7 @@ const BoxCategories = () => {
             fontSize: 20,
             fontWeight: 600,
             maxHeight: 100
-          }}> ELEGI UNA CATEGORIA</Paper>
+          }}> ELEGÍ UNA CATEGORÍA</Paper>
       </Box>
       <Grid>
         <Box

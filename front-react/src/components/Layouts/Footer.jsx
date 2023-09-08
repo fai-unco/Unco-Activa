@@ -10,7 +10,7 @@ function footer() {
           <a href='https://www.instagram.com/sbucomahue/' target="_blank" rel="noreferrer"><img src='/logos/Instagram.svg' className='h-7 p-1' alt='logo Instagram'/></a>
         </div>
         <span className='text-gray'>
-                    © 2022 Copyright:
+                    © 2023 Copyright:
           <a href='/' className='hover:text-gray-light'> Unco Activa</a>
         </span>
       </div>

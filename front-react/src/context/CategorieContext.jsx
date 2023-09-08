@@ -6,6 +6,7 @@ export const useMyContext = () => useContext(CategorieContext);
 
 const CategorieContextProvider = ({ children }) => {
   const [categories, setcategories] = useState([])
+  // const endpoint = 'https://127.0.0.1:8000/api'
   const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api'
   useEffect(() => {
     getAllCategories()

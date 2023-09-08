@@ -18,6 +18,7 @@ import { FormControl, FormControlLabel, FormLabel, Radio } from '@mui/material';
 import { RadioGroup } from '@headlessui/react';
 registerLocale('es', es);
 
+// const endpoint = 'http://127.0.0.1:8000/api/inscription'
 const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription'
 const sizes = [
   { value: 'S', label: 'S' },
@@ -83,7 +84,7 @@ const PreinscriptionForm = (props) => {
     }
   };
 
-  const isdateOfRace = Date.now() > new Date('October 19, 2022 20:00:00') 
+  const isdateOfRace = Date.now() > new Date('October 19, 2023 20:00:00') 
   const [openEnd, setopenEnd] = useState(isdateOfRace);
 
   const [alertnavigate, setalertnavigate] = useState(false);
@@ -139,11 +140,11 @@ const PreinscriptionForm = (props) => {
     if (formularioValido
     ) {
       if (phone.campo === emergency_contac_phone.campo) {
-        seterrorMessage('Ingresa un numero de conctacto de emergencia que sea diferente al tuyo porfavor')
+        seterrorMessage('Ingrese un número de contacto de emergencia que sea diferente al suyo porfavor')
         setopenfail(true)
       }
       else if (isdateOfRace){
-        seterrorMessage('Ya no esta disponible la carrera')
+        seterrorMessage('Ya no está disponible la carrera')
         setopenfail(true)
       }
       else {
@@ -151,7 +152,7 @@ const PreinscriptionForm = (props) => {
       }
     }
     else {
-      seterrorMessage('completa todos los campos porfavor')
+      seterrorMessage('Complete todos los campos porfavor')
       setopenfail(true)
       // console.log('no se envio')
     }
@@ -288,7 +289,7 @@ const PreinscriptionForm = (props) => {
     if (e.length === 0) {
       setfilevalidation({
         ...filevalidation,
-        campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.',
+        campo: 'Debe enviar el comprobante, sin el no se te considerará como inscripto en la carrera.',
         valido: 'false'
       })
       // console.log('invalido', e)
@@ -299,43 +300,43 @@ const PreinscriptionForm = (props) => {
         // console.log('tipo imagen', array[0].type, array[0].type.indexOf('image'))
       }
       else {
-        setfilevalidation({ ...filevalidation, campo: 'Formato de archivo invalido, formatos admitidos: png, jpg, pdf', valido: 'false' })
+        setfilevalidation({ ...filevalidation, campo: 'Formato de archivo inválido, formatos admitidos: png, jpg, pdf', valido: 'false' })
       }
       if (array[0].size > 2088960) {
-        setfilevalidation({ ...filevalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
+        setfilevalidation({ ...filevalidation, campo: 'Tamaño máximo de archivo excedido: 2MB', valido: 'false' })
         // console.log('invalido', array[0].size)
       }
       setFiles(array);
     }
   }
-  const onChangeFilePromo = (e) => {
-    // console.log('evento promo', e[0])
-    let array = []
-    array[0] = e[0];
-    setpromovalidation({ valido: true })
-    if (e.length === 0) {
-      setpromovalidation({
-        ...promovalidation,
-        campo: 'Debes enviar el certificado de alumno regular o legajo para poder hacer el descuento.',
-        valido: 'false'
-      })
-      // console.log('invalido', e)
-      setfilespromo(e);
-    }
-    else {
-      if ((array[0].type.indexOf('image') !== -1) || (array[0].type.indexOf('application/pdf') !== -1)) {
-        // console.log('tipo imagen', array[0].type, array[0].type.indexOf('image'))
-      }
-      else {
-        setpromovalidation({ ...promovalidation, campo: 'Formato de archivo invalido, formatos admitidos: png, jpg, pdf', valido: 'false' })
-      }
-      if (array[0].size > 2088960) {
-        setpromovalidation({ ...promovalidation, campo: 'Tamaño maximo de archivo excedido: 2MB', valido: 'false' })
-        // console.log('invalido', array[0].size)
-      }
-      setfilespromo(array);
-    }
-  }
+  // const onChangeFilePromo = (e) => {
+  //   // console.log('evento promo', e[0])
+  //   let array = []
+  //   array[0] = e[0];
+  //   setpromovalidation({ valido: true })
+  //   if (e.length === 0) {
+  //     setpromovalidation({
+  //       ...promovalidation,
+  //       campo: 'Debe enviar el certificado de alumno regular o legajo para poder hacer el descuento.',
+  //       valido: 'false'
+  //     })
+  //     // console.log('invalido', e)
+  //     setfilespromo(e);
+  //   }
+  //   else {
+  //     if ((array[0].type.indexOf('image') !== -1) || (array[0].type.indexOf('application/pdf') !== -1)) {
+  //       // console.log('tipo imagen', array[0].type, array[0].type.indexOf('image'))
+  //     }
+  //     else {
+  //       setpromovalidation({ ...promovalidation, campo: 'Formato de archivo inválido, formatos admitidos: png, jpg, pdf', valido: 'false' })
+  //     }
+  //     if (array[0].size > 2088960) {
+  //       setpromovalidation({ ...promovalidation, campo: 'Tamaño máximo de archivo excedido: 2MB', valido: 'false' })
+  //       // console.log('invalido', array[0].size)
+  //     }
+  //     setfilespromo(array);
+  //   }
+  // }
 
   return (    
     <div className='flex flex-col mx-3 sm:mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
@@ -347,20 +348,20 @@ const PreinscriptionForm = (props) => {
           </div>
         </div>
         <h1 className='text-4xl font-bold text-center mt-10 mb-10 text-gray-darker'>
-            Inscribirse
+            Formulario de inscripción
         </h1>
         <AlertSuccess open={openEnd} onClose={setopenEnd}
           bg=' rgb(240 240 240)'
           titlecolor='warning.main'
-          title='Atencion!'
-          description={'Las inscripciones estan cerradas, por favor no realizar transferencias ya que no nos responsabilizamos por inscribirte en fuera de termino.'}
+          title='Atención!'
+          description={'Las inscripciones están cerradas. Por favor, no realizar transferencias, ya que no nos responsabilizamos por inscribirse fuera de término.'}
         />
         <AlertSuccess open={opensucces} onClose={setopensucces}
           bg=' rgb(240 240 240)'
           titlecolor='success.main'
           title='Registro Exitoso!'
           navigate='/'
-          description='Te has registrado correctamente, revisa tu buzon de mensajes y spam'
+          description='Ha completado el registro con éxito. Por favor, verifique su bandeja de entrada y la carpeta de correo no deseada.'
         />
         <AlertSuccess open={openfail} onClose={setopenfail}
           bg=' rgb(240 240 240)'
@@ -379,7 +380,7 @@ const PreinscriptionForm = (props) => {
             type='text'
             id='name'
             label='Nombre'
-            error='Ingrese un nombre valido, mayor a 3 caracteres con solo letras'
+            error='Ingrese un nombre válido, mayor a 3 carácteres usando solo letras'
           />
           <InputColForm
             regularExpression={expresiones.name}
@@ -388,7 +389,7 @@ const PreinscriptionForm = (props) => {
             label='Apellido'
             value={surname}
             onChange={setsurname}
-            error='Ingrese un apellido valido, mayor a 3 caracteres con solo letras'
+            error='Ingrese un apellido válido, mayor a 3 carácteres usando solo letras'
           />
           <div className='relative col-span-2  md:col-span-1 z-10 mb-7'>
             <DatePicker className={birth.valido === 'false' ? 'block py-2.5 scroll-black px-0 w-full text-sm text-gray-darker bg-transparent border-0 border-b-2 border-red-500 dark:text-gray-darker dark:border-red-500 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-blue-600 ' : 'block py-2.5 scroll-black px-0 w-full text-sm text-gray-darker bg-transparent border-0 border-b-2 border-gray-dark dark:text-gray-darker dark:border-gray-dark dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 '}
@@ -413,21 +414,21 @@ const PreinscriptionForm = (props) => {
               locale={'es'}
               autoComplete='off'
             />
-            <p className={birth.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Ingrese una fecha valida, debe ser mayor de 18 años para poder inscribirse </p>
+            <p className={birth.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Ingrese una fecha válida, debe ser mayor de 18 años para poder inscribirse </p>
           </div>
           <InputColForm
             regularExpression={expresiones.dni}
             type='number'
             id='dni'
-            label='Dni'
+            label='DNI'
             value={dni}
             onChange={setdni}
-            error='Ingrese un dni valido, con exactamente 8 digitos'
+            error='Ingrese un DNI válido, con exactamente 8 dígitos'
           />
           <div className='col-span-2 mb-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
             <Select
               // className='text-gray-darker col-span-2  md:col-span-1  dark:text-gray-darker'
-              placeholder='Genero'
+              placeholder='Género'
               styles={colorstylesSizes}
               name='gender'
               Value={gender}
@@ -436,16 +437,16 @@ const PreinscriptionForm = (props) => {
               options={genders}
               id='gender'
             />
-            <p className={gender.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Debes ingresar un Genero </p>
+            <p className={gender.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Debe seleccionar un género </p>
           </div>
           <InputColForm
             regularExpression={expresiones.name}
             type='text'
             id='country'
-            label='Pais'
+            label='País'
             value={country}
             onChange={setcountry}
-            error='Ingresa un pais'
+            error='Ingrese un país'
           />
 
           <InputColForm
@@ -455,7 +456,7 @@ const PreinscriptionForm = (props) => {
             value={province}
             onChange={setprovince}
             regularExpression={expresiones.name}
-            error='Ingresa una provincia'
+            error='Ingrese una provincia'
 
           />
           <InputColForm type='text'
@@ -464,16 +465,16 @@ const PreinscriptionForm = (props) => {
             value={city}
             onChange={setcity}
             regularExpression={expresiones.name}
-            error='Ingresa una provincia' />
+            error='Ingrese una provincia' />
 
           <InputColForm
             regularExpression={expresiones.address}
             type='text'
-            label='Direccion de Domicilio'
+            label='Dirección de domicilio'
             id='address'
             value={address}
             onChange={setaddress}
-            error='Inngresa un domicilio valido, Letras, numeros, y caracteres especiales'
+            error='Ingrese un domicilio válido, usando letras, números y carácteres especiales'
           />
           <InputColForm
             regularExpression={expresiones.email}
@@ -482,16 +483,16 @@ const PreinscriptionForm = (props) => {
             label='Email'
             value={email}
             onChange={setemail}
-            error='Inngresa un email valido' />
+            error='Ingrese un email válido' />
 
           <InputColForm
             type='tel'
             id='phone'
-            label='Numero de Telefono'
+            label='Número de teléfono'
             value={phone}
             onChange={setphone}
             regularExpression={expresiones.phone}
-            error='Inngresa un telefono valido'
+            error='Ingrese un teléfono válido'
 
           />
           <InputColForm
@@ -516,7 +517,7 @@ const PreinscriptionForm = (props) => {
               id='shirt_size'
               placeholder='Talle de remera'
             />
-            <p className={shirt_size.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Debes ingresar un talle </p>
+            <p className={shirt_size.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Debe seleccionar un talle </p>
           </div>
 
           <div className='relative col-span-2 z-0 mb-2 mt-2 w-full group'>
@@ -530,25 +531,25 @@ const PreinscriptionForm = (props) => {
             value={emergency_contac_name}
             onChange={setemergency_contac_name}
             regularExpression={expresiones.name}
-            error='Ingrese un nombre valido, mayor a 3 caracteres con solo letras'
+            error='Ingrese un nombre válido, mayor a 3 carácteres usando solo letras'
           />
           <InputColForm
             type='text'
             id='emergency_contac_bond'
-            label='Vinculo de contacto'
+            label='Vínculo de contacto'
             value={emergency_contac_bond}
             onChange={setemergency_contac_bond}
             regularExpression={expresiones.name}
-            error='Inngresa un el vinculo de tu contacto de emergencia'
+            error='Ingrese el vínculo de tu contacto de emergencia'
           />
           <InputColForm
             type='text'
             id='emergency_contac_phone'
-            label='Numero Telefonico'
+            label='Número telefónico'
             value={emergency_contac_phone}
             onChange={setemergency_contac_phone}
             regularExpression={expresiones.phone}
-            error='Inngresa un telefono de contacto de emergencia'
+            error='Ingrese un teléfono de contacto de emergencia'
           />
           <div className="relative col-span-2 justify-items-center self-center z-0 lg:mx-20 mb-2">
             <FileUpload
@@ -573,7 +574,7 @@ const PreinscriptionForm = (props) => {
                 },
                 boxShadow: filevalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 0px rgb(0 170 225)'
               }}
-              title='Sube el comprobante de pago aqui. Solo imagenes o pdf con tamaño maximo de 2MB'
+              title='Suba el comprobante de pago aquí. Solo imágenes o pdf con tamaño máximo de 2MB'
               buttonText='Subir comprobantes'
               value={files}
               onChange={(e) => onChangeFile(e)} />
@@ -581,7 +582,7 @@ const PreinscriptionForm = (props) => {
               : 'invisible'}>{filevalidation.campo} </p>
 
           </div>
-          <div className="relative col-span-2 justify-items-center self-center z-0 mt-1 mb-1">
+          {/* <div className="relative col-span-2 justify-items-center self-center z-0 mt-1 mb-1">
             <FormControl>
               <FormLabel id="demo-controlled-radio-buttons-group">Haces parte de la Comunidad Universitaria?</FormLabel>
               <RadioGroup
@@ -600,10 +601,10 @@ const PreinscriptionForm = (props) => {
               </RadioGroup>
             </FormControl>
             <p className={promo.valido === 'false' ? 'flex text-red-500 justify-start '
-              : 'invisible'}>{'Por favor selecciona una opción.'} </p>
-          </div>
+              : 'invisible'}>{'Por favor seleccione una opción.'} </p>
+          </div> */}
 
-          <div className={promo.campo !== 'si' ? 'hidden'
+          {/* <div className={promo.campo !== 'si' ? 'hidden'
             : 'relative col-span-2 self-center z-0 -mt-5 lg:mx-20 mb-1'}>
             <FileUpload
               multiFile={false}
@@ -628,13 +629,13 @@ const PreinscriptionForm = (props) => {
                 boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 0px rgb(0 170 225)'
               }}
               title='En caso de ser miembro de la comunidad universitaria
-              adjunta el certificado correspondiente. Solo imagenes o pdf con tamaño maximo de 2MB'
+              adjunta el certificado correspondiente. Solo imágenes o pdf con tamaño máximo de 2MB'
               buttonText='Subir comprobantes'
               value={filespromo}
               onChange={(e) => onChangeFilePromo(e)} />
             <p className={promovalidation.valido === 'false' ? 'flex text-red-500 justify-center mt-1'
               : 'invisible'}>{promovalidation.campo} </p>
-          </div>           
+          </div>            */}
 
           {!isdateOfRace ? 
             <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
@@ -645,13 +646,13 @@ const PreinscriptionForm = (props) => {
               Operador: 549505 Roberto Antonio Sepulveda.<br />
               Nro Cuenta – Cuenta Corriente: $191-093-024908/9<br />
               CBU 19100933-55009302490896 <br /><br />
-                <strong>Categoria: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong><br />
+                <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong><br />
 
                 <strong>Precio:</strong> ${props.categorie.price}<br /><br />
-                <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
+                {/* <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
               Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar el cerfiticado correspondienteo para recibir dicho beneficio.<br />
 
-                <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br />
+                <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br /> */}
 
               De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
 
@@ -666,16 +667,16 @@ const PreinscriptionForm = (props) => {
               inputProps={{ 'aria-label': 'uncontrolled' }}
               id='check'
             />
-            <label htmlFor={'check'} className='dark:text-gray-darker -mt-1 text-gray-darker'>{'Acepto los terminos y condiciones del '}
+            <label htmlFor={'check'} className='dark:text-gray-darker -mt-1 text-gray-darker'>{'Acepto los términos y condiciones del '}
               <button type='button' onClick={handleClickOpenRules} className='text-blue-cyan '>Reglamento de la carrera</button> </label>
-            <p className={checked === false ? 'text-red-500 block' : 'invisible'}>Debes aceptar los terminos y condiciones </p>
+            <p className={checked === false ? 'text-red-500 block' : 'invisible'}>Debe aceptar los términos y condiciones </p>
           </div>
 
           <div className='relative col-span-2 mt-3 md:-mt-1 mb-3 md:mb-0 flex-none w-24 ...'>
             <ButtonInput type='submit' text='Enviar' divclass='lg:w-28 md:w-28 sm:w-auto flex-none' />
           </div>
           <div className='relative col-span-2 md:col-span-1  ...'>
-            <p className=' text-ellipsis dark:text-gray-darker ml-1 text-gray-darker '>{'Por cualquier inconveniente y  duda acerca de la carrera consular al mail de '}
+            <p className=' text-ellipsis dark:text-gray-darker ml-1 text-gray-darker '>{'Por cualquier inconveniente y duda acerca de la carrera consular al mail de '}
               <a href={'mailto:uncoactiva@gmail.com'} className='text-blue-cyan'>UncoActiva</a>
             </p>
           </div>
