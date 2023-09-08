@@ -22,13 +22,8 @@ const AboutUs = () => {
       'image': 'aboutUs/SA.png'
     },
     {
-      'name': 'Rocío Graff', 
-      'socials': {
-        'github': 'https://github.com/rociograff',
-        'linkedin': 'https://www.linkedin.com/in/rocio-graff/',
-        'envelope': 'rograff17@gmail.com'        
-      },     
-      'image': 'aboutUs/RG.jpg'
+      'name': '',
+      'image': ''
     },
     {
       'name': '',
@@ -58,7 +53,7 @@ const AboutUs = () => {
       <div className='px-3 md:px-12 py-7'>
         
         <div className=" rounded-lg bg-gray-light ">
-          <h2 className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark">Equipo de Desarrolladores Unco Activa 2023 </h2>
+          <h2 className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark">Equipo de Desarrolladores Unco Activa 2022 </h2>
           <hr className="my-[1rem]" />
           <div className='flex justify-center'> 
 
