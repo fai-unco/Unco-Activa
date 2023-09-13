@@ -4,7 +4,7 @@ const RacePath = props => {
   const [imagenActual, setImagenActual] = React.useState(0);
   
   const mockImagenes = [
-    'elements/unco-activa-recorridos.jpg'
+    'elements/recorrido2023.png'
   ]
   const cantidad = mockImagenes?.length;
   const siguienteImagen = () => {
