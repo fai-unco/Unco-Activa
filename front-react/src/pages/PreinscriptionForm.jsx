@@ -642,10 +642,10 @@ const PreinscriptionForm = (props) => {
               <p>
                 <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:<br />
               Banco Credicoop Cooperativo Limitado <br />
-              Adherente: Universidad Nacional del Comahue.<br />
+              Adherente: Universidad Nacional del Comahue Ad Cent<br />
               Operador: 549505 Roberto Antonio Sepulveda.<br />
-              Nro Cuenta – Cuenta Corriente: $191-093-024908/9<br />
-              CBU 19100933-55009302490896 <br /><br />
+              Nro Cuenta – Cuenta Corriente: $191-093-031471/2<br />
+              CBU 19100933 - 55009303147128 <br /><br />
                 <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong><br />
 
                 <strong>Precio:</strong> ${props.categorie.price}<br /><br />
