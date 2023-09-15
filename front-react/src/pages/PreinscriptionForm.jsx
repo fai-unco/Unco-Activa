@@ -16,6 +16,7 @@ import FileUpload from 'react-material-file-upload';
 import { red } from '@mui/material/colors';
 import { FormControl, FormControlLabel, FormLabel, Radio } from '@mui/material';
 import { RadioGroup } from '@headlessui/react';
+import { BankAccount } from 'components/elements/BankAccount';
 registerLocale('es', es);
 
 // const endpoint = 'http://127.0.0.1:8000/api/inscription'
@@ -641,11 +642,7 @@ const PreinscriptionForm = (props) => {
             <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
               <p>
                 <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:<br />
-              Banco Credicoop Cooperativo Limitado <br />
-              Adherente: Universidad Nacional del Comahue Ad Cent<br />
-              Operador: 549505 Roberto Antonio Sepulveda.<br />
-              Nro Cuenta – Cuenta Corriente: $191-093-031471/2<br />
-              CBU 19100933 - 55009303147128 <br /><br />
+              <BankAccount />
                 <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong><br />
 
                 <strong>Precio:</strong> ${props.categorie.price}<br /><br />
