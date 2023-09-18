@@ -75,11 +75,31 @@ const PreinscriptionForm = (props) => {
   const [files, setFiles] = useState([]);
   const [filevalidation, setfilevalidation] = useState({ campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.', valido: null });
 
-  const isdateOfRace = Date.now() > new Date('October 19, 2023 20:00:00') 
-  const [openEnd, setopenEnd] = useState(isdateOfRace);
+  const isdateOfRace = Date.now() > new Date('October 28, 2023 20:00:00') 
+  // const [openEnd, setopenEnd] = useState(isdateOfRace);
 
   const [alertnavigate, setalertnavigate] = useState(false);
 
+// valores MP
+  const linkMP = [
+    { race: '3k', link: 'https://mpago.la/1pCBwux' },
+    { race: '7k', link: 'https://mpago.la/211MmCN' },
+    { race: '15k', link: 'https://mpago.la/1oCb2bJ' },
+  ]
+  const CategoriaButton = ({ categoria }) => {
+    const enlace = linkMP.find(item => item.race === categoria);
+  
+    if (enlace) {
+      return (
+        <a href={enlace.link} target="_blank" >
+          <button type="button" className='bg-blue-cyan hover:bg-blue-cyan-dark text-white font-bold py-2 px-4 rounded-md'>Pagar por MercadoPago</button>
+        </a>
+      );
+    } else {
+      return null; // No hay enlace disponible para esta categoría
+    }
+  }
+  
   const arraycampos = [
     [checked, setChecked],
     [name, setname],
@@ -301,12 +321,12 @@ const PreinscriptionForm = (props) => {
         <h1 className='text-4xl font-bold text-center mt-10 mb-10 text-gray-darker'>
             Formulario de inscripción
         </h1>
-        <AlertSuccess open={openEnd} onClose={setopenEnd}
+        {/* <AlertSuccess open={openEnd} onClose={setopenEnd}
           bg=' rgb(240 240 240)'
           titlecolor='warning.main'
           title='Atención!'
           description={'Las inscripciones están cerradas. Por favor, no realizar transferencias, ya que no nos responsabilizamos por inscribirse fuera de término.'}
-        />
+        /> */}
         <AlertSuccess open={opensucces} onClose={setopensucces}
           bg=' rgb(240 240 240)'
           titlecolor='success.main'
@@ -502,6 +522,23 @@ const PreinscriptionForm = (props) => {
             regularExpression={expresiones.phone}
             error='Ingrese un teléfono de contacto de emergencia'
           />
+
+          {!isdateOfRace ? 
+            <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
+              <p>
+                <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia bancaria o Mercadopago:<br />
+              <BankAccount />
+              <br />O MercadoPago en el siguiente link <CategoriaButton categoria={props.categorie.name}/>
+              <br />
+                <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong><br />
+
+                <strong>Precio:</strong> ${props.categorie.price}<br /><br />
+               
+              De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
+
+              </p>
+            </div> : ''}
+          
           <div className="relative col-span-2 justify-items-center self-center z-0 lg:mx-20 mb-2">
             <FileUpload
               multiFile={false}
@@ -534,19 +571,7 @@ const PreinscriptionForm = (props) => {
 
           </div>
 
-          {!isdateOfRace ? 
-            <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
-              <p>
-                <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:<br />
-              <BankAccount />
-                <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong><br />
-
-                <strong>Precio:</strong> ${props.categorie.price}<br /><br />
-               
-              De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
-
-              </p>
-            </div> : ''}
+          
           
           <div className='relative col-span-2 justify-self-center z-0 -mt-1 -ml-3 w-full group'>
             <Checkbox
