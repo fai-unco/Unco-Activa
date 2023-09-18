@@ -31,7 +31,7 @@ class InscriptionMail extends Mailable
      */
     public function build()
     {
-        return $this->subject("Inscripcion Aprobada Carrera por los 50 años-". config("app.name"))
+        return $this->subject("Inscripcion Aprobada Carrera de la Unco-". config("app.name"))
         ->markdown('mail.inscription-mail');
     }
 }
