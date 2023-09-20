@@ -342,7 +342,7 @@ const PreinscriptionForm = (props) => {
           description={errorMessage}
         />
 
-        <form onSubmit={storeInscription} className='grid grid-cols-1 md:grid-cols-2 md:gap-6'>
+        <form onSubmit={storeInscription} autoComplete='false' className='grid grid-cols-1 md:grid-cols-2 md:gap-6'>
 
           <InputColForm
             regularExpression={expresiones.name}
@@ -526,16 +526,18 @@ const PreinscriptionForm = (props) => {
           {!isdateOfRace ? 
             <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
               <p>
-                <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia bancaria o Mercadopago:<br />
-              <BankAccount />
-              <br />O MercadoPago en el siguiente link <CategoriaButton categoria={props.categorie.name}/>
-              <br />
-                <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong><br />
-
-                <strong>Precio:</strong> ${props.categorie.price}<br /><br />
-               
-              De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
-
+                <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia bancaria o Mercadopago:
+              </p>
+                <BankAccount />
+              <p>
+                O MercadoPago en el siguiente link <CategoriaButton categoria={props.categorie.name}/>
+              </p>
+              <p>
+                <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong>
+                <br />
+                <strong>Precio:</strong> ${props.categorie.price}
+                <br /><br />
+                De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
               </p>
             </div> : ''}
           
