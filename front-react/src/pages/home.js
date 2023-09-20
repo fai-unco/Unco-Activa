@@ -21,13 +21,14 @@ const mockImagenes = [
     "elements/edicion-anterior9.jpeg",
     // 'elements/edicion20211210_190204.mp4'
 ];
-const isdateOfRace = Date.now() > new Date("October 19, 2023 20:00:00");
+const isdateOfRace = Date.now() > new Date("October 28, 2023 20:00:00");
 
 const Home = () => {
-    // const [openEnd, setopenEnd] = useState(!isdateOfRace);
+    const [openEnd, setopenEnd] = useState(!isdateOfRace);
     return (
         <div className="font-Hurme-Geometric-R min-h-screen">
-            {/* <AlertSuccess open={openEnd} onClose={setopenEnd} bg=" rgb(240 240 240)" titlecolor="warning.main" title="Atención!" description={"Las inscripciones están cerradas, por favor no realizar transferencias ya que no nos responsabilizamos por inscribirse fuera de término."} /> */}
+            <AlertSuccess open={openEnd} onClose={setopenEnd} bg=" rgb(240 240 240)" titlecolor="warning.main" title="Atención!" description="Promo Exclusiva para Corredores Apasionados! Para acceder a una promoción única, simplemente comunica a tu grupo que nos contacten a través del siguiente correo electrónico: uncoactiva@gmail.com.
+            ¡No te pierdas esta oportunidad de sumar a todo tu equipo!"  />
             <div>
                 <Hero />
             </div>
@@ -39,7 +40,7 @@ const Home = () => {
 
                     <div id="conoceMas" className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark">
                         <h1 className="">28 OCT / 18 HRS</h1>
-                        <h1>Polideportivo "Beto Monteros" - Neuquén Capital</h1>
+                        <h1>Universidad Nacional del Comahue - Neuquén Capital</h1>
                     </div>
 
                     <div className="py-5 ">
@@ -63,20 +64,14 @@ const Home = () => {
                                 <ul className="list-decimal pl-5">
                                     <li>En un punto intermedio del recorrido y en la llegada se montarán puestos de asistencia e hidratación.</li>
                                     <li>A lo largo del recorrido se establecerán controles de paso de los corredores y las corredoras en donde habrá colaboradores con remeras.</li>
-                                    <li>El Mercado concentrador nos acompaña en nuestro trail aniversario 50 años sabiendo de la importancia que es la unco para toda la región y nos dan apoyo logístico en la provisión de toda las frutas para un stand saludable y los puestos de hidratación para toda la carrera.</li>
                                 </ul>
                                 <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Remera de competencia y número de identificación de corredor</h4>
                                 <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
                                 <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Acreditaciones: </h4>
                                 <p>
-                                    El participante deberá asistir a las acreditaciones, el día: <span className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-N">Sábado 28 de Octubre de 10 a 19 hs.</span>
+                                    El participante deberá asistir a las acreditaciones, el día: <span className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-N">Sábado 28 de Octubre de 12 a 17 hs.</span> <strong className="text-rose-500 font-bold text-[1.1em] font-Hurme-Geometric-BO">Lugar a confirmar.!</strong>
                                 </p>
                                 <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
-
-                                <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Ubicación: </h4>
-                                <p>
-                                    <span className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-N">Polideportivo "Beto Monteros".</span>
-                                </p>
                                 <p>Para retirar su remera, número y chip, y firmar el deslinde de responsabilidad.</p>
                             </div>
 
@@ -103,11 +98,11 @@ const Home = () => {
                                 {!isdateOfRace ? (
                                     <>
                                         <h4 className="text-[1.2rem] text-blue-high pt-5 font-Hurme-Geometric-BO">MODO DE INSCRIPCIÓN:</h4>
-                                        <p className="">Las inscripciones se realizan vía Internet en la web: Pago únicamente por transferencia:</p>
+                                        <p className="">Las inscripciones se realizan vía Internet en la web: Pago únicamente por transferencia o Mercadopago:</p>
                                         <BankAccount />
                                         <p className="text-blue-high text-[1.2rem] font-Hurme-Geometric-BO">
                                             Una vez hecha la transferencia se deberá adjuntar el comprobante en el formulario de inscripción, en caso de tener algún inconveniente comunicarse a nuestro{" "}
-                                            <a className="text-yellow" href="mailto:uncoactiva@gmail.com">
+                                            <a className="text-rose-500 font-bold text-[1.1em] font-Hurme-Geometric-BO" href="mailto:uncoactiva@gmail.com">
                                                 {" "}
                                                 email{" "}
                                             </a>
