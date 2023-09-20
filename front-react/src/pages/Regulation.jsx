@@ -14,7 +14,7 @@ const regulation = () => {
               <div className="sm:px-5">
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">REGLAS GENERALES PARA LOS PARTICIPANTES</h4>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Largada y llegada</h4>
-                <p className="font-Hurme-Geometric-N">Gimnasio polideportivo Roberto Monteros(Escondido) predio de la UNCO</p>
+                <p className="font-Hurme-Geometric-N">Estacionamiento central de la Universidad Nacional del Comahue - Frente al Aula Magna. (a confirmar días previos a la competencia)</p>
                 <p className="font-Hurme-Geometric-N">Hora: 18hs</p>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
                 <p className="">Trail Running.</p>
