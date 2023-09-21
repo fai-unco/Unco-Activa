@@ -1,5 +1,5 @@
 @component('mail::message')
-# Hola {{ $datos['name'] }}! muchas gracias por inscribirte en la carrera por los 50 años de la UNCO.
+# Hola {{ $datos['name'] }}! muchas gracias por inscribirte en la carrera de la UNCO.
     ---
 
 ### Por favor espera mientras revisamos la información de tu inscripcion, te notificaremos una vez este corroborada la informacion de los comprobantes.

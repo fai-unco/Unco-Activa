@@ -3,7 +3,7 @@
 
 <p>Tenemos el agrado de informarte que los requisitos que nos proporcionaste han sido verificados y aprobados!</p>
 
-<h1>{{ $datos['name'] }} YA ESTAS INSCRIPTO/A A LA CARRERA POR LOS 50 AÑOS DE LA UNCO!.</h1>
+<h1>{{ $datos['name'] }} YA ESTAS INSCRIPTO/A A LA CARRERA DE LA UNCO!.</h1>
 
 <p style="text: ">
     <b>Corredor/a: {{ $datos['name'] }} <br />
