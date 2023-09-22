@@ -14,8 +14,6 @@ import ModalRules from 'components/inscriptionform/ModalRules';
 import ModalInscription from 'components/inscriptionform/ModalInscription';
 import FileUpload from 'react-material-file-upload';
 import { red } from '@mui/material/colors';
-import { FormControl, FormControlLabel, FormLabel, Radio } from '@mui/material';
-import { RadioGroup } from '@headlessui/react';
 import { BankAccount } from 'components/elements/BankAccount';
 registerLocale('es', es);
 
@@ -91,7 +89,7 @@ const PreinscriptionForm = (props) => {
   
     if (enlace) {
       return (
-        <a href={enlace.link} target="_blank" >
+        <a href={enlace.link} target="_blank" rel='noreferrer'>
           <button type="button" className='bg-blue-cyan hover:bg-blue-cyan-dark text-white font-bold py-2 px-4 rounded-md'>Pagar por MercadoPago</button>
         </a>
       );

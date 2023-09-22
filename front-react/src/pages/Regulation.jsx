@@ -1,6 +1,5 @@
 import React from 'react'
 const regulation = () => {
-  const isdateOfRace = Date.now() > new Date('October 19, 2023 20:00:00')
   return (
     <div className="font-Hurme-Geometric-R min-h-screen">
       <div className="px-3 sm:px-10 md:px-20 lg:px-32 py-7 ">
