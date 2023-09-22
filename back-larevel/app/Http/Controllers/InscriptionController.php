@@ -73,11 +73,13 @@ class InscriptionController extends Controller
      */
     public function store(Request $request)
     {
+         //contar inscripciones
+         $countInscriptions = Inscription::count();
         //dd($request);
         $userEnrolled = Inscription::where('email', '=', $request->email)->get("id");
         // var_dump($userEnrolled);
         // if (!is_null(Auth::user())){
-        if (count($userEnrolled) === 0) {
+            if (count($userEnrolled) === 0 && $countInscriptions < 500) {
             $inscription = new Inscription();
             // $inscription->user_id = Auth::user()->id;
             $users = DB::table('inscriptions')->count() + 1;
@@ -137,7 +139,7 @@ class InscriptionController extends Controller
             $correo = new PreInscriptionMail($arreglocontacto);
             if (!Mail::to($request->email)->send($correo)) abort(500, 'Error al enviar el mail.');
         } else {
-            abort(404, 'Ya te has inscrito anteriormente con este correo, por favor reviza tu bandeja de spam en caso de no encontrar el correo en tu buzon de mensajes');
+            abort(404, 'El cupo está completo o ya te has inscrito anteriormente con este correo, por favor reviza tu bandeja de spam en caso de no encontrar el correo en tu buzon de mensajes');
         }
         // }
     }
