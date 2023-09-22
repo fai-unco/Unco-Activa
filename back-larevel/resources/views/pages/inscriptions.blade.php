@@ -29,6 +29,7 @@
               <th class='px-3'>#CATEGORIA</th>
               <th class='px-3'>NOMBRE APELLIDO</th>
               <th class='px-3'>DNI</th>
+              <th class='px-3'>F.NAC</th>
               <th class='px-3'>TELEFONO</th>
               <th class='px-3'>ARCHIVOS</th>
               <th class='px-3'>EMAIL</th>
@@ -54,6 +55,9 @@
                   </td>
                   <td class='px-3' >
                     {{$inscription->dni}}
+                  </td>
+                  <td class='px-3' >
+                    {{$inscription->birth}}
                   </td>
                   <td class='px-3' >
                     {{$inscription->phone}}
