@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from '@mui/material/Button';
 import Fab from '@mui/material/Fab';
 import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 
@@ -30,12 +29,17 @@ const ShortRegulation = props => {
           </ul> 
           <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
           <p className="">Trail de 3 km, 7 km y 15 km.</p>
-          <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Recorrido</h4>
-          <p className="">La idea de hacer los recorridos por vueltas surge principalmente para hacer algo diferente e innovador, al estilo de las carreras de cross-country, a campo traviesa, y para darle al público y familias un seguimiento y acompañamiento más cercano al corredor y priorizando la seguridad sin cruces de rutas y alejados del parque cerrado; y sobre todo utilizando el 100% de los circuitos de la barda en el predio perteneciente a la Universidad. Será una verdadera y auténtica carrera de trail netamente en tierra universitaria</p>
+          <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">PREMIACIÓN</h4>
+          <p>Prueba de 15Km</p>
+          <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
+            <li>Medalla de Finalista a todos los que crucen la meta.</li>
+            <li>Medallones a los 1°, 2°, 3° de cada categoría masculina y femenina.</li>
+            <li>Premiación general masculina y femenina a los 3 primeros de los 7Km y 15Km.</li>
+          </ul>
           
           <div className='flex xl:pt-8 xl:pb-1 justify-center xl:my-0 my-5 px-2 -z-0 relative'>
             <Link to={'/reglamento'}>
-              <Fab color="tertiary" variant='extended' color="primary">
+              <Fab color="primary" variant='extended'>
                 <LibraryBooksOutlinedIcon className='mr-3'/> Ver reglamento completo
               </Fab>
             </Link>
