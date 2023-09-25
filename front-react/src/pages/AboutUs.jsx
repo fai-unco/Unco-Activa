@@ -22,12 +22,22 @@ const AboutUs = () => {
       'image': 'aboutUs/SA.png'
     },
     {
-      'name': '',
-      'image': ''
+      'name': 'Rocío Graff', 
+      'socials': {
+        'github': 'https://github.com/rociograff',
+        'linkedin': 'https://www.linkedin.com/in/rocio-graff/',
+        'envelope': 'rograff17@gmail.com'        
+      },     
+      'image': 'aboutUs/RG.jpg'
     },
     {
-      'name': '',
-      'image': ''
+      'name': 'Rodriguez Francisco', 
+      'socials': {
+        'github': 'https://github.com/frlawer',
+        'linkedin': 'https://www.linkedin.com/in/frandir/',
+        'envelope': 'frlawer@gmail.com'        
+      },     
+      'image': 'aboutUs/FR.jpg'
     },
     {
       'name': '',
@@ -53,7 +63,7 @@ const AboutUs = () => {
       <div className='px-3 md:px-12 py-7'>
         
         <div className=" rounded-lg bg-gray-light ">
-          <h2 className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark">Equipo de Desarrolladores Unco Activa 2022 </h2>
+          <h2 className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark">Equipo de Desarrolladores Unco Activa </h2>
           <hr className="my-[1rem]" />
           <div className='flex justify-center'> 
 
@@ -64,7 +74,7 @@ const AboutUs = () => {
                   <div key={index} className="flex flex-col justify-center items-center">
 
                     <img src={dev.image ? dev.image : ''} alt={devs.name}
-                      className="w-8/12 rounded-full" />             
+                      className="w-4/12 rounded-full" />             
               
                     <div>
                       <h2 className="my-3"> {dev.name ? dev.name : ''}</h2>

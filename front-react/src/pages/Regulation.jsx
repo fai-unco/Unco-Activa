@@ -1,7 +1,6 @@
 import React from 'react'
 const regulation = () => {
-  const isdateOfRace = Date.now() > new Date('October 19, 2023 20:00:00') 
-  return (    
+  return (
     <div className="font-Hurme-Geometric-R min-h-screen">
       <div className="px-3 sm:px-10 md:px-20 lg:px-32 py-7 ">
         <div className=' bg-gray-light rounded-lg text-black'>
@@ -14,7 +13,7 @@ const regulation = () => {
               <div className="sm:px-5">
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">REGLAS GENERALES PARA LOS PARTICIPANTES</h4>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Largada y llegada</h4>
-                <p className="font-Hurme-Geometric-N">Gimnasio polideportivo Roberto Monteros (Escondido) predio de la UNCO – Neuquén Capital.</p>
+                <p className="font-Hurme-Geometric-N">Estacionamiento central de la Universidad Nacional del Comahue - Frente al Aula Magna. (a confirmar días previos a la competencia)</p>
                 <p className="font-Hurme-Geometric-N">Hora: 18hs</p>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
                 <p className="">Trail Running.</p>
@@ -53,15 +52,15 @@ const regulation = () => {
                   <li>A lo largo del recorrido se establecerán controles de paso de los corredores.</li>
                 </ul>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">E) PENALIDADES</h4>
-                  <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
-                    <li className='pt-5'>Los participantes no pueden ser acompañados por bicicletas, automóviles, motocicletas ni otro tipo de vehículo, de ser observada esta situación por un Fiscal de la organización, será penalizado con:</li>
-                    <li className='pt-5'>1° Observación: Llamado de atención</li>
-                    <li className='pt-5'>2° Observación: 10' de recargo</li>
-                    <li className='pt-5'>3° Observación: Descalificación</li>
-                    <li className='pt-5'>Es obligatorio correr con la remera técnica entregada por la organización, por sobre cualquier prenda con el número completamente visible desde delante, estar sujeto por las cuatro esquinas y no debe ser cortado, doblado o escondido. La sanción por el inclumplimiento de este apartado será "el llamado de atención" y si no se rectifica, la descalificación.</li>
-                    <li className='pt-5'>No cumplir con el recorrido oficial, obteniendo una ventaja, será motivo de descalificación.</li>
-                    <li className='pt-5'>Está permitida la asistencia entre los corredores, excluyéndose cualquier forma que ayude en la marcha a otro corredor.</li>
-                  </ul>
+                <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
+                  <li className='pt-5'>Los participantes no pueden ser acompañados por bicicletas, automóviles, motocicletas ni otro tipo de vehículo, de ser observada esta situación por un Fiscal de la organización, será penalizado con:</li>
+                  <li className='pt-5'>1° Observación: Llamado de atención</li>
+                  <li className='pt-5'>2° Observación: 10' de recargo</li>
+                  <li className='pt-5'>3° Observación: Descalificación</li>
+                  <li className='pt-5'>Es obligatorio correr con la remera técnica entregada por la organización, por sobre cualquier prenda con el número completamente visible desde delante, estar sujeto por las cuatro esquinas y no debe ser cortado, doblado o escondido. La sanción por el inclumplimiento de este apartado será "el llamado de atención" y si no se rectifica, la descalificación.</li>
+                  <li className='pt-5'>No cumplir con el recorrido oficial, obteniendo una ventaja, será motivo de descalificación.</li>
+                  <li className='pt-5'>Está permitida la asistencia entre los corredores, excluyéndose cualquier forma que ayude en la marcha a otro corredor.</li>
+                </ul>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">F) REGLAS GENERALES PARA LOS PARTICIPANTES</h4>
                 <p className='font-Hurme-Geometric-N pt-2'>Los y las participantes deberán:</p>
                 <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
@@ -85,6 +84,17 @@ const regulation = () => {
                     </ul>
                   </li>
                 </ul>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">G) MARCACIÓN Y LIMPIEZA</h4>
+                <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
+                  <li>La marcación del circuito se realiza con cinta de color azul con logo propio (no
+                    de ferretería) la cual al paso del último corredor la misma se va sacando y por lo
+                    tanto a la finalización de la carrera ya se encuentra todo el circuito limpio. Como
+                    también los puestos de agua que poseen bolsas de residuos.</li>
+                </ul>
+                <h4 className='text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO'>H) COMUNICACIÓN</h4>
+                <ul>
+                  <li>Se considera como medio oficial de comunicación de novedades la página. El participante deberá consultar periódicamente el sitio a fin de estar al tanto de novedades y posibles modificaciones en el.</li>
+                </ul>
               </div>
 
             </div>
@@ -92,7 +102,7 @@ const regulation = () => {
           </div>
         </div>
       </div>
-    </div>  
+    </div>
   )
 }
 

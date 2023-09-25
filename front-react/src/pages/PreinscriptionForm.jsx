@@ -14,8 +14,7 @@ import ModalRules from 'components/inscriptionform/ModalRules';
 import ModalInscription from 'components/inscriptionform/ModalInscription';
 import FileUpload from 'react-material-file-upload';
 import { red } from '@mui/material/colors';
-import { FormControl, FormControlLabel, FormLabel, Radio } from '@mui/material';
-import { RadioGroup } from '@headlessui/react';
+import { BankAccount } from 'components/elements/BankAccount';
 registerLocale('es', es);
 
 // const endpoint = 'http://127.0.0.1:8000/api/inscription'
@@ -73,22 +72,32 @@ const PreinscriptionForm = (props) => {
 
   const [files, setFiles] = useState([]);
   const [filevalidation, setfilevalidation] = useState({ campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.', valido: null });
-  const [promo, setpromo] = React.useState({ campo: '', valido: null });
-  const [filespromo, setfilespromo] = useState([]);
-  const [promovalidation, setpromovalidation] = useState({ campo: 'Debes enviar el certificado de alumno regular o legajo para poder hacer el descuento.', valido: null });
 
-  const handleRadioChange = (event) => {
-    setpromo({ ...promo, campo: event.target.value, valido: 'true' });
-    if (event.target.value === 'no') {
-      setfilespromo([]);
-    }
-  };
-
-  const isdateOfRace = Date.now() > new Date('October 19, 2023 20:00:00') 
-  const [openEnd, setopenEnd] = useState(isdateOfRace);
+  const isdateOfRace = Date.now() > new Date('October 28, 2023 20:00:00') 
+  // const [openEnd, setopenEnd] = useState(isdateOfRace);
 
   const [alertnavigate, setalertnavigate] = useState(false);
 
+// valores MP
+  const linkMP = [
+    { race: '3k', link: 'https://mpago.la/1pCBwux' },
+    { race: '7k', link: 'https://mpago.la/211MmCN' },
+    { race: '15k', link: 'https://mpago.la/1oCb2bJ' },
+  ]
+  const CategoriaButton = ({ categoria }) => {
+    const enlace = linkMP.find(item => item.race === categoria);
+  
+    if (enlace) {
+      return (
+        <a href={enlace.link} target="_blank" rel='noreferrer'>
+          <button type="button" className='bg-blue-cyan hover:bg-blue-cyan-dark text-white font-bold py-2 px-4 rounded-md'>Pagar por MercadoPago</button>
+        </a>
+      );
+    } else {
+      return null; // No hay enlace disponible para esta categoría
+    }
+  }
+  
   const arraycampos = [
     [checked, setChecked],
     [name, setname],
@@ -107,7 +116,6 @@ const PreinscriptionForm = (props) => {
     [emergency_contac_bond, setemergency_contac_bond],
     [emergency_contac_phone, setemergency_contac_phone],
     [filevalidation, setfilevalidation],
-    [promo, setpromo],
     [emergency_contac_phone, setemergency_contac_phone]
   ]
 
@@ -161,22 +169,12 @@ const PreinscriptionForm = (props) => {
   const submitInscription = async () => {
     let formatDate = Moment(birth.campo).format('YYYY-MM-DD')
     const formdata = new FormData();
-    // eslint-disable-next-line array-callback-return
-
-    // formdata = {...formdata,
-    //   name: name.campo, race_categorie_id: props.categorie.id, surname: surname.campo, gender: gender.campo, birth: formatDate,
-    //   dni: dni.campo, email: email.campo, country: country.campo, province: province.campo, city: city.campo, address: address.campo, phone: phone.campo, social_work: social_work.campo, shirt_size: shirt_size.campo, emergency_contac_name: emergency_contac_name.campo, emergency_contac_phone: emergency_contac_phone.campo,
-    //   emergency_contac_bond: emergency_contac_bond.campo      
-    // };
+    
     for (let i = 0; i < files.length; i++) {
       // // console.log('imagen' + i, files[i] )
       formdata.append('files[]', files[i]);
     }
 
-    for (let i = 0; i < filespromo.length; i++) {
-      // console.log('imagen' + i, filespromo[i])
-      formdata.append('files[]', filespromo[i]);
-    }
     // console.log('categorie', props.categorie.id)
     formdata.append('name', name.campo);
     formdata.append('race_categorie_id', props.categorie.id);
@@ -195,7 +193,6 @@ const PreinscriptionForm = (props) => {
     formdata.append('emergency_contac_name', emergency_contac_name.campo);
     formdata.append('emergency_contac_bond', emergency_contac_bond.campo);
     formdata.append('emergency_contac_phone', emergency_contac_phone.campo);
-    formdata.append('promo', promo.campo);
 
     // console.log('datos', formdata);
     await axios.post(endpoint, formdata)
@@ -309,35 +306,7 @@ const PreinscriptionForm = (props) => {
       setFiles(array);
     }
   }
-  // const onChangeFilePromo = (e) => {
-  //   // console.log('evento promo', e[0])
-  //   let array = []
-  //   array[0] = e[0];
-  //   setpromovalidation({ valido: true })
-  //   if (e.length === 0) {
-  //     setpromovalidation({
-  //       ...promovalidation,
-  //       campo: 'Debe enviar el certificado de alumno regular o legajo para poder hacer el descuento.',
-  //       valido: 'false'
-  //     })
-  //     // console.log('invalido', e)
-  //     setfilespromo(e);
-  //   }
-  //   else {
-  //     if ((array[0].type.indexOf('image') !== -1) || (array[0].type.indexOf('application/pdf') !== -1)) {
-  //       // console.log('tipo imagen', array[0].type, array[0].type.indexOf('image'))
-  //     }
-  //     else {
-  //       setpromovalidation({ ...promovalidation, campo: 'Formato de archivo inválido, formatos admitidos: png, jpg, pdf', valido: 'false' })
-  //     }
-  //     if (array[0].size > 2088960) {
-  //       setpromovalidation({ ...promovalidation, campo: 'Tamaño máximo de archivo excedido: 2MB', valido: 'false' })
-  //       // console.log('invalido', array[0].size)
-  //     }
-  //     setfilespromo(array);
-  //   }
-  // }
-
+  
   return (    
     <div className='flex flex-col mx-3 sm:mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
       <div className='w-full lg:max-w-7xl p-6 m-auto bg-neutral-100 rounded-md shadow-md'>
@@ -350,12 +319,12 @@ const PreinscriptionForm = (props) => {
         <h1 className='text-4xl font-bold text-center mt-10 mb-10 text-gray-darker'>
             Formulario de inscripción
         </h1>
-        <AlertSuccess open={openEnd} onClose={setopenEnd}
+        {/* <AlertSuccess open={openEnd} onClose={setopenEnd}
           bg=' rgb(240 240 240)'
           titlecolor='warning.main'
           title='Atención!'
           description={'Las inscripciones están cerradas. Por favor, no realizar transferencias, ya que no nos responsabilizamos por inscribirse fuera de término.'}
-        />
+        /> */}
         <AlertSuccess open={opensucces} onClose={setopensucces}
           bg=' rgb(240 240 240)'
           titlecolor='success.main'
@@ -371,7 +340,7 @@ const PreinscriptionForm = (props) => {
           description={errorMessage}
         />
 
-        <form onSubmit={storeInscription} className='grid grid-cols-1 md:grid-cols-2 md:gap-6'>
+        <form onSubmit={storeInscription} autoComplete='false' className='grid grid-cols-1 md:grid-cols-2 md:gap-6'>
 
           <InputColForm
             regularExpression={expresiones.name}
@@ -551,6 +520,25 @@ const PreinscriptionForm = (props) => {
             regularExpression={expresiones.phone}
             error='Ingrese un teléfono de contacto de emergencia'
           />
+
+          {!isdateOfRace ? 
+            <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
+              <p>
+                <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia bancaria o Mercadopago:
+              </p>
+                <BankAccount />
+              <p>
+                O MercadoPago en el siguiente link <CategoriaButton categoria={props.categorie.name}/>
+              </p>
+              <p>
+                <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong>
+                <br />
+                <strong>Precio:</strong> ${props.categorie.price}
+                <br /><br />
+                De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
+              </p>
+            </div> : ''}
+          
           <div className="relative col-span-2 justify-items-center self-center z-0 lg:mx-20 mb-2">
             <FileUpload
               multiFile={false}
@@ -582,82 +570,8 @@ const PreinscriptionForm = (props) => {
               : 'invisible'}>{filevalidation.campo} </p>
 
           </div>
-          {/* <div className="relative col-span-2 justify-items-center self-center z-0 mt-1 mb-1">
-            <FormControl>
-              <FormLabel id="demo-controlled-radio-buttons-group">Haces parte de la Comunidad Universitaria?</FormLabel>
-              <RadioGroup
-                aria-labelledby="demo-controlled-radio-buttons-group"
-                name="controlled-radio-buttons-group"
-                value={promo.campo}
-                onChange={handleRadioChange}
-              >
-                <FormControlLabel value="si" control={<Radio
-                  checked={promo.campo === 'si'}
-                  onChange={handleRadioChange}
-                />} label="Si" />
-                <FormControlLabel value="no" control={<Radio
-                  checked={promo.campo === 'no'}
-                  onChange={handleRadioChange} />} label="No" />
-              </RadioGroup>
-            </FormControl>
-            <p className={promo.valido === 'false' ? 'flex text-red-500 justify-start '
-              : 'invisible'}>{'Por favor seleccione una opción.'} </p>
-          </div> */}
 
-          {/* <div className={promo.campo !== 'si' ? 'hidden'
-            : 'relative col-span-2 self-center z-0 -mt-5 lg:mx-20 mb-1'}>
-            <FileUpload
-              multiFile={false}
-              maxUploadFiles={3}
-              accept='image/*, application/pdf'
-              sx={{
-                '& .MuiOutlinedInput-root.Mui-disabled': { '& > fieldset': { border: '1px solid red' } },
-                '& .MuiOutlinedInput-root:focus': {
-                  '& > fieldset': {
-                    borderColor: red[500]
-                  }
-                },
-                '&:focus-within': {
-                  boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 2px rgb(0 170 225)'
-                },
-                '&:hover': {
-                  boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 2px rgb(0 170 225)'
-                },
-                '&:focus': {
-                  boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 2px rgb(0 170 225)'
-                },
-                boxShadow: promovalidation.valido === 'false' ? '0px 0px 0px 2px red' : '0px 0px 0px 0px rgb(0 170 225)'
-              }}
-              title='En caso de ser miembro de la comunidad universitaria
-              adjunta el certificado correspondiente. Solo imágenes o pdf con tamaño máximo de 2MB'
-              buttonText='Subir comprobantes'
-              value={filespromo}
-              onChange={(e) => onChangeFilePromo(e)} />
-            <p className={promovalidation.valido === 'false' ? 'flex text-red-500 justify-center mt-1'
-              : 'invisible'}>{promovalidation.campo} </p>
-          </div>            */}
-
-          {!isdateOfRace ? 
-            <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
-              <p>
-                <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:<br />
-              Banco Credicoop Cooperativo Limitado <br />
-              Adherente: Universidad Nacional del Comahue.<br />
-              Operador: 549505 Roberto Antonio Sepulveda.<br />
-              Nro Cuenta – Cuenta Corriente: $191-093-024908/9<br />
-              CBU 19100933-55009302490896 <br /><br />
-                <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong><br />
-
-                <strong>Precio:</strong> ${props.categorie.price}<br /><br />
-                {/* <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
-              Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar el cerfiticado correspondienteo para recibir dicho beneficio.<br />
-
-                <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br /> */}
-
-              De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
-
-              </p>
-            </div> : ''}
+          
           
           <div className='relative col-span-2 justify-self-center z-0 -mt-1 -ml-3 w-full group'>
             <Checkbox

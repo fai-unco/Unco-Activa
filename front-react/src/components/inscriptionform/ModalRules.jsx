@@ -5,6 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { BankAccount } from 'components/elements/BankAccount';
 
 const ModalRules = (props) => {
     
@@ -33,18 +34,10 @@ const ModalRules = (props) => {
             { !isdateOfRace ? 
               <p> 
                         - <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:<br />
-                        Banco Credicoop Cooperativo Limitado <br />
-                        Adherente: Universidad Nacional del Comahue.<br />
-                        Operador: 549505 Roberto Antonio Sepulveda.<br />
-                        Nro Cuenta – Cuenta Corriente: $191-093-024908/9<br />
-                        CBU 19100933-55009302490896 <br /><br />
+                        <BankAccount />
                 <strong>Categoria: </strong><strong style={{color: props.categorie.color}}> {props.categorie.name}</strong><br />
 
                 <strong>Precio:</strong> ${props.categorie.price}<br /><br />
-                {/* <strong>ATENCIÓN COMUNIDAD UNIVERSITARIA:</strong> <br />
-                        Presentado certificado de alumno regular, y en el caso de docentes y no docentes mediante número de legajo, acceden a precios promocionales. Enviar email a uncoactiva@gmail.com para recibir dicho beneficio.<br />
-
-                <strong>Precio Promocional:</strong> ${props.categorie.promo}<br /><br />                         */}
 
                         De no enviarse el comprobante de pago/transferencia con todos los datos de la operación al mail <strong>uncoactiva@gmail.com</strong>, no se considerará como inscripto.
 

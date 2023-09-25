@@ -73,13 +73,13 @@ class InscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        //contar inscripciones
-        $countInscriptions = Inscription::count();
+         //contar inscripciones
+         $countInscriptions = Inscription::count();
         //dd($request);
         $userEnrolled = Inscription::where('email', '=', $request->email)->get("id");
         // var_dump($userEnrolled);
         // if (!is_null(Auth::user())){
-        if (count($userEnrolled) === 0 && $countInscriptions < 500) {
+        if (count($userEnrolled) === 0) {
             $inscription = new Inscription();
             // $inscription->user_id = Auth::user()->id;
             $users = DB::table('inscriptions')->count() + 1;
