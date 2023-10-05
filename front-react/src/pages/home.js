@@ -6,6 +6,9 @@ import ShortRegulation from "components/home/ShortRegulation";
 import Hero from "components/Layouts/Hero";
 import Slider from "components/Slider";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Fab } from "@mui/material";
+import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 
 const mockImagenes = [
     "elements/unco-activa2023.jpeg",
@@ -27,8 +30,15 @@ const Home = () => {
     const [openEnd, setopenEnd] = useState(!isdateOfRace);
     return (
         <div className="font-Hurme-Geometric-R min-h-screen">
-            <AlertSuccess open={openEnd} onClose={setopenEnd} bg=" rgb(240 240 240)" titlecolor="warning.main" title="Atención!" description="Promo Exclusiva para Corredores Apasionados! Para acceder a una promoción única, simplemente comunica a tu grupo que nos contacten a través del siguiente correo electrónico: uncoactiva@gmail.com.
-            ¡No te pierdas esta oportunidad de sumar a todo tu equipo!"  />
+            <AlertSuccess
+                open={openEnd}
+                onClose={setopenEnd}
+                bg=" rgb(240 240 240)"
+                titlecolor="warning.main"
+                title="Atención!"
+                description="Promo Exclusiva para Corredores Apasionados! Para acceder a una promoción única, simplemente comunica a tu grupo que nos contacten a través del siguiente correo electrónico: uncoactiva@gmail.com.
+            ¡No te pierdas esta oportunidad de sumar a todo tu equipo!"
+            />
             <div>
                 <Hero />
             </div>
@@ -67,15 +77,16 @@ const Home = () => {
                                 </ul>
                                 <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Remera de competencia y número de identificación de corredor</h4>
                                 <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
-                                <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Acreditaciones: </h4>
+                               
+                            </div>
+
+                            <div className="sm:px-5">
+                                 <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Acreditaciones: </h4>
                                 <p>
                                     El participante deberá asistir a las acreditaciones, el día: <span className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-N">Sábado 28 de Octubre de 12 a 17 hs.</span> <strong className="text-rose-500 font-bold text-[1.1em] font-Hurme-Geometric-BO">Lugar a confirmar.!</strong>
                                 </p>
                                 <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
                                 <p>Para retirar su remera, número y chip, y firmar el deslinde de responsabilidad.</p>
-                            </div>
-
-                            <div className="sm:px-5">
                                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Inscripciones</h4>
                                 <p>El costo de la inscripción para cada distancia es el siguiente:</p>
                                 <ul className="list-disc pl-5">
@@ -95,22 +106,12 @@ const Home = () => {
                                     Derecho a participación / Remera técnica / Servicios de control / Servicio de hidratación seguro de corredor.
                                 </p>
 
-                                {!isdateOfRace ? (
-                                    <>
-                                        <h4 className="text-[1.2rem] text-blue-high pt-5 font-Hurme-Geometric-BO">MODO DE INSCRIPCIÓN:</h4>
-                                        <p className="">Las inscripciones se realizan vía Internet en la web: Pago únicamente por transferencia o Mercadopago:</p>
-                                        <BankAccount />
-                                        <p className="text-blue-high text-[1.2rem] font-Hurme-Geometric-BO">
-                                            Una vez hecha la transferencia se deberá adjuntar el comprobante en el formulario de inscripción, en caso de tener algún inconveniente comunicarse a nuestro{" "}
-                                            <a className="text-rose-500 font-bold text-[1.1em] font-Hurme-Geometric-BO" href="mailto:uncoactiva@gmail.com">
-                                                {" "}
-                                                email{" "}
-                                            </a>
-                                        </p>
-                                    </>
-                                ) : (
-                                    " "
-                                )}
+                                <div className="flex xl:pt-8 xl:pb-1 justify-center xl:my-0 my-5 px-2 -z-0 relative">
+                                        <Fab color="primary" variant="extended" size="small" href={"/inscribirse"}>
+                                            <LibraryBooksOutlinedIcon className="mr-3" /> Ir a Inscripciones
+                                        </Fab>
+                                </div>
+
                             </div>
                         </div>
                         <div className="px-5 sm:px-5 lg:px-16 pt-10">
@@ -131,7 +132,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                   
+
                     <div className="grid justify-center pb-5">
                         <h1 className="text-center text-[2rem]  md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark" fill="currentColor">
                             ORGANIZADORES
