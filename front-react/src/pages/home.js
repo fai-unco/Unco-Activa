@@ -91,9 +91,9 @@ const Home = () => {
                                 <p>El costo de la inscripción para cada distancia es el siguiente:</p>
                                 <ul className="list-disc pl-5">
                                     <p className="font-bold">Hasta el 30 de Septiembre (o hasta cubrir el cupo):</p>
-                                    <li>15 km tiene un costo de $6800 por participante.</li>
-                                    <li>7 km tiene un costo de $4800 por participante</li>
-                                    <li>3 km tiene un costo de $2800 por participante. Es sin clasificación ni premiación.</li>
+                                    <li>15 km tiene un costo de $7800 por participante.</li>
+                                    <li>7 km tiene un costo de $5800 por participante</li>
+                                    <li>3 km tiene un costo de $3800 por participante. Es sin clasificación ni premiación.</li>
                                     <br></br>
                                     <p className="font-bold">A partir del 1 de Octubre:</p>
                                     <li>15 km tiene un costo de $7800 por participante.</li>
