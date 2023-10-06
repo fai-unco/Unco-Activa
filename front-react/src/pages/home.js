@@ -107,7 +107,7 @@ const Home = () => {
                                 </p>
 
                                 <div className="flex xl:pt-8 xl:pb-1 justify-center xl:my-0 my-5 px-2 -z-0 relative">
-                                        <Fab color="primary" variant="extended" size="small" href={"inscribirse"}>
+                                        <Fab color="primary" variant="extended" size="small" href={"/inscribirse"}>
                                             <LibraryBooksOutlinedIcon className="mr-3" /> Ir a Inscripciones
                                         </Fab>
                                 </div>
