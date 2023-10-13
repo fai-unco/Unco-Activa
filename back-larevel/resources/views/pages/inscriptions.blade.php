@@ -27,7 +27,7 @@
             <tr class='font-Hurme-Geometric-BO italic text-blue-dark'>
               <th class='px-3'>#</th>
               <th class='px-3'>#CATEGORIA</th>
-              <th class='px-3'>APELLIDO Y NOMBRE</th>
+              <th class='px-3'>NOMBRE APELLIDO</th>
               <th class='px-3'>DNI</th>
               <th class='px-3'>F.NAC</th>
               <th class='px-3'>TELEFONO</th>
@@ -51,13 +51,13 @@
                     @endif
                   @endforeach
                   <td class='px-3' >
-                    {{strtoupper($inscription->surname)}} {{strtoupper($inscription->name)}}
+                    {{$inscription->name}} {{$inscription->surname}}
                   </td>
                   <td class='px-3' >
                     {{$inscription->dni}}
                   </td>
                   <td class='px-3' >
-                    {{\Carbon\Carbon::parse(strtotime($inscription->birth))->formatLocalized('%d-%m-%Y')}}
+                    {{$inscription->birth}}
                   </td>
                   <td class='px-3' >
                     {{$inscription->phone}}
@@ -79,7 +79,7 @@
                     </div>
                   </td>
                   <td class='px-3' >
-                    {{strtolower($inscription->email)}}
+                    {{$inscription->email}}
                   </td>
                   <td class='flex justify-center px-3'>
                     <a href="inscription/{{$inscription->id}}">
