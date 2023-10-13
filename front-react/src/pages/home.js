@@ -11,8 +11,8 @@ import { Fab } from "@mui/material";
 import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 
 const mockImagenes = [
+    "elements/camiseta-2023.jpg",
     "elements/unco-activa2023.jpeg",
-    "elements/remera-2023.jpeg",
     "elements/edicion-anterior1.jpeg",
     "elements/edicion-anterior2.jpeg",
     "elements/edicion-anterior3.jpeg",
