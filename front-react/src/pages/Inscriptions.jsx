@@ -12,7 +12,7 @@ const Inscriptions = () => {
     const [inicialInscriptions, setinicialInscriptions] = useState([]);
     const [inscriptions, setinscriptions] = useState([]);
     const [currentPage, setcurrentPage] = useState(1);
-    const [participantsPerPage] = useState(10);
+    const [participantsPerPage] = useState(30);
     // const endpoint = 'http://127.0.0.1:8000/api'
     const endpoint = "https://uncoactiva-back.fi.uncoma.edu.ar/api";
     useEffect(() => {

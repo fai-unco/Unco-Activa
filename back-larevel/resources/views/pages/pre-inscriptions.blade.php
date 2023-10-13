@@ -29,7 +29,6 @@
                 <th class='px-3'>#CATEGORIA</th>
                 <th class='px-3'>NOMBRE APELLIDO</th>
                 <th class='px-3'>DNI</th>
-                <th class='px-3'>TELEFONO</th>
                 <th class='px-3'>ARCHIVOS</th>
                 <th class='px-3'>EMAIL</th>
                 <th class='px-3'>OPCIONES</th>
@@ -50,13 +49,10 @@
                       @endif
                     @endforeach
                     <td class='px-3' >
-                      {{strtoupper($preInscription->name)}} {{strtoupper($preInscription->surname)}}
+                      {{$preInscription->name}} {{$preInscription->surname}}
                     </td>
                     <td class='px-3' >
                       {{$preInscription->dni}}
-                    </td>
-                    <td class='px-3' >
-                      {{$preInscription->phone}}
                     </td>
                     <td class='px-3' >
                       <div class="grid">
@@ -75,7 +71,7 @@
                       </div>
                     </td>
                     <td class='px-3' >
-                      {{strtolower($preInscription->email)}}
+                      {{$preInscription->email}}
                     </td>
                     <td class='flex justify-center px-3'>
                       <a href="inscription/{{$preInscription->id}}">
