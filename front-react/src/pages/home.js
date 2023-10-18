@@ -1,4 +1,3 @@
-import { BankAccount } from "components/elements/BankAccount";
 import AlertSuccess from "components/alerts/AlertSuccess";
 import ContacUs from "components/home/ContacUs";
 import RacePath from "components/home/RacePath";
@@ -7,6 +6,7 @@ import Hero from "components/Layouts/Hero";
 import Slider from "components/Slider";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { AccessAlarm, Event, LocationOn} from '@mui/icons-material';
 import { Fab } from "@mui/material";
 import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 
@@ -24,7 +24,7 @@ const mockImagenes = [
     "elements/edicion-anterior9.jpeg",
     // 'elements/edicion20211210_190204.mp4'
 ];
-const isdateOfRace = Date.now() > new Date("October 28, 2023 20:00:00");
+const isdateOfRace = Date.now() > new Date("October 28, 2023 12:00:00");
 
 const Home = () => {
     const [openEnd, setopenEnd] = useState(!isdateOfRace);
@@ -35,9 +35,14 @@ const Home = () => {
                 onClose={setopenEnd}
                 bg=" rgb(240 240 240)"
                 titlecolor="warning.main"
-                title="Atención!"
-                description="Promo Exclusiva para Corredores Apasionados! Para acceder a una promoción única, simplemente comunica a tu grupo que nos contacten a través del siguiente correo electrónico: uncoactiva@gmail.com.
-            ¡No te pierdas esta oportunidad de sumar a todo tu equipo!"
+                title={<span className='font-semibold text-red-high'>¡Atención Participantes!</span>}
+                description={<p><span className='text-[1.1rem] text-blue-high font-normal py-4 font-Hurme-Geometric-BO'>Nos emociona contarles que estamos a punto de dar inicio a este increíble evento. Para asegurarte una experiencia inolvidable, es fundamental que te registres el día:</span>
+                <ul className="text-center">
+                    <li><Event color="primary"/> Sábado 28 de Octubre</li>
+                    <li><AccessAlarm color="primary"/> De 12:00 a 17:00 hs</li>
+                    <li><LocationOn color="primary"/> Gimnasio Polideportivo Roberto Monteros (Escondido)</li>
+                </ul>
+               <span className='text-[1.1rem] text-blue-high font-medium py-4 font-Hurme-Geometric-BO'>Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.</span></p>}
             />
             <div>
                 <Hero />
@@ -83,7 +88,7 @@ const Home = () => {
                             <div className="sm:px-5">
                                  <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Acreditaciones: </h4>
                                 <p>
-                                    El participante deberá asistir a las acreditaciones, el día: <span className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-N">Sábado 28 de Octubre de 12 a 17 hs.</span> <strong className="text-rose-500 font-bold text-[1.1em] font-Hurme-Geometric-BO">Lugar a confirmar.!</strong>
+                                    El participante deberá asistir a las acreditaciones, el día: <span className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-N">Sábado 28 de Octubre de 12 a 17 hs.</span> <strong className="text-rose-500 font-extrabold text-[1.4em] font-Hurme-Geometric-BO">Lugar: Gimnasio polideportivo Roberto Monteros (Escondido) predio de la UNCO - Neuquén Capital!</strong>
                                 </p>
                                 <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
                                 <p>Para retirar su remera, número y chip, y firmar el deslinde de responsabilidad.</p>
