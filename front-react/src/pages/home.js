@@ -52,7 +52,7 @@ const Home = () => {
                             </li>
                         </ul>
                         <span className="text-[1rem] text-blue-500 py-4 font-Hurme-Geometric-BO flex">
-                            <img src="../elements/botella.svg" width="30px" alt="Botella" className="mr-2"/>
+                            <img src="../elements/botella.svg" alt="Botella" className="mr-2 w-24"/>
                              Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.
                         </span>
                     </p>
