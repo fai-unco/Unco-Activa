@@ -4,11 +4,12 @@ import RacePath from "components/home/RacePath";
 import ShortRegulation from "components/home/ShortRegulation";
 import Hero from "components/Layouts/Hero";
 import Slider from "components/Slider";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AccessAlarm, Event, LocationOn} from '@mui/icons-material';
+import { AccessAlarm, Event, LocationOn } from "@mui/icons-material";
 import { Fab } from "@mui/material";
-import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
+import LibraryBooksOutlinedIcon from "@mui/icons-material/LibraryBooksOutlined";
 
 const mockImagenes = [
     "elements/camiseta-2023.jpg",
@@ -35,14 +36,27 @@ const Home = () => {
                 onClose={setopenEnd}
                 bg=" rgb(240 240 240)"
                 titlecolor="warning.main"
-                title={<span className='font-semibold text-red-high'>¡Atención Participantes!</span>}
-                description={<p><span className='text-[1.1rem] text-blue-high font-normal py-4 font-Hurme-Geometric-BO'>Nos emociona contarles que estamos a punto de dar inicio a este increíble evento. Para asegurarte una experiencia inolvidable, es fundamental que te registres el día:</span>
-                <ul className="text-center">
-                    <li><Event color="primary"/> Sábado 28 de Octubre</li>
-                    <li><AccessAlarm color="primary"/> De 12:00 a 17:00 hs</li>
-                    <li><LocationOn color="primary"/> Gimnasio Polideportivo Roberto Monteros (Escondido)</li>
-                </ul>
-               <span className='text-[1.1rem] text-blue-high font-medium py-4 font-Hurme-Geometric-BO'>Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.</span></p>}
+                title={<span className="font-semibold text-red-high">¡Atención Participantes!</span>}
+                description={
+                    <p>
+                        <span className="text-[1.1rem] text-blue-high font-normal py-4 font-Hurme-Geometric-BO">Deben realizar la acreditación y registro el día:</span>
+                        <ul className="text-center">
+                            <li>
+                                <Event color="primary" /> Sábado 28 de Octubre
+                            </li>
+                            <li>
+                                <AccessAlarm color="primary" /> De 12:00 a 17:00 hs
+                            </li>
+                            <li>
+                                <LocationOn color="primary" /> Gimnasio Polideportivo Roberto Monteros (Escondido)
+                            </li>
+                        </ul>
+                        <span className="text-[1rem] text-blue-500 py-4 font-Hurme-Geometric-BO flex">
+                            <img src="../elements/botella.svg" width="30px" alt="Botella" className="mr-2"/>
+                             Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.
+                        </span>
+                    </p>
+                }
             />
             <div>
                 <Hero />
@@ -82,11 +96,10 @@ const Home = () => {
                                 </ul>
                                 <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Remera de competencia y número de identificación de corredor</h4>
                                 <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
-                               
                             </div>
 
                             <div className="sm:px-5">
-                                 <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Acreditaciones: </h4>
+                                <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Acreditaciones: </h4>
                                 <p>
                                     El participante deberá asistir a las acreditaciones, el día: <span className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-N">Sábado 28 de Octubre de 12 a 17 hs.</span> <strong className="text-rose-500 font-extrabold text-[1.4em] font-Hurme-Geometric-BO">Lugar: Gimnasio polideportivo Roberto Monteros (Escondido) predio de la UNCO - Neuquén Capital!</strong>
                                 </p>
@@ -112,11 +125,10 @@ const Home = () => {
                                 </p>
 
                                 <div className="flex xl:pt-8 xl:pb-1 justify-center xl:my-0 my-5 px-2 -z-0 relative">
-                                        <Fab color="primary" variant="extended" size="small" href={"/inscribirse"}>
-                                            <LibraryBooksOutlinedIcon className="mr-3" /> Ir a Inscripciones
-                                        </Fab>
+                                    <Fab color="primary" variant="extended" size="small" href={"/inscribirse"}>
+                                        <LibraryBooksOutlinedIcon className="mr-3" /> Ir a Inscripciones
+                                    </Fab>
                                 </div>
-
                             </div>
                         </div>
                         <div className="px-5 sm:px-5 lg:px-16 pt-10">
