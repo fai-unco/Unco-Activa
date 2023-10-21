@@ -13,7 +13,7 @@ const ModalRules = (props) => {
     props.onClose(false);
 
   };
-  const isdateOfRace = Date.now() > new Date('October 19, 2023 20:00:00') 
+  const isdateOfRace = Date.now() > new Date('October 21, 2023 20:00:00') 
   var sx = { sx: { bgcolor: 'gray-darker' } }
   return (
     <div>
