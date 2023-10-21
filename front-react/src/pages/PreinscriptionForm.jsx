@@ -73,8 +73,8 @@ const PreinscriptionForm = (props) => {
   const [files, setFiles] = useState([]);
   const [filevalidation, setfilevalidation] = useState({ campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.', valido: null });
 
-  const isdateOfRace = Date.now() > new Date('October 28, 2023 20:00:00') 
-  // const [openEnd, setopenEnd] = useState(isdateOfRace);
+  const isdateOfRace = Date.now() > new Date('October 20, 2023 21:00:00') 
+  const [openEnd, setopenEnd] = useState(isdateOfRace);
 
   const [alertnavigate, setalertnavigate] = useState(false);
 
@@ -319,12 +319,12 @@ const PreinscriptionForm = (props) => {
         <h1 className='text-4xl font-bold text-center mt-10 mb-10 text-gray-darker'>
             Formulario de inscripción
         </h1>
-        {/* <AlertSuccess open={openEnd} onClose={setopenEnd}
+        <AlertSuccess open={openEnd} onClose={setopenEnd}
           bg=' rgb(240 240 240)'
           titlecolor='warning.main'
           title='Atención!'
           description={'Las inscripciones están cerradas. Por favor, no realizar transferencias, ya que no nos responsabilizamos por inscribirse fuera de término.'}
-        /> */}
+        />
         <AlertSuccess open={opensucces} onClose={setopensucces}
           bg=' rgb(240 240 240)'
           titlecolor='success.main'
