@@ -73,7 +73,7 @@ const PreinscriptionForm = (props) => {
   const [files, setFiles] = useState([]);
   const [filevalidation, setfilevalidation] = useState({ campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.', valido: null });
 
-  const isdateOfRace = Date.now() > new Date('October 20, 2023 21:00:00') 
+  const isdateOfRace = Date.now() > new Date('October 21, 2023 21:00:00') 
   const [openEnd, setopenEnd] = useState(isdateOfRace);
 
   const [alertnavigate, setalertnavigate] = useState(false);
