@@ -13,8 +13,8 @@ class EmailController extends Controller
     public function sendEmails(){
         $emails = DB::table('inscriptions')->pluck('email');
 
-        foreach ($emails as $emails) {
-            Mail::to($emails)->send(new AlertMail());
+        foreach ($emails as $email) {
+            Mail::to($email)->send(new AlertMail());
         }
         return redirect()->back()->with('success', 'Emails enviados correctamente');
     }

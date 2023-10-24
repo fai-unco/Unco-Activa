@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('pages.index');
 })->name('index');
 
-Route::get('/enviar', 'EmailController@sendEmails')->name('enviar');
+Route::get('/send-emails', [EmailController::class, 'sendEmail'])->name('send-emails');
 
 
 
