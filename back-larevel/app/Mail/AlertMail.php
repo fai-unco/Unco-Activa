@@ -27,7 +27,7 @@ class AlertMail extends Mailable
      */
     public function build()
     {
-        return $this->view('alerta-mail')
+        return $this->view('mail.alerta-mail')
                     ->subject('¡Atención Corredores!');
     }
 }
