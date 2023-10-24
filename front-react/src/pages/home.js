@@ -38,24 +38,33 @@ const Home = () => {
                 titlecolor="warning.main"
                 title={<span className="font-semibold text-red-high">¡Atención Participantes!</span>}
                 description={
-                    <p>
+                    <div>
+                        <p className="text-center">
+                            <span className="text-[1.4rem] text-red-700 font-bold py-4 font-Hurme-Geometric-BO">¡CARRERA REPROGRAMADA!</span><br/>
+                            <span className="text-[1.4rem] text-blue-high font-bold py-4 font-Hurme-Geometric-BO">¡29/10 - 9 AM!</span>
+                        </p>
+                        <p>
+                            <span className="text-[1rem] text-blue-500 py-4 font-Hurme-Geometric-BO flex">
+                                Habida cuenta del alerta meteorológico por lluvias y ráfagas de vientos de hasta 120 km/h que se preveen para este viernes y sábado, la carrera se pospone para el mismo Domingo 29 del corriente a las 9 AM.
+                            </span>
+                        </p>
                         <span className="text-[1.1rem] text-blue-high font-normal py-4 font-Hurme-Geometric-BO">Deben realizar la acreditación y registro el día:</span>
-                        <ul className="text-center">
+                        <ul className="text-center pt-3">
                             <li>
                                 <Event color="primary" /> Sábado 28 de Octubre
                             </li>
                             <li>
-                                <AccessAlarm color="primary" /> De 12:00 a 17:00 hs
+                                <AccessAlarm color="primary" /> De 12:00 a 16:00 hs
                             </li>
                             <li>
                                 <LocationOn color="primary" /> Gimnasio Polideportivo Roberto Monteros (Escondido)
                             </li>
                         </ul>
-                        <span className="text-[1rem] text-blue-500 py-4 font-Hurme-Geometric-BO flex">
+                        <span className="text-[1rem] text-cyan-700 pt-6 font-Hurme-Geometric-BO flex">
                             <img src="../elements/botella.svg" alt="Botella" className="mr-2 w-24"/>
                              Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.
                         </span>
-                    </p>
+                    </div>
                 }
             />
             <div>
