@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('pages.index');
 })->name('index');
 
+Route::get('/enviar', 'EmailController@sendEmails')->name('enviar');
+
+
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/pre-inscripciones', [InscriptionController::class, 'index'])->name('pre-inscripciones');
     Route::get('/inscripciones', [InscriptionController::class, 'indexInscriptions'])->name('inscripciones');
