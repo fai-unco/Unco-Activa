@@ -25,7 +25,7 @@ const mockImagenes = [
     "elements/edicion-anterior9.jpeg",
     // 'elements/edicion20211210_190204.mp4'
 ];
-const isdateOfRace = Date.now() > new Date("October 21, 2023 20:00:00");
+const isdateOfRace = Date.now() > new Date("October 25, 2023 23:59:59");
 
 const Home = () => {
     const [openEnd, setopenEnd] = useState(!isdateOfRace);
