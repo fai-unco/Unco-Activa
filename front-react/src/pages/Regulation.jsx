@@ -11,10 +11,11 @@ const regulation = () => {
             </div>
             <div className="px-3 sm:px-5 lg:px-12">
               <div className="sm:px-5">
+                <h3 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">FECHA DOMINGO 29 DE OCTUBRE - 09:00 HS</h4>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">REGLAS GENERALES PARA LOS PARTICIPANTES</h4>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Largada y llegada</h4>
-                <p className="font-Hurme-Geometric-N">Estacionamiento central de la Universidad Nacional del Comahue - Frente al Aula Magna. (a confirmar días previos a la competencia)</p>
-                <p className="font-Hurme-Geometric-N">Hora: 18hs</p>
+                <p className="font-Hurme-Geometric-N"> Gimnasio Polideportivo Roberto Monteros (Escondido)</p>
+                <p className="font-Hurme-Geometric-N">Hora: 09:00hs</p>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
                 <p className="">Trail Running.</p>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Modalidad</h4>
@@ -42,7 +43,6 @@ const regulation = () => {
                 <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
                   <li>Medalla de Finalista a todos los que crucen la meta.</li>
                   <li>Medallones a los 1°, 2°, 3° de cada categoría masculina y femenina.</li>
-                  <li>Premiación general masculina y femenina a los 3 primeros de los 7Km y 15Km.</li>
                 </ul>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">C) REMERA DE LA COMPETENCIA Y NÚMERO IDENTIFICATORIO</h4>
                 <p>La remera de corredor es de uso obligatorio, con el número abrochado al frente sin ocultar sus partes.</p>
