@@ -34,7 +34,6 @@ const ShortRegulation = props => {
           <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
             <li>Medalla de Finalista a todos los que crucen la meta.</li>
             <li>Medallones a los 1°, 2°, 3° de cada categoría masculina y femenina.</li>
-            <li>Premiación general masculina y femenina a los 3 primeros de los 7Km y 15Km.</li>
           </ul>
           
           <div className='flex xl:pt-8 xl:pb-1 justify-center xl:my-0 my-5 px-2 -z-0 relative'>

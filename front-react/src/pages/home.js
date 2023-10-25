@@ -25,7 +25,7 @@ const mockImagenes = [
     "elements/edicion-anterior9.jpeg",
     // 'elements/edicion20211210_190204.mp4'
 ];
-const isdateOfRace = Date.now() > new Date("October 25, 2023 23:59:59");
+const isdateOfRace = Date.now() > new Date("October 27, 2023 11:59:59");
 
 const Home = () => {
     const [openEnd, setopenEnd] = useState(!isdateOfRace);
@@ -77,7 +77,7 @@ const Home = () => {
                     </div>
 
                     <div id="conoceMas" className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark">
-                        <h1 className="">28 OCT / 18 HRS</h1>
+                        <h1 className="">DOMINGO 29 OCT / 09:00 HRS</h1>
                         <h1>Universidad Nacional del Comahue - Neuquén Capital</h1>
                     </div>
 
@@ -110,7 +110,7 @@ const Home = () => {
                             <div className="sm:px-5">
                                 <h4 className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-BO">Acreditaciones: </h4>
                                 <p>
-                                    El participante deberá asistir a las acreditaciones, el día: <span className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-N">Sábado 28 de Octubre de 12 a 17 hs.</span> <strong className="text-rose-500 font-extrabold text-[1.4em] font-Hurme-Geometric-BO">Lugar: Gimnasio polideportivo Roberto Monteros (Escondido) predio de la UNCO - Neuquén Capital!</strong>
+                                    El participante deberá asistir a las acreditaciones, el día: <span className="text-[1.2rem] text-blue-high font-bold py-5 font-Hurme-Geometric-N">Sábado 28 de Octubre de 12 a 16 hs.</span> <strong className="text-rose-500 font-extrabold text-[1.4em] font-Hurme-Geometric-BO">Lugar: Gimnasio polideportivo Roberto Monteros (Escondido) predio de la UNCO - Neuquén Capital!</strong>
                                 </p>
                                 <p>La remera de corredor será de uso obligatorio con el número abrochado en el frente de la misma. Los participantes deberán hacer uso del chip, en el caso de que se utilice como sistema de clasificación.</p>
                                 <p>Para retirar su remera, número y chip, y firmar el deslinde de responsabilidad.</p>
