@@ -25,7 +25,7 @@ const mockImagenes = [
     "elements/edicion-anterior9.jpeg",
     // 'elements/edicion20211210_190204.mp4'
 ];
-const isdateOfRace = Date.now() > new Date("October 27, 2023 11:59:59");
+const isdateOfRace = Date.now() > new Date("October 29, 2023 09:00:00");
 
 const Home = () => {
     const [openEnd, setopenEnd] = useState(!isdateOfRace);
@@ -40,13 +40,12 @@ const Home = () => {
                 description={
                     <div>
                         <p className="text-center">
-                            <span className="text-[1.4rem] text-red-700 font-bold py-4 font-Hurme-Geometric-BO">¡CARRERA REPROGRAMADA!</span><br/>
+                            <span className="text-[1.4rem] text-red-700 font-bold py-4 font-Hurme-Geometric-BO">¡CARRERA REPROGRAMADA!</span>
+                            <br />
                             <span className="text-[1.4rem] text-blue-high font-bold py-4 font-Hurme-Geometric-BO">¡29/10 - 9 AM!</span>
                         </p>
                         <p>
-                            <span className="text-[1rem] text-blue-500 py-4 font-Hurme-Geometric-BO flex">
-                                Habida cuenta del alerta meteorológico por lluvias y ráfagas de vientos de hasta 120 km/h que se preveen para este viernes y sábado, la carrera se pospone para el mismo Domingo 29 del corriente a las 9 AM.
-                            </span>
+                            <span className="text-[1rem] text-blue-500 py-4 font-Hurme-Geometric-BO flex">Habida cuenta del alerta meteorológico por lluvias y ráfagas de vientos de hasta 120 km/h que se preveen para este viernes y sábado, la carrera se pospone para el mismo Domingo 29 del corriente a las 9 AM.</span>
                         </p>
                         <span className="text-[1.1rem] text-blue-high font-normal py-4 font-Hurme-Geometric-BO">Deben realizar la acreditación y registro el día:</span>
                         <ul className="text-center pt-3">
@@ -61,8 +60,8 @@ const Home = () => {
                             </li>
                         </ul>
                         <span className="text-[1rem] text-cyan-700 pt-6 font-Hurme-Geometric-BO flex">
-                            <img src="../elements/botella.svg" alt="Botella" className="mr-2 w-24"/>
-                             Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.
+                            <img src="../elements/botella.svg" alt="Botella" className="mr-2 w-24" />
+                            Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.
                         </span>
                     </div>
                 }
@@ -72,13 +71,12 @@ const Home = () => {
             </div>
             <div className="px-3 md:px-12 py-7  ">
                 <div className=" bg-gray-light rounded-lg text-black">
-                    <div className="flex justify-center pt-5">
-                        <Slider imagenes={mockImagenes} className="bg-white" />
-                    </div>
-
-                    <div id="conoceMas" className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-blue-dark">
+                    <div id="conoceMas" className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-red-600">
                         <h1 className="">DOMINGO 29 OCT / 09:00 HRS</h1>
                         <h1>Universidad Nacional del Comahue - Neuquén Capital</h1>
+                    </div>
+                    <div className="flex justify-center pt-5">
+                        <Slider imagenes={mockImagenes} className="bg-white" />
                     </div>
 
                     <div className="py-5 ">
