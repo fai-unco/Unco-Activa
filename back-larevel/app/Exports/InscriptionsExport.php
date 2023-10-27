@@ -26,7 +26,7 @@ class InscriptionsExport implements FromCollection, ShouldAutoSize, WithHeadings
             'inscriptions.phone',
             'inscriptions.email',
             'inscriptions.gender',
-            'inscriptions.emergency_contac_name',
+            'inscriptions.emergency_contact_phone',
             'inscriptions.shirt_size'
         ]);
     }
