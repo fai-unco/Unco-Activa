@@ -17,8 +17,20 @@ import { red } from '@mui/material/colors';
 import { BankAccount } from 'components/elements/BankAccount';
 registerLocale('es', es);
 
+/**
+ * @description Componente que renderiza el formulario de inscripción
+ * @param {Object} props - component props
+ * @param {Object} props.categorie - categoría de la carrera
+ * @returns {Object} - Retorna el formulario de inscripción
+ * 
+ */
+
+/** 
+ * @param url - url de la api
+ * */ 
 // const endpoint = 'http://127.0.0.1:8000/api/inscription'
 const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription'
+
 const sizes = [
   { value: 'S', label: 'S' },
   { value: 'M', label: 'M' },
@@ -40,6 +52,8 @@ export const expresiones = {
   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
   phone: /^\d{7,14}$/ // 7 a 14 numeros.
 }
+
+//Inicia Componente
 const PreinscriptionForm = (props) => {
 
   // const { user } = useAuth({ middleware: 'auth' })
@@ -73,6 +87,10 @@ const PreinscriptionForm = (props) => {
   const [files, setFiles] = useState([]);
   const [filevalidation, setfilevalidation] = useState({ campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.', valido: null });
 
+  /**
+   * @description Verifica si la fecha actual es mayor a la de la carrera
+   * @returns {boolean} true si la fecha actual es mayor a la de la carrera, false en caso contrario
+   */
   const isdateOfRace = Date.now() > new Date('October 27, 2023 11:59:59') 
   const [openEnd, setopenEnd] = useState(isdateOfRace);
 
