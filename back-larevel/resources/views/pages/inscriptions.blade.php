@@ -80,7 +80,7 @@
                     </div>
                   </td>
                   <td class='px-3' >
-                    {{$inscription->gender}}
+                    {{$inscription->email}}
                   </td>
                   <td class='px-3' >
                     {{$inscription->gender}}
