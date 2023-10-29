@@ -76,6 +76,11 @@ const Navigation = () => {
                 Recorrido
               </CustomNavLink>
 
+               <CustomNavLink
+                to='/resultados'
+
+              >Resultados</CustomNavLink>
+
               <CustomNavLink
                 onClick={(e) => {
                   e.preventDefault();
