@@ -45,7 +45,8 @@ const Navigation = () => {
                             >
                                 Inicio
                             </CustomNavLink>
-                            <CustomNavLink to="/inscribirse">Inscribirse</CustomNavLink>
+                            
+                            {/* <CustomNavLink to="/inscribirse">Inscribirse</CustomNavLink> */}
 
                             <CustomNavLink to="/participantes">Participantes</CustomNavLink>
 
@@ -179,7 +180,7 @@ const Navigation = () => {
                                 Inicio
                             </ResponsiveNavLink>
 
-                            <ResponsiveNavLink to="/inscribirse">Inscribirse</ResponsiveNavLink>
+                            {/* <ResponsiveNavLink to="/inscribirse">Inscribirse</ResponsiveNavLink> */}
 
                             <ResponsiveNavLink to="/participantes">Participantes</ResponsiveNavLink>
 
