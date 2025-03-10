@@ -23,7 +23,6 @@ Route::get('/', function () {
 Route::get('/send-emails', [EmailController::class, 'sendEmail'])->name('send-emails');
 
 
-
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/pre-inscripciones', [InscriptionController::class, 'index'])->name('pre-inscripciones');
     Route::get('/inscripciones', [InscriptionController::class, 'indexInscriptions'])->name('inscripciones');
