@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ButtonInput from 'components/elements/ButtonInput'
 import InputColForm from 'components/inscriptionform/InputColForm'
 import DatePicker, { registerLocale } from 'react-datepicker';
@@ -16,6 +16,9 @@ import FileUpload from 'react-material-file-upload';
 import { red } from '@mui/material/colors';
 import { BankAccount } from 'components/elements/BankAccount';
 registerLocale('es', es);
+
+
+
 
 /**
  * @description Componente que renderiza el formulario de inscripción
@@ -61,6 +64,9 @@ const PreinscriptionForm = (props) => {
   //   window.location.pathname = '/login'
   // }
 
+
+  
+
   const [opensucces, setopensucces] = useState(false);
   const [openfail, setopenfail] = useState(false);
   const [name, setname] = useState({ campo: '', valido: null })
@@ -84,25 +90,118 @@ const PreinscriptionForm = (props) => {
   const [openInscription, setopenInscription] = useState(false)
   const [errorMessage, seterrorMessage] = useState('');
 
+  
+  const [isUniversityMember, setIsUniversityMember] = useState(null); // null, 'yes', 'no'
+  const [dniToCheck, setDniToCheck] = useState('');
+  const [dniStatus, setDniStatus] = useState(null);
+  
+
   const [files, setFiles] = useState([]);
   const [filevalidation, setfilevalidation] = useState({ campo: 'Debes enviar el comprobante, sin el no se te considerará como inscripto en la carrera.', valido: null });
+
+ 
 
   /**
    * @description Verifica si la fecha actual es mayor a la de la carrera
    * @returns {boolean} true si la fecha actual es mayor a la de la carrera, false en caso contrario
    */
-  const isdateOfRace = Date.now() > new Date('October 27, 2023 11:59:59') 
+  const isdateOfRace = Date.now() > new Date('April 26, 2025 11:59:59') 
   const [openEnd, setopenEnd] = useState(isdateOfRace);
 
   const [alertnavigate, setalertnavigate] = useState(false);
 
 // valores MP
   const linkMP = [
-    { race: '3k', link: 'https://mpago.la/1pCBwux' },
-    { race: '7k', link: 'https://mpago.la/211MmCN' },
-    { race: '15k', link: 'https://mpago.la/1oCb2bJ' },
-  ]
+    { race: '3k', link: 'https://mpago.la/2Xi9Wpw', comunityLink:'  https://mpago.la/1aXmHUU', familyLink: 'https://mpago.la/17Akrh4', ComFamLink: 'https://mpago.la/172KWQb'},
+    { race: '7k', link: 'https://mpago.la/2981gBU', comunityLink: 'https://mpago.la/2cJpVY8' },
+    { race: '15k', link: 'https://mpago.la/13qLxJJ', comunityLink: 'https://mpago.la/1BTMdjv' },
+    ]
+
+    
+  
+    const [comunidadUncoDnis, setComunidadUncoDnis] = useState([]);
+  
+    useEffect(() => {
+      fetch('/sorted_dnis.json')
+        .then((response) => response.json())
+        .then((data) => setComunidadUncoDnis(data.dnis || []))
+        .catch((error) => console.error('Error al cargar el archivo JSON:', error));
+    }, []);
+  
+    const checkDNIComunidad = (dni) => {
+      const formattedDni = dni.toString();
+  
+      const binarySearch = (array, target) => {
+        let low = 0;
+        let high = array.length - 1;
+  
+        while (low <= high) {
+          const mid = Math.floor((low + high) / 2);
+          const guess = array[mid];
+  
+          if (guess === target) {
+            return true;
+          }
+          if (guess > target) {
+            high = mid - 1;
+          } else {
+            low = mid + 1;
+          }
+        }
+        return false;
+      };
+  
+      console.log("Lista de DNIs (primeros 10):", comunidadUncoDnis.slice(0, 10));
+      console.log("DNI a buscar:", formattedDni);
+      console.log("Resultado búsqueda binaria:", binarySearch(comunidadUncoDnis, formattedDni));
+  
+      return binarySearch(comunidadUncoDnis, formattedDni) ? 'community' : 'normal';
+    };
+  
+    
+    
+  
+  const handleResponse = (response) => {
+    setIsUniversityMember(response); // 'yes' o 'no'
+    if(response === 'no') {
+      setDniStatus('normal'); // Si no es parte de la comunidad, no hace falta verificar el DNI
+    }
+  };
+
+  const handleDniCheck = () => {
+    if(checkDNIComunidad(dniToCheck) === 'community') {
+      setDniStatus('community');
+    } else {
+      setDniStatus('normal');
+    }
+  };
+
   const CategoriaButton = ({ categoria }) => {
+    const enlaceBase = linkMP.find(item => item.race === categoria);
+    let enlace;
+  
+    if (enlaceBase) {
+      const tipoUsuario = dniStatus;
+  
+      // Elegir el enlace adecuado
+      if(tipoUsuario === 'community')
+        enlace = enlaceBase.comunityLink;
+      else
+        enlace = enlaceBase.link;
+      return (
+        <a href={enlace} target="_blank" rel="noreferrer">
+          <button type="button" className="bg-blue-cyan hover:bg-blue-cyan-dark text-white font-bold py-2 px-4 rounded-md">
+            Pagar por MercadoPago
+          </button>
+        </a>
+      );
+    } else {
+      return null; // Si no se encuentra el enlace para esa categoría
+    }
+  };
+  
+
+  {/*const CategoriaButton = ({ categoria }) => {
     const enlace = linkMP.find(item => item.race === categoria);
   
     if (enlace) {
@@ -114,7 +213,7 @@ const PreinscriptionForm = (props) => {
     } else {
       return null; // No hay enlace disponible para esta categoría
     }
-  }
+  }*/}
   
   const arraycampos = [
     [checked, setChecked],
@@ -218,6 +317,8 @@ const PreinscriptionForm = (props) => {
         // console.log('success store', response);
         setopenInscription(false)
         setopensucces(true)
+  
+
         //window.location.reload(false);
       })
       .catch(function (error) {
@@ -324,18 +425,21 @@ const PreinscriptionForm = (props) => {
       setFiles(array);
     }
   }
-  
-  return (    
+
+
+  return (
+    
+    
     <div className='flex flex-col mx-3 sm:mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
       <div className='w-full lg:max-w-7xl p-6 m-auto bg-neutral-100 rounded-md shadow-md'>
-        <div className='grid sm:grid-cols-2 justify-center ' >
+        <div className='grid sm:grid-cols-2 justify-center'>
           <img alt='logo unco activa' className='flex self-center justify-self-end sm:mr-10 pb-3' src='/logos/UNCO_Activa.svg'></img>
           <div className='flex justify-center sm:w-1/3 sm:ml-10'>
             <CategoriePaper boxShadow='none' color={props.categorie.color} name={props.categorie.name}> </CategoriePaper>
           </div>
         </div>
         <h1 className='text-4xl font-bold text-center mt-10 mb-10 text-gray-darker'>
-            Formulario de inscripción
+          Formulario de inscripción
         </h1>
         <AlertSuccess open={openEnd} onClose={setopenEnd}
           bg=' rgb(240 240 240)'
@@ -358,8 +462,52 @@ const PreinscriptionForm = (props) => {
           description={errorMessage}
         />
 
-        <form onSubmit={storeInscription} autoComplete='false' className='grid grid-cols-1 md:grid-cols-2 md:gap-6'>
+{isUniversityMember === null ? (
+  // Preguntar si pertenece a la comunidad universitaria
+  <div className="flex flex-col items-center justify-center mt-4">
+    <p className="text-xl font-semibold text-center mb-4">¿Pertenece a la comunidad universitaria?</p> {/* Aumentar tamaño de texto y centrar */}
+    <button 
+      className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-200 mb-2"
+      onClick={() => handleResponse('yes')}
+    >
+      Sí
+    </button>
+    <button 
+      className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+      onClick={() => handleResponse('no')}
+    >
+      No
+    </button>
+  </div>
+) : isUniversityMember === 'yes' ? (
+  // Si es miembro de la comunidad, pedir el DNI
+  <div className="flex flex-col items-center justify-center mt-4">
+    <p className="text-xl font-semibold text-center mb-4">Por favor, ingrese su DNI:</p> {/* Aumentar tamaño de texto y centrar */}
+    <input 
+      type="text" 
+      value={dniToCheck} 
+      onChange={(e) => setDniToCheck(e.target.value)} 
+      className="border-2 border-gray-300 px-4 py-2 rounded-lg mb-4"
+    />
+    <button 
+      className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-200"
+      onClick={handleDniCheck}
+    >
+      Verificar DNI
+    </button>
+    {dniStatus && (
+      <p>{dniStatus === 'community' ? 'DNI válido para comunidad universitaria.' : 'DNI no reconocido como parte de la comunidad.'}</p>
+    )}
+  </div>
+) : null}
 
+
+
+
+
+        {isUniversityMember !== null && dniStatus !== null &&(
+        <form onSubmit={storeInscription} autoComplete='false' className='grid grid-cols-1 md:grid-cols-2 md:gap-6'>
+  
           <InputColForm
             regularExpression={expresiones.name}
             value={name}
@@ -384,7 +532,6 @@ const PreinscriptionForm = (props) => {
               id='birth'
               onChange={(date) => {
                 setbirth({ ...birth, campo: date, valido: date ? 'true' : 'false' })
-
               }}
               dateFormat={'yyyy-MM-dd'}
               onKeyUp={validaciondate}
@@ -414,7 +561,6 @@ const PreinscriptionForm = (props) => {
           />
           <div className='col-span-2 mb-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
             <Select
-              // className='text-gray-darker col-span-2  md:col-span-1  dark:text-gray-darker'
               placeholder='Género'
               styles={colorstylesSizes}
               name='gender'
@@ -435,7 +581,7 @@ const PreinscriptionForm = (props) => {
             onChange={setcountry}
             error='Ingrese un país'
           />
-
+  
           <InputColForm
             type='text'
             id='province'
@@ -444,7 +590,7 @@ const PreinscriptionForm = (props) => {
             onChange={setprovince}
             regularExpression={expresiones.name}
             error='Ingrese una provincia'
-
+  
           />
           <InputColForm type='text'
             id='city'
@@ -453,7 +599,7 @@ const PreinscriptionForm = (props) => {
             onChange={setcity}
             regularExpression={expresiones.name}
             error='Ingrese una provincia' />
-
+  
           <InputColForm
             regularExpression={expresiones.address}
             type='text'
@@ -471,7 +617,7 @@ const PreinscriptionForm = (props) => {
             value={email}
             onChange={setemail}
             error='Ingrese un email válido' />
-
+  
           <InputColForm
             type='tel'
             id='phone'
@@ -480,7 +626,7 @@ const PreinscriptionForm = (props) => {
             onChange={setphone}
             regularExpression={expresiones.phone}
             error='Ingrese un teléfono válido'
-
+  
           />
           <InputColForm
             id='social_work'
@@ -488,8 +634,6 @@ const PreinscriptionForm = (props) => {
             label='Obra social'
             value={social_work}
             onChange={setsocial_work}
-            // regularExpression={expresiones.name}
-            // error='Inngresa una obra social'
           />
           <div className='col-span-2 mb-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
             <Select
@@ -506,11 +650,11 @@ const PreinscriptionForm = (props) => {
             />
             <p className={shirt_size.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Debe seleccionar un talle </p>
           </div>
-
+  
           <div className='relative col-span-2 z-0 mb-2 mt-2 w-full group'>
             <span className='text-xl font-semibold dark:text-black'>Contacto en caso de emergencias</span>
           </div>
-
+  
           <InputColForm
             type='text'
             label='Nombre y Apellido'
@@ -538,7 +682,7 @@ const PreinscriptionForm = (props) => {
             regularExpression={expresiones.phone}
             error='Ingrese un teléfono de contacto de emergencia'
           />
-
+  
           {!isdateOfRace ? 
             <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
               <p>
@@ -546,7 +690,7 @@ const PreinscriptionForm = (props) => {
               </p>
                 <BankAccount />
               <p>
-                O MercadoPago en el siguiente link <CategoriaButton categoria={props.categorie.name}/>
+                O MercadoPago en el siguiente link <CategoriaButton categoria={props.categorie.name} dni = {dni.campo}/>
               </p>
               <p>
                 <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong>
@@ -584,13 +728,9 @@ const PreinscriptionForm = (props) => {
               buttonText='Subir comprobantes'
               value={files}
               onChange={(e) => onChangeFile(e)} />
-            <p className={filevalidation.valido === 'false' ? 'flex text-red-500 justify-center mt-1'
-              : 'invisible'}>{filevalidation.campo} </p>
-
+            <p className={filevalidation.valido === 'false' ? 'flex text-red-500 justify-center mt-1' : 'invisible'}>{filevalidation.campo} </p>
           </div>
-
-          
-          
+  
           <div className='relative col-span-2 justify-self-center z-0 -mt-1 -ml-3 w-full group'>
             <Checkbox
               sx={{marginLeft: -1}}
@@ -603,7 +743,7 @@ const PreinscriptionForm = (props) => {
               <button type='button' onClick={handleClickOpenRules} className='text-blue-cyan '>Reglamento de la carrera</button> </label>
             <p className={checked === false ? 'text-red-500 block' : 'invisible'}>Debe aceptar los términos y condiciones </p>
           </div>
-
+  
           <div className='relative col-span-2 mt-3 md:-mt-1 mb-3 md:mb-0 flex-none w-24 ...'>
             <ButtonInput type='submit' text='Enviar' divclass='lg:w-28 md:w-28 sm:w-auto flex-none' />
           </div>
@@ -613,22 +753,25 @@ const PreinscriptionForm = (props) => {
             </p>
           </div>
         </form>
+        )}
         <ModalRules open={openrules} onClose={setopenrules}
           categorie={props.categorie}
           bg=' rgb(240 240 240)'
           titlecolor=''
           title='REGLAS GENERALES PARA LOS PARTICIPANTES'
         />
-
+  
         <ModalInscription
           loading={opensucces}
           categorie={props.categorie}
           setopenInscription={setopenInscription}
           openInscription={openInscription}
-          submitInscription={submitInscription} />
+          validemail={email.valido}
+          filevalid={filevalidation.valido} />
       </div>
-    </div >    
-  )
+    </div>
+  );
+  
 }
 
 export default PreinscriptionForm
