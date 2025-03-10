@@ -5,7 +5,7 @@ import InputColForm from 'components/inscriptionform/InputColForm'
 import { expresiones } from 'pages/PreinscriptionForm'
 import React, { useState } from 'react'
 
-const ContacUs = () => { 
+{/*const ContacUs = () => { 
 
   // const endpoint = 'https://127.0.0.1:8000//api/contacUs'
   const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/contacUs'
@@ -145,6 +145,63 @@ const ContacUs = () => {
     </div>
           
   )
-}
+}*/}
+
+const ContacUs = () => {
+  return (
+    <div className='text-black bg-gray-light rounded-lg max-w-lg p-5'>
+      <div className='grid justify-center'>
+        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>CONTACTANOS</p>
+        <h1 className='bg-yellow py-1 w-1/3 mt-5'> </h1>
+      </div>
+
+      <div className='container max-w-4xl mx-auto text-center py-5'>
+        <p className='text-lg font-semibold'>
+          📧 Para cualquier consulta, puedes contactarnos a nuestro correo electrónico:
+        </p>
+        <p className='mt-4 text-gray-700'>
+          <a href='mailto:uncoactiva@gmail.com' className='text-blue-500 hover:text-blue-700'>
+            uncoactiva@gmail.com
+          </a>
+        </p>
+        <p className='mt-4 text-lg font-semibold'>
+          🌐 También puedes seguirnos en nuestras redes sociales:
+        </p>
+        <div className='mt-4'>
+          <a
+            href='https://www.instagram.com/sbucomahue?igsh=bDc2M2tjNWdzOW5p'
+            className='text-blue-500 hover:text-blue-700 mr-4'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Secretaría de Bienestar Universitario - Instagram
+          </a>
+        </div>
+        <div className='mt-2'>
+          <a
+            href='https://www.instagram.com/unco_activa?igsh=NGozbG44MnV0cTJ4'
+            className='text-blue-500 hover:text-blue-700'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Unco Activa - Instagram
+          </a>
+        </div>
+      </div>
+
+      <div className='flex pt-7 justify-center'>
+        <div className='relative col-span-2 mt-3 md:-mt-1 mb-3 md:mb-0 flex-none w-24'>
+          <button className='lg:w-28 md:w-28 sm:w-auto flex-none'>
+            Más Info
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+
+
 
 export default ContacUs
