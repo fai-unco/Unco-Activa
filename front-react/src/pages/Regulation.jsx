@@ -15,7 +15,7 @@ const regulation = () => {
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">REGLAS GENERALES PARA LOS PARTICIPANTES</h4>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Largada y llegada</h4>
                 <p className="font-Hurme-Geometric-N"> Gimnasio Polideportivo Roberto Monteros (Escondido)</p>
-                <p className="font-Hurme-Geometric-N">Hora: 09:00hs</p>
+                <p className="font-Hurme-Geometric-N">Hora: 15:00hs</p>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
                 <p className="">Trail Running.</p>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Modalidad</h4>

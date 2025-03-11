@@ -25,7 +25,7 @@ const mockImagenes = [
     "elements/edicion-anterior9.jpeg",
     // 'elements/edicion20211210_190204.mp4'
 ];
-const isdateOfRace = Date.now() > new Date("October 29, 2023 15:00:00");
+const isdateOfRace = Date.now() > new Date("April 26, 2023 15:00:00");
 
 const Home = () => {
     const [openEnd, setopenEnd] = useState(!isdateOfRace);
@@ -42,7 +42,7 @@ const Home = () => {
                         <p className="text-center">
                             <span className="text-[1.4rem] text-red-700 font-bold py-4 font-Hurme-Geometric-BO">¡CARRERA REPROGRAMADA!</span>
                             <br />
-                            <span className="text-[1.4rem] text-blue-high font-bold py-4 font-Hurme-Geometric-BO">¡29/10 - 9 AM!</span>
+                            <span className="text-[1.4rem] text-blue-high font-bold py-4 font-Hurme-Geometric-BO">¡26/2 - 15 AM!</span>
                         </p>
                         <p>
                             <span className="text-[1rem] text-blue-500 py-4 font-Hurme-Geometric-BO flex">Habida cuenta del alerta meteorológico por lluvias y ráfagas de vientos de hasta 120 km/h que se preveen para este viernes y sábado, la carrera se pospone para el mismo Domingo 29 del corriente a las 9 AM.</span>
@@ -50,7 +50,7 @@ const Home = () => {
                         <span className="text-[1.1rem] text-blue-high font-normal py-4 font-Hurme-Geometric-BO">Deben realizar la acreditación y registro el día:</span>
                         <ul className="text-center pt-3">
                             <li>
-                                <Event color="primary" /> Sábado 28 de Octubre
+                                <Event color="primary" /> Viernes 25 de Abril
                             </li>
                             <li>
                                 <AccessAlarm color="primary" /> De 12:00 a 16:00 hs
@@ -72,7 +72,7 @@ const Home = () => {
             <div className="px-3 md:px-12 py-7  ">
                 <div className=" bg-gray-light rounded-lg text-black">
                     <div id="conoceMas" className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-red-600">
-                        <h1 className="">SÁBADO 26 ABRIL / 09:00 HRS</h1>
+                        <h1 className="">SÁBADO 26 ABRIL / 15:00 HRS</h1>
                         <h1>Universidad Nacional del Comahue - Neuquén Capital</h1>
                     </div>
                     <div className="flex justify-center pt-5">

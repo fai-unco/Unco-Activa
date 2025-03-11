@@ -488,8 +488,8 @@ const PreinscriptionForm = (props) => {
   </div>
 ) : isUniversityMember === 'yes' ? (
   // Si es miembro de la comunidad, pedir el DNI
-  <div className="flex flex-col items-center justify-center mt-4">
-    <p className="text-xl font-semibold text-center mb-4">Por favor, ingrese su DNI:</p> {/* Aumentar tamaño de texto y centrar */}
+  <div className="flex flex-col items-center justify-center mt-2 mb-10">
+    <p className="text-xl font-semibold text-center mb-2">Por favor, ingrese su DNI:</p> {/* Aumentar tamaño de texto y centrar */}
     <input 
       type="text" 
       value={dniToCheck} 
@@ -503,7 +503,7 @@ const PreinscriptionForm = (props) => {
       Verificar DNI
     </button>
     {dniStatus && (
-      <p>{dniStatus === 'community' ? 'DNI válido para comunidad universitaria.' : 'DNI no reconocido como parte de la comunidad.'}</p>
+      <p>{dniStatus === 'community' ? 'DNI válido para comunidad universitaria. ' : 'DNI no reconocido como parte de la comunidad. Si deberia serlo por favor contactarse con nosotros en uncoactiva@gmail.com.'}</p>
     )}
   </div>
 ) : null}
