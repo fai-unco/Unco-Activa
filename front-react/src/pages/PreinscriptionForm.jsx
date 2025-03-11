@@ -32,7 +32,8 @@ registerLocale('es', es);
  * @param url - url de la api
  * */ 
 // const endpoint = 'http://127.0.0.1:8000/api/inscription'
-const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription'
+//const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/inscription'
+const endpoint = process.env.REACT_APP_BACKEND_URL+'/inscription'
 
 const sizes = [
   { value: 'S', label: 'S' },
@@ -116,9 +117,8 @@ const PreinscriptionForm = (props) => {
     { race: '7k', link: 'https://mpago.la/2981gBU', comunityLink: 'https://mpago.la/2cJpVY8' },
     { race: '15k', link: 'https://mpago.la/13qLxJJ', comunityLink: 'https://mpago.la/1BTMdjv' },
     ]
-
     
-  
+    const [price, setPrice] = useState(props.categorie.price);
     const [comunidadUncoDnis, setComunidadUncoDnis] = useState([]);
   
     useEffect(() => {
@@ -151,9 +151,7 @@ const PreinscriptionForm = (props) => {
         return false;
       };
   
-      console.log("Lista de DNIs (primeros 10):", comunidadUncoDnis.slice(0, 10));
-      console.log("DNI a buscar:", formattedDni);
-      console.log("Resultado búsqueda binaria:", binarySearch(comunidadUncoDnis, formattedDni));
+      
   
       return binarySearch(comunidadUncoDnis, formattedDni) ? 'community' : 'normal';
     };
@@ -171,9 +169,16 @@ const PreinscriptionForm = (props) => {
   const handleDniCheck = () => {
     if(checkDNIComunidad(dniToCheck) === 'community') {
       setDniStatus('community');
+      if (props.categorie === '3k'){
+        setPrice(price-5000);
+      }
+      else{
+        setPrice(price-3000); 
+      }
     } else {
       setDniStatus('normal');
     }
+    setdni({campo: dniToCheck, valido: 'true'});
   };
 
   const CategoriaButton = ({ categoria }) => {
@@ -357,6 +362,8 @@ const PreinscriptionForm = (props) => {
       // console.log('valido', gender)
     }
   }
+
+ 
 
   const validarsize = () => {
     if (shirt_size.campo === '') {
@@ -550,6 +557,7 @@ const PreinscriptionForm = (props) => {
             />
             <p className={birth.valido === 'false' ? 'text-red-500 block' : 'invisible'}>Ingrese una fecha válida, debe ser mayor de 18 años para poder inscribirse </p>
           </div>
+          {isUniversityMember === 'no' && (
           <InputColForm
             regularExpression={expresiones.dni}
             type='number'
@@ -558,7 +566,7 @@ const PreinscriptionForm = (props) => {
             value={dni}
             onChange={setdni}
             error='Ingrese un DNI válido, con exactamente 8 dígitos'
-          />
+                     />)}
           <div className='col-span-2 mb-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
             <Select
               placeholder='Género'
@@ -695,7 +703,7 @@ const PreinscriptionForm = (props) => {
               <p>
                 <strong>Categoría: </strong><strong style={{ color: props.categorie.color }}> {props.categorie.name}</strong>
                 <br />
-                <strong>Precio:</strong> ${props.categorie.price}
+                <strong>Precio:</strong> ${price}
                 <br /><br />
                 De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
               </p>
@@ -762,6 +770,7 @@ const PreinscriptionForm = (props) => {
         />
   
         <ModalInscription
+          submitInscription={submitInscription}
           loading={opensucces}
           categorie={props.categorie}
           setopenInscription={setopenInscription}

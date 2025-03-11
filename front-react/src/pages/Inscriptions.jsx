@@ -14,7 +14,9 @@ const Inscriptions = () => {
     const [currentPage, setcurrentPage] = useState(1);
     const [participantsPerPage] = useState(30);
     // const endpoint = 'http://127.0.0.1:8000/api'
-    const endpoint = "https://uncoactiva-back.fi.uncoma.edu.ar/api";
+    //const endpoint = "https://uncoactiva-back.fi.uncoma.edu.ar/api";
+    const endpoint = process.env.REACT_APP_BACKEND_URL
+
     useEffect(() => {
         getAllInscriptos();
     }, []);
