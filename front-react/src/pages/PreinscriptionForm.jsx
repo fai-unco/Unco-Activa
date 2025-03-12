@@ -169,7 +169,7 @@ const PreinscriptionForm = (props) => {
   const handleDniCheck = () => {
     if(checkDNIComunidad(dniToCheck) === 'community') {
       setDniStatus('community');
-      if (props.categorie === '3k'){
+      if (props.categorie.name === '3k'){
         setPrice(price-5000);
       }
       else{

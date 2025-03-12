@@ -119,12 +119,12 @@ const Home = () => {
                 <p className="font-bold">Montos de inscripción:</p>
                 <li>15 km $45000.</li>
                 <li>7 km $40000.</li>
-                <li>3 km $30000 (descuento 10% grupo familiar - solo 3 km).</li>
+                <li>3 km $30000. </li>
                 <br />
                 <p className="font-bold">Montos diferenciados para comunidad Universitaria:</p>
                 <li>15 km $42000.</li>
                 <li>7 km $37000.</li>
-                <li>3 km $25000(descuento del 10% por grupo familiar).</li>
+                <li>3 km $25000.</li>
             </ul>
 
             <p className="pt-2">
