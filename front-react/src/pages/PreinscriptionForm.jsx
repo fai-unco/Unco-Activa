@@ -134,11 +134,11 @@ const PreinscriptionForm = (props) => {
       const binarySearch = (array, target) => {
         let low = 0;
         let high = array.length - 1;
-  
+      
         while (low <= high) {
           const mid = Math.floor((low + high) / 2);
-          const guess = array[mid];
-  
+          const guess = array[mid].toString();  
+      
           if (guess === target) {
             return true;
           }
