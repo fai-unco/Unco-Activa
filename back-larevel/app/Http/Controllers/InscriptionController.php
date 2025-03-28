@@ -76,7 +76,9 @@ class InscriptionController extends Controller
          //contar inscripciones
          $countInscriptions = Inscription::count();
         //dd($request);
-        $userEnrolled = Inscription::where('email', '=', $request->email)->get("id");
+        $userEnrolled = Inscription::where('email', '=', $request->email) 
+            ->whereNull("verification_denied")
+            ->get("id");
         // var_dump($userEnrolled);
         // if (!is_null(Auth::user())){
         if (count($userEnrolled) === 0) {
