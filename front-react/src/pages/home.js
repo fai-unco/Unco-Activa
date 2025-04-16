@@ -25,7 +25,7 @@ const mockImagenes = [
     "elements/edicion-anterior9.jpeg",
     // 'elements/edicion20211210_190204.mp4'
 ];
-const isdateOfRace = Date.now() > new Date("April 26, 2023 15:00:00");
+const isdateOfRace = Date.now() > new Date("June 8, 2025 10:30:00");
 
 const Home = () => {
     const [openEnd, setopenEnd] = useState(!isdateOfRace);
@@ -42,11 +42,11 @@ const Home = () => {
                         <p className="text-center">
                             <span className="text-[1.4rem] text-red-700 font-bold py-4 font-Hurme-Geometric-BO">¡CARRERA REPROGRAMADA!</span>
                             <br />
-                            <span className="text-[1.4rem] text-blue-high font-bold py-4 font-Hurme-Geometric-BO">¡26/2 - 15 AM!</span>
+                            <span className="text-[1.4rem] text-blue-high font-bold py-4 font-Hurme-Geometric-BO">¡8/6 - 10:30 AM!</span>
                         </p>
                         <p>
-                            <span className="text-[1rem] text-blue-500 py-4 font-Hurme-Geometric-BO flex">Habida cuenta del alerta meteorológico por lluvias y ráfagas de vientos de hasta 120 km/h que se preveen para este viernes y sábado, la carrera se pospone para el mismo Domingo 29 del corriente a las 9 AM.</span>
-                        </p>
+                            <span className="text-[1rem] text-blue-500 py-4 font-Hurme-Geometric-BO flex">La carrera se pospone para el Domingo 8 de Junio a las 10:30 AM.</span>
+                        </p>{/* 
                         <span className="text-[1.1rem] text-blue-high font-normal py-4 font-Hurme-Geometric-BO">Deben realizar la acreditación y registro el día:</span>
                         <ul className="text-center pt-3">
                             <li>
@@ -62,7 +62,7 @@ const Home = () => {
                         <span className="text-[1rem] text-cyan-700 pt-6 font-Hurme-Geometric-BO flex">
                             <img src="../elements/botella.svg" alt="Botella" className="mr-2 w-24" />
                             Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.
-                        </span>
+                        </span>*/}
                     </div>
                 }
             />
@@ -72,7 +72,7 @@ const Home = () => {
             <div className="px-3 md:px-12 py-7  ">
                 <div className=" bg-gray-light rounded-lg text-black">
                     <div id="conoceMas" className="text-[1.8rem] text-center p-5 font-Hurme-Geometric-BO text-red-600">
-                        <h1 className="">SÁBADO 26 ABRIL / 15:00 HRS</h1>
+                        <h1 className="">DOMINGO 8 DE JUNIO / 10:30 HRS</h1>
                         <h1>Universidad Nacional del Comahue - Neuquén Capital</h1>
                     </div>
                     <div className="flex justify-center pt-5">
