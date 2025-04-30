@@ -435,8 +435,6 @@ const PreinscriptionForm = (props) => {
 
 
   return (
-    
-    
     <div className='flex flex-col mx-3 sm:mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
       <div className='w-full lg:max-w-7xl p-6 m-auto bg-neutral-100 rounded-md shadow-md'>
         <div className='grid sm:grid-cols-2 justify-center'>
@@ -459,7 +457,7 @@ const PreinscriptionForm = (props) => {
           titlecolor='success.main'
           title='Registro Exitoso!'
           navigate='/'
-          description='Ha completado el registro con éxito. Por favor, verifique su bandeja de entrada y la carpeta de correo no deseada.'
+          description='Ha completado el registro con éxito. Por favor, verifique su bandeja de entrada y la carpeta de SPAM.'
         />
         <AlertSuccess open={openfail} onClose={setopenfail}
           bg=' rgb(240 240 240)'
