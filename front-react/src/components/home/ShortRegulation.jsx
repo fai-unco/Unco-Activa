@@ -30,7 +30,7 @@ const ShortRegulation = props => {
           <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
           <p className="">Trail de 3 km, 7 km y 15 km.</p>
           <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">PREMIACIÓN</h4>
-          <p>Prueba de 15Km</p>
+          <p>Pruebas de 15Km y 7Km</p>
           <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
             <li>Medalla de Finalista a todos los que crucen la meta.</li>
             <li>Medallones a los 1°, 2°, 3° de cada categoría masculina y femenina.</li>

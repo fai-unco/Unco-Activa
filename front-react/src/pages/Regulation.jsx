@@ -13,9 +13,9 @@ const regulation = () => {
               <div className="sm:px-5">
                 <h3 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">FECHA DOMINGO 8 DE JULIO - 10:30 HS</h3>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">REGLAS GENERALES PARA LOS PARTICIPANTES</h4>
-                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Largada y llegada</h4>
+                <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Largada</h4>
                 <p className="font-Hurme-Geometric-N"> Gimnasio Polideportivo Roberto Monteros (Escondido)</p>
-                <p className="font-Hurme-Geometric-N">Hora: 15:00hs</p>
+                <p className="font-Hurme-Geometric-N">Hora: 10:30hs</p>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Disciplina</h4>
                 <p className="">Trail Running.</p>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Modalidad</h4>
@@ -39,7 +39,7 @@ const regulation = () => {
                 </ul>
                 <h4 className="text-[1.2rem] text-red-500 font-bold pt-5 font-Hurme-Geometric-BO">Nota Importante: Aquellos corredores que no cumplan 18 años a la fecha de la carrera, deberán presentar al momento de la acreditación una autorización de padre/madre o tutor para poder participar y copia de la ficha de inscripción firmada por el participante y por el padre/madre o tutor.</h4>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">B) PREMIACIÓN</h4>
-                <p>Prueba de 15Km</p>
+                <p>Prueba de 15Km y 7Km</p>
                 <ul className='list-decimal pl-5 font-Hurme-Geometric-Nd'>
                   <li>Medalla de Finalista a todos los que crucen la meta.</li>
                   <li>Medallones a los 1°, 2°, 3° de cada categoría masculina y femenina.</li>
