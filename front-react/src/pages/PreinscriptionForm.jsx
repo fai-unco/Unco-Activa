@@ -106,7 +106,12 @@ const PreinscriptionForm = (props) => {
    * @description Verifica si la fecha actual es mayor a la de la carrera
    * @returns {boolean} true si la fecha actual es mayor a la de la carrera, false en caso contrario
    */
-  const isdateOfRace = Date.now() > new Date('June 8, 2025 10:30:00') 
+  
+  const now = Date.now();
+  const isdateOfRace =
+    (now > new Date('June 6, 2025 21:00:00') && now < new Date('June 7, 2025 14:00:00')) ||
+    now > new Date('June 7, 2025 18:00:00');
+
   const [openEnd, setopenEnd] = useState(isdateOfRace);
 
   const [alertnavigate, setalertnavigate] = useState(false);
