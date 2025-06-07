@@ -108,9 +108,7 @@ const PreinscriptionForm = (props) => {
    */
   
   const now = Date.now();
-  const isdateOfRace =
-    (now > new Date('June 6, 2025 21:00:00') && now < new Date('June 7, 2025 14:00:00')) ||
-    now > new Date('June 7, 2025 18:00:00');
+  const isdateOfRace = now > new Date('June 6, 2025 21:00:00') 
 
   const [openEnd, setopenEnd] = useState(isdateOfRace);
 
