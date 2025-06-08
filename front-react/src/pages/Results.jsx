@@ -5,9 +5,9 @@ import Sietek from 'components/results/Sietek';
 const Results = () => {
     return (
         <>
-            {/*<Quincek />*/}
+            {<Quincek />}
             <hr />
-            {/*<Sietek />*/}
+            {<Sietek />}
         </>
     );
 };
