@@ -2,7 +2,6 @@ import AuthCard from 'components/AuthCard'
 import AuthSessionStatus from 'components/AuthSessionStatus'
 import AuthValidationErrors from 'components/AuthValidationErrors'
 import Button from 'components/Button'
-import AppLayout from 'components/Layouts/AppLayout'
 import GuestLayout from 'components/Layouts/GuestLayout'
 import Input from 'components/Input'
 import { useAuth } from 'hooks/auth'
@@ -28,11 +27,10 @@ const Login = () => {
   }
 
   return (
-    <AppLayout>
       <GuestLayout>
         <div className='bg-login font-Hurme-Geometric-N'>
           <AuthCard>
-            <img src='/logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
+            <img src='/logos/UNCO_Activa.svg' alt='logo unco activa' className="py-6"></img>
             <h1 className="text-sm font-semibold text-center">
                   Iniciar Sesion
             </h1>
@@ -100,7 +98,6 @@ const Login = () => {
           </AuthCard>
         </div>
       </GuestLayout>
-    </AppLayout>
   )
 }
 

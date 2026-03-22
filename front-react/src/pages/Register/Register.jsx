@@ -6,7 +6,6 @@ import Input from 'components/Input'
 import { useAuth } from 'hooks/auth'
 import { useState } from 'react'
 import {NavLink} from 'react-router-dom';
-import AppLayout from 'components/Layouts/AppLayout'
 
 const Register = () => {
   const { register } = useAuth({
@@ -27,11 +26,10 @@ const Register = () => {
   }
 
   return (
-    <AppLayout>
       <GuestLayout>
         <div className='bg-login font-Hurme-Geometric-N'>
           <AuthCard>
-            <img src='/logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
+            <img src='/logos/UNCO_Activa.svg' alt='logo unco activa' className="py-6"></img>
             <h1 className="text-sm font-semibold text-center">
             Registrate
             </h1>
@@ -101,7 +99,6 @@ const Register = () => {
           </AuthCard>
         </div>
       </GuestLayout>
-    </AppLayout>
   )
 }
 

@@ -2,7 +2,7 @@ import axios from 'axios'
 import AlertSuccess from 'components/alerts/AlertSuccess'
 import ButtonInput from 'components/elements/ButtonInput'
 import InputColForm from 'components/inscriptionform/InputColForm'
-import { expresiones } from 'pages/PreinscriptionForm'
+import { expresiones } from 'pages/PreinscriptionForm/PreinscriptionForm'
 import React, { useState } from 'react'
 
 {/*const ContacUs = () => { 

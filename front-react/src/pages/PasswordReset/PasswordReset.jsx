@@ -7,7 +7,6 @@ import Input from 'components/Input'
 import { useAuth } from 'hooks/auth'
 import { useEffect, useState } from 'react'
 import {Link, useParams} from 'react-router-dom';
-import AppLayout from 'components/Layouts/AppLayout'
 
 const PasswordReset = () => {
   const params = useParams()
@@ -35,13 +34,12 @@ const PasswordReset = () => {
   }, [params.email])
 
   return (
-    <AppLayout>
       <GuestLayout>
         <div className='bg-login'>
           <AuthCard
             logo={
               <Link to="/">
-                <img src='/logos/UNCO_activa.svg' alt='logo unco activa' className="py-6"></img>
+                <img src='/logos/UNCO_Activa.svg' alt='logo unco activa' className="py-6"></img>
               </Link>
             }>
             <h1 className='flex justify-center text-sm font-Hurme-Geometric-N py-5'>Restaurar Contraseña</h1>
@@ -93,7 +91,6 @@ const PasswordReset = () => {
           </AuthCard>
         </div>
       </GuestLayout>
-    </AppLayout>
   )
 }
 

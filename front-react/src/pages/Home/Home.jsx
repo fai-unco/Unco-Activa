@@ -1,7 +1,7 @@
 import AlertSuccess from "components/alerts/AlertSuccess";
-import ContacUs from "components/home/ContacUs";
-import RacePath from "components/home/RacePath";
-import ShortRegulation from "components/home/ShortRegulation";
+import ContacUs from "pages/Home/components/ContacUs";
+import RacePath from "pages/Home/components/RacePath";
+import ShortRegulation from "pages/Home/components/ShortRegulation";
 import Hero from "components/Layouts/Hero";
 import Slider from "components/Slider";
 
