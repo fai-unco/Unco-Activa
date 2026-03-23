@@ -87,10 +87,13 @@
                       {{$inscription->gender}}
                     </td>
                     <td class='flex justify-center px-3'>
-                      <a href="inscription/{{$inscription->id}}">
-                        <button class='bg-board text-gray-light mx-1 px-2 my-1 rounded-full'>
-                          Desinscribir
-                        </button>
+                      <a href="inscription/{{ $inscription->id }}">
+                          <button
+                              class="bg-green-700 text-gray-light mx-1 px-2 my-1 rounded-full">aceptar</button>
+                      </a>
+                      <a href="inscriptionDelete/{{ $inscription->id }}">
+                          <button
+                              class="bg-yellow text-gray-darker mx-1 px-2 my-1 rounded-full">rechazar</button>
                       </a>
                     </td>
                   </tr>
