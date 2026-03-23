@@ -10,6 +10,8 @@ use App\Mail\PreInscriptionMail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Exports\InscriptionsExport;
+use App\Exports\PreInscriptionsExport;
+use App\Exports\DeniedPreInscriptionsExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class InscriptionController extends Controller
@@ -19,9 +21,9 @@ class InscriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexPreinscriptions()
     {
-        $preInscriptions = Inscription::where('billing_verified_at', null )->where('verification_denied', null )->filter(request(['search']))->paginate(30);
+        $preInscriptions = Inscription::whereNull('billing_verified_at')->whereNull('verification_denied')->filter(request(['search']))->paginate(30);
         $categories = RaceCategorie::all();
 
         return view('pages.pre-inscriptions', ['preInscriptions' => $preInscriptions, 'categories' => $categories]);
@@ -34,21 +36,33 @@ class InscriptionController extends Controller
         ->get(['inscriptions.*', 'race_categories.name as categorie_name']); */
         // dd($test);
 
-        $inscriptions = Inscription::where('billing_verified_at', '!=', null )->where('verification_denied', null )->filter(request(['search']))->paginate(510);
+        $inscriptions = Inscription::whereNotNull('billing_verified_at')->whereNull('verification_denied')->filter(request(['search']))->paginate(30);
         $inscriptionCategories = RaceCategorie::all();
+        
         return view('pages.inscriptions', ['inscriptions' => $inscriptions, 'inscriptionCategories' => $inscriptionCategories]);
     }
 
     public function indexDeniedInscriptions()
     {
-        $DeniedInscriptions = Inscription::where('verification_denied', '!=', null )->paginate(30);
+        $deniedInscriptions = Inscription::whereNotNull('verification_denied')->filter(request(['search']))->paginate(30);
         $inscriptionCategories = RaceCategorie::all();
-        return view('pages.denied-inscriptions', ['DeniedInscriptions' => $DeniedInscriptions, 'inscriptionCategories' => $inscriptionCategories]);
+
+        return view('pages.denied-inscriptions', ['deniedInscriptions' => $deniedInscriptions, 'inscriptionCategories' => $inscriptionCategories]);
     }
 
+    public function exportAllInscriptions()
+    {
+        return Excel::download(new InscriptionsExport, 'inscripciones_Unco_Activa.xlsx');
+    }
 
-    public function exportAllInscriptions(){
-        return Excel::download(new InscriptionsExport, 'inscriptos_Unco_Activa.xlsx');
+    public function exportAllPreInscriptions()
+    {
+        return Excel::download(new PreInscriptionsExport, 'pre-inscripciones_Unco_Activa.xlsx');
+    }
+
+    public function exportAllDeniedPreInscriptions()
+    {
+        return Excel::download(new DeniedPreInscriptionsExport, 'pre-inscripciones-rechazadas_Unco_Activa.xlsx');
     }
 
     public function indexFrontInscriptions()
@@ -141,7 +155,7 @@ class InscriptionController extends Controller
             $correo = new PreInscriptionMail($arreglocontacto);
             if (!Mail::to($request->email)->send($correo)) abort(500, 'Error al enviar el mail.');
         } else {
-            abort(404, 'El cupo está completo o ya te has inscrito anteriormente con este correo, por favor reviza tu bandeja de spam en caso de no encontrar el correo en tu buzon de mensajes');
+            abort(404, 'El cupo está completo o ya te has inscrito anteriormente con este correo, por favor revisa tu bandeja de spam en caso de no encontrar el correo en tu buzon de mensajes');
         }
         // }
     }

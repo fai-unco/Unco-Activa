@@ -2,6 +2,24 @@
   <div class='bg-pre min-h-screen py-7 px-2 sm:px-10 md:px-10 xl:px-32 bg-gray-darker'>
     <div class='justify-center bg-white rounded-lg pb-2 my-7'>
       <h1 class='flex justify-center text-[1.5rem] sm:text-[2rem] font-Hurme-Geometric-BO font-bold italic text-blue-dark py-5'>PRE-INSCRIPCIONES RECHAZADAS</h1>
+      <div class="grid sm:flex items-center">
+        @include('partials._search-d')
+        <div class="flex items-center sm:justify-between w-full pl-2 sm:pl-0 py-1">
+          <a href="/pre-inscripciones-rechazadas" >
+            <button
+              type="submit" class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
+              Restablecer
+            </button>
+          </a>
+          <a href="/pre-inscripciones-rechazadas/export" class="pl-1 sm:px-2" >
+            <button
+              type="submit"
+              class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
+                Exportar todo
+            </button>
+          </a>
+        </div>
+      </div>
       <div class='overflow-x-auto pb-5'>
         <table class='font-Hurme-Geometric-N w-full px-1'>
           <thead>
@@ -17,7 +35,7 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($DeniedInscriptions as $inscription)
+            @foreach ($deniedInscriptions as $inscription)
               @if($inscription->verification_denied)
                 <tr class='bg-gray-light border-y border-blue-cyan '>
                   <td class='px-3'>
@@ -43,7 +61,7 @@
                     <div class="grid">
                       <a class="text-blue-high hover:text-board text-base font-semibold " 
                         href="{{asset($inscription->files)}}"
-                        target="_blank">Comprobate
+                        target="_blank">Comprobante
                       </a>
                       @if($inscription->promo)
                         <a class="text-blue-high hover:text-board text-base font-semibold "
@@ -70,9 +88,19 @@
             @endforeach
           </tbody>
         </table>
+
+        {{-- Mensaje según búsqueda o datos --}}
+        @if($deniedInscriptions->total() == 0)
+          @if(request()->has('search') && request('search') != '')
+            <h2 class='flex justify-center text-[1rem] sm:text-[1.5rem] font-Hurme-Geometric-BO font-bold italic text-blue-dark py-5'>No hay resultados que coincidan con la búsqueda "{{ request('search') }}".</h2>
+          @else
+            <h2 class='flex justify-center text-[1rem] sm:text-[1.5rem] font-Hurme-Geometric-BO font-bold italic text-blue-dark py-5'>No hay pre-inscripciones rechazadas.</h2>
+          @endif
+        @endif
+
       </div>
       <div class="text-blue-high pt-3 px-3">
-        {{$DeniedInscriptions->links()}}
+        {{$deniedInscriptions->links()}}
       </div>
     </div>
   </div>

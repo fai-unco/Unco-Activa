@@ -24,12 +24,19 @@ Route::get('/send-emails', [EmailController::class, 'sendEmail'])->name('send-em
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/pre-inscripciones', [InscriptionController::class, 'index'])->name('pre-inscripciones');
+    // Pre-inscripciones
+    Route::get('/pre-inscripciones', [InscriptionController::class, 'indexPreinscriptions'])->name('pre-inscripciones');
+    Route::get('/pre-inscripciones/export', [InscriptionController::class, 'exportAllPreInscriptions'])->name('pre-inscriptions.export');
+    
+    // Inscripciones
     Route::get('/inscripciones', [InscriptionController::class, 'indexInscriptions'])->name('inscripciones');
-    Route::get('/pre-inscripciones-rechazadas', [InscriptionController::class, 'indexDeniedInscriptions'])->name('pre-inscripciones-rechazadas');
     Route::get('/inscription/{id}', [InscriptionController::class, 'update']);
     Route::get('/inscriptionDelete/{id}', [InscriptionController::class, 'edit']);
     Route::get('/inscripciones/export', [InscriptionController::class, 'exportAllInscriptions'])->name('inscriptions.export');
+
+    // Pre-inscripciones rechazadas
+    Route::get('/pre-inscripciones-rechazadas', [InscriptionController::class, 'indexDeniedInscriptions'])->name('pre-inscripciones-rechazadas');
+    Route::get('/pre-inscripciones-rechazadas/export', [InscriptionController::class, 'exportAllDeniedPreInscriptions'])->name('denied-pre-inscriptions.export');
 });
 
 //Log User Out

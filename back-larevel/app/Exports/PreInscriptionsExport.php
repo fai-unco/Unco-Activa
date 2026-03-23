@@ -9,14 +9,14 @@ use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class InscriptionsExport implements FromCollection, ShouldAutoSize, WithHeadings
+class PreInscriptionsExport implements FromCollection, ShouldAutoSize, WithHeadings
 {
     use Exportable;
 
     public function collection()
     {
         return  Inscription::join('race_categories', 'race_categories.id', '=', 'inscriptions.race_categorie_id')
-        ->whereNotNull('billing_verified_at')->whereNull('verification_denied')
+        ->whereNull('billing_verified_at')->whereNull('verification_denied')
         ->get(['inscriptions.id',
             'race_categories.name as catagorie_name',
             'inscriptions.name',

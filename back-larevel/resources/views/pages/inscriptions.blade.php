@@ -1,14 +1,13 @@
 <x-layout>
   <div class='bg-pre min-h-screen py-7 px-2 sm:px-10 md:px-10 xl:px-32 bg-gray-darker'>
     <div class='justify-center bg-white rounded-lg pb-2 my-7'>
-      <h1 class='flex justify-center text-[1.5rem] sm:text-[2rem] font-Hurme-Geometric-BO font-bold italic text-blue-dark py-5'>INSCRIPTOS</h1>
+      <h1 class='flex justify-center text-[1.5rem] sm:text-[2rem] font-Hurme-Geometric-BO font-bold italic text-blue-dark py-5'>INSCRIPCIONES</h1>
       <div class="grid sm:flex items-center">
         @include('partials._search-i')
         <div class="flex items-center sm:justify-between w-full pl-2 sm:pl-0 py-1">
           <a href="/inscripciones" >
             <button
-              type="submit"
-              class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
+              type="submit" class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
               Restablecer
             </button>
           </a>
@@ -16,7 +15,7 @@
             <button
               type="submit"
               class="h-10 px-2 text-gray-light rounded-lg bg-blue-high hover:bg-blue-cyan">
-              exportar 
+                Exportar todo
             </button>
           </a>
         </div>
@@ -67,7 +66,7 @@
                     <div class="grid">
                       <a class="text-blue-high hover:text-board text-base font-semibold " 
                         href="{{asset($inscription->files)}}"
-                        target="_blank">Comprobate
+                        target="_blank">Comprobante
                       </a>
                       @if($inscription->promo)
                         <a class="text-blue-high hover:text-board text-base font-semibold "
@@ -88,7 +87,7 @@
                   <td class='flex justify-center px-3'>
                     <a href="inscription/{{$inscription->id}}">
                       <button class='bg-board text-gray-light mx-1 px-2 my-1 rounded-full'>
-                            Desinscribir
+                        Desinscribir
                       </button>
                     </a>
                   </td>
@@ -97,6 +96,16 @@
             @endforeach
           </tbody>
         </table>
+
+        {{-- Mensaje según búsqueda o datos --}}
+        @if($inscriptions->total() == 0)
+          @if(request()->has('search') && request('search') != '')
+            <h2 class='flex justify-center text-[1rem] sm:text-[1.5rem] font-Hurme-Geometric-BO font-bold italic text-blue-dark py-5'>No hay resultados que coincidan con la búsqueda "{{ request('search') }}".</h2>
+          @else
+            <h2 class='flex justify-center text-[1rem] sm:text-[1.5rem] font-Hurme-Geometric-BO font-bold italic text-blue-dark py-5'>No hay inscripciones.</h2>
+          @endif
+        @endif
+
       </div>
       <div class="text-blue-high pt-3 px-3">
         {{$inscriptions->links()}}
