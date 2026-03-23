@@ -1,6 +1,7 @@
 import React from 'react'
 
 function footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="flex justify-center items-center text-center bottom-0 bg-gray-darker h-24">
       <div className="text-center p-4">
@@ -10,8 +11,7 @@ function footer() {
           <a href='https://www.instagram.com/sbucomahue/' target="_blank" rel="noreferrer"><img src='/logos/Instagram.svg' className='h-7 p-1' alt='logo Instagram'/></a>
         </div>
         <span className='text-gray'>
-                    © 2023 Copyright:
-          <a href='/' className='hover:text-gray-light'> Unco Activa</a>
+                   &copy; {year} <a href='/' className='hover:text-gray-light'> UNCo Activa. </a> Todos los derechos reservados.
         </span>
       </div>
     </footer>

@@ -12,7 +12,7 @@ import Inscriptions from 'pages/Inscriptions/Inscriptions';
 import AboutUs from 'pages/AboutUs/AboutUs';
 import Results from 'pages/Results/Results';
 
-import Register from 'pages/Register/Register';
+// import Register from 'pages/Register/Register';
 
 function App() {
   let categories = useContext(CategorieContext);

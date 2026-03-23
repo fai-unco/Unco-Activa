@@ -2,12 +2,13 @@ import AlertSuccess from "components/alerts/AlertSuccess";
 import ContacUs from "pages/Home/components/ContacUs";
 import RacePath from "pages/Home/components/RacePath";
 import ShortRegulation from "pages/Home/components/ShortRegulation";
-import Hero from "components/Layouts/Hero";
+import Hero from "pages/Home/components/Hero";
 import Slider from "components/Slider";
+import { routes } from "routes/routes";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { AccessAlarm, Event, LocationOn } from "@mui/icons-material";
+// import { Link } from "react-router-dom";
+// import { AccessAlarm, Event, LocationOn } from "@mui/icons-material";
 import { Fab } from "@mui/material";
 import LibraryBooksOutlinedIcon from "@mui/icons-material/LibraryBooksOutlined";
 
@@ -148,8 +149,8 @@ const Home = () => {
             </p>
 
             <div className="flex xl:pt-8 xl:pb-1 justify-center xl:my-0 my-5 px-2 -z-0 relative">
-                <Fab color="primary" variant="extended" size="small" href={"/inscribirse"}>
-                    <LibraryBooksOutlinedIcon className="mr-3" /> Ir a Inscripciones
+                <Fab color="primary" variant="extended" size="small" href={`${routes.preinscribirse}`}>
+                    <LibraryBooksOutlinedIcon className="mr-3" /> Ir a Preinscripciones
                 </Fab>
             </div>
         </div>

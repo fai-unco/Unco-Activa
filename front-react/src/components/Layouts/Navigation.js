@@ -93,7 +93,7 @@ const Navigation = () => {
                             >
                                 Contactanos
                             </CustomNavLink>
-                            <CustomNavLink to="/sobrenosotros">Sobre Nosotros</CustomNavLink>
+                            {/* <CustomNavLink to="/sobrenosotros">Sobre Nosotros</CustomNavLink> */}
                         </div>
                     </div>
                     {/* Settings Dropdown */}
@@ -214,7 +214,7 @@ const Navigation = () => {
                                 Reglamento
                             </ResponsiveNavLink>
 
-                            <ResponsiveNavLink to="/sobrenosotros">Sobre Nosotros</ResponsiveNavLink>
+                            {/* <ResponsiveNavLink to="/sobrenosotros">Sobre Nosotros</ResponsiveNavLink> */}
                         </div>
                     }
                 </div>

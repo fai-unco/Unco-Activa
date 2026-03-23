@@ -43,7 +43,7 @@ const genders = [
   { value: 'Masculino', label: 'Masculino' },
   { value: 'Femenino', label: 'Femenino' },
   { value: 'X', label: 'X' },
-  { value: 'No se', label: 'No se' }
+  // { value: 'No se', label: 'No se' }
 ];
 
 export const expresiones = {
@@ -98,7 +98,7 @@ const PreinscriptionForm = (props) => {
    */
   
   const now = Date.now();
-  const isdateOfRace = now > new Date('June 6, 2025 21:00:00') 
+  const isdateOfRace = now > new Date('April 25, 2026 12:00:00'); //Modificar para próximos eventos
 
   const [openEnd, setopenEnd] = useState(isdateOfRace);
 
@@ -428,7 +428,7 @@ const PreinscriptionForm = (props) => {
           </div>
         </div>
         <h1 className='text-4xl font-bold text-center mt-10 mb-10 text-gray-darker'>
-          Formulario de inscripción
+          Formulario de preinscripción
         </h1>
         <AlertSuccess open={openEnd} onClose={setopenEnd}
           bg=' rgb(240 240 240)'

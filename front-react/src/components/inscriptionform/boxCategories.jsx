@@ -3,6 +3,7 @@ import { Box } from '@mui/system'
 import CategoriePaper from 'components/elements/CategoriePaper'
 import { CategorieContext } from 'context/CategorieContext'
 import React, { useContext } from 'react'
+import { routes } from "routes/routes";
 
 const BoxCategories = () => {
   let [categories] = useContext(CategorieContext);  
@@ -61,7 +62,7 @@ const BoxCategories = () => {
             categories.map((categorie) => (
               <CategoriePaper
                 key={categorie.id}
-                navigate={'/inscribirse/' + categorie.name}
+                navigate={`${routes.preinscribirse}/${categorie.name}`}
                 backgroundColor='rgb(245 245 245)'
                 color={categorie.color}
                 name={categorie.name} ></CategoriePaper>
