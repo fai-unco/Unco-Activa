@@ -21,6 +21,24 @@
         </div>
       </div>
       
+      <div class='m-3'>
+        <p class='font-Hurme-Geometric-BO italic font-bold text-red-700'>
+          <span class="text-bold text-[1.4em]">
+            Cupos Disponibles:
+          </span>
+          |
+          @foreach ($categories as $categorie)
+          <span class="text-[1.3em] text-blue-500">
+            Prueba {{ $categorie->name }} :
+          </span>
+          <span class=" text-blue-800">
+            {{ $categorie->quotas }} cupos
+          </span>
+          |
+          @endforeach
+        </p>
+      </div>
+
       <div class='overflow-x-auto pb-5'>        
         <table class='font-Hurme-Geometric-N w-full px-1'>
           <thead>
