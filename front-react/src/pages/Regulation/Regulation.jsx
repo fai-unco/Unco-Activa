@@ -6,12 +6,12 @@ const regulation = () => {
         <div className=' bg-gray-light rounded-lg text-black'>
           <div className='py-10'>
             <div className='grid justify-center px-5 sm:px-5 lg:px-16 py-5'>
-              <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>REGLAMENTO</p>
+              <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>Reglamento</p>
               <h1 className=' bg-yellow py-1 w-1/3 mt-5'> </h1>
             </div>
             <div className="px-3 sm:px-5 lg:px-12">
               <div className="sm:px-5">
-                <h3 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">FECHA DOMINGO 8 DE JULIO - 10:30 HS</h3>
+                <h3 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">FECHA SABADO 25 DE ABRIL - 15:00 HS</h3>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-10 font-Hurme-Geometric-BO">REGLAS GENERALES PARA LOS PARTICIPANTES</h4>
                 <h4 className="text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO">Largada</h4>
                 <p className="font-Hurme-Geometric-N"> Gimnasio Polideportivo Roberto Monteros (Escondido)</p>

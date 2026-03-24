@@ -119,7 +119,6 @@ function Carousel({imagenes}){
   
   return (
     <div className='flex flex-col justify-center items-center'>
-      <h1 className='text-center text-[2rem]  md:text-[2.5rem] font-Hurme-Geometric-BO text-blue-dark' fill='currentColor'>La Carrera de la UNCo</h1>
       <div className="relative w-5/6">
         <div className="h-[350px] xl:h-[450px] rounded-xl overflow-hidden">
           {/* Track */}

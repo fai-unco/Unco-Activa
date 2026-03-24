@@ -6,17 +6,16 @@ import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 
 const ShortRegulation = props => {
   return (
-    <div id={'shortRegulation'} className=' px-3 md:px-12 lg:px-0 py-7 '>
-      <div className='bg-gray-light flex flex-col lg:flex-row rounded-lg xl:max-h-[850px] lg:rounded-none text-black'>
+    <div id={'shortRegulation'} className=''>
+      <div className='bg-gray-light flex flex-col lg:flex-row rounded-lg xl:max-h-[850px] text-black'>
               
-        <div className='lg:min-w-[50%] xl:min-w-[25%] xl:max-h-full '>
+        <div className='lg:min-w-[50%] xl:min-w-[25%] xl:max-h-full overflow-hidden rounded-lg'>
           <img className='w-full h-full  lg:block justify-self-end' alt='feed story' src={'elements/placa-reglamento.png'} />
-          
         </div>
 
         <div id='reglamento' className={'p-5 lg:pl-10'}>
           <div className='grid justify-center pt-5 '>
-            <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>REGLAMENTO</p>
+            <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>Reglamento</p>
             <h1 className=' bg-yellow py-1 w-1/3 mt-5'> </h1>
           </div>
           <p className='text-[1.2rem] text-blue-high font-bold pt-5 font-Hurme-Geometric-BO'>Responsabilidades: <span className='font-Hurme-Geometric-N font-normal'>Al inscribirse, el participante acepta el presente reglamento y declara:</span> 

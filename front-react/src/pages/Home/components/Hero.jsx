@@ -59,17 +59,21 @@ const Hero = () => {
   }
 
   return (
-    <div className='grid  justify-center h-96 bg-hero-pattern bg-cover'>
+    <div className='grid justify-center h-80 bg-hero-pattern bg-cover'>
       <div className='grid items-end justify-center'>
-        <div>
-          <img
-            alt='unco activa logo'
-            src='./logos/logoUNCOactiva.png'
-            className='h-40'>
-          </img>
-        </div>
-        <div>
-          <h1 className='text-blue-cyan text-[2.5rem] font-Hurme-Geometric-BO'>UNCo Activa</h1>
+        <div className='w-full flex items-center gap-5'>
+          <div className=''>
+            <img
+              alt='unco activa logo'
+              src='./logos/logoUNCOactiva.png'
+              className='h-20 sm:h-32 w-auto'>
+            </img>
+          </div>
+          <div className='flex justify-center text-center'>
+            <p className='font-Hurme-Geometric-BO text-[2.5rem] text-blue-cyan'>
+              UNCo Activa
+            </p>
+          </div>
         </div>
       </div>
       <div className='grid sm:flex items-end justify-center pb-10 text-sm text-black font-Hurme-Geometric-N max-h-full'>

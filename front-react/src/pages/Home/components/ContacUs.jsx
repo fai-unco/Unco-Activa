@@ -78,7 +78,7 @@ import React, { useState } from 'react'
   return (
     <div className='text-black bg-gray-light rounded-lg max-w-lg p-5'>
       <div className='grid justify-center'>
-        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>CONTACTANOS</p>
+        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>Contactanos</p>
         <h1 className=' bg-yellow py-1 w-1/3 mt-5'> </h1>
       </div>
       <div className='container max-w-4xl mx-auto text-center  py-5'>
@@ -151,7 +151,7 @@ const ContacUs = () => {
   return (
     <div className='text-black bg-gray-light rounded-lg max-w-lg p-5'>
       <div className='grid justify-center'>
-        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>CONTACTANOS</p>
+        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>Contactanos</p>
         <h1 className='bg-yellow py-1 w-1/3 mt-5'> </h1>
       </div>
 
@@ -167,35 +167,37 @@ const ContacUs = () => {
         <p className='mt-4 text-lg font-semibold'>
           🌐 También puedes seguirnos en nuestras redes sociales:
         </p>
+        <div className='flex flex-col items-center'>
         <div className='mt-4'>
-          <a
-            href='https://www.instagram.com/sbucomahue?igsh=bDc2M2tjNWdzOW5p'
-            className='text-blue-500 hover:text-blue-700 mr-4'
+          <a href='https://www.instagram.com/sbucomahue?igsh=bDc2M2tjNWdzOW5p'
+            className='text-blue-500 hover:text-blue-700 mr-4 flex gap-1'
             target='_blank'
-            rel='noopener noreferrer'
-          >
-            Secretaría de Bienestar Universitario - Instagram
+            rel='noopener noreferrer'>            
+            <img src='/logos/Instagram.svg' className='h-7 p-1' alt='logo Instagram'/>
+            <p>Secretaría de Bienestar Universitario</p>
           </a>
         </div>
         <div className='mt-2'>
           <a
             href='https://www.instagram.com/unco_activa?igsh=NGozbG44MnV0cTJ4'
-            className='text-blue-500 hover:text-blue-700'
+            className='text-blue-500 hover:text-blue-700 flex'
             target='_blank'
             rel='noopener noreferrer'
-          >
-            Unco Activa - Instagram
+          >            
+            <img src='/logos/Instagram.svg' className='h-7 p-1' alt='logo Instagram'/>
+            <p>Unco Activa</p>
           </a>
+        </div>
         </div>
       </div>
 
-      <div className='flex pt-7 justify-center'>
+      {/* <div className='flex pt-7 justify-center'>
         <div className='relative col-span-2 mt-3 md:-mt-1 mb-3 md:mb-0 flex-none w-24'>
           <button className='lg:w-28 md:w-28 sm:w-auto flex-none'>
             Más Info
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

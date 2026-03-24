@@ -16,12 +16,44 @@ const RacePath = props => {
   };
 
   return (
-    <div className='bg-gray-light text-black'>
-      <div className='grid justify-center p-5'>
-        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>
-          MAPA DEL RECORRIDO
-        </p>
-        <h1 className='bg-yellow py-1 w-1/3 mt-5'></h1>
+    <div className='bg-gray-light text-black rounded-lg'>
+      <div className='grid items-center justify-center p-5 gap-3'>
+        <div className='flex flex-col items-center justify-center'>
+          <div className='grid justify-center pt-5 '>
+            <h2 className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>
+              El Recorrido
+            </h2>
+            <h1 className='bg-yellow py-1 w-1/3 mt-5'></h1>
+          </div>
+          <p>
+            La carrera <strong>UNCo Activa</strong>  es una invitación a recorrer un espacio de alto valor ecológico y educativo. El circuito se desarrolla íntegramente dentro del <strong>Área Protegida Parque Universitario Provincia del Monte</strong>, un sector de nuestra barda resguardado para la conservación y el estudio.
+          </p>
+          <p>
+            Este espacio fue oficialmente creado mediante la <strong>Ordenanza Nº 714/2004</strong> sancionada por el <strong>Consejo Superior de la Universidad Nacional del Comahue</strong>. Dicha norma establece la protección de este ecosistema de estepa, reconociéndolo como un ambiente natural único que debe ser preservado frente al avance urbanístico. Correr aquí significa transitar por un aula abierta donde la biodiversidad es la protagonista.          
+          </p>
+        </div>
+        <div>
+          <h3 className='text-blue-dark text-xl sm:text-2xl font-bold font-Hurme-Geometric-BO'>
+            Características del Circuito          
+          </h3>
+          <ul className="list-disc pl-5">
+            <li>
+              <strong>Flora y Paisaje</strong>: El trazado permite apreciar ejemplares de jarillas, alpatacos y monte achaparrado, vegetación típica que ha sido protegida gracias a la gestión universitaria. El suelo, una combinación de arcilla y arena, ofrece la superficie auténtica de la meseta patagónica.
+            </li>
+            <li>
+              <strong>Relieve y Desafío</strong>: Los senderos aprovechan las ondulaciones naturales del terreno. Los corredores enfrentarán pendientes que exigen resistencia, pero que recompensan con vistas panorámicas de la ciudad de Neuquén y el valle de los ríos Limay y Neuquén.
+            </li>
+            <li>
+              <strong>Conciencia Ambiental</strong>: Al participar, asumimos el compromiso de respetar este entorno. La Ordenanza 714/2004 no solo protege las especies, sino que fomenta el uso responsable del área para actividades recreativas y deportivas de bajo impacto.
+            </li>
+          </ul>
+          
+        </div>
+        <div>
+          <p>
+            <strong>UNCo Activa</strong> te invita a ser parte de la historia de nuestra Universidad, corriendo por senderos que son patrimonio de todos y que cuidamos entre todos.
+          </p>
+        </div>
       </div>
 
       {/* Mostrar mapa solo si mostrarMapa es true */}
