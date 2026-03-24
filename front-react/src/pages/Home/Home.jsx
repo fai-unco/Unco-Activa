@@ -89,7 +89,7 @@ const Home = () => {
       <div>
         <Hero />
       </div>
-      <div className="px-3 md:px-12 py-7  ">
+      <div className="px-3 md:px-12 pb-7  ">
         <div className=" bg-gray-light rounded-lg text-black">
           <div id="conoceMas" className="flex flex-col justify-center items-center pt-5 gap-5">
             <div className="px-5 sm:px-5 lg:px-16">
@@ -213,8 +213,7 @@ const Home = () => {
               Organizadores
             </h1>
 
-            <div
-              id="racePath"
+            <div              
               className="grid grid-cols-3 gap-4 items-center justify-center p-5"
             >
               <img

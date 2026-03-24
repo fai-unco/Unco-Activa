@@ -16,7 +16,7 @@ const RacePath = props => {
   };
 
   return (
-    <div className='bg-gray-light text-black rounded-lg'>
+    <div className='bg-gray-light text-black rounded-lg' id="racePath">
       <div className='grid items-center justify-center p-5 gap-3'>
         <div className='flex flex-col items-center justify-center'>
           <div className='grid justify-center pt-5 '>

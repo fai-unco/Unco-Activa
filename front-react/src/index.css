@@ -15,6 +15,12 @@
   src: url(./fonts/HurmeGeometricSans4-Regular.ttf);
 }
 
+@layer utilities {
+  [id] {
+    @apply scroll-mt-20;
+  }
+}
+
 /* Change Autocomplete styles in Chrome*/
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
