@@ -9,7 +9,7 @@ import Regulation from 'pages/Regulation/Regulation';
 import Preinscription from 'pages/Preinscription/Preinscription';
 import { CategorieContext } from 'context/CategorieContext';
 import Inscriptions from 'pages/Inscriptions/Inscriptions';
-import AboutUs from 'pages/AboutUs/AboutUs';
+import Contributors from 'pages/Contributors/Contributors';
 import Results from 'pages/Results/Results';
 
 // import Register from 'pages/Register/Register';
@@ -27,8 +27,9 @@ function App() {
         <Route path={routes.reglamento} element={<Regulation />} />
         <Route path={routes.participantes} element={<Inscriptions />} />
         <Route path={routes.resultados} element={<Results />} />
-        <Route path={routes.sobrenosotros} element={<AboutUs />} />
+        {/* <Route path={routes.sobrenosotros} element={<AboutUs />} /> */}
         <Route path={routes.preinscribirse} element={<Preinscription />} />
+        <Route path={routes.contribuidores} element={<Contributors />} />
 
         {/* <Route path={routes.register} element={<Register />} /> */}
          
