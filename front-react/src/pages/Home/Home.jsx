@@ -3,7 +3,7 @@ import ContacUs from "pages/Home/components/ContacUs";
 import RacePath from "pages/Home/components/RacePath";
 import ShortRegulation from "pages/Home/components/ShortRegulation";
 import Hero from "pages/Home/components/Hero";
-import Slider from "components/Slider";
+import Carousel from "pages/Home/components/Carousel";
 import { routes } from "routes/routes";
 
 import { useState } from "react";
@@ -92,7 +92,7 @@ const Home = () => {
                         <h1>Universidad Nacional del Comahue - Neuquén Capital</h1>
                     </div>
                     <div className="flex justify-center pt-5">
-                        <Slider imagenes={mockImagenes} className="bg-white" />
+                        <Carousel imagenes={mockImagenes} className="bg-white" />
                     </div>
 
                     <div className="py-5">
