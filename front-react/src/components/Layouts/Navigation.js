@@ -36,13 +36,13 @@ const Navigation = () => {
 
   return (
     // <div className='  '>
-    <nav className="font-Hurme-Geometric-N sticky top-0 z-50">
+    <nav className="font-Header-B sticky top-0 z-50">
       {/* Primary Navigation Menu */}
-      <div className="bg-gray-darker sticky top-0 w-full mx-auto px-4 sm:px-6 lg:px-8 z-50">
+      <div className="bg-black-unco sticky top-0 w-full mx-auto px-4 sm:px-4 lg:px-6 z-50">
         <div className="flex justify-between h-16">
-          <div className="flex">
+          <div className="flex w-full justify-between">
             {/* Logo */}
-            <div className="flex-shrink-0 flex items-center">
+            <div className="lg:static lg:transform-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex-shrink-0 flex items-center">
               <NavLink
                 onClick={(e) => {
                   e.preventDefault();
@@ -54,11 +54,12 @@ const Navigation = () => {
                   }
                 }}
               >
-                <ApplicationLogo className="block h-10 w-auto fill-current text-gray-light" />
+                <ApplicationLogo className="h-10" />
               </NavLink>
             </div>
+            
             {/* Navigation Links */}
-            <div className="hidden space-x-3 lg:space-x-6  md:-my-px md:ml-10 md:flex">
+            <div className="hidden gap-3 lg:gap-6 lg:-my-px lg:ml-10 lg:flex">
               <CustomNavLink
                 onClick={(e) => {
                   e.preventDefault();
@@ -101,11 +102,11 @@ const Navigation = () => {
                 Reglamento
               </CustomNavLink>
 
-              {/* <CustomNavLink to="/preinscribirse">Preinscribirse</CustomNavLink> */}
+              <CustomNavLink to="/preinscribirse">Preinscribirse</CustomNavLink>
 
               <CustomNavLink to="/participantes">Participantes</CustomNavLink>
 
-              <CustomNavLink to="/resultados">Resultados</CustomNavLink>
+              {/* <CustomNavLink to="/resultados">Resultados</CustomNavLink> */}
 
               <CustomNavLink
                 onClick={(e) => {
@@ -174,7 +175,7 @@ const Navigation = () => {
           } */}
 
           {/* Hamburger */}
-          <div className="-mr-2 flex items-center md:hidden">
+          <div className="-mr-2 flex items-center lg:hidden">
             <button
               ref={buttonRef}
               onClick={() => setOpen((open) => !open)}
@@ -213,7 +214,7 @@ const Navigation = () => {
       </div>
 
       {/* Responsive Navigation Menu */}
-      <div ref={menuRef} className={`bg-gray-darker fixed top-16 left-0 w-full border-t border-gray transform transition-transform duration-300 md:hidden z-40 ${
+      <div ref={menuRef} className={`bg-gray-darker fixed top-16 left-0 w-full border-t border-gray transform transition-transform duration-300 lg:hidden z-40 ${
         open ? "translate-y-0" : "-translate-y-full"}`}>
         {
           <div className="pt-2 pb-3 space-y-1">
@@ -276,12 +277,12 @@ const Navigation = () => {
               Participantes
             </ResponsiveNavLink>
 
-            <ResponsiveNavLink 
+            {/* <ResponsiveNavLink 
               onClick={() => {                  
                   setOpen(false);                  
                 }}
               to="/resultados">Resultados
-            </ResponsiveNavLink>
+            </ResponsiveNavLink> */}
 
             <ResponsiveNavLink
               onClick={(e) => {

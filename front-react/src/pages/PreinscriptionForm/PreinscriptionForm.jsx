@@ -183,7 +183,7 @@ const PreinscriptionForm = (props) => {
         enlace = enlaceBase.link;
       return (
         <a href={enlace} target="_blank" rel="noreferrer">
-          <button type="button" className="bg-blue-cyan hover:bg-blue-cyan-dark text-white font-bold py-2 px-4 rounded-md">
+          <button type="button" className="bg-blue-cyan hover:bg-blue-cyan-dark text-white-unco font-bold py-2 px-4 rounded-md">
             Pagar por MercadoPago
           </button>
         </a>
@@ -422,7 +422,7 @@ const PreinscriptionForm = (props) => {
     <div className='flex flex-col mx-3 sm:mx-8 py-40 min-h-screen rounded-md overflow-hidden'>
       <div className='w-full lg:max-w-7xl p-6 m-auto bg-neutral-100 rounded-md shadow-md'>
         <div className='grid sm:grid-cols-2 justify-center'>
-          <img alt='logo unco activa' className='flex self-center justify-self-end sm:mr-10 pb-3' src='/logos/UNCO_Activa.svg'></img>
+          <img alt='Imagotipo UNCo Activa' className='flex self-center justify-self-end sm:mr-10 pb-3' src='/logos/uncoActiva/imagotipo/UNCO_Activa.svg'></img>
           <div className='flex justify-center sm:w-1/3 sm:ml-10'>
             <CategoriePaper boxShadow='none' color={props.categorie.color} name={props.categorie.name}> </CategoriePaper>
           </div>

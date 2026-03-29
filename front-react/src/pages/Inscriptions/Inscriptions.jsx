@@ -86,16 +86,18 @@ const Inscriptions = () => {
     };
 
     return (
-        <div className="font-Hurme-Geometric-R min-h-screen">
+        <div className="font-Text-R min-h-screen">
             <div className="px-3 sm:px-10 md:px-20 lg:px-32 py-7 ">
                 <div className=" bg-gray-light rounded-lg text-black">
                     <div className="py-10">
                         <div className="grid justify-center px-5 sm:px-5 lg:px-16 py-5">
-                            <p className="text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO">Participantes</p>
-                            <h1 className=" bg-yellow py-1 w-1/3 mt-5"> </h1>
+                            <p className="text-black-unco text-3xl sm:text-4xl font-bold font-Header-B">
+                                Participantes
+                            </p>
+                            <h1 className="bg-lime-unco py-1 w-1/3 mt-5"> </h1>
                         </div>
                         <div className="flex justify-center">
-                            <p className="justify-center text-lg  font-Hurme-Geometric-Nd">Lista de participantes actualmente aceptados</p>
+                            <p className="justify-center text-lg  font-Header-B">Lista de participantes actualmente aceptados</p>
                         </div>
                         <div className="flex justify-center mt-6 px-5">
                             <div className="relative z-0 mb-6 w-full md:w-1/3 group">
@@ -110,8 +112,8 @@ const Inscriptions = () => {
                         </div>
 
                         <div className="flex justify-center overflow-x-auto p-5 ">
-                            <div className="font-Hurme-Geometric-N w-full px-1 md:w-5/6 border-2 border-blue-cyan rounded-lg pb-2 ">
-                                <div className="  border-b-2 border-blue-cyan grid grid-cols-3 text-center font-Hurme-Geometric-BO italic text-blue-dark">
+                            <div className="font-Header-B w-full px-1 md:w-5/6 border-2 border-blue-cyan rounded-lg pb-2 ">
+                                <div className="  border-b-2 border-blue-cyan grid grid-cols-3 text-center font-Header-B italic text-black-unco">
                                     <div className="px-3">#</div>
                                     <div className="px-3 overflow-auto">CATEGORÍA</div>
                                     <div className="px-3 overflow-auto ">NOMBRE Y APELLIDO</div>

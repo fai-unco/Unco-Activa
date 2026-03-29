@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import ImageBackground from './ImageBackground';
 
 function Carousel({imagenes}){
   // Variables y estados
@@ -91,12 +92,14 @@ function Carousel({imagenes}){
   const handleTransitionEnd = (e) => {
     if (e.target !== e.currentTarget) return;
 
-    if (index === extended.length - visible) {
+    if (index >= extended.length - visible) {
+      // Loop hacia la derecha
       setTransition(false);
       setIndex(visible);
     }
 
-    if (index === 0) {
+    if (index < visible) {
+      // Loop hacia la izquierda
       setTransition(false);
       setIndex(cantidad + visible - 1);
     }
@@ -140,25 +143,27 @@ function Carousel({imagenes}){
             {extended.map((img, i) => {
               const realIndex = (i - visible + imagenes.length) % imagenes.length;
               const isCenter = realIndex === current;
+              
               return(
                 <div
                   key={i}
-                  className={`overflow-hidden rounded-xl flex-shrink-0 w-full sm:w-1/3 flex items-center justify-center bg-hero-pattern bg-cover bg-center ${isCenter ? 'scale-100 opacity-100 z-10' : 'scale-90 opacity-50'}`}
+                  className={`flex justify-center items-center rounded-xl overflow-hidden flex-shrink-0 w-full sm:w-1/3 ${isCenter ? 'scale-100 opacity-100 z-10' : 'scale-90 opacity-50'}`}
                 >
-                  {/* overlay */}
-                  {!isCenter && (
-                    <div className="absolute inset-0 bg-black/30 z-10">
-                      
-                    </div>
-                  )}
-
-                  <img
-                    draggable={false}
-                    onClick={() => setSelectedImg(img)}
-                    src={img}
-                    className="select-none max-h-full max-w-full object-contain"
-                    alt=""
-                  />
+                  <ImageBackground>
+                    {/* overlay */}
+                    {!isCenter && (
+                      <div className="absolute inset-0 bg-black/30 z-10">
+                        
+                      </div>
+                    )}
+                        <img
+                          draggable={false}
+                          onClick={() => setSelectedImg(img)}
+                          src={img}
+                          className="select-none max-h-full max-w-full object-contain"
+                          alt={`Imagen-${img}`}
+                        />
+                    </ImageBackground> 
                 </div>
               );
             })}

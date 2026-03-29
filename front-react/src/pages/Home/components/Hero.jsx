@@ -35,9 +35,7 @@ const Hero = () => {
 
         >
           <DialogContent
-            sx={{
-              background: '#626060'
-            }}>
+            className='bg-gray-darker'>
             <IconButton
               aria-label="close"
               onClick={handleClose}
@@ -59,36 +57,35 @@ const Hero = () => {
   }
 
   return (
-    <div className='grid justify-center h-80 bg-hero-pattern bg-cover'>
-      <div className='grid items-end justify-center'>
-        <div className='w-full flex items-center gap-5'>
-          <div className=''>
-            <img
-              alt='unco activa logo'
-              src='./logos/logoUNCOactiva.png'
-              className='h-20 sm:h-32 w-auto'>
-            </img>
-          </div>
-          <div className='flex justify-center text-center'>
-            <p className='font-Hurme-Geometric-BO text-[2.5rem] text-blue-cyan'>
-              UNCo Activa
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className='grid sm:flex items-end justify-center pb-10 text-sm text-black font-Hurme-Geometric-N max-h-full'>
+    <div className='grid justify-center items-center gap-5 p-5'>
 
+      <div className='grid justify-center'>
+        <div className=''>
+          <img
+            alt='UNCo Activa Imagotipo'
+            src='/logos/uncoActiva/imagotipo/UNCo Activa 2026 Blanco.svg'
+            className='h-32 sm:h-52 w-auto'>
+          </img>
+        </div>
+        {/* <div className='flex justify-center text-center'>
+          <p className='font-Header-B text-[2.5rem] text-blue-cyan'>
+            UNCo Activa
+          </p>
+        </div> */}        
+      </div>
+
+      <div className='grid sm:flex items-end justify-center text-sm text-black-unco font-Header-B max-h-full gap-4'>
         <div className='flex justify-center px-2'>
           {/* <a
             variant="contained"
             href='https://cronometrajeinstantaneo.com/resultados/unco-activa-2022'
-            className='border-2 border-white rounded-full px-5 py-1 bg-white hover:bg-opacity-0 hover:text-white ease-in-out duration-[1500ms]'>
+            className='border-2 border-lime-unco rounded-full px-5 py-1 bg-lime-unco hover:bg-opacity-0 hover:text-lime-unco ease-in-out duration-[1500ms]'>
             RESULTADOS
           </a> */}
           <button
             variant="contained"
             onClick={handleClickOpen}
-            className='border-2 border-white rounded-full px-5 py-1 bg-white hover:bg-opacity-0 hover:text-white ease-in-out duration-[1500ms]'>
+            className='border-2 border-lime-unco rounded-full px-5 py-1 bg-lime-unco hover:bg-opacity-0 hover:text-lime-unco ease-in-out duration-[1500ms]'>
             PRE-INSCRIBITE
           </button>
           <ModalCategories />
@@ -100,7 +97,7 @@ const Hero = () => {
               let racepath = document.getElementById('conoceMas');
               racepath.scrollIntoView({ behavior: 'smooth' });
             }}           
-            className='cursor-pointer border-2 scroll-smooth  border-white rounded-full px-5 py-1 text-white  hover:bg-white hover:text-black bg-opacity-0 ease-in-out duration-[1500ms]'>
+            className='cursor-pointer border-2 scroll-smooth  border-lime-unco rounded-full px-5 py-1 text-lime-unco  hover:bg-lime-unco hover:text-black bg-opacity-0 ease-in-out duration-[1500ms]'>
             CONOCE MÁS
           </div>
         </div>

@@ -4,16 +4,43 @@
 
 @font-face {
   font-family: 'Hurme-Geometric-BO';
-  src: url(./fonts/HurmeGeometricSans4-BlackObl.ttf);
+  src: url(./fonts/HurmeGeometricSans4/HurmeGeometricSans4-BlackObl.ttf);
 }
 @font-face {
   font-family: 'Hurme-Geometric-N';
-  src: url(./fonts/HurmeGeometricSans4-SemiBold.ttf);
+  src: url(./fonts/HurmeGeometricSans4/HurmeGeometricSans4-SemiBold.ttf);
 }
 @font-face {
   font-family: 'Hurme-Geometric-R';
-  src: url(./fonts/HurmeGeometricSans4-Regular.ttf);
+  src: url(./fonts/HurmeGeometricSans4/HurmeGeometricSans4-Regular.ttf);
 }
+
+@font-face {
+  font-family: 'Anton-R';
+  src: url(./fonts/Anton/Anton-Regular.ttf);
+}
+
+/* Provisional en reemplazo de Sporty Pro Bold para Headers*/
+@font-face {
+  font-family: 'Orbitron-EB';
+  src: url(./fonts/Orbitron/static/Orbitron-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: 'Orbitron-B';
+  src: url(./fonts/Orbitron/static/Orbitron-Black.ttf);
+}
+
+@font-face {
+  font-family: 'Orbitron-BO';
+  src: url(./fonts/Orbitron/static/Orbitron-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Orbitron-V';
+  src: url(./fonts/Orbitron/Orbitron-VariableFont_wght.ttf);
+}
+
 
 @layer utilities {
   [id] {
@@ -39,6 +66,17 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+.bg-texture {
+  background-image: url('../public/background/bgTextureV.png');
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+}
+
+.bg-img-texture {
+  background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url("../public/background/oldFondo1.png");
+}
+
+/* Old bgs
 :root {
   place-items: center;
   min-width: 320px;
@@ -47,12 +85,12 @@ select:-webkit-autofill:focus {
   background-size: cover;
   background-position: center;
   --tw-bg-opacity: 1;
-    background-color: rgb(39 39 42 / var(--tw-bg-opacity));
-    background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url("../public/Fondo1.png");
+  background-color: rgb(39 39 42 / var(--tw-bg-opacity));
+  background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url("../public/background/oldFondo1.png");
 }
 
 .bg-hero-pattern{
-  background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url('../public/Fondo1.png');
+  background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url('../public/background/oldFondo1.png');
 }
 
 .bg-login{
@@ -61,5 +99,5 @@ select:-webkit-autofill:focus {
   background-repeat: no-repeat, repeat;
   background-size: cover;
   background-position: center;
-  background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url('../public/Fondo1.png');
-}
+  background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url('../public/background/oldFondo1.png');
+} */

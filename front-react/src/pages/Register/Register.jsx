@@ -27,15 +27,15 @@ const Register = () => {
 
   return (
       <GuestLayout>
-        <div className='bg-login font-Hurme-Geometric-N'>
+        <div className='bg-login font-Header-B'>
           <AuthCard>
-            <img src='/logos/UNCO_Activa.svg' alt='logo unco activa' className="py-6"></img>
+            <img src='/logos/uncoActiva/imagotipo/UNCO_Activa.svg' alt='Imagotipo UNCo Activa' className="py-6"></img>
             <h1 className="text-sm font-semibold text-center">
             Registrate
             </h1>
             {/* Validation Errors */}
             <AuthValidationErrors className="mb-4" errors={errors} />
-            <form onSubmit={submitForm} className='font-Hurme-Geometric-R'>
+            <form onSubmit={submitForm} className='font-Text-R'>
               {/* Name */}
               <div className="mt-4">
                 <Input

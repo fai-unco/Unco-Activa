@@ -1,11 +1,12 @@
-import axios from 'axios'
-import AlertSuccess from 'components/alerts/AlertSuccess'
-import ButtonInput from 'components/elements/ButtonInput'
-import InputColForm from 'components/inscriptionform/InputColForm'
-import { expresiones } from 'pages/PreinscriptionForm/PreinscriptionForm'
-import React, { useState } from 'react'
+import axios from "axios";
+import AlertSuccess from "components/alerts/AlertSuccess";
+import ButtonInput from "components/elements/ButtonInput";
+import InputColForm from "components/inscriptionform/InputColForm";
+import { expresiones } from "pages/PreinscriptionForm/PreinscriptionForm";
+import React, { useState } from "react";
 
-{/*const ContacUs = () => { 
+{
+  /*const ContacUs = () => { 
 
   // const endpoint = 'https://127.0.0.1:8000//api/contacUs'
   const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api/contacUs'
@@ -78,8 +79,8 @@ import React, { useState } from 'react'
   return (
     <div className='text-black bg-gray-light rounded-lg max-w-lg p-5'>
       <div className='grid justify-center'>
-        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>Contactanos</p>
-        <h1 className=' bg-yellow py-1 w-1/3 mt-5'> </h1>
+        <p className='text-black-unco text-3xl sm:text-4xl font-bold font-Header-B'>Contactanos</p>
+        <h1 className='bg-lime-unco py-1 w-1/3 mt-5'> </h1>
       </div>
       <div className='container max-w-4xl mx-auto text-center  py-5'>
         <label className='mt-4  '>
@@ -145,49 +146,74 @@ import React, { useState } from 'react'
     </div>
           
   )
-}*/}
+}*/
+}
 
 const ContacUs = () => {
   return (
-    <div className='text-black bg-gray-light rounded-lg max-w-lg p-5'>
-      <div className='grid justify-center'>
-        <p className='text-blue-dark text-3xl sm:text-4xl font-bold font-Hurme-Geometric-BO'>Contactanos</p>
-        <h1 className='bg-yellow py-1 w-1/3 mt-5'> </h1>
+    <div className="flex flex-col text-black-unco bg-gray-light rounded-lg p-10 gap-5">
+      <div className="grid justify-center">
+        <h1 className="text-black-unco text-3xl sm:text-4xl font-bold font-Header-B">
+          Contactanos
+        </h1>
+        <h1 className="bg-lime-unco py-1 w-1/3 mt-5"> </h1>
       </div>
 
-      <div className='container max-w-4xl mx-auto text-center py-5'>
-        <p className='text-lg font-semibold'>
-          📧 Para cualquier consulta, puedes contactarnos a nuestro correo electrónico:
-        </p>
-        <p className='mt-4 text-gray-700'>
-          <a href='mailto:uncoactiva@gmail.com' className='text-blue-500 hover:text-blue-700'>
+      <div className="container text-center">
+        <div className="flex">          
+          <p className="text-lg font-semibold">
+            Para cualquier consulta, puedes contactarnos a nuestro correo
+            electrónico:
+          </p>
+        </div>
+        <p className="mt-4 text-gray-700 justify-center flex gap-2 items-center">
+          <img
+              src="/logos/icons/2026Mail.png"
+              className="h-7"
+              alt="Logo Instagram"
+            />
+          <a
+            href="mailto:uncoactiva@gmail.com"
+            className="text-blue-500 hover:text-blue-700 flex"
+          >
             uncoactiva@gmail.com
           </a>
         </p>
-        <p className='mt-4 text-lg font-semibold'>
-          🌐 También puedes seguirnos en nuestras redes sociales:
+        
+        <p className="mt-4 text-lg font-semibold">
+          También puedes seguirnos en nuestras redes sociales:
         </p>
-        <div className='flex flex-col items-center'>
-        <div className='mt-4'>
-          <a href='https://www.instagram.com/sbucomahue?igsh=bDc2M2tjNWdzOW5p'
-            className='text-blue-500 hover:text-blue-700 mr-4 flex gap-1'
-            target='_blank'
-            rel='noopener noreferrer'>            
-            <img src='/logos/Instagram.svg' className='h-7 p-1' alt='logo Instagram'/>
-            <p>Secretaría de Bienestar Universitario</p>
-          </a>
-        </div>
-        <div className='mt-2'>
-          <a
-            href='https://www.instagram.com/unco_activa?igsh=NGozbG44MnV0cTJ4'
-            className='text-blue-500 hover:text-blue-700 flex'
-            target='_blank'
-            rel='noopener noreferrer'
-          >            
-            <img src='/logos/Instagram.svg' className='h-7 p-1' alt='logo Instagram'/>
-            <p>Unco Activa</p>
-          </a>
-        </div>
+        <div className="flex flex-col items-center">
+          <div className="mt-4">
+            <a
+              href="https://www.instagram.com/sbucomahue?igsh=bDc2M2tjNWdzOW5p"
+              className="text-blue-500 hover:text-blue-700 mr-4 flex gap-2 items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/logos/icons/2026Instagram.png"
+                className="h-7"
+                alt="Logo Instagram"
+              />
+              <p>Secretaría de Bienestar Universitario</p>              
+            </a>
+          </div>
+          <div className="mt-2">
+            <a
+              href="https://www.instagram.com/unco_activa?igsh=NGozbG44MnV0cTJ4"
+              className="text-blue-500 hover:text-blue-700 flex gap-2 items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/logos/icons/2026Instagram.png"
+                className="h-7"
+                alt="Logo Instagram"
+              />
+              <p>UNCo Activa</p>              
+            </a>
+          </div>
         </div>
       </div>
 
@@ -202,8 +228,4 @@ const ContacUs = () => {
   );
 };
 
-
-
-
-
-export default ContacUs
+export default ContacUs;

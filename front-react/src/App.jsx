@@ -26,7 +26,7 @@ function App() {
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.reglamento} element={<Regulation />} />
         <Route path={routes.participantes} element={<Inscriptions />} />
-        <Route path={routes.resultados} element={<Results />} />
+        {/* <Route path={routes.resultados} element={<Results />} /> */}
         {/* <Route path={routes.sobrenosotros} element={<AboutUs />} /> */}
         <Route path={routes.preinscribirse} element={<Preinscription />} />
         <Route path={routes.contribuidores} element={<Contributors />} />

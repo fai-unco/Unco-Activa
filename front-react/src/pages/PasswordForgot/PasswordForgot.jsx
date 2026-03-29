@@ -22,11 +22,11 @@ const PasswordForgot = () => {
 
   return (
       <GuestLayout>
-        <div className='bg-login px-6 font-Hurme-Geometric-N'>
+        <div className='bg-login px-6 font-Header-B'>
           <AuthCard
             logo={
               <NavLink to="/">
-                <img src='logos/UNCO_Activa.svg' alt='logo unco activa' className="py-6"></img>
+                <img src='/logos/uncoActiva/imagotipo/UNCO_Activa.svg' alt='Imagotipo UNCo Activa' className="py-6"></img>
               </NavLink>
             }>
             <div className="mb-4 text-sm">
@@ -36,7 +36,7 @@ const PasswordForgot = () => {
             <AuthSessionStatus className="mb-4" status={status} />
             {/* Validation Errors */}
             <AuthValidationErrors className="mb-4" errors={errors} />
-            <form onSubmit={submitForm} className='font-Hurme-Geometric-R'>
+            <form onSubmit={submitForm} className='font-Text-R'>
               {/* Email Address */}
               <div>
                 <Input

@@ -28,9 +28,10 @@ const Login = () => {
 
   return (
       <GuestLayout>
-        <div className='bg-login font-Hurme-Geometric-N'>
+        <div className='bg-login font-Header-B'>
           <AuthCard>
-            <img src='/logos/UNCO_Activa.svg' alt='logo unco activa' className="py-6"></img>
+            <img src='/logos/uncoActiva/imagotipo/UNCO_Activa.svg' alt='Imagotipo UNCo Activa' className="py-6"></img>
+            
             <h1 className="text-sm font-semibold text-center">
                   Iniciar Sesion
             </h1>
@@ -38,7 +39,7 @@ const Login = () => {
             <AuthSessionStatus className="mb-4" status={status} />
             {/* Validation Errors */}
             <AuthValidationErrors className="mb-4" errors={errors} />
-            <form onSubmit={submitForm} className='font-Hurme-Geometric-R'>
+            <form onSubmit={submitForm} className='font-Text-R'>
               {/* Email Address */}
               <div className='mt-4'>
                 <Input

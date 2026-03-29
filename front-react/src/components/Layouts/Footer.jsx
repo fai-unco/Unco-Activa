@@ -8,13 +8,13 @@ function footer() {
       <div className="text-center p-4">
         <div className='flex justify-center text-gray'>
           <a href='https://www.facebook.com/bienestaruncoma/' target="_blank" rel="noreferrer">
-            <img src='/logos/Facebook.svg' className='h-7 p-1' alt='logo Facebook'/>
+            <img src='/logos/icons/2026Facebook.png' className='h-7 p-1' alt='logo Facebook'/>
           </a>
           {/* <a href='https://twitter.com/prensaunco' target="_blank" rel="noreferrer">
-            <img src='/logos/Twitter.svg' className='h-7 p-1' alt='logo Twiter'/>
+            <img src='/logos/Twitter.svg' className='h-7 p-1' alt='Logo Twiter'/>
           </a> */}
           <a href='https://www.instagram.com/sbucomahue/' target="_blank" rel="noreferrer">
-            <img src='/logos/Instagram.svg' className='h-7 p-1' alt='logo Instagram'/>
+            <img src='/logos/icons/2026Instagram.png' className='h-7 p-1' alt='Logo Instagram'/>
           </a>
         </div>
         <div className='flex gap-2'>
@@ -22,7 +22,7 @@ function footer() {
             &copy; {year} <a href='/' className='hover:text-gray-light'> UNCo Activa. </a> Todos los derechos reservados.          
           </span>
           <a href={routes.contribuidores}> 
-            <img src='/logos/contribuidores.svg' className='h-7 p-1' alt='logo Contribuidores'/>
+            <img src='/logos/icons/contribuidores.svg' className='h-7 p-1' alt='Logo Contribuidores'/>
           </a>
         </div>
       </div>

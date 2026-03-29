@@ -39,15 +39,15 @@ const PasswordReset = () => {
           <AuthCard
             logo={
               <Link to="/">
-                <img src='/logos/UNCO_Activa.svg' alt='logo unco activa' className="py-6"></img>
+                <img src='/logos/uncoActiva/imagotipo/UNCO_Activa.svg' alt='Imagotipo UNCo Activa' className="py-6"></img>
               </Link>
             }>
-            <h1 className='flex justify-center text-sm font-Hurme-Geometric-N py-5'>Restaurar Contraseña</h1>
+            <h1 className='flex justify-center text-sm font-Header-B py-5'>Restaurar Contraseña</h1>
             {/* Session Status */}
             <AuthSessionStatus className="mb-4" status={status} />
             {/* Validation Errors */}
             <AuthValidationErrors className="mb-4" errors={errors} />
-            <form onSubmit={submitForm} className='font-Hurme-Geometric-R'>
+            <form onSubmit={submitForm} className='font-Text-R'>
               {/* Email Address */}
               <div>
                 <Input
