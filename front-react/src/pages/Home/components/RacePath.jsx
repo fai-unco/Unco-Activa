@@ -16,7 +16,7 @@ const RacePath = props => {
   };
 
   return (    
-      <div className='text-black-unco grid items-center justify-center p-10 gap-3'>
+      <div className='w-full text-black-unco grid items-center justify-center p-10 gap-3'>
         <div className='flex flex-col items-center justify-center'>
           <div className='grid justify-center'>
             <h1 className='text-3xl sm:text-4xl font-bold font-Header-B'>

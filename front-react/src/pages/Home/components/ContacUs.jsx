@@ -146,7 +146,7 @@ import React, { useState } from "react";
 
 const ContacUs = () => {
   return (
-    <div className="flex flex-col text-black-unco bg-gray-light rounded-lg p-10 gap-5">
+    <div className="w-full flex flex-col text-black-unco bg-gray-light rounded-lg p-10 gap-5">
       <div className="grid justify-center">
         <h1 className="text-black-unco text-3xl sm:text-4xl font-bold font-Header-B">
           Contactanos
@@ -155,7 +155,7 @@ const ContacUs = () => {
       </div>
 
       <div className="container text-center">
-        <div className="flex">          
+        <div className="">          
           <p className="text-lg font-semibold">
             Para cualquier consulta, puedes contactarnos a nuestro correo
             electrónico:

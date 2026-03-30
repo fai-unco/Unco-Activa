@@ -6,8 +6,8 @@ import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 
 const ShortRegulation = props => {
   return (
-    <div id={'shortRegulation'} className=''>
-      <div className='bg-gray-light flex flex-col lg:flex-row rounded-lg xl:max-h-[850px] text-black-unco'>
+    <div id={'shortRegulation'} className='h-full w-full bg-gray-light rounded-lg'>
+      <div className=' flex flex-col lg:flex-row text-black-unco'>
               
         {/* <div className='lg:min-w-[50%] xl:min-w-[25%] xl:max-h-full overflow-hidden rounded-lg'>
           <img className='w-full h-full  lg:block justify-self-end' alt='feed story' src={'elements/placa-reglamento.png'} />

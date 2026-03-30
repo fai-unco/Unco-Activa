@@ -177,7 +177,7 @@ const Home = () => {
       </div>
 
       {/* Información */}
-      <div id="information" className='bg-gray-light text-black-unco grid items-center justify-center p-10 gap-3'>
+      <div id="information" className='rounded-lg bg-gray-light text-black-unco grid items-center justify-center p-10 gap-3'>
         <div className='flex flex-col items-center justify-center'>
           <div className='grid justify-center'>
             <h1 className='text-3xl sm:text-4xl font-bold font-Header-B'>
@@ -191,7 +191,7 @@ const Home = () => {
             </div>
 
             <div className="flex flex-col lg:flex-row items-center w-full">
-              <div className='w-2/3 rounded-lg p-2'>
+              <div className='w-2/3 xl:w-1/3 rounded-lg p-2'>
                 <img className='rounded-lg' alt='feed story' src={'elements/placa-reglamento.png'} />
               </div>
 
@@ -239,20 +239,22 @@ const Home = () => {
           </div>          
         </div>
 
-      {/* Recorrido */}      
-      <div id="racePath" className='bg-gray-light rounded-lg'>
-        <RacePath />
+      <div className="flex flex-col lg:flex-row w-full gap-5">
+        {/* Recorrido */}
+        <div id="racePath" className='w-full xl:w-1/2 bg-gray-light rounded-lg'>
+          <RacePath />
+        </div>
+
+        {/* Reglamento */}
+        <div className="w-full xl:w-1/2">
+          <ShortRegulation />
+        </div>
       </div>
 
-      {/* Reglamento */}
-      <div className="rounded-lg">
-        <ShortRegulation />
-      </div>
-
-      {/* Organizadores */}
       <div className="flex flex-col w-full xl:flex-row gap-5">        
-        <div id="organizers" className="justify-center items-center gap-5 w-full xl:w-3/5">
-          <div className="bg-gray-light rounded-lg text-black-unco p-10">
+        {/* Organizadores */}
+        <div id="organizers" className="bg-gray-light rounded-lg justify-center items-center gap-5 w-full">
+          <div className=" text-black-unco p-10">
             <div className="grid justify-center">
               <div className='grid justify-center'>
                 <h1 className='text-blac-unco text-3xl sm:text-4xl font-bold font-Header-B'>
@@ -265,17 +267,17 @@ const Home = () => {
                 className="grid grid-cols-3  items-center justify-center p-5"
               >
                 <img
-                  className="col-span-1 h-36 lg:h-[230px] xl:h-[200px] justify-self-start"
+                  className="col-span-1 justify-self-start"
                   alt="Dirección de deportes y recreación"
                   src={"/logos/unco/Logo Dirección de Deportes y Recreación 4-10.png"}
                 />
                 <img
-                  className="col-span-1 h-36 lg:h-[230px] xl:h-[200px] justify-self-center"
+                  className="col-span-1 justify-self-center"
                   alt="Unco"
                   src={"/logos/unco/LOGO UNCO.png"}
                 />
                 <img
-                  className="col-span-1 h-36 lg:h-[230px] xl:h-[200px] justify-self-end"
+                  className="col-span-1 justify-self-end"
                   alt="Secretaria de Bienestar Universitario"
                   src={"/logos/unco/Secretaría de Bienestar Universitario-01.png"}
                 />
@@ -285,7 +287,7 @@ const Home = () => {
         </div>
 
         {/* Contacto */}
-        <div id="contactUs" className="rounded-lg flex justify-center xl:w-2/5">
+        <div id="contactUs" className="rounded-lg flex justify-center w-full">
           <ContacUs />
         </div>
       </div>
