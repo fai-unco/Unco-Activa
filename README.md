@@ -1,19 +1,13 @@
 # 🏃 UNCo Activa
 Aplicación web desarrollada con React y Laravel, en colaboración con la Secretaria de Bienestar Universitario de la Universidad Nacional del Comahue.
 
-<table>
-  <tr>
-    <td style="width:30%; height:auto;">
-      <img src="assets/logos/UNComa.png" alt="Isologo UNComa"/>
-    </td>
-    <td style="width:30%; height:auto;">
-      <img src="assets/logos/UNCo%20Activa%202026%20Celeste.svg" alt="Imagotipo UNCo Activa"/>
-    </td>
-    <td style="width:33%; height:auto;">
-      <img src="assets/logos/Secretaría de Bienestar Universitario.png" alt="Imagotipo Secretaria de Bienestar Universitario"/>
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <img style="width:30%;" src="assets/logos/UNComa.png" alt="Isologo UNComa"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img style="width:30%;" src="assets/logos/UNCo%20Activa%202026%20Celeste.svg" alt="Imagotipo UNCo Activa"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img style="width:30%;" src="assets/logos/Secretaría de Bienestar Universitario.png" alt="Imagotipo Secretaria de Bienestar Universitario"/>
+</div>
 
 ## 🌐 Deploy / Live
 El proyecto está desplegado en producción y puede verse en el siguiente enlace: 
