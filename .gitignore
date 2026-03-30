@@ -1,3 +1,5 @@
+.vscode/
+
 database
 database/backups/
 *.sql
