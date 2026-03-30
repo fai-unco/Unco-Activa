@@ -22,21 +22,28 @@
       </div>
       
       <div class='m-3'>
-        <p class='font-Hurme-Geometric-BO italic font-bold text-red-700'>
+
+        <div class='flex flex-col items-center font-Hurme-Geometric-BO italic font-bold text-red-600'>
+          <span class="text-bold text-[1.0em]">
+            (2026): Categorias Comparten Cupo 
+          </span>
           <span class="text-bold text-[1.4em]">
-            Cupos Disponibles:
+            Cupos Disponibles 
           </span>
-          |
-          @foreach ($categories as $categorie)
-          <span class="text-[1.3em] text-blue-500">
-            Prueba {{ $categorie->name }} :
-          </span>
-          <span class=" text-blue-800">
-            {{ $categorie->quotas }} cupos
-          </span>
-          |
-          @endforeach
-        </p>
+          <div>
+            |
+            @foreach ($categories as $categorie)
+            <span class="text-[1.2em] text-blue-500">
+              {{ $categorie->name }} :
+            </span>
+            <span class="text-[1.2em] text-blue-800">
+              {{ $categorie->quotas }} 
+              <!-- cupos -->
+            </span>
+            |
+            @endforeach
+          </div>
+        </div>
       </div>
 
       <div class='overflow-x-auto pb-5'>        

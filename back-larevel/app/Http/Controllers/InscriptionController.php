@@ -87,46 +87,23 @@ class InscriptionController extends Controller
      */
     public function store(Request $request)
     {
-         //contar inscripciones
-         $countInscriptions = Inscription::count();
+        //contar inscripciones
+        $countInscriptions = Inscription::count();
+
         //dd($request);
         $userEnrolled = Inscription::where('email', '=', $request->email) 
             ->whereNull("verification_denied")
-            ->get("id");
+            ->get("id");        
         // var_dump($userEnrolled);
-        // if (!is_null(Auth::user())){
+
+        // if (!is_null(Auth::user())) {
         if (count($userEnrolled) === 0) {
             $inscription = new Inscription();
             // $inscription->user_id = Auth::user()->id;
-            $users = DB::table('inscriptions')->count() + 1;
-            $files = $request->file();
-            $path =  'files';
-            // $resultados = print_r($files, true);
-            // abort(404, $resultados);
-            $filesPath = public_path($path);
-            if (!file_exists($filesPath)) {
-                mkdir($filesPath, 0777, true);
-            }
-            $inscriptionFiles = public_path('files/' . $users . "/");
-            if (!file_exists($inscriptionFiles)) {
-                mkdir($inscriptionFiles, 0777, true);
-            }
-            $destinationPath = 'files/' . $users . "/";
-            $file = $request->file('files')[0];
-            $name = 'payment-' .  $file->getClientOriginalName();
-            $file->move(public_path() . '/files/' . $users . '/', $name);
-            $destinationPath = $destinationPath . $name;
-            $destinationPathFile = null;
-            if ($request->promo == 'si') {
-                $promoFile = $request->file('files')[1];
-                $namefilepromo = 'promo-' . $promoFile->getClientOriginalName();
-                $promoFile->move(public_path() . '/files/' . $users . '/', $namefilepromo);
-                $destinationPathFile = '/files/' . $users . '/' . $namefilepromo;
-            }
+
+            // Primero inserto inscripcion (para usar ID autoincrement)
             $inscription->race_categorie_id = $request->race_categorie_id;
-            $inscription->files = $destinationPath;
             $inscription->name = $request->name;
-            $inscription->promo = $destinationPathFile;
             $inscription->surname = $request->surname;
             $inscription->dni = $request->dni;
             $inscription->birth = date($request->birth);
@@ -142,10 +119,49 @@ class InscriptionController extends Controller
             $inscription->emergency_contac_name = $request->emergency_contac_name;
             $inscription->emergency_contac_phone = $request->emergency_contac_phone;
             $inscription->emergency_contac_bond = $request->emergency_contac_bond;
-            $inscription->save();
+            $inscription->save(); // Primer save
+
+            // Luego, actualizo la ruta 
+            // $users = DB::table('inscriptions')->count() + 1;
+            $files = $request->file();
+            
+            // $path =  'files';
+            $path =  'files/comprobantes2026'; //Renombrado para separar eventos por año
+
+            // $resultados = print_r($files, true);
+            // abort(404, $resultados);
+
+            $filesPath = public_path($path);
+            if (!file_exists($filesPath)) {
+                mkdir($filesPath, 0777, true);
+            }
+
+            $destinationPath = $path . '/' . $inscription->id . "/"; // Uso ID autoincrement
+            $inscriptionFiles = public_path($destinationPath);
+            if (!file_exists($inscriptionFiles)) {
+                mkdir($inscriptionFiles, 0777, true);
+            }
+            
+            $file = $request->file('files')[0]; //files: nombre del array con el archivo en la req
+            $name = 'payment-' .  $file->getClientOriginalName();
+            $file->move(public_path() . '/' . $destinationPath, $name);
+            
+            $destinationPathFile = null;
+            /* No se explica funcionamiento de promo, el front no envia dicho dato */
+            // if ($request->promo == 'si') {
+            //     $promoFile = $request->file('files')[1];
+            //     $namefilepromo = 'promo-' . $promoFile->getClientOriginalName();
+            //     $promoFile->move(public_path() . '/' . $destinationPath, $namefilepromo);
+            //     $destinationPathFile = $destinationPath . $namefilepromo;
+            // }
+
+            $destinationPath = $destinationPath . $name;
+
+            $inscription->files = $destinationPath;
+            $inscription->promo = $destinationPathFile;
+            $inscription->save(); // Segundo save
 
             $categorie = RaceCategorie::findOrFail($inscription->race_categorie_id);
-
             $arreglocontacto = [
                 "name" => $request->name . " " . $request->surname,
                 "categoriename" => $categorie->name,
@@ -157,7 +173,6 @@ class InscriptionController extends Controller
         } else {
             abort(404, 'El cupo está completo o ya te has inscrito anteriormente con este correo, por favor revisa tu bandeja de spam en caso de no encontrar el correo en tu buzon de mensajes');
         }
-        // }
     }
 
     public function edit($id)
@@ -179,20 +194,30 @@ class InscriptionController extends Controller
     public function update(Request $request, $id)
     {
         $inscription = Inscription::find($id);
+        
         $idCategorie = $inscription->race_categorie_id;
         $categorie = RaceCategorie::find($idCategorie);
 
-        if ($inscription->billing_verified_at) {
-            $categorie->quotas = $categorie->quotas + 1;
-            if ($categorie->save()) {
+        if ($inscription->billing_verified_at) { // Se desinscribe
+
+            // $categorie->quotas = $categorie->quotas + 1; // No comparten cupo
+            $filas = RaceCategorie::query()->increment('quotas', 1); // Comparten cupo
+            
+            // if ($categorie->save()) { // No comparten cupo
+            if ($filas > 0) { // Comparten cupo
                 $inscription->billing_verified_at = NULL;
                 $inscription->save();
 
                 return redirect('/inscripciones')->with('message', 'Has desinscripto a '.$inscription->name.' '.$inscription->surname.'!');
             };
-        } else {
-            $categorie->quotas = $categorie->quotas - 1;
-            if ($categorie->save()) {
+
+        } else { // Se inscribe
+
+            // $categorie->quotas = $categorie->quotas - 1; // No comparten cupo
+            $filas = RaceCategorie::query()->decrement('quotas', 1); // Comparten cupo
+
+            // if ($categorie->save()) { // No comparten cupo
+            if ($filas > 0) { // Comparten cupo
                 $inscription->billing_verified_at = date('Y-m-d');
                 $inscription->save();
 
