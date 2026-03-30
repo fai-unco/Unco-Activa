@@ -35,9 +35,9 @@ const ModalRules = (props) => {
               <p> 
                         - <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia a la siguiente cuenta bancaria:<br />
                         <BankAccount />
-                <strong>Categoria: </strong><strong style={{color: props.categorie.color}}> {props.categorie.name}</strong><br />
+                <strong>Categoria: </strong><strong style={{color: props.category.color}}> {props.category.name}</strong><br />
 
-                <strong>Precio:</strong> ${props.categorie.price}<br /><br />
+                <strong>Precio:</strong> ${props.category.price}<br /><br />
 
                         De no enviarse el comprobante de pago/transferencia con todos los datos de la operación al mail <strong>uncoactiva@gmail.com</strong>, no se considerará como inscripto.
 

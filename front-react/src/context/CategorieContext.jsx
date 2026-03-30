@@ -5,13 +5,13 @@ export const CategorieContext = createContext();
 export const useMyContext = () => useContext(CategorieContext);
 
 const CategorieContextProvider = ({ children }) => {
-  const [categories, setcategories] = useState([])
-  // const endpoint = 'https://127.0.0.1:8000/api'
-  //const endpoint = 'https://uncoactiva-back.fi.uncoma.edu.ar/api'
-  const endpoint = process.env.REACT_APP_BACKEND_URL
+  const [categories, setcategories] = useState([]);
+  const endpoint = process.env.REACT_APP_BACKEND_URL;
+
   useEffect(() => {
     getAllCategories()
   }, [])
+
   const getAllCategories = async () => {
     await axios.get(`${endpoint}/categories`)
       .then(function (response) {
@@ -23,6 +23,7 @@ const CategorieContextProvider = ({ children }) => {
       });
     //console.log(response.data)
   }
+  
   return (
     <CategorieContext.Provider value={[categories]}>
       {children}

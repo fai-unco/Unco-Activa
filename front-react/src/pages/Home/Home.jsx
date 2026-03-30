@@ -32,18 +32,19 @@ const isdateOfRace = Date.now() > new Date("April 25, 2026 15:00:00");
 const Home = () => {
   const [openEnd, setopenEnd] = useState(!isdateOfRace);
   return (
-    <div className="flex flex-col items-center font-Text-R min-h-screen px-3 md:px-12 pb-7 gap-5">
+    <div className="flex flex-col items-center font-Text-R px-3 md:px-12 pb-7 gap-5">
       
       <AlertSuccess
-        open={openEnd}
+        // open={openEnd}
+        open = {false}
         onClose={setopenEnd}
         bg=" rgb(240 240 240)"
         titlecolor="warning.main"
         title={
-          <span className="font-semibold text-red-high">
-            ¡Atención Participantes!
-          </span>
-        }
+            <span className="font-semibold text-red-high">
+              ¡Atención Participantes!
+            </span>
+          }
         description={
           <div>
             {/* 
@@ -108,7 +109,6 @@ const Home = () => {
           <div className="">
             <Carousel imagenes={mockImagenes} className="bg-white" />
           </div>
-          
 
           <div className="">
             <div className="flex flex-col px-5 lg:px-16 gap-4">
@@ -177,60 +177,67 @@ const Home = () => {
       </div>
 
       {/* Información */}
-      <div className="lg:px-16">
-        <div className="bg-gray-light rounded-lg text-black-unco p-5">
-          <div id="info" className="flex flex-col justify-center items-center gap-5">
-            <div className="px-5 sm:px-5 lg:px-16">
-              <h1 className='text-center text-[2rem] md:text-[2.5rem] font-Header-B text-black-unco' fill='currentColor'>
+      <div id="information" className='bg-gray-light text-black-unco grid items-center justify-center p-10 gap-3'>
+        <div className='flex flex-col items-center justify-center'>
+          <div className='grid justify-center'>
+            <h1 className='text-3xl sm:text-4xl font-bold font-Header-B'>
                 Información
               </h1>
               <h1 className="bg-lime-unco py-1 w-1/3 mt-5"></h1>
             </div>
-          </div>
+            <div className="text-[1.8rem] text-center font-Header-B text-cyan-unco">
+              <h1 className="">SABADO 25 DE ABRIL / 15:00 HS</h1>
+              <h1>Universidad Nacional del Comahue - Neuquén Capital</h1>
+            </div>
 
-          <div className="text-[1.8rem] text-center p-5 font-Header-B text-cyan-unco">
-            <h1 className="">SABADO 25 DE ABRIL / 15:00 HS</h1>
-            <h1>Universidad Nacional del Comahue - Neuquén Capital</h1>
-          </div>
+            <div className="flex flex-col lg:flex-row items-center w-full">
+              <div className='w-2/3 rounded-lg p-2'>
+                <img className='rounded-lg' alt='feed story' src={'elements/placa-reglamento.png'} />
+              </div>
 
-          <h4 className="text-[1.2rem] text-cyan-unco font-bold pt-5 font-Header-B">
-            Costos de Inscripción año 2026
-          </h4>
+              <div className="flex flex-col items-center p-5 gap-5">
+                <h4 className="text-[1.2rem] text-cyan-unco font-bold font-Header-B">
+                  Costos de Inscripción año 2026
+                </h4>
+                {/* Costos hardcodeados, mejorar haciendo llamada a la api (con datos en BD) */}
+                <ul className="list-disc pl-5">
+                  <p className="font-bold">
+                    Comunidad en general:
+                  </p>
+                  <li>15 km $55000.</li>
+                  <li>7 km $50000.</li>
+                  <li>3 km $40000. </li>
+                  <br />
+                  
+                  <p className="font-bold">
+                    Comunidad Universitaria (estudiantes, docentes, nodocentes, personas graduadas):
+                  </p>
+                  <li>15 km $50000.</li>
+                  <li>7 km $45000.</li>
+                  <li>3 km $35000.</li>
+                </ul>
 
-          {/* Costos hardcodeados, mejorar haciendo llamada a la api (con datos en BD) */}
-          <ul className="list-disc pl-5">
-            <p className="">Comunidad en general:</p>
-            <li>15 km $55000.</li>
-            <li>7 km $50000.</li>
-            <li>3 km $40000. </li>
-            <br />
-            <p className="">
-              Comunidad Universitaria (estudiantes, docentes, nodocentes, personas graduadas):
-            </p>
-            <li>15 km $50000.</li>
-            <li>7 km $45000.</li>
-            <li>3 km $35000.</li>
-          </ul>
+                <p className="pt-2">
+                  <span className="font-Header-B">Incluye: </span>
+                  Derecho a participación / Remera técnica / Servicios de control
+                  / Servicio de hidratación / Seguro de corredor.
+                </p>
 
-          <p className="pt-2">
-            <span className="font-Header-B">Incluye: </span>
-            Derecho a participación / Remera técnica / Servicios de control
-            / Servicio de hidratación / Seguro de corredor.
-          </p>
-
-          <div className="flex xl:pt-8 xl:pb-1 justify-center xl:my-0 my-5 px-2 -z-0 relative">
-            <Fab
-              color="primary"
-              variant="extended"
-              size="small"
-              href={`${routes.preinscribirse}`}
-            >
-              <LibraryBooksOutlinedIcon className="mr-3" /> Ir a
-              Preinscripciones
-            </Fab>
-          </div>
+                <div className="flex xl:pt-8 xl:pb-1 xl:my-0 my-5 px-2 -z-0 relative">
+                  <Fab
+                    color="primary"
+                    variant="extended"
+                    size="small"
+                    href={`${routes.preinscribirse}`}
+                  >
+                    <LibraryBooksOutlinedIcon className="mr-3" /> Ir a
+                    Preinscripciones
+                  </Fab>
+                </div>
+              </div>
+            </div>           
+          </div>          
         </div>
-      </div>
 
       {/* Recorrido */}      
       <div id="racePath" className='bg-gray-light rounded-lg'>
@@ -242,9 +249,9 @@ const Home = () => {
         <ShortRegulation />
       </div>
 
-      <div className="flex flex-col w-full xl:flex-row gap-5">
-        {/* Organizadores */}
-        <div id="organizadores" className="justify-center items-center gap-5 w-full xl:w-3/5">
+      {/* Organizadores */}
+      <div className="flex flex-col w-full xl:flex-row gap-5">        
+        <div id="organizers" className="justify-center items-center gap-5 w-full xl:w-3/5">
           <div className="bg-gray-light rounded-lg text-black-unco p-10">
             <div className="grid justify-center">
               <div className='grid justify-center'>

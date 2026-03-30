@@ -9,9 +9,9 @@ const ShortRegulation = props => {
     <div id={'shortRegulation'} className=''>
       <div className='bg-gray-light flex flex-col lg:flex-row rounded-lg xl:max-h-[850px] text-black-unco'>
               
-        <div className='lg:min-w-[50%] xl:min-w-[25%] xl:max-h-full overflow-hidden rounded-lg'>
-          {/* <img className='w-full h-full  lg:block justify-self-end' alt='feed story' src={'elements/placa-reglamento.png'} /> */}
-        </div>
+        {/* <div className='lg:min-w-[50%] xl:min-w-[25%] xl:max-h-full overflow-hidden rounded-lg'>
+          <img className='w-full h-full  lg:block justify-self-end' alt='feed story' src={'elements/placa-reglamento.png'} />
+        </div> */}
 
         <div id='reglamento' className={'p-10'}>
           <div className='grid justify-center '>

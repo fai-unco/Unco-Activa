@@ -1,7 +1,7 @@
 import React from 'react'
 const regulation = () => {
   return (
-    <div className="font-Text-R min-h-screen">
+    <div className="font-Text-R">
       <div className="px-3 sm:px-10 md:px-20 lg:px-32 py-7 ">
         <div className=' bg-gray-light rounded-lg text-black'>
           <div className='py-10'>

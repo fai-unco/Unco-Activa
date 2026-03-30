@@ -38,11 +38,11 @@ const Navigation = () => {
     // <div className='  '>
     <nav className="font-Header-B sticky top-0 z-50">
       {/* Primary Navigation Menu */}
-      <div className="bg-black-unco sticky top-0 w-full mx-auto px-4 sm:px-4 lg:px-6 z-50">
+      <div className="bg-black-unco sticky top-0 w-full mx-auto px-4 sm:px-4 xl:px-6 z-50">
         <div className="flex justify-between h-16">
           <div className="flex w-full justify-between">
             {/* Logo */}
-            <div className="lg:static lg:transform-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex-shrink-0 flex items-center">
+            <div className="xl:static xl:transform-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex-shrink-0 flex items-center">
               <NavLink
                 onClick={(e) => {
                   e.preventDefault();
@@ -59,7 +59,7 @@ const Navigation = () => {
             </div>
             
             {/* Navigation Links */}
-            <div className="hidden gap-3 lg:gap-6 lg:-my-px lg:ml-10 lg:flex">
+            <div className="hidden gap-3 xl:gap-6 xl:-my-px xl:ml-10 xl:flex">
               <CustomNavLink
                 onClick={(e) => {
                   e.preventDefault();
@@ -72,6 +72,20 @@ const Navigation = () => {
                 }}
               >
                 Inicio
+              </CustomNavLink>
+              
+              <CustomNavLink
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.pathname !== "/") {
+                    window.location.replace("/#information");
+                  } else {
+                    let racepath = document.getElementById("information");
+                    racepath.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                Información
               </CustomNavLink>
 
               <CustomNavLink
@@ -107,6 +121,20 @@ const Navigation = () => {
               <CustomNavLink to="/participantes">Participantes</CustomNavLink>
 
               {/* <CustomNavLink to="/resultados">Resultados</CustomNavLink> */}
+              
+              <CustomNavLink
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (window.location.pathname !== "/") {
+                    window.location.replace("/#organizers");
+                  } else {
+                    let racepath = document.getElementById("organizers");
+                    racepath.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                Organizadores
+              </CustomNavLink>
 
               <CustomNavLink
                 onClick={(e) => {
@@ -175,7 +203,7 @@ const Navigation = () => {
           } */}
 
           {/* Hamburger */}
-          <div className="-mr-2 flex items-center lg:hidden">
+          <div className="-mr-2 flex items-center xl:hidden">
             <button
               ref={buttonRef}
               onClick={() => setOpen((open) => !open)}
@@ -214,7 +242,7 @@ const Navigation = () => {
       </div>
 
       {/* Responsive Navigation Menu */}
-      <div ref={menuRef} className={`bg-gray-darker fixed top-16 left-0 w-full border-t border-gray transform transition-transform duration-300 lg:hidden z-40 ${
+      <div ref={menuRef} className={`bg-gray-darker fixed top-16 left-0 w-full border-t border-gray transform transition-transform duration-300 xl:hidden z-40 ${
         open ? "translate-y-0" : "-translate-y-full"}`}>
         {
           <div className="pt-2 pb-3 space-y-1">
@@ -231,6 +259,21 @@ const Navigation = () => {
               }}
             >
               Inicio
+            </ResponsiveNavLink>
+
+            <ResponsiveNavLink
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(false);
+                if (window.location.pathname !== "/") {
+                  window.location.replace("/#information");
+                } else {
+                  let racepath = document.getElementById("information");
+                  racepath.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
+              Información
             </ResponsiveNavLink>
 
             <ResponsiveNavLink
@@ -283,6 +326,21 @@ const Navigation = () => {
                 }}
               to="/resultados">Resultados
             </ResponsiveNavLink> */}
+
+            <ResponsiveNavLink
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(false); 
+                if (window.location.pathname !== "/") {
+                  window.location.replace("/#organizers");
+                } else {
+                  let racepath = document.getElementById("organizers");
+                  racepath.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
+              Organizadores
+            </ResponsiveNavLink>
 
             <ResponsiveNavLink
               onClick={(e) => {

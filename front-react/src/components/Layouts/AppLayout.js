@@ -6,10 +6,10 @@ const AppLayout = ({ children, resultRef }) => {
     
   return (
     <Background>
-      <div className="min-h-screen">
+      <div className="flex flex-col min-h-screen">
         <Navigation resultRef={resultRef} />
         {/* Page Content */}
-        <main>{children}</main>
+        <main className='flex flex-1'>{children}</main>
         <Footer />
       </div>
     </Background>

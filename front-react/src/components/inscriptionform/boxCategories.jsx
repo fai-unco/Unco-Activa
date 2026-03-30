@@ -42,6 +42,7 @@ const BoxCategories = () => {
       </Box>
       <Grid>
         <Box
+          className="flex "
           sx={{
             width: 2 / 2,
             display: 'flex',

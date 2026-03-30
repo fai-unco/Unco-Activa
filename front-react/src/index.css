@@ -73,7 +73,13 @@ select:-webkit-autofill:focus {
 }
 
 .bg-img-texture {
-  background-Image:linear-gradient(44.67deg, rgb(69, 149, 214) 0%, rgba(68, 107, 132, 0.85) 17.4%, rgba(124, 136, 116, 0.85) 42.63%, rgba(164, 132, 81, 0.801) 72.45%, rgba(199, 127, 55, 0.883) 100%), url("../public/background/oldFondo1.png");
+  background-Image:linear-gradient(44.67deg, 
+  theme(colors.cyan-unco) 0%, 
+  theme(colors.cyan-unco) 10.4%, 
+  theme(colors.white-unco) 42.63%, 
+  rgba(194, 223, 126, 0.801) 72.45%, 
+  theme(colors.lime-unco) 100%), 
+  url("../public/background/bgTextureV.png");
 }
 
 /* Old bgs

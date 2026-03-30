@@ -97,9 +97,9 @@ const ModalInscription = (props) => {
           <DialogContentText sx={{ color: 'text.primary' }} id='alert-dialog-description'>
             <br />
                        <BankAccount />
-                        <strong>Categoria: </strong><strong style={{color: props.categorie.color}}> {props.categorie.name}</strong><br />
+                        <strong>Categoria: </strong><strong style={{color: props.category.color}}> {props.category.name}</strong><br />
 
-                        <strong>Precio:</strong> ${props.categorie.price}<br /><br />
+                        <strong>Precio:</strong> ${props.dniStatus == 'community' ? props.category.promo : props.category.price}<br /><br />
                         
                         De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
           </DialogContentText>

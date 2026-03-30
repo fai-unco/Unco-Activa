@@ -3,7 +3,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { routes } from "routes/routes";
 import Home from 'pages/Home/Home';
-import NotFoundPage from 'pages/NotFound/NotFound';
+import NotFound from 'pages/NotFound/NotFound';
 import PreinscriptionForm from 'pages/PreinscriptionForm/PreinscriptionForm';
 import Regulation from 'pages/Regulation/Regulation';
 import Preinscription from 'pages/Preinscription/Preinscription';
@@ -21,7 +21,7 @@ function App() {
   const totalCupos = categories.reduce((sum, cat) => sum + cat.quotas, 0);
 
   return (
-    <div id='top' className="antialiased">
+    <div id='top' className="antialiased w-full">
       <Routes>
         <Route path={routes.home} element={<Home />} />
         <Route path={routes.reglamento} element={<Regulation />} />
@@ -38,7 +38,7 @@ function App() {
             <Route 
               key={category.id} 
               path={`${routes.preinscribirse}/${category.name}`} 
-              element={<PreinscriptionForm categorie={category} />}
+              element={<PreinscriptionForm category={category} />}
             />
           ))
         }
@@ -54,7 +54,7 @@ function App() {
         ) : null )}
         */}
 
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
