@@ -4,7 +4,7 @@ import { routes } from 'routes/routes';
 function footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className=" flex justify-center items-center text-center bg-gray-darker h-24">
+    <footer className=" flex justify-center items-center text-center bg-black-unco h-24">
       <div className="text-center p-4">
         <div className='flex justify-center text-gray'>
           <a href='https://www.facebook.com/bienestaruncoma/' target="_blank" rel="noreferrer">

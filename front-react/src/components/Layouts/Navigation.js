@@ -3,6 +3,7 @@ import ResponsiveNavLink from "components/ResponsiveNavLink";
 import { useState, useEffect, useRef } from "react";
 import CustomNavLink from "components/NavLink";
 import { NavLink } from "react-router-dom";
+import useHideOnScroll from "hooks/useHideOnScroll";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
@@ -34,11 +35,15 @@ const Navigation = () => {
     };
   }, []);
 
+  const showHeader = useHideOnScroll();
+
   return (
     // <div className='  '>
-    <nav className="font-Header-B sticky top-0 z-50">
+    <nav className={`sticky top-0 z-50 transition-transform duration-200 font-Header-B h-16 ${
+      (showHeader || open) ? "translate-y-0" : "-translate-y-full"
+    }`}>
       {/* Primary Navigation Menu */}
-      <div className="bg-black-unco sticky top-0 w-full mx-auto px-4 sm:px-4 xl:px-6 z-50">
+      <div className="bg-black-unco fixed top-0 w-full mx-auto px-4 sm:px-4 xl:px-6 z-50">
         <div className="flex justify-between h-16">
           <div className="flex w-full justify-between">
             {/* Logo */}
@@ -240,10 +245,10 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-
+      
       {/* Responsive Navigation Menu */}
-      <div ref={menuRef} className={`bg-gray-darker fixed top-16 left-0 w-full border-t border-gray transform transition-transform duration-300 xl:hidden z-40 ${
-        open ? "translate-y-0" : "-translate-y-full"}`}>
+      <div ref={menuRef} className={`bg-black-unco fixed top-16 left-0 w-full transform transition-transform duration-300 xl:hidden z-40 ${
+        open ? "translate-y-0" : "-translate-y-[150vh]"}`}>
         {
           <div className="pt-2 pb-3 space-y-1">
             <ResponsiveNavLink

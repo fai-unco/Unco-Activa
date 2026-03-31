@@ -10,7 +10,7 @@ import Preinscription from 'pages/Preinscription/Preinscription';
 import { CategorieContext } from 'context/CategorieContext';
 import Inscriptions from 'pages/Inscriptions/Inscriptions';
 import Contributors from 'pages/Contributors/Contributors';
-import Results from 'pages/Results/Results';
+// import Results from 'pages/Results/Results';
 
 // import Register from 'pages/Register/Register';
 

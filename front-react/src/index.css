@@ -41,11 +41,14 @@
   src: url(./fonts/Orbitron/Orbitron-VariableFont_wght.ttf);
 }
 
-
 @layer utilities {
   [id] {
     @apply scroll-mt-20;
   }
+}
+
+:root {
+  background-color: theme(colors.black-unco);
 }
 
 /* Change Autocomplete styles in Chrome*/
