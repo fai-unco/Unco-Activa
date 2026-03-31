@@ -51,7 +51,7 @@ const Contributors = () => {
         github: 'https://github.com/LeonardoAluheCorrea',
         envelope: 'leonardo.correa@est.fi.uncoma.edu.ar'
       },
-      // image: '/contribuidores/.jpg'
+      image: '/contribuidores/LAC.png'
     },
     {
       name: 'Franco Fabian Benitez',
