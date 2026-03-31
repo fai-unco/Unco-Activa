@@ -53,6 +53,7 @@ const ModalRules = (props) => {
             <br />
             <p>
                             3.-Es obligatorio completar la ficha de inscripción publicada en forma on line en el sitio oficial de la carrera.
+                            A los participantes que hayan completado la inscripción y el pago, pero decidan posteriormente no participar en la carrera, no se les reembolsará el importe abonado.
 
             </p>
             <br />

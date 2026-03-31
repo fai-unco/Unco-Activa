@@ -13,24 +13,24 @@ import { Fab } from "@mui/material";
 import LibraryBooksOutlinedIcon from "@mui/icons-material/LibraryBooksOutlined";
 
 const mockImagenes = [
-  // "elements/camiseta-2023.jpg",
-  // "elements/unco-activa2023.jpeg",
-  "elements/edicion-anterior1.jpeg",
-  "elements/edicion-anterior2.jpeg",
-  "elements/edicion-anterior3.jpeg",
-  "elements/edicion-anterior4.jpeg",
-  "elements/edicion-anterior5.jpeg",
-  "elements/edicion-anterior6.jpeg",
-  "elements/edicion-anterior7.jpeg",
-  "elements/edicion-anterior8.jpeg",
-  "elements/edicion-anterior9.jpeg",
-  // 'elements/edicion20211210_190204.mp4'
+  "elements/edicion2026/Lanzamiento2.png",
+  "elements/edicion2026/edicion-anterior1.jpeg",
+  "elements/edicion2026/edicion-anterior2.jpeg",
+  "elements/edicion2026/edicion-anterior3.jpeg",
+  "elements/edicion2026/edicion-anterior4.jpeg",
+  "elements/edicion2026/edicion-anterior5.jpeg",
+  "elements/edicion2026/edicion-anterior6.jpeg",
+  "elements/edicion2026/edicion-anterior7.jpeg",
+  "elements/edicion2026/edicion-anterior8.jpeg",
+  "elements/edicion2026/edicion-anterior9.jpeg",
 ];
 
 const isdateOfRace = Date.now() > new Date("April 25, 2026 15:00:00");
 
 const Home = () => {
-  const [openEnd, setopenEnd] = useState(!isdateOfRace);
+
+  const [openEnd, setopenEnd] = useState(!isdateOfRace); //Para avisos antes de la carrera
+  
   return (
     <div className="flex flex-col items-center font-Text-R px-3 md:px-12 pb-7 gap-5">
       
@@ -192,10 +192,10 @@ const Home = () => {
 
             <div className="flex flex-col lg:flex-row items-center w-full">
               <div className='w-2/3 xl:w-1/3 rounded-lg p-2'>
-                <img className='rounded-lg' alt='feed story' src={'elements/placa-reglamento.png'} />
+                <img className='rounded-lg' alt='feed story' src={'elements/edicion2026/Lanzamiento.png'} />
               </div>
 
-              <div className="flex flex-col items-center p-5 gap-5">
+              <div className="flex flex-col items-center p-5 gap-5 lg:w-2/3">
                 <h4 className="text-[1.2rem] text-blue-cyan font-bold font-Header-B">
                   Costos de Inscripción año 2026
                 </h4>
@@ -221,6 +221,10 @@ const Home = () => {
                   <span className="font-Header-B">Incluye: </span>
                   Derecho a participación / Remera técnica / Servicios de control
                   / Servicio de hidratación / Seguro de corredor.
+                </p>
+
+                <p className='pt-2 font-bold'>
+                  A los participantes que hayan completado la inscripción y el pago, pero decidan posteriormente no participar en la carrera, no se les reembolsará el importe abonado.  
                 </p>
 
                 <div className="flex xl:pt-8 xl:pb-1 xl:my-0 my-5 px-2 -z-0 relative">

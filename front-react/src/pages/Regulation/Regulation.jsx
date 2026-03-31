@@ -165,6 +165,9 @@ const regulation = () => {
                     Es obligatorio completar la ficha de inscripción publicada en forma on line en el sitio oficial de la carrera.
                   </li>
                   <li className='pt-5'>
+                    A los participantes que hayan completado la inscripción y el pago, pero decidan posteriormente no participar en la carrera, no se les reembolsará el importe abonado.  
+                  </li>
+                  <li className='pt-5'>
                     La organización, a través de los fiscales autorizados, se reserva el derecho de interrumpir la participación de aquellos competidores que por su condición se considere que están poniendo en riesgo su integridad física, en caso de ser indicado, es obligación del participante hacer caso a la misma. De no respetarse, será descalificado y la responsabilidad corre por cuenta del propio participante.
                   </li>
                   <li className='pt-5'>

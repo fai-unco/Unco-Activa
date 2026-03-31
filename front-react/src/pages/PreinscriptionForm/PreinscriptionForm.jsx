@@ -33,6 +33,7 @@ registerLocale('es', es);
 const endpoint = process.env.REACT_APP_BACKEND_URL+'/inscription'
 
 const sizes = [
+  { value: 'XS', label: 'XS' },
   { value: 'S', label: 'S' },
   { value: 'M', label: 'M' },
   { value: 'L', label: 'L' },
@@ -98,9 +99,11 @@ const PreinscriptionForm = (props) => {
    */
   
   const now = Date.now();
-  const isdateOfRace = now > new Date('April 25, 2026 15:00:00'); //Modificar para próximos eventos
+  
+  // const isdateOfRace = now > new Date('April 25, 2026 15:00:00'); //Consideraba dia de la carrera
+  const isInscriptionLimit = now > new Date('April 24, 2026 21:00:00'); //Fecha/Hora límite de inscripcion (antes del dia de la carrera)
 
-  const [openEnd, setopenEnd] = useState(isdateOfRace);
+  const [openEnd, setopenEnd] = useState(isInscriptionLimit);
 
   const [alertnavigate, setalertnavigate] = useState(false);
 
@@ -247,7 +250,7 @@ const PreinscriptionForm = (props) => {
         seterrorMessage('Ingrese un número de contacto de emergencia que sea diferente al suyo porfavor')
         setopenfail(true)
       }
-      else if (isdateOfRace){
+      else if (isInscriptionLimit){
         seterrorMessage('Ya no está disponible la carrera')
         setopenfail(true)
       }
@@ -660,7 +663,7 @@ const PreinscriptionForm = (props) => {
             error='Ingrese un teléfono de contacto de emergencia'
           />
   
-          {!isdateOfRace ? 
+          {!isInscriptionLimit ? 
             <div className='relative col-span-2  z-0 mb-5 md:mb-1 -mt-1  w-full group'>
               <p>
                 <strong>Modo de inscripción:</strong> El participante deberá inscribirse a la carrera por la web uncoactiva.fi.uncoma.edu.ar, realizando el pago, únicamente por transferencia bancaria o Mercadopago:

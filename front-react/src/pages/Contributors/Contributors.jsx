@@ -60,7 +60,7 @@ const Contributors = () => {
         github: 'https://github.com/ffbenitez00',
         envelope: 'fabian.benitez@est.fi.uncoma.edu.ar'
       },
-      // image: '/contribuidores/.jpg'
+      image: '/contribuidores/FFB.jpg'
     }
   ]
 
