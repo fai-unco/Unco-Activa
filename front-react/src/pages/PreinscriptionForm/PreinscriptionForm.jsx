@@ -98,7 +98,7 @@ const PreinscriptionForm = (props) => {
    */
   
   const now = Date.now();
-  const isdateOfRace = now > new Date('April 25, 2026 12:00:00'); //Modificar para próximos eventos
+  const isdateOfRace = now > new Date('April 25, 2026 15:00:00'); //Modificar para próximos eventos
 
   const [openEnd, setopenEnd] = useState(isdateOfRace);
 
@@ -193,20 +193,6 @@ const PreinscriptionForm = (props) => {
       return null; // Si no se encuentra el enlace para esa categoría
     }
   };
-  
-  {/*const CategoriaButton = ({ categoria }) => {
-    const enlace = linkMP.find(item => item.race === categoria);
-  
-    if (enlace) {
-      return (
-        <a href={enlace.link} target="_blank" rel='noreferrer'>
-          <button type="button" className='bg-blue-cyan hover:bg-blue-cyan-dark text-white font-bold py-2 px-4 rounded-md'>Pagar por MercadoPago</button>
-        </a>
-      );
-    } else {
-      return null; // No hay enlace disponible para esta categoría
-    }
-  }*/}
   
   const arraycampos = [
     [checked, setChecked],
@@ -686,7 +672,7 @@ const PreinscriptionForm = (props) => {
               <p>
                 <strong>Categoría: </strong><strong style={{ color: props.category.color }}> {props.category.name}</strong>
                 <br />
-                <strong>Precio:</strong> ${dniStatus == 'community' ? props.category.promo : props.category.price}
+                <strong>Precio:</strong> ${dniStatus === 'community' ? props.category.promo : props.category.price}
                 <br /><br />
                 De no enviarse el comprobante de pago/transferencia con todos los datos de la operación, no se considerará como inscripto.
               </p>

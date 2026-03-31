@@ -35,7 +35,7 @@ const Hero = () => {
 
         >
           <DialogContent
-            className='bg-gray-darker'>
+            className='bg-black-unco'>
             <IconButton
               aria-label="close"
               onClick={handleClose}

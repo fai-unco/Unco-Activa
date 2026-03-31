@@ -28,10 +28,9 @@ const BoxCategories = () => {
         }}
       >
         <Paper elevation={3}
-          className="xs:h-24"
+          className="xs:h-24 text-blue-cyan"
           sx={{
             textAlign: 'center',
-            color: '#0F3759',
             lineHeight: '50px',
             overflow: 'hidden',
             textOverflow: 'clip',

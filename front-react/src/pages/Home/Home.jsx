@@ -82,7 +82,7 @@ const Home = () => {
                         <LocationOn color="primary" /> Gimnasio Polideportivo Roberto Monteros (Escondido)
                     </li>
                 </ul>
-                <span className="text-[1rem] text-cyan-700 pt-6 font-Header-B flex">
+                <span className="text-[1rem] text-blue-cyan pt-6 font-Header-B flex">
                     <img src="../elements/botella.svg" alt="Botella" className="mr-2 w-24" />
                     Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.
                 </span>*/}
@@ -112,7 +112,7 @@ const Home = () => {
 
           <div className="">
             <div className="flex flex-col px-5 lg:px-16 gap-4">
-              <div className="text-cyan-unco text-lg sm:text-xl font-bold font-Text-R">
+              <div className="text-blue-cyan text-lg sm:text-xl font-bold font-Text-R">
                 <p>
                   La carrera UNCo Activa surge en el año 2017 y se ha convertido
                   en un evento emblemático dentro de la comunidad de la
@@ -154,7 +154,7 @@ const Home = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col font-bold font-Text-R text-cyan-unco gap-4">
+              <div className="flex flex-col font-bold font-Text-R text-blue-cyan gap-4">
                 <p>
                   La carrera UNCo Activa es más que una competencia, es una
                   celebración del deporte y la comunidad universitaria. Su
@@ -185,7 +185,7 @@ const Home = () => {
               </h1>
               <h1 className="bg-lime-unco py-1 w-1/3 mt-5"></h1>
             </div>
-            <div className="text-[1.8rem] text-center font-Header-B text-cyan-unco">
+            <div className="text-[1.8rem] text-center font-Header-B text-blue-cyan">
               <h1 className="">SABADO 25 DE ABRIL / 15:00 HS</h1>
               <h1>Universidad Nacional del Comahue - Neuquén Capital</h1>
             </div>
@@ -196,12 +196,12 @@ const Home = () => {
               </div>
 
               <div className="flex flex-col items-center p-5 gap-5">
-                <h4 className="text-[1.2rem] text-cyan-unco font-bold font-Header-B">
+                <h4 className="text-[1.2rem] text-blue-cyan font-bold font-Header-B">
                   Costos de Inscripción año 2026
                 </h4>
                 {/* Costos hardcodeados, mejorar haciendo llamada a la api (con datos en BD) */}
                 <ul className="list-disc pl-5">
-                  <p className="font-bold">
+                  <p className="font-Header-B">
                     Comunidad en general:
                   </p>
                   <li>15 km $55000.</li>
@@ -209,7 +209,7 @@ const Home = () => {
                   <li>3 km $40000. </li>
                   <br />
                   
-                  <p className="font-bold">
+                  <p className="font-Header-B">
                     Comunidad Universitaria (estudiantes, docentes, nodocentes, personas graduadas):
                   </p>
                   <li>15 km $50000.</li>

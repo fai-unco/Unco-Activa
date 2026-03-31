@@ -34,7 +34,7 @@ const RacePath = props => {
           </p>
         </div>
         <div className='px-5'>
-          <h2 className='text-cyan-unco text-xl sm:text-2xl font-bold font-Header-B'>
+          <h2 className='text-blue-cyan text-xl sm:text-2xl font-bold font-Header-B'>
             Características del Circuito          
           </h2>
           <ul className="list-disc">
