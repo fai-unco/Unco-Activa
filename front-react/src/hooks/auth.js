@@ -26,7 +26,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
 
   const register = async ({ setErrors, ...props }) => {
     await csrf().then(response => {
-      console.log(response);
+      // console.log(response);
       setErrors([])
       axios
         .post('/register', props, { withCredentials: true })
@@ -35,7 +35,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
           alert('Te has registrado con éxito. Bienvenido!')
         })
         .catch(error => {
-          console.log(error.response.data)
+          // console.log(error.response.data)
           if (error.response.status !== 422) throw error
           setErrors(Object.values(error.response.data.errors).flat())
         })
@@ -53,7 +53,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         alert('Has iniciado sesión con éxito. Bienvenido!')
       })
       .catch(error => {
-        console.log(error.response.data)
+        // console.log(error.response.data)
         if (error.response.status !== 422) throw error
         setErrors(Object.values(error.response.data.errors).flat())
       })
