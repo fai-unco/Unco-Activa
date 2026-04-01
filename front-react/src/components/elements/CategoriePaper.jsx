@@ -16,7 +16,7 @@ const CategoriePaper = (props) => {
     const Categorie = styled(Paper)(({ theme }) => ({
         textAlign: 'center',
         fontSize: 'clamp(24px, 11vh, 120px)',
-        fontWeight: 700,
+        fontWeight: 600,
         cursor: 'pointer',
         color: props.color,
         boxShadow: props.boxShadow,

@@ -44,7 +44,7 @@ const BoxCategories = () => {
         padding: 1,
       }}>
         <Box
-          className="flex"
+          className="flex overflow-hidden"
           sx={{
             width: 2 / 2,
             display: 'flex',
@@ -62,7 +62,6 @@ const BoxCategories = () => {
           {
             categories.map((categorie) => (
               <CategoriePaper
-                
                 key={categorie.id}
                 navigate={`${routes.preinscribirse}/${categorie.name}`}
                 backgroundColor='rgb(245 245 245)'
