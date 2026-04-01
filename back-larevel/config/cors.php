@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:3000')],
+    'allowed_origins' => [env('FRONTEND_URL')],
 
     'allowed_origins_patterns' => [],
 
@@ -27,7 +27,8 @@ return [
 
     'exposed_headers' => [],
 
-    'max_age' => 0,
+    // 'max_age' => 0, //Para dev
+    'max_age' => 3600, //Para prod
 
     'supports_credentials' => true,
 

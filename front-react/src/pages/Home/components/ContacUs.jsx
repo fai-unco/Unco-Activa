@@ -54,7 +54,7 @@ import React, { useState } from "react";
 
       await axios.post(endpoint, formdata)
         .then(function (response) {
-          console.log('success store', response);          
+          // console.log('success store', response);          
           setopensucces(true)
         })
         .catch(function (error) {          

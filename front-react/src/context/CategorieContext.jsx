@@ -19,7 +19,7 @@ const CategorieContextProvider = ({ children }) => {
         setcategories(response.data)
       })
       .catch(function (error) {
-        console.error('error', error.response);
+        // console.error('error', error.response);
       });
     //console.log(response.data)
   }

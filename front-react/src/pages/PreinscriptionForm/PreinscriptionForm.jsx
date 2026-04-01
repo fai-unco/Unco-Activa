@@ -129,9 +129,14 @@ const PreinscriptionForm = (props) => {
   
   useEffect(() => {
     fetch('/sorted_dnis.json')
-      .then((response) => response.json())
-      .then((data) => setComunidadUncoDnis(data.dnis || []))
-      .catch((error) => console.error('Error al cargar el archivo JSON:', error));
+      .then((response) => 
+        response.json()
+      )
+      .then((data) => 
+        setComunidadUncoDnis(data.dnis || []))
+      .catch((error) => {
+        // console.error('Error al cargar el archivo JSON:', error)
+      });
   }, []);
   
   const checkDNIComunidad = (dni) => {
@@ -270,7 +275,7 @@ const PreinscriptionForm = (props) => {
     const formdata = new FormData();
     
     for (let i = 0; i < files.length; i++) {
-      // // console.log('imagen' + i, files[i] )
+      // console.log('imagen' + i, files[i] )
       formdata.append('files[]', files[i]);
     }
 

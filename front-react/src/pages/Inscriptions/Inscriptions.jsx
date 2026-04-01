@@ -26,10 +26,10 @@ const Inscriptions = () => {
             .then(function (response) {
                 //console.log('success', response.data);
                 setinscriptions(response.data);
-                setinicialInscriptions(response.data);
-            })
-            .catch(function (error) {
-                console.error("error", error.response);
+                setinicialInscriptions(response.data);                
+            }) 
+            .catch(function (error) {                
+                // console.error("error", error.response);
             });
         //console.log(response.data)
     };
@@ -72,17 +72,25 @@ const Inscriptions = () => {
 
     const indexOfLastParticipant = currentPage * participantsPerPage;
     const indexOfFisrtParticipant = indexOfLastParticipant - participantsPerPage;
-    const currentParticpants = inscriptions.slice(indexOfFisrtParticipant, indexOfLastParticipant);
-    //console.log(currentParticpants)
+    const currentParticipants = inscriptions.slice(indexOfFisrtParticipant, indexOfLastParticipant);
+    //console.log(currentParticipants)
     const Particpants = () => {
-        return currentParticpants.map((inscription, index) => (
-            <div key={index} className=" items-center grid-cols-3 grid bg-gray-light border-t border-blue-cyan text-[1.3em]">
+
+        if(!currentParticipants.length) {
+            return(
+            <div className="overflow-hidden text-center bg-gray-light border-t border-blue-cyan text-[1.3em]">
+                No se encontraron participantes
+            </div>)
+        } else {
+            return currentParticipants.map((inscription, index) => (
+            <div key={index} className="overflow-scroll items-center grid-cols-3 grid bg-gray-light border-t border-blue-cyan text-[1.3em]">
                 <div className="text-center px-3">{inscription.id}</div>
 
                 <div className=" text-center  px-3">{inscription.categorie_name}</div>
                 <div className="text-left px-3 uppercase">{inscription.name + " " + inscription.surname}</div>
             </div>
-        ));
+            )); 
+        }        
     };
 
     return (
@@ -120,6 +128,7 @@ const Inscriptions = () => {
                                 </div>
 
                                 <Particpants />
+
                             </div>
                         </div>
                         <Pagination participantsPerPage={participantsPerPage} totalParticpants={inscriptions.length} paginateTo={paginateTo} currentPage={currentPage} />

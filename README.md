@@ -1,5 +1,5 @@
 # 🏃 UNCo Activa
-Aplicación web desarrollada con React y Laravel, en colaboración con la Secretaria de Bienestar Universitario de la Universidad Nacional del Comahue.
+Aplicación web desarrollada con React y Laravel para la carrera UNCO Activa, en colaboración con la Secretaria de Bienestar Universitario de la Universidad Nacional del Comahue.
 
 <div align="center">
   <img style="width:30%;" src="assets/logos/UNComa.png" alt="Isologo UNComa"/>
@@ -9,9 +9,41 @@ Aplicación web desarrollada con React y Laravel, en colaboración con la Secret
   <img style="width:30%;" src="assets/logos/Secretaría de Bienestar Universitario.png" alt="Imagotipo Secretaria de Bienestar Universitario"/>
 </div>
 
+La carrera UNCo Activa surge en el año 2017 y se ha convertido en un evento emblemático dentro de la comunidad de la Universidad Nacional del Comahue, destacando no solo por su carácter competitivo, sino también por su enfoque en la salud y el bienestar de todos los participantes.
+
 ## 🌐 Deploy / Live
 El proyecto está desplegado en producción y puede verse en el siguiente enlace: 
 https://uncoactiva.fi.uncoma.edu.ar/
+
+## 🎯 Objetivo
+Brindar una herramienta para:
+- Exponer información sobre el evento
+  - Reglamentación, montos, participantes, resultados, entre otros.
+- Inscripción de usuarios
+- Gestión de inscripciones
+
+## 🧮 Funcionalidades
+
+### Frontend
+- Landing page UNCo Activa
+- Inscripción de usuarios al evento
+  - Pago mediante links de pago
+  - Carga de comprobante
+  - Beneficio para comunidad universitaria
+- Visualizar:
+  - Reglamentación
+  - Participantes inscriptos
+  - Resultados de eventos
+  - Galeria de imagenes (próximamente)
+- Interfaz responsive
+
+### Backend
+- Interfaz para administrador con:
+  - Autenticación de usuario
+  - Alta/Baja/Modificación de inscripciones
+  - Verificación de comprobantes
+  - Exportación a Excel de inscriptos/preinscriptos
+- Notificaciones automáticas por correo ante cambios en inscripciones
 
 ## 🏗️ Stack Tecnológico
 
@@ -37,33 +69,3 @@ https://uncoactiva.fi.uncoma.edu.ar/
   - JSON responses
 - **Paquetes útiles:**
   - maatwebsite/excel
-
-## 🧮 Funcionalidades
-
-### Frontend
-- Landing page UNCo Activa
-- Inscripción de usuarios al evento
-  - Pago mediante links de pago
-  - Carga de comprobante
-  - Beneficio para comunidad universitaria
-- Visualizar:
-  - Reglamentación
-  - Participantes inscriptos
-  - Resultados de eventos
-  - Galeria de imagenes (próximamente)
-- Interfaz responsive
-
-### Backend
-- Interfaz para administrador con:
-  - Autenticación de usuario
-  - Alta/Baja/Modificación de inscripciones
-  - Verificación de comprobantes
-  - Exportación a Excel de inscriptos/preinscriptos
-- Notificaciones automáticas por correo ante cambios en inscripciones
-
-## 🎯 Objetivo
-Brindar una herramienta para:
-- Exponer información sobre el evento
-  - Reglamentación, montos, participantes, resultados, entre otros.
-- Inscripción de usuarios
-- Gestión de inscripciones
