@@ -32,7 +32,6 @@ const Hero = () => {
           fullWidth={true}
           // className="font-body"
           aria-labelledby="responsive-dialog-title"
-
         >
           <DialogContent
             className='bg-black-unco'>

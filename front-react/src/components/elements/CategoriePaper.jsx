@@ -15,7 +15,7 @@ const CategoriePaper = (props) => {
 
     const Categorie = styled(Paper)(({ theme }) => ({
         textAlign: 'center',
-        fontSize: 80,
+        fontSize: 'clamp(24px, 11vh, 120px)',
         fontWeight: 700,
         cursor: 'pointer',
         color: props.color,
@@ -24,7 +24,9 @@ const CategoriePaper = (props) => {
     }));
 
     return (
-        <Categorie className="flex justify-center items-center" onClick={handleClick} >{props.name}</Categorie>
+        <Categorie className="flex justify-center " onClick={handleClick} >
+            {props.name}
+        </Categorie>
     )
 }
 

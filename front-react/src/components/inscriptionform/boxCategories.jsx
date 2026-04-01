@@ -8,24 +8,21 @@ import { routes } from "routes/routes";
 const BoxCategories = () => {
   let [categories] = useContext(CategorieContext);  
   return (
-    <>
-
+    <div className=' '>
       <Box
-        sx={{
-          className: 'xs:h-48',
+        className ='xs:h-48'
+        sx={{          
+          
           width: 2 / 2,
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center',
-          '& > :not(style)': {
-            m: 1,
-            mt: 4,
-            mb: 4,
+          '& > :not(style)': {            
             maxWidth: 300,
             width: 2 / 2,
-            height: '50'
+            margin: 1,
           }
-        }}
+        }}        
       >
         <Paper elevation={3}
           className="xs:h-24 text-blue-cyan"
@@ -36,12 +33,18 @@ const BoxCategories = () => {
             textOverflow: 'clip',
             fontSize: 20,
             fontWeight: 600,
-            maxHeight: 100
-          }}> ELEGÍ UNA CATEGORÍA</Paper>
+            maxHeight: 100,
+          }}> 
+          ELEGÍ UNA CATEGORÍA
+        </Paper>
+
       </Box>
-      <Grid>
+
+      <Grid className="" sx={{
+        padding: 1,
+      }}>
         <Box
-          className="flex "
+          className="flex"
           sx={{
             width: 2 / 2,
             display: 'flex',
@@ -50,27 +53,27 @@ const BoxCategories = () => {
             gridTemplateColumns: { md: '1fr 1fr' },
             justifyContent: 'center',
             '& > :not(style)': {
-              m: 2,
-              mb: 4,
-              maxWidth: 250,
+              maxWidth: 210,
               width: 2 / 2,
-              height: 150
+              maxHeight: 150
             }
           }}
         >
           {
             categories.map((categorie) => (
               <CategoriePaper
+                
                 key={categorie.id}
                 navigate={`${routes.preinscribirse}/${categorie.name}`}
                 backgroundColor='rgb(245 245 245)'
                 color={categorie.color}
-                name={categorie.name} ></CategoriePaper>
+                name={categorie.name} >                
+              </CategoriePaper>
             ))
           }
         </Box>
       </Grid>
-    </>
+    </div>
   )
 }
 

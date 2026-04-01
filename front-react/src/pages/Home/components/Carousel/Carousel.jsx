@@ -123,7 +123,7 @@ function Carousel({imagenes}){
   return (
     <div className='flex flex-col justify-center items-center'>
       <div className="relative w-5/6">
-        <div className="h-[350px] xl:h-[450px] rounded-xl overflow-hidden">
+        <div className="rounded-xl overflow-hidden">
           {/* Track */}
           <div
             onTransitionEnd={handleTransitionEnd}
