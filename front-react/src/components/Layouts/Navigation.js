@@ -10,6 +10,9 @@ const Navigation = () => {
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
+  const [isNavigating, setIsNavigating] = useState(false);
+  const showHeader = useHideOnScroll(isNavigating);
+
   // Cerrar menú si clickeas afuera
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -35,7 +38,40 @@ const Navigation = () => {
     };
   }, []);
 
-  const showHeader = useHideOnScroll();
+  const scrollTimeout = useRef(null);
+
+  const handleNavLink = (e, location, responsive = false) => {
+    e.preventDefault();
+
+    if(responsive) {
+      setOpen(false);
+    }
+
+    if (window.location.pathname !== "/") {
+      window.location.replace(`/#${location}`);
+    } else {
+      let elem = document.getElementById(`${location}`);
+
+      // Event para scroll automatico
+      const onScroll = () => {
+        if (scrollTimeout.current) {
+          clearTimeout(scrollTimeout.current);
+        }
+
+        scrollTimeout.current = setTimeout(() => {
+          setIsNavigating(false);
+          window.removeEventListener("scroll", onScroll);
+        }, 120); // tiempo sin movimiento = fin de scroll
+      };
+
+      // Ignora scroll automatico, al navegar con header o menu
+      setIsNavigating(true);      
+      // Scroll automatico
+      elem.scrollIntoView({ behavior: "smooth" });
+      // Deja de ignorar scrolls
+      window.addEventListener("scroll", onScroll);
+    }    
+  };
 
   return (
     // <div className='  '>
@@ -49,15 +85,7 @@ const Navigation = () => {
             {/* Logo */}
             <div className="xl:static xl:transform-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex-shrink-0 flex items-center">
               <NavLink
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.pathname !== "/") {
-                    window.location.replace("/#top");
-                  } else {
-                    let racepath = document.getElementById("top");
-                    racepath.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                onClick={(e) => handleNavLink(e, "top")}
               >
                 <ApplicationLogo className="h-10" />
               </NavLink>
@@ -66,97 +94,56 @@ const Navigation = () => {
             {/* Navigation Links */}
             <div className="hidden gap-3 xl:gap-6 xl:-my-px xl:ml-10 xl:flex">
               <CustomNavLink
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.pathname !== "/") {
-                    window.location.replace("/#top");
-                  } else {
-                    let racepath = document.getElementById("top");
-                    racepath.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                onClick={(e) => handleNavLink(e, "top")}
               >
                 Inicio
               </CustomNavLink>
               
               <CustomNavLink
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.pathname !== "/") {
-                    window.location.replace("/#information");
-                  } else {
-                    let racepath = document.getElementById("information");
-                    racepath.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                onClick={(e) => handleNavLink(e, "information")}
               >
                 Información
               </CustomNavLink>
 
               <CustomNavLink
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.pathname !== "/") {
-                    window.location.replace("/#racePath");
-                  } else {
-                    let racepath = document.getElementById("racePath");
-                    racepath.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                onClick={(e) => handleNavLink(e, "racePath")}
               >
                 Recorrido
               </CustomNavLink>
 
               <CustomNavLink
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.pathname !== "/") {
-                    window.location.replace("/#shortRegulation");
-                  } else {
-                    let racepath = document.getElementById("shortRegulation");
-                    racepath.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                onClick={(e) => handleNavLink(e, "shortRegulation")}
               >
                 Reglamento
               </CustomNavLink>
 
-              <CustomNavLink to="/preinscribirse">Preinscribirse</CustomNavLink>
+              <CustomNavLink to="/preinscribirse">
+                Preinscribirse
+              </CustomNavLink>
 
-              <CustomNavLink to="/participantes">Participantes</CustomNavLink>
+              <CustomNavLink to="/participantes">
+                Participantes
+              </CustomNavLink>
 
-              {/* <CustomNavLink to="/resultados">Resultados</CustomNavLink> */}
+              {/* <CustomNavLink to="/resultados">
+                Resultados
+              </CustomNavLink> */}
               
               <CustomNavLink
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.pathname !== "/") {
-                    window.location.replace("/#organizers");
-                  } else {
-                    let racepath = document.getElementById("organizers");
-                    racepath.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                onClick={(e) => handleNavLink(e, "organizers")}
               >
                 Organizadores
               </CustomNavLink>
 
               <CustomNavLink
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (window.location.pathname !== "/") {
-                    window.location.replace("/#contactUs");
-                  } else {
-                    let racepath = document.getElementById("contactUs");
-                    racepath.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                onClick={(e) => handleNavLink(e, "contactUs")}
               >
                 Contactanos
               </CustomNavLink>
               {/* <CustomNavLink to="/sobrenosotros">Sobre Nosotros</CustomNavLink> */}
             </div>
           </div>
+
           {/* Settings Dropdown */}
           {/* {user ?
             <div className="hidden sm:flex sm:items-center sm:ml-6">
@@ -182,6 +169,7 @@ const Navigation = () => {
                     </div>
                   </button>
                 }> */}
+
           {/* Authentication */}
           {/* <DropdownButton onClick={logout}>
                   Cerrar Sesion
@@ -252,112 +240,64 @@ const Navigation = () => {
         {
           <div className="pt-2 pb-3 space-y-1">
             <ResponsiveNavLink
-              onClick={(e) => {
-                e.preventDefault();
-                setOpen(false);
-                if (window.location.pathname !== "/") {
-                  window.location.replace("/#top");
-                } else {
-                  let racepath = document.getElementById("top");
-                  racepath.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={(e) => handleNavLink(e, "top", true)}
             >
               Inicio
             </ResponsiveNavLink>
 
             <ResponsiveNavLink
-              onClick={(e) => {
-                e.preventDefault();
-                setOpen(false);
-                if (window.location.pathname !== "/") {
-                  window.location.replace("/#information");
-                } else {
-                  let racepath = document.getElementById("information");
-                  racepath.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={(e) => handleNavLink(e, "information", true)}
             >
               Información
             </ResponsiveNavLink>
 
             <ResponsiveNavLink
-              onClick={(e) => {
-                e.preventDefault();
-                setOpen(false);
-                if (window.location.pathname !== "/") {
-                  window.location.replace("/#racePath");
-                } else {
-                  let racepath = document.getElementById("racePath");
-                  racepath.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={(e) => handleNavLink(e, "racePath", true)}
             >
               Recorrido
             </ResponsiveNavLink>
 
             <ResponsiveNavLink
-              onClick={(e) => {
-                e.preventDefault();
-                setOpen(false);
-                if (window.location.pathname !== "/") {
-                  window.location.replace("/#shortRegulation");
-                } else {
-                  let racepath = document.getElementById("shortRegulation");
-                  racepath.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={(e) => handleNavLink(e, "shortRegulation", true)}
             >
               Reglamento
             </ResponsiveNavLink>
 
             <ResponsiveNavLink 
               onClick={() => {                  
-                  setOpen(false);                  
-                }}
-              to="/preinscribirse">Preinscribirse</ResponsiveNavLink>
+                  setOpen(false);
+              }}
+              to="/preinscribirse"
+            >
+              Preinscribirse
+            </ResponsiveNavLink>
 
             <ResponsiveNavLink
               onClick={() => {                  
-                  setOpen(false);                  
-                }}
-              to="/participantes">
+                setOpen(false);                  
+              }}
+              to="/participantes"
+            >
               Participantes
             </ResponsiveNavLink>
 
             {/* <ResponsiveNavLink 
               onClick={() => {                  
-                  setOpen(false);                  
-                }}
-              to="/resultados">Resultados
+                setOpen(false);                  
+              }}
+              to="/resultados"
+            >
+              Resultados
             </ResponsiveNavLink> */}
 
             <ResponsiveNavLink
-              onClick={(e) => {
-                e.preventDefault();
-                setOpen(false); 
-                if (window.location.pathname !== "/") {
-                  window.location.replace("/#organizers");
-                } else {
-                  let racepath = document.getElementById("organizers");
-                  racepath.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={(e) => handleNavLink(e, "organizers", true)}
             >
               Organizadores
             </ResponsiveNavLink>
 
             <ResponsiveNavLink
-              onClick={(e) => {
-                e.preventDefault();
-                setOpen(false); 
-                if (window.location.pathname !== "/") {
-                  window.location.replace("/#contactUs");
-                } else {
-                  let racepath = document.getElementById("contactUs");
-                  racepath.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={(e) => handleNavLink(e, "contactUs", true)}
             >
               Contactanos
             </ResponsiveNavLink>

@@ -24,7 +24,7 @@ const CategoriePaper = (props) => {
     }));
 
     return (
-        <Categorie className="flex justify-center " onClick={handleClick} >
+        <Categorie className="flex justify-center font-Text-R" onClick={handleClick} >
             {props.name}
         </Categorie>
     )

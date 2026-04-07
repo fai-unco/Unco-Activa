@@ -155,34 +155,31 @@ const ContacUs = () => {
       </div>
 
       <div className="container text-center">
-        <div className="">          
+        <div className="flex flex-col items-center gap-4">
           <p className="text-lg font-semibold">
-            Para cualquier consulta, puedes contactarnos a nuestro correo
-            electrónico:
+            Por cualquier consulta, contactanos en nuestro correo electrónico:
           </p>
-        </div>
-        <p className="mt-4 text-gray-700 justify-center flex gap-2 items-center">
-          <img
+          <a
+            href="mailto:uncoactiva@gmail.com"
+            className="text-blue-500 hover:text-blue-700 flex gap-2 items-center"
+          >
+            <img
               src="/logos/icons/2026Mail.png"
               className="h-7"
               alt="Logo Instagram"
             />
-          <a
-            href="mailto:uncoactiva@gmail.com"
-            className="text-blue-500 hover:text-blue-700 flex"
-          >
             uncoactiva@gmail.com
           </a>
-        </p>
+        </div>
         
-        <p className="mt-4 text-lg font-semibold">
-          También puedes seguirnos en nuestras redes sociales:
-        </p>
-        <div className="flex flex-col items-center">
-          <div className="mt-4">
+        <div className="flex flex-col items-center gap-4">
+          <p className="mt-4 text-lg font-semibold">
+            También podés seguirnos en nuestras redes sociales:
+          </p>
+          <div className="">
             <a
               href="https://www.instagram.com/sbucomahue?igsh=bDc2M2tjNWdzOW5p"
-              className="text-blue-500 hover:text-blue-700 mr-4 flex gap-2 items-center"
+              className="text-blue-500 hover:text-blue-700 flex gap-2 items-center"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -191,10 +188,25 @@ const ContacUs = () => {
                 className="h-7"
                 alt="Logo Instagram"
               />
-              <p>Secretaría de Bienestar Universitario</p>              
+              <p>Secretaría de Bienestar Universitario</p>
             </a>
           </div>
-          <div className="mt-2">
+          <div className="">
+            <a
+              href="https://www.facebook.com/bienestaruncoma/"
+              className="text-blue-500 hover:text-blue-700 flex gap-2 items-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/logos/icons/2026Facebook.png"
+                className="h-7"
+                alt="Logo Facebook"
+              />
+              <p>Secretaría de Bienestar Universitario</p>
+            </a>
+          </div>
+          {/* <div className="mt-2">
             <a
               href="https://www.instagram.com/unco_activa?igsh=NGozbG44MnV0cTJ4"
               className="text-blue-500 hover:text-blue-700 flex gap-2 items-center"
@@ -206,9 +218,9 @@ const ContacUs = () => {
                 className="h-7"
                 alt="Logo Instagram"
               />
-              <p>UNCo Activa</p>              
+              <p>UNCo Activa</p>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
 

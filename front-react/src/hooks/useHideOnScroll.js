@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 
-export default function useHideOnScroll() {
+export default function useHideOnScroll(isNavigating = false) {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
     let lastScroll = window.scrollY;
 
     const handleScroll = () => {
+      if (isNavigating) return; // Ignora scroll automático
+
       const currentScroll = window.scrollY;
 
       // ignorar movimientos pequeños
@@ -26,7 +28,7 @@ export default function useHideOnScroll() {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isNavigating]);
 
   return show;
 }
