@@ -191,7 +191,7 @@ const Home = () => {
             </div>
 
             <div className="flex flex-col lg:flex-row items-center w-full">
-              <div className='w-2/3 xl:w-1/3 rounded-lg p-2'>
+              <div className='w-full md:w-2/3 rounded-lg p-2'>
                 <img className='rounded-lg' alt='feed story' src={'elements/edicion2026/Lanzamiento.png'} />
               </div>
 

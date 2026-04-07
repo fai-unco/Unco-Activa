@@ -84,10 +84,10 @@ const Contributors = () => {
           <div className='flex justify-center'> 
 
             <div className="pb-3 md:p-12 w-full lg:w-3/4 justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-              {shuffled.map((dev, index) => (
+              {shuffled.map((dev) => (
             
                 dev.socials ?  
-                  <div key={index} className="flex flex-col justify-center items-center">
+                  <div key={dev.name} className="flex flex-col justify-center items-center">
 
                     <div className='flex h-40 w-40 rounded-full overflow-hidden'>
                       {dev.image? 

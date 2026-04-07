@@ -8,7 +8,7 @@ import { routes } from "routes/routes";
 const BoxCategories = () => {
   let [categories] = useContext(CategorieContext);  
   return (
-    <div className=' '>
+    <div className=''>
       <Box
         className ='xs:h-48'
         sx={{          
