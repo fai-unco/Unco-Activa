@@ -249,8 +249,7 @@ const PreinscriptionForm = (props) => {
     })    
     // console.log(files)
     // console.log(formularioValido)
-    if (formularioValido
-    ) {
+    if (formularioValido) {
       if (phone.campo === emergency_contac_phone.campo) {
         seterrorMessage('Ingrese un número de contacto de emergencia que sea diferente al suyo porfavor')
         setopenfail(true)
@@ -321,11 +320,10 @@ const PreinscriptionForm = (props) => {
     setopenrules(true);
   };
 
-  var datebirth = new Date();
-  datebirth.setFullYear(datebirth.getFullYear() - 18);
+  var datebirthlimit = new Date();
+  // datebirthlimit.setFullYear(datebirthlimit.getFullYear() - 18);
 
   const validaciondate = () => {
-
     if (birth.campo === null) {
       setbirth({ ...birth, valido: 'false' });
       // console.log('invalido', birth)
@@ -334,6 +332,7 @@ const PreinscriptionForm = (props) => {
       // console.log('valido', birth)
     }
   }
+
   const validargenero = () => {
 
     if (gender.campo === '') {
@@ -514,17 +513,22 @@ const PreinscriptionForm = (props) => {
           />
 
           <div className='relative col-span-2  md:col-span-1 z-10 mb-7'>
-            <DatePicker className={birth.valido === 'false' ? 'block py-2.5 scroll-black px-0 w-full text-sm text-gray-darker bg-transparent border-0 border-b-2 border-red-500 dark:text-gray-darker dark:border-red-500 dark:focus:border-red-500 focus:outline-none focus:ring-0 focus:border-blue-600 ' : 'block py-2.5 scroll-black px-0 w-full text-sm text-gray-darker bg-transparent border-0 border-b-2 border-gray-dark dark:text-gray-darker dark:border-gray-dark dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 '}
+            <DatePicker className={`block py-2.5 scroll-black px-0 w-full text-sm text-gray-darker bg-transparent border-0 border-b-2 dark:text-gray-darker focus:outline-none focus:ring-0 focus:border-blue-600 ${birth.valido === 'false' ? 'border-red-500 dark:border-red-500 dark:focus:border-red-500' : 'border-gray-dark  dark:border-gray-dark dark:focus:border-blue-500'}`}
               selected={birth.campo}
               id='birth'
               onChange={(date) => {
-                setbirth({ ...birth, campo: date, valido: date ? 'true' : 'false' })
+                setbirth({campo: date, valido: date ? 'true' : 'false' })
               }}
-              dateFormat={'yyyy-MM-dd'}
+              dateFormat={'dd-MM-yyyy'}
               onKeyUp={validaciondate}
               onBlur={validaciondate}
+              onKeyDown={(e)=> {
+                if (e.key === '/') {
+                  e.preventDefault();
+                }
+              }}
               placeholderText='Fecha de nacimiento'
-              maxDate={props.category.name !== '3k' ? datebirth : new Date()}
+              maxDate={props.category.name !== '3k' ? datebirthlimit : new Date()}
               showYearDropdown
               showMonthDropdown
               scrollableYearDropdown
@@ -536,7 +540,8 @@ const PreinscriptionForm = (props) => {
               autoComplete='off'
             />
             <p className={birth.valido === 'false' ? 'text-red-500 block' : 'invisible'}>
-              Ingrese una fecha válida, debe ser mayor de 18 años para poder inscribirse
+              Ingrese una fecha válida
+              {/* , debe ser mayor de 18 años para poder inscribirse */}
             </p>
           </div>
 
@@ -549,7 +554,7 @@ const PreinscriptionForm = (props) => {
             value={dni}
             onChange={setdni}
             error='Ingrese un DNI válido, de 7 u 8 dígitos'
-                     />)}
+          />)}
 
           <div className='col-span-2 mb-2 mt-1 md:col-span-1 text-gray-darker dark:text-gray-darker'>
             <Select
