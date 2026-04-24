@@ -100,8 +100,7 @@ const PreinscriptionForm = (props) => {
   
   const now = Date.now();
   
-  // const isdateOfRace = now > new Date('April 25, 2026 15:00:00'); //Consideraba dia de la carrera
-  const isInscriptionLimit = now > new Date('April 24, 2026 21:00:00'); //Fecha/Hora límite de inscripcion (antes del dia de la carrera)
+  const isInscriptionLimit = now > new Date('April 24, 2026 10:30:00'); //Fecha/Hora límite de inscripcion (antes del dia de la carrera)
 
   const [openEnd, setopenEnd] = useState(isInscriptionLimit);
 
@@ -431,20 +430,40 @@ const PreinscriptionForm = (props) => {
         <AlertSuccess open={openEnd} onClose={setopenEnd}
           bg=' rgb(240 240 240)'
           titlecolor='warning.main'
-          title='Atención!'
-          description={'Las inscripciones están cerradas. Por favor, no realizar transferencias, ya que no nos responsabilizamos por inscribirse fuera de término.'}
+          title={
+            <span className="font-Header-B">
+              ¡Atención!
+            </span>
+          }
+          description={
+            <div className="flex flex-col gap-6">
+              <p>
+                <span className="text-[1.6rem] font-Text-R font-bold flex">
+                Las inscripciones están cerradas. Por favor, no realizar transferencias. No nos responsabilizamos por inscripciones fuera de término.
+                </span>
+              </p>
+            </div>
+          }
         />
         <AlertSuccess open={opensucces} onClose={setopensucces}
           bg=' rgb(240 240 240)'
           titlecolor='success.main'
-          title='Registro Exitoso!'
+          title={
+            <span className="font-Header-B">
+              ¡Registro Exitoso!
+            </span>
+          }
           navigate='/'
           description='Ha completado el registro con éxito. Por favor, verifique su bandeja de entrada y la carpeta de SPAM.'
         />
         <AlertSuccess open={openfail} onClose={setopenfail}
           bg=' rgb(240 240 240)'
           titlecolor='warning.main'
-          title='Advertencia!'
+          title={
+            <span className="font-Header-B">
+              ¡Advertencia!
+            </span>
+          }
           navigate={alertnavigate}
           description={errorMessage}
         />
