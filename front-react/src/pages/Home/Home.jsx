@@ -38,7 +38,10 @@ const Home = () => {
         onClose={setopenEnd}
         bg=" rgb(240 240 240)"
         titlecolor="warning.main"
-        title={<span className="font-Header-B">¡Información Importante!</span>}
+        title={
+          <span className="font-Header-B">
+            ¡Información Importante!
+          </span>}
         description={
           <div className="flex flex-col gap-6">
             {/* 
@@ -55,42 +58,55 @@ const Home = () => {
             */}
 
             <p>
-              <span className="text-[1.7rem] font-Text-R font-bold flex">
-                Entrega de Kits de corredor: Viernes 24 de abril de 15 a 19
-                horas en el Hall Central de la Universidad Nacional del Comahue
-                (Buenos Aires 1400)
+              <span className="text-[1.6rem] font-Text-R font-bold flex text-blue-cyan">
+                Entrega de Kits de corredor:
+              </span>
+              <span className="text-[1.5rem] font-Text-R ">
+                <b>Viernes 24 de abril de 15 a 19 horas</b> en el <b>Hall Central de la Universidad Nacional del Comahue
+                (Buenos Aires 1400)</b>
               </span>
             </p>
 
             <p>
-              <span className="text-blue-500 font-Text-R flex font-bold">
-                (Podrás encontrar este aviso en la sección "Información")
+              <span className="text-[1.6rem] font-Text-R font-bold flex text-blue-cyan">
+                Cierre de inscripciones:
+              </span>
+              <span className="text-[1.5rem] font-Text-R">
+                <b>Viernes 24 de abril a las 10:30 horas</b>
               </span>
             </p>
             
+            {/* <span className="text-[1.1rem] text-blue-high font-normal py-4 font-Header-B">
+              Deben realizar la acreditación y registro el día:
+            </span>
+            <ul className="text-center pt-3">
+                <li>
+                    <Event color="primary" /> Viernes 25 de Abril
+                </li>
+                <li>
+                    <AccessAlarm color="primary" /> De 12:00 a 16:00 hs
+                </li>
+                <li>
+                    <LocationOn color="primary" /> Gimnasio Polideportivo Roberto Monteros (Escondido)
+                </li>
+            </ul>
+            <span className="text-[1rem] text-blue-cyan pt-6 font-Header-B flex">
+                <img src="../elements/botella.svg" alt="Botella" className="mr-2 w-24" />
+                Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.
+            </span> */}           
+
+            <p>
+              <span className="text-blue-500 font-Text-R flex font-bold">
+                (Podrás encontrar estos avisos en la sección "Información")
+              </span>
+            </p>
+
             {/* <p>
-              <span className="text-blue-500 font-Header-B flex">
-                uncoactiva@gmail.com
-              </span>
-            </p> */}
-            {/* 
-              <span className="text-[1.1rem] text-blue-high font-normal py-4 font-Header-B">Deben realizar la acreditación y registro el día:</span>
-              <ul className="text-center pt-3">
-                  <li>
-                      <Event color="primary" /> Viernes 25 de Abril
-                  </li>
-                  <li>
-                      <AccessAlarm color="primary" /> De 12:00 a 16:00 hs
-                  </li>
-                  <li>
-                      <LocationOn color="primary" /> Gimnasio Polideportivo Roberto Monteros (Escondido)
-                  </li>
-              </ul>
-              <span className="text-[1rem] text-blue-cyan pt-6 font-Header-B flex">
-                  <img src="../elements/botella.svg" alt="Botella" className="mr-2 w-24" />
-                  Además, queremos fomentar el cuidado del medio ambiente, por lo que te animamos a que traigas tu propia botella de agua. Con tu ayuda, reduciremos al mínimo el uso de envases desechables.
-              </span>
-            */}
+                <span className="text-blue-500 font-Header-B flex">
+                  uncoactiva@gmail.com
+                </span>
+              </p> */
+            }
           </div>
         }
       />
@@ -199,16 +215,40 @@ const Home = () => {
 
           <div className="flex flex-col gap-5">
             {/* Anuncio fecha y lugar de entrega de kit */}
-            <div className="">
-              <h1 className="text-[1.5rem] font-Header-B text-yellow">!Importante!</h1>
-              <h1 className="text-[1.7rem] font-Text-R font-black">Entrega de Kits de corredor: Viernes 24 de abril de 15 a 19 horas en el Hall Central de la Universidad Nacional del Comahue (Buenos Aires 1400).</h1>
-            </div>
+            <div className="flex flex-col gap-4 my-2">
+              <h1 className="text-[1.5rem] font-Header-B text-yellow">
+                !Importante!
+              </h1>
+              <div>
+                <h1 className="text-[1.5rem] font-Text-R font-black text-blue-cyan">
+                  Entrega de Kits de corredor:
+                </h1>
+                <p className="text-[1.4rem] font-Text-R">
+                 Viernes 24 de abril de 15 a 19 horas en el Hall Central de la Universidad Nacional del Comahue (Buenos Aires 1400).
+                </p>
+              </div>
 
-            {/* Fecha de la carrera */}
-            <div className="text-[1.8rem] text-center font-Header-B text-blue-cyan">
-              <h1 className="">SABADO 25 DE ABRIL / 15:00 HS</h1>
-              <h1>Universidad Nacional del Comahue - Neuquén Capital</h1>
-            </div>
+              <div>
+                <h1 className="text-[1.5rem] font-Text-R font-black text-blue-cyan">
+                  Cierre de inscripciones:
+                </h1>
+                <p className="text-[1.4rem] font-Text-R">
+                  Viernes 24 de abril / 10:30 hs
+                </p>
+              </div>
+
+              {/* Fecha de la carrera */}
+              <div>
+                <h1 className="text-[1.5rem] font-Text-R font-black text-blue-cyan">
+                  Fecha y lugar de la carrera:
+                </h1>
+                <p className="text-[1.4rem] font-Text-R">
+                  Sabado 25 de abril / 15:00hs. Universidad Nacional del Comahue - Neuquén Capital
+                </p>
+              </div>
+            </div>            
+
+            
           </div>
 
           <div className="flex flex-col lg:flex-row items-center w-full">
