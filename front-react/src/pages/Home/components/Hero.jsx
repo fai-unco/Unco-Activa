@@ -3,17 +3,20 @@ import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import { useNavigate } from "react-router-dom";
 
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import BoxCategories from 'components/inscriptionform/boxCategories';
 
 const Hero = () => {
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
 
   const handleClose = () => {
     setOpen(false);
@@ -83,10 +86,16 @@ const Hero = () => {
           </a> */}
           <button
             variant="contained"
+            onClick={() => navigate("/resultados")}
+            className='border-2 border-lime-unco rounded-full px-5 py-1 bg-lime-unco hover:bg-opacity-0 hover:text-lime-unco ease-in-out duration-[1500ms]'>
+            RESULTADOS
+          </button>
+          {/* <button
+            variant="contained"
             onClick={handleClickOpen}
             className='border-2 border-lime-unco rounded-full px-5 py-1 bg-lime-unco hover:bg-opacity-0 hover:text-lime-unco ease-in-out duration-[1500ms]'>
             PRE-INSCRIBITE
-          </button>
+          </button> */}
           <ModalCategories />
         </div>
         <div className='flex justify-center px-2'>          

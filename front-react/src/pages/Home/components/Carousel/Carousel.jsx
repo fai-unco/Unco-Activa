@@ -158,7 +158,9 @@ function Carousel({imagenes}){
                     )}
                         <img
                           draggable={false}
-                          onClick={() => setSelectedImg(img)}
+                          onClick={
+                            () => setSelectedImg(img)
+                          }
                           src={img}
                           className="select-none max-h-full max-w-full object-contain"
                           alt={`Imagen-${img}`}
@@ -214,7 +216,10 @@ function Carousel({imagenes}){
           <img
             src={selectedImg}
             className="max-h-[90%] max-w-[90%] object-contain"
-            onClick={(e) => e.stopPropagation()} // evita cerrar al clickear la imagen
+            alt={`modal-carrousel`}
+            onClick={
+              (e) => e.stopPropagation() // evita cerrar al clickear la imagen
+            } 
           />
         </div>
       )}
