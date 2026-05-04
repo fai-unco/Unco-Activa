@@ -11,6 +11,10 @@ const mockImagenes = [
   //   thumb: "elements/edicion2026/thumb/Lanzamiento2.webp"
   // },
   {
+    full: "elements/edicion2026/full/edicion2026_1.webp",
+    thumb: "elements/edicion2026/thumb/edicion2026_1_thumb.webp"
+  },
+  {
     full: "elements/edicion2026/full/edicion-anterior1.webp",
     thumb: "elements/edicion2026/thumb/edicion-anterior1_thumb.webp"
   },
