@@ -7,15 +7,18 @@ import reportWebVitals from './reportWebVitals';
 import ScrollToTop from 'components/Layouts/ScrollToTop';
 import CategorieContext from 'context/CategorieContext';
 import AppLayout from 'components/Layouts/AppLayout';
+import { NavigationProvider } from 'context/NavigationContext';
 
 ReactDOM.render(
   <React.StrictMode> 
     <CategorieContext>
       <BrowserRouter>
-        <AppLayout> 
-          <ScrollToTop />      
-          <App />
-        </AppLayout>
+        <NavigationProvider>
+          <AppLayout> 
+            <ScrollToTop />
+              <App />
+          </AppLayout>
+        </NavigationProvider>
       </BrowserRouter>
     </CategorieContext>   
   </React.StrictMode>,

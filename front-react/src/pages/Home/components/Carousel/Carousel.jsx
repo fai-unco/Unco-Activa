@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-import ImageBackground from './ImageBackground';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import Lightbox from 'components/Lightbox/Lightbox';
+import CarouselItem from './CarouselItem';
 
-function Carousel({imagenes}){
+export default function Carousel({imagenes}) {
   // Variables y estados
   const cantidad = imagenes?.length;
 
@@ -18,35 +19,45 @@ function Carousel({imagenes}){
   const [transition, setTransition] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
   const [selectedImg, setSelectedImg] = useState(null);
+  const current = useMemo(() => {
+    return ((index - visible + cantidad) % cantidad);
+  }, [index, visible, cantidad]);
 
   const startX = useRef(0);
   const isDragging = useRef(false);
   
   // Actualizar visible en resize
   useEffect(() => {
-    const handleResize = () => setVisible(getVisible());
+    let timeout;
+
+    const handleResize = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setVisible(getVisible());
+      }, 150);
+    };
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Construir clones
-  const extended = [
-    ...imagenes.slice(-visible),
-    ...imagenes,
-    ...imagenes.slice(0, visible),
-  ];
+  const extended = useMemo(() => {
+    return [
+      ...imagenes.slice(-visible),
+      ...imagenes,
+      ...imagenes.slice(0, visible),
+    ];
+  }, [imagenes, visible]);
 
   // Autoplay
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isAnimating) {
-        setIsAnimating(true);
-        setIndex(prev => prev + 1);
-      }
+  const interval = setInterval(() => {
+      setIndex(prev => prev + 1);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAnimating]);
+  }, []);  
 
   // Reset index si cambia visible
   useEffect(() => {
@@ -54,17 +65,17 @@ function Carousel({imagenes}){
   }, [visible]);
 
   // Navegación
-  const siguienteImagen = () => {
+  const siguienteImagen = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setIndex(prev => prev + 1);
-  };
+  }, [isAnimating]);
 
-  const anteriorImagen = () => {
+  const anteriorImagen = useCallback(() => {
     if (isAnimating) return;
     setIsAnimating(true);
     setIndex(prev => prev - 1);
-  };
+  }, [isAnimating]);
 
   // Drag
     const handleStart = (e) => {
@@ -107,14 +118,16 @@ function Carousel({imagenes}){
     setIsAnimating(false);
   };
 
+  const handleSelect = useCallback((idx) => {
+    setSelectedImg(idx);
+  }, []);
+
   // Reactivar transición
   useEffect(() => {
     if (!transition) {
       requestAnimationFrame(() => setTransition(true));
     }
   }, [transition]);
-
-  const current = ((index - visible + cantidad) % cantidad);
 
   // Retorno prematuro para evitar errores.
   if(!Array.isArray(imagenes) || cantidad === 0) 
@@ -135,7 +148,7 @@ function Carousel({imagenes}){
             onTouchMove={handleMove}
             onTouchEnd={handleEnd}
             draggable={false}
-            className={`flex h-full cursor-grab active:cursor-grabbing ${transition ? 'transition-transform duration-500' : ''}`}
+            className={`flex w-full cursor-grab active:cursor-grabbing ${transition ? 'transition-transform duration-500' : ''}`}
             style={{
               transform: `translateX(-${(index - Math.floor(visible / 2)) * (100 / visible)}%)`
             }}            
@@ -145,26 +158,12 @@ function Carousel({imagenes}){
               const isCenter = realIndex === current;
               
               return(
-                <div
+                <CarouselItem
                   key={i}
-                  className={`flex justify-center items-center rounded-xl overflow-hidden flex-shrink-0 w-full sm:w-1/3 ${isCenter ? 'scale-100 opacity-100 z-10' : 'scale-90 opacity-50'}`}
-                >
-                  <ImageBackground>
-                    {/* overlay */}
-                    {!isCenter && (
-                      <div className="absolute inset-0 bg-black/30 z-10">
-                        
-                      </div>
-                    )}
-                        <img
-                          draggable={false}
-                          onClick={() => setSelectedImg(img)}
-                          src={img}
-                          className="select-none max-h-full max-w-full object-contain"
-                          alt={`Imagen-${img}`}
-                        />
-                    </ImageBackground> 
-                </div>
+                  img={img}
+                  isCenter={isCenter}
+                  onClick={() => handleSelect(current)}
+                />
               );
             })}
           </div>
@@ -185,14 +184,14 @@ function Carousel({imagenes}){
         {/* Botones */}
         <button
           disabled={isAnimating}
-          className={`absolute -left-10 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full z-20 bg-gray-darker hover:bg-blue-cyan bg-opacity-70 ${isAnimating ? 'opacity-50' : ''}`}
+          className={`absolute -left-10 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full z-20 bg-blue-dark-pastel text-white hover:bg-blue-cyan bg-opacity-70 ${isAnimating ? 'opacity-50' : ''}`}
           onClick={anteriorImagen}
         >
           {'<'}
         </button>
         <button
           disabled={isAnimating}
-          className={`absolute -right-10 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full z-20 bg-gray-darker hover:bg-blue-cyan bg-opacity-70 ${isAnimating ? 'opacity-50' : ''}`}
+          className={`absolute -right-10 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full z-20 bg-blue-dark-pastel text-white hover:bg-blue-cyan bg-opacity-70 ${isAnimating ? 'opacity-50' : ''}`}
           onClick={siguienteImagen}
         >
           {'>'}
@@ -200,26 +199,12 @@ function Carousel({imagenes}){
 
       </div>
       
-      {/* Modal para mostrar imagen al clickear */}
-      {selectedImg && (
-        <div
-          className="
-            fixed inset-0 
-            bg-black/80 
-            flex items-center justify-center 
-            z-50
-          "
-          onClick={() => setSelectedImg(null)}
-        >
-          <img
-            src={selectedImg}
-            className="max-h-[90%] max-w-[90%] object-contain"
-            onClick={(e) => e.stopPropagation()} // evita cerrar al clickear la imagen
-          />
+      {/* Lightbox */}
+      {selectedImg !== null && (
+        <div className="relative">
+          <Lightbox photos={imagenes} selected={selectedImg} setSelected={setSelectedImg} />
         </div>
-      )}
+      )}      
     </div>
   )
 }
-
-export default Carousel

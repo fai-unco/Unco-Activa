@@ -1,8 +1,8 @@
 export const routes = {
     home: "/",
-    sobrenosotros: "/sobrenosotros",
 
     reglamento: "/reglamento",
+    galeria: "galeria",
     preinscribirse: "/preinscribirse",
     formularioPreinscripcion: "/formulario-preinscripcion",
     participantes: "/participantes",

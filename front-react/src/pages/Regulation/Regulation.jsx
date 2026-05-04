@@ -1,16 +1,13 @@
 import React from 'react'
+import Title from 'components/Title/Title';
+
 const regulation = () => {
   return (
     <div className="font-Text-R">
       <div className="px-3 sm:px-10 md:px-20 lg:px-32 py-7 ">
         <div className=' bg-gray-light rounded-lg text-black'>
-          <div className='py-10'>
-            <div className='grid justify-center px-5 sm:px-5 lg:px-16 py-5'>
-              <h1 className='text-black-unco text-3xl sm:text-4xl font-bold font-Header-B'>
-                Reglamento
-              </h1>
-              <h1 className='bg-lime-unco py-1 w-1/3 mt-5'> </h1>
-            </div>
+          <div className='py-10'>            
+            <Title text="Reglamento"/>
             <div className="px-3 sm:px-5 lg:px-12">
               <div className="sm:px-5">
                 <h3 className="text-[1.2rem] text-blue-cyan font-bold pt-5 font-Header-B">

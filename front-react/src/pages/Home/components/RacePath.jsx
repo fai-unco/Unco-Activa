@@ -1,30 +1,24 @@
 import React from 'react';
+import Title from 'components/Title/Title';
 
-const RacePath = props => {
-  const [imagenActual, setImagenActual] = React.useState(0);
-  const [mostrarMapa, setMostrarMapa] = React.useState(false); // 👈 Control para mostrar/ocultar
+export default function RacePath () {
+  // const [imagenActual, setImagenActual] = React.useState(0);
+  // const [mostrarMapa, setMostrarMapa] = React.useState(false); // Control para mostrar/ocultar
 
-  const mockImagenes = ['elements/recorrido2023.png'];
-  const cantidad = mockImagenes?.length;
+  // const mockImagenes = ['elements/recorrido2023.png'];
+  // const cantidad = mockImagenes?.length;
 
-  const siguienteImagen = () => {
-    setImagenActual(imagenActual === cantidad - 1 ? 0 : imagenActual + 1);
-  };
+  // const siguienteImagen = () => {
+  //   setImagenActual(imagenActual === cantidad - 1 ? 0 : imagenActual + 1);
+  // };
 
-  const anteriorImagen = () => {
-    setImagenActual(imagenActual === 0 ? cantidad - 1 : imagenActual - 1);
-  };
+  // const anteriorImagen = () => {
+  //   setImagenActual(imagenActual === 0 ? cantidad - 1 : imagenActual - 1);
+  // };
 
   return (    
-      <div className='w-full text-black-unco grid items-center justify-center p-10 gap-3'>
-        <div className='flex flex-col items-center justify-center'>
-          <div className='grid justify-center'>
-            <h1 className='text-3xl sm:text-4xl font-bold font-Header-B'>
-              El Recorrido
-            </h1>
-            <h1 className='bg-lime-unco py-1 w-1/3 mt-5'></h1>
-          </div>
-        </div>
+      <div id="racePath" className='w-full text-black-unco grid items-center justify-center p-10 gap-3 bg-gray-light rounded-lg'>
+        <Title text="Recorrido"/>
         <div className="px-5">
           <p>
             La carrera <strong>UNCo Activa</strong>  es una invitación a recorrer un espacio de alto valor ecológico y educativo. El circuito se desarrolla íntegramente dentro del <strong>Área Protegida Parque Universitario Provincia del Monte</strong>, un sector de nuestra barda resguardado para la conservación y el estudio.
@@ -57,7 +51,7 @@ const RacePath = props => {
         </div>
 
         {/* Mostrar mapa solo si mostrarMapa es true */}
-        {mostrarMapa && (
+        {/* {mostrarMapa && (
           <div className='flex justify-center py-5 align-center items-center text-gray'>
             <div className='relative flex flex-row justify-between w-full sm:w-5/6 h-72 sm:h-96 md:h-96 lg:w-5/6 lg:h-[550px] xl:h-[750px] max-w-[1300px] items-center overflow-hidden'>
               <button
@@ -84,9 +78,7 @@ const RacePath = props => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
       </div>
   );
 };
-
-export default RacePath;

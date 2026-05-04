@@ -29,6 +29,8 @@ module.exports = {
         'blue-high': '#006E91',
         'blue-dark': '#00375A',
         'blue-cyan': '#00AAE1',
+        'blue-dark-pastel': '#2f6fbb',
+        'blue-light-pastel': '#5b8def',
         // 'blue-h': '#023859',
         'board': '#782332',
         'gray-light': '#E6E6E6',

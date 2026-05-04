@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "../../lib/axios";
 import ReactSelect from "react-select";
 import { CategorieContext } from "../../context/CategorieContext";
+import Title from 'components/Title/Title';
 
 const Inscriptions = () => {
     const options = [{ value: null, label: "Reestablecer" }];
@@ -98,12 +99,7 @@ const Inscriptions = () => {
             <div className="px-3 sm:px-10 md:px-20 lg:px-32 py-7 ">
                 <div className=" bg-gray-light rounded-lg text-black">
                     <div className="py-10">
-                        <div className="grid justify-center px-5 sm:px-5 lg:px-16 py-5">
-                            <p className="text-black-unco text-3xl sm:text-4xl font-bold font-Header-B">
-                                Participantes
-                            </p>
-                            <h1 className="bg-lime-unco py-1 w-1/3 mt-5"> </h1>
-                        </div>
+                        <Title text="Participantes"/>
                         <div className="flex justify-center">
                             <p className="justify-center text-lg  font-Header-B">Lista de participantes actualmente aceptados</p>
                         </div>
