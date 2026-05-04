@@ -4,6 +4,7 @@ import DialogContent from '@mui/material/DialogContent';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
+import { useNavigation } from "context/NavigationContext";
 
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
@@ -13,6 +14,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
+  const { scrollToSection } = useNavigation();
 
   // const handleClickOpen = () => {
   //   setOpen(true);
@@ -100,11 +102,7 @@ const Hero = () => {
         </div>
         <div className='flex justify-center px-2'>          
           <div
-            onClick={(e) => {
-              e.preventDefault();              
-              let racepath = document.getElementById('conoceMas');
-              racepath.scrollIntoView({ behavior: 'smooth' });
-            }}           
+            onClick={() => scrollToSection("conoceMas")}
             className='cursor-pointer border-2 scroll-smooth  border-lime-unco rounded-full px-5 py-1 text-lime-unco  hover:bg-lime-unco hover:text-black bg-opacity-0 ease-in-out duration-[1500ms]'>
             CONOCE MÁS
           </div>

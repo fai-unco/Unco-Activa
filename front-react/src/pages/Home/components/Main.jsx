@@ -6,16 +6,46 @@ import PhotoLibraryOutlinedIcon from "@mui/icons-material/PhotoLibraryOutlined";
 import { useNavigate } from "react-router-dom";
 
 const mockImagenes = [
-  "elements/edicion2026/Lanzamiento2.png",
-  "elements/edicion2026/edicion-anterior1.jpeg",
-  "elements/edicion2026/edicion-anterior2.jpeg",
-  "elements/edicion2026/edicion-anterior3.jpeg",
-  "elements/edicion2026/edicion-anterior4.jpeg",
-  "elements/edicion2026/edicion-anterior5.jpeg",
-  "elements/edicion2026/edicion-anterior6.jpeg",
-  "elements/edicion2026/edicion-anterior7.jpeg",
-  "elements/edicion2026/edicion-anterior8.jpeg",
-  "elements/edicion2026/edicion-anterior9.jpeg",
+  // {
+  //   full: "elements/edicion2026/full/Lanzamiento2.webp"
+  //   thumb: "elements/edicion2026/thumb/Lanzamiento2.webp"
+  // },
+  {
+    full: "elements/edicion2026/full/edicion-anterior1.webp",
+    thumb: "elements/edicion2026/thumb/edicion-anterior1_thumb.webp"
+  },
+  {
+    full: "elements/edicion2026/full/edicion-anterior2.webp",
+    thumb: "elements/edicion2026/thumb/edicion-anterior2_thumb.webp"
+  },
+  {
+    full: "elements/edicion2026/full/edicion-anterior3.webp",
+    thumb: "elements/edicion2026/thumb/edicion-anterior3_thumb.webp"
+  },
+  {
+    full: "elements/edicion2026/full/edicion-anterior4.webp",
+    thumb: "elements/edicion2026/thumb/edicion-anterior4_thumb.webp"
+  },
+  {
+    full: "elements/edicion2026/full/edicion-anterior5.webp",
+    thumb: "elements/edicion2026/thumb/edicion-anterior5_thumb.webp"
+  },
+  {
+    full: "elements/edicion2026/full/edicion-anterior6.webp",
+    thumb: "elements/edicion2026/thumb/edicion-anterior6_thumb.webp"
+  },
+  {
+    full: "elements/edicion2026/full/edicion-anterior7.webp",
+    thumb: "elements/edicion2026/thumb/edicion-anterior7_thumb.webp"
+  },
+  {
+    full: "elements/edicion2026/full/edicion-anterior8.webp",
+    thumb: "elements/edicion2026/thumb/edicion-anterior8_thumb.webp"
+  },
+  {
+    full: "elements/edicion2026/full/edicion-anterior9.webp",
+    thumb: "elements/edicion2026/thumb/edicion-anterior9_thumb.webp"
+  },
 ];
 
 export default function Main() {
@@ -42,7 +72,7 @@ export default function Main() {
               }
               size="large"
             >
-              <PhotoLibraryOutlinedIcon className="mr-3"/> Galería
+              <PhotoLibraryOutlinedIcon className="mr-3"/> Ir a Galería
             </Fab>
           </div>
         </div>

@@ -10,7 +10,7 @@ import Preinscription from 'pages/Preinscription/Preinscription';
 // import Inscriptions from 'pages/Inscriptions/Inscriptions';
 import Contributors from 'pages/Contributors/Contributors';
 import Results from 'pages/Results/Results';
-import Gallery from 'pages/Gallery/Gallery';
+import GalleryPage from 'pages/GalleryPage/GalleryPage';
 
 import { CategorieContext } from 'context/CategorieContext';
 
@@ -28,7 +28,7 @@ function App() {
         <Route path={routes.home} element={<Home />} />
         
         <Route path={routes.reglamento} element={<Regulation />} />
-        <Route path={routes.galeria} element={<Gallery />} />
+        <Route path={routes.galeria} element={<GalleryPage />} />
         <Route path={routes.preinscribirse} element={<Preinscription />} />
         {/* <Route path={routes.participantes} element={<Inscriptions />} /> */}
         <Route path={routes.resultados} element={<Results />} />        

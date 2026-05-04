@@ -13,7 +13,7 @@ const Contributors = () => {
         linkedin: 'https://www.linkedin.com/in/cristian-garrado-517a23209/',
         envelope: 'cristiangarrado45@gmail.com'
       },
-      image: '/contribuidores/CG.png'
+      image: '/contribuidores/CG.webp'
     },
     {
       name: 'Santiago Avilez Ariza',
@@ -23,7 +23,7 @@ const Contributors = () => {
         linkedin: 'https://www.linkedin.com/in/santiago-avilez-ariza-431b5a203/',
         envelope: 'santiago.avilez@est.fi.uncoma.edu.ar'
       },
-      image: '/contribuidores/SA.png'
+      image: '/contribuidores/SA.webp'
     },
     {
       name: 'Rocío Graff', 
@@ -33,7 +33,7 @@ const Contributors = () => {
         linkedin: 'https://www.linkedin.com/in/rocio-graff/',
         envelope: 'rograff17@gmail.com'
       },     
-      image: '/contribuidores/RG.jpg'
+      image: '/contribuidores/RG.webp'
     },
     {
       name: 'Francisco Rodriguez', 
@@ -43,7 +43,7 @@ const Contributors = () => {
         linkedin: 'https://www.linkedin.com/in/frandir/',
         envelope: 'frlawer@gmail.com'
       },     
-      image: '/contribuidores/FR.jpg'
+      image: '/contribuidores/FR.webp'
     },    
     {
       name: 'Leonardo Aluhe Correa',
@@ -52,7 +52,7 @@ const Contributors = () => {
         github: 'https://github.com/LeonardoAluheCorrea',
         envelope: 'leonardo.correa@est.fi.uncoma.edu.ar'
       },
-      image: '/contribuidores/LAC.png'
+      image: '/contribuidores/LAC.webp'
     },
     {
       name: 'Franco Fabian Benitez',
@@ -61,7 +61,7 @@ const Contributors = () => {
         github: 'https://github.com/ffbenitez00',
         envelope: 'fabian.benitez@est.fi.uncoma.edu.ar'
       },
-      image: '/contribuidores/FFB.jpg'
+      image: '/contribuidores/FFB.webp'
     }
   ]
 

@@ -58,7 +58,7 @@ export default function Information() {
                 <p className="text-[1.4rem] font-Text-R">
                   Se encuentran disponibles los resultados de la 8º Edición de la carrera, año 2026.
                 </p>
-                <div className="flex gap-4 align-center items-center">
+                <div className="flex gap-4 align-center items-center flex-wrap">
                   <p className="text-[1.4rem] font-Text-R">
                     Podés verlos en la sección
                   </p>
@@ -88,8 +88,8 @@ export default function Information() {
           <div className="w-full md:w-2/3 rounded-lg p-2">
             <img
               className="rounded-lg"
-              alt="feed story"
-              src={"elements/edicion2026/Lanzamiento.png"}
+              alt="Feed story"
+              src={"elements/edicion2026/full/Lanzamiento.webp"}
             />
           </div>
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TablaResultados from "pages/Results/components/TablaResultados";
 import TabButton from "components/TabButton/TabButton";
 import Title from "components/Title/Title";
@@ -8,6 +8,7 @@ export default function Results() {
 	const [anio, setAnio] = useState(2026);
   const [categoria, setCategoria] = useState("15K");
   const [genero, setGenero] = useState("o");
+  const [search, setSearch] = useState("");
 
   /* Tabs / filtros */
   const anios = [2026, 2025];
@@ -26,6 +27,10 @@ export default function Results() {
       letter: "m",
     },
   ];
+
+  useEffect(() => {
+    setSearch("");
+  }, [anio]);
 
   return (
     <div className="flex flex-col h-full w-full items-center font-Text-R px-3 md:px-12 my-7">
@@ -84,11 +89,22 @@ export default function Results() {
               ))}
             </div>
           </div>
+
+          {/* Search */}
+          <div className="flex gap-4 items-center">
+            <p>Buscar:</p>
+            <input
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Nombre o dorsal..."
+              className="rounded-full px-3 py-1 bg-white text-black border border-gray-300"
+            />
+          </div>
         </div>
 				
         {/* Tabla */}
-        <div className="flex min-h-[50vh] h-full w-full justify-center overflow-scroll">
-          <TablaResultados year={anio} category={categoria} gender={genero} />
+        <div className="w-full flex justify-center overflow-x-auto">
+          <TablaResultados year={anio} category={categoria} gender={genero} search={search}/>
         </div>
       </div>
     </div>

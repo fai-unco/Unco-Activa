@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
-export default function TablaResultados({ year, category = "15K", gender = "o", }) {
+export default function TablaResultados({ year, category = "15K", gender = "o", search=""}) {
   const [datos, setDatos] = useState(null);
   useEffect(() => {
     fetch("/resultados/resultados.json")
@@ -21,14 +21,24 @@ export default function TablaResultados({ year, category = "15K", gender = "o", 
   };
 
   const data = datos?.[year]?.[category] ?? [];
-  const columnas = data.length > 0 ? Object.keys(data[0]) : [];
+  const columnas = data.length > 0 ? Object.keys(data[0]) : [];  
 
-  const targetGender = genderMap[gender];
-  const filteredData = targetGender
-    ? gender === "o"
-      ? data
-      : data.filter((row) => row.Género === targetGender)
-    : data;
+  const filteredData = useMemo(() => {
+    const normalizedSearch = search.toLowerCase().trim();
+
+    const searchedData = data.filter((row) => {
+      if (!normalizedSearch) return true;
+
+      const nombre = (row.Nombre ?? "").toLowerCase();
+      const dorsal = String(row.Dorsal ?? "").toLowerCase();
+
+      return nombre.includes(normalizedSearch) || dorsal.includes(normalizedSearch);
+    });
+
+    return gender === "o"
+      ? searchedData
+      : searchedData.filter((row) => row.Género === genderMap[gender]);
+  }, [data, search, gender]);
 
   return (
     <div className="flex h-full w-full">
@@ -75,7 +85,7 @@ export default function TablaResultados({ year, category = "15K", gender = "o", 
         </table>
       : 
         <div className="flex w-full h-full">
-          Sin resultados.
+          Sin resultados{search !== "" ? ` para la busqueda "${search}"`:""}.
         </div>
       }
       
